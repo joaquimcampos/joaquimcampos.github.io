@@ -67,6 +67,8 @@
 % Trademark symbol
 \usepackage{textcomp}
 
+\usepackage{geometry}
+
 % enumerations
 \usepackage{enumitem}
 
@@ -74,6 +76,8 @@
 \usepackage[nottoc,numbib]{tocbibind}
 
 \def\myname{Joaquim Campos}
+
+% \addtolength{\topmargin}{-30pt}
 
 
 \begin{document}
@@ -84,6 +88,8 @@
   %----------------------------------------------------------------------------------------
   %	NAME AND CONTACT INFORMATION
   %----------------------------------------------------------------------------------------
+
+  \newgeometry{top=40pt, bottom=40pt}
 
   \begin{center}
     \begin{tabular}{lcr}
@@ -202,7 +208,7 @@
   %	PUBLICATIONS
   %----------------------------------------------------------------------------------------
 
-  \vspace{15pt}
+  \newgeometry{top=50pt, bottom=50pt}
 
   \begin{bibunit}[IEEEtran_Pol]
     \renewcommand\refname{Publications}
