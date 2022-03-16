@@ -66,7 +66,7 @@ angular.module('acadApp')
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'thesis'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Theses', pubs: pub_search}) };
 
-			pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'essay'}, false);
+			pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'misc'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Essays', pubs: pub_search}) };
 
 	  	$scope.sorted_pubs = sorted_pubs
