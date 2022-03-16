@@ -1,43 +1,107 @@
+/********************/
+/*     Overall      */
+/********************/
+
 body {
-    margin: 60px auto;
-    width: 70%;
-}
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-}
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
-}
-a {
-    text-decoration: none;
-    color: #999;
-}
-a:hover {
-    text-decoration: underline;
-}
-h1 {
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-}
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
+/* Set various colors */
+.color-theme {
+  /*color: #428bca;*/
+  color: #ea3323;
 }
 
-ul.posts li {
-    list-style: none;
+/* Set link colors */
+a:link, a:visited, a:hover {
+    /*color: #428bca;*/
+    color: #ea3323;
+    cursor: auto;
+}
+
+/* Labels */
+a.label-theme {
+  color: white;
+  /*background-color: #428bca;*/
+  background-color: #ea3323;
+}
+
+.btn-theme {
+  color: white;
+  /*background-color: #428bca;*/
+  background-color: #ea3323;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 950px; /* or 800px */
+}
+
+/* Align menu text with icons */
+.navbar div .collapse > ul > li > a {
+  line-height:24px;
+}
+.navbar div .collapse > ul > li > a > i,
+.navbar div .navbar-header > a {
+  vertical-align:top;
+}
+
+/* Set up size 11 material icons */
+.material-icons.md-13 { font-size: 13px; }
+
+/********************/
+/*     Main page    */
+/********************/
+
+@media (min-width: 768px) {
+  #portrait {
+    margin-top:25px;
+  }
+}
+
+/********************/
+/* Publication page */
+/********************/
+
+#morearrow {
+  cursor: pointer;
+}
+
+/* Spacing in publications view*/
+#pubhidden {
+  margin-top: 5px;
+}
+
+#pubButtons {
+  margin-top: 5px;
+}
+
+.pic {
+  cursor: pointer;
+}
+
+/* Align and change size of icons */
+.list-group-item-text i {
+  vertical-align:top;
+  font-size: 18px;
+}
+
+.img-modal {
+  max-width: 90%;
+  max-height: 90%;
+  height: auto;
+  width: auto;
+}
+
+.pic-modal .modal-content {
+  text-align: center;
+  box-shadow: none;
+  border-radius: 0px;
+  background: transparent;
+  border-color: transparent;
+}
+
+.pic-modal-back {
+  opacity: 0.75 !important;
 }

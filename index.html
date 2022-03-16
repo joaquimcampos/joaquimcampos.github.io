@@ -1,30 +1,94 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Joaquim Campos, Researcher</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Joaquim Campos!</h1>
-				<p>I'm a researcher <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:joaquimcampos15@hotmail.com">email</a></li>
-        		<li><a href="https://github.com/joaquimcampos">github.com/joaquimcampos</a></li>
-			</ul>
-		</footer>
-	</body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Homepage of Joaquim Campos at EPFL">
+  <meta name="keywords" content="Joaquim Campos, Joaquim, IST, EPFL, Disney Research, signal processing, machine learning, biomedical imaging, inverse problems, deep learning, philosophy">
+  <meta name="author" content="Joaquim Campos">
+  <base href="/">
+
+  <link rel="shortcut icon" href="data/Joaquim_square.ico">
+
+  <title>Joaquim Campos</title>
+
+  <!-- Remote: angular and bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-resource.min.js"></script>
+  <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Remote: Google material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Local js -->
+    <!-- Bibtex parser -->
+    <script src="js/Parser.js"></script>
+    <!-- Others -->
+    <script src="js/main.js"></script>
+    <script src="js/pubs.js"></script>
+    <script src="js/teaching.js"></script>
+    <script src="js/bibmodal.js"></script>
+    <script src="js/picmodal.js"></script>
+    <script src="js/strava.js"></script>
+
+  <!-- Local css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body ng-app="acadApp" ng-controller="mainCtrl">
+
+  <nav class="navbar navbar-default navbar-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">
+              <i class="color-theme material-icons">account_balance</i>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" uib-collapse="navbarCollapsed" >
+        <ul class="nav navbar-nav">
+          <li ng-class="{'active': button == '/bio'}">
+            <a href="#/bio">
+              <i class="material-icons">face</i> Bio
+            </a>
+          </li>
+          <li ng-class="{'active': button == '/pubs'}">
+            <a href="#/pubs">
+              <i class="material-icons">insert_drive_file</i> Publications
+            </a>
+          </li>
+          <!-- <li ng-class="{'active': button == '/talks'}">
+            <a href="#/talks">
+              <i class="material-icons">record_voice_over</i> Talks
+            </a>
+          </li> -->
+          <!-- <li ng-class="{'active': button == '/teaching'}"> -->
+            <!-- <a href="#/teaching"> -->
+              <!-- <i class="material-icons">book</i> Teaching -->
+            <!-- </a> -->
+          <!-- </li> -->
+          <!--
+          <li ng-class="{'active': button == '/more'}">
+            <a href="#/more">
+              <i class="material-icons">add</i> More
+            </a>
+          </li>
+          -->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container-fluid" ng-view> </div>
+
+</body>
 </html>
