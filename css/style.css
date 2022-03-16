@@ -16,7 +16,7 @@ body {
 a:link, a:visited, a:hover {
     /*color: #428bca;*/
     color: #ea3323;
-    cursor: auto;
+    cursor: pointer;
 }
 
 /* Labels */
