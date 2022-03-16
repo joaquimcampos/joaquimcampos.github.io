@@ -42,15 +42,15 @@ angular.module('acadApp')
 
 	  	// Remove `and' between authors
 	  	for (index = 0; index < rawjson.entries.length; ++index) {
-	  		rawjson.entries[index].Fields.Author_noand = 
+	  		rawjson.entries[index].Fields.Author_noand =
 	  		replaceAllButLast(rawjson.entries[index].Fields.Author, " and");
 	  	}
 
 	  	sorted_pubs = [];
-                
-                pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'unpublished'}, false);
+
+      pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'unpublished'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Preprints', pubs: pub_search}) };
-                
+
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'article'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Journal papers', pubs: pub_search}) };
 
@@ -59,13 +59,16 @@ angular.module('acadApp')
 
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'book'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Books and chapters', pubs: pub_search}) };
-                
-                pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'patent'}, false);
+
+      pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'patent'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Patents', pubs: pub_search}) };
-             
+
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'thesis'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Theses', pubs: pub_search}) };
-             
+
+			pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'essay'}, false);
+	  	if (pub_search.length) { sorted_pubs.push({ name:'Essays', pubs: pub_search}) };
+
 	  	$scope.sorted_pubs = sorted_pubs
 
 	  }, function(response) {
