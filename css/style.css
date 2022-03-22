@@ -54,6 +54,11 @@ a.label-theme {
 /*     Main page    */
 /********************/
 
+#portrait {
+  width: 100%;
+  max-width: 230px;
+}
+
 @media (min-width: 768px) {
   #portrait {
     margin-top:25px;
