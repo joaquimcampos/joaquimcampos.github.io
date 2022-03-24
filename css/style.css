@@ -65,6 +65,18 @@ a.label-theme {
   }
 }
 
+/********** xxs devices only **********/
+@media (max-width: 400px) {
+  .col-xxs-12{
+    position:relative;
+    min-height:1px;
+    padding-right:15px;
+    padding-left:15px;
+    float: left;
+    width: 100%;
+  }
+}
+
 /********************/
 /* Publication page */
 /********************/
