@@ -2,8 +2,7 @@
 
 unzip fontin_pc.zip
 
-mkdir ~/.fonts/
-mkdir ~/.fonts/Fontin
+mkdir -p ~/.fonts/Fontin
 
 mv Fontin-* ~/.fonts/Fontin/
 sudo fc-cache -f -v

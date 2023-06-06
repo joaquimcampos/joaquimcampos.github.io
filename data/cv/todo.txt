@@ -1,5 +1,0 @@
-1. Think of weather to add:
-    Supervisors and examiner:
-    \textbf{Prof. Michael Unser,
-    Shayan Aziznejad and
-    Prof. François Fleuret}.

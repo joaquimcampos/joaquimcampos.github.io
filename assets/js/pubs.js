@@ -5,11 +5,11 @@ angular.module('acadApp')
 
 	$scope.getDate = function(pub) {
 		if (pub.Fields.Month) {
-	   		return new Date(Date.parse(pub.Fields.Month +" 1, " + pub.Fields.Year));
+			return new Date(Date.parse(pub.Fields.Month + " 1, " + pub.Fields.Year));
 		} else {
-	   		return new Date(Date.parse("Jan 1, " + pub.Fields.Year));
+			return new Date(Date.parse("Jan 1, " + pub.Fields.Year));
 		}
- 	};
+	};
 
 	// Remove ands
 	var replaceAllButLast = function(string, token) {
@@ -34,7 +34,7 @@ angular.module('acadApp')
 	};
 
   	// Read data from bibfile
-  	$http({method: 'GET', url: 'data/pubs/bibfile.bib'}).
+  	$http({method: 'GET', url: 'assets/pubs/bibfile.bib'}).
   	then(function(response) {
 	  	// Parse bibtex to JSON
 	  	rawbib = response.data;
