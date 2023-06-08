@@ -7,16 +7,18 @@ help: ## Show this help
 all: build
 
 DOCNAME=cv_Joaquim
+BIBFILE=../pubs/bibfile.bib
 
 # TODO: Workflows for compiling, install fixFONTproblem.sh
 # https://tex.stackexchange.com/questions/204291
 # https://tex.stackexchange.com/questions/223769
 # https://stackoverflow.com/questions/7815400
 # Pol delete commit: f16f136
-cv_Joaquim.pdf: $(DOCNAME).tex
+cv_Joaquim.pdf: $(DOCNAME).tex $(BIBFILE)
 	xelatex $(DOCNAME).tex
 	bibtex bu1
 	bibtex bu2
+	bibtex bu3
 	xelatex $(DOCNAME).tex
 	xelatex $(DOCNAME).tex
 
