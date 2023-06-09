@@ -7,8 +7,9 @@
   </div>
   <!--- Name and short description --->
   <div class="col-sm-9 col-xs-12">
-    <h2>Joaquim Campos <small>MSc. <!---, <small>CV in <a class="label label-theme" href="assets/cv/cv_Pol.pdf">PDF</a> or <a class="label label-theme" href="assets/cv/cv_Pol.html">HTML</a> </small> ---></small></h2>
-    <p style="text-align:left">
+    <h2>Joaquim Campos <small>MSc. <small><a class="label label-theme"
+href="assets/cv/cv.pdf">PDF CV</a></small> </small></h2>
+    <p style="text-align:justify">
         I am an engineer, programmer, and researcher by profession, and I dedicate my after-work hours to philosophy, meditation, music, and dance.
         I am currently Co-Founder and CTO
         at <a href="https://www.radiobooks.io/"><strong>radioooks</strong></a>,
@@ -52,16 +53,16 @@
 
 </div> <!-- end of row -->
 
-<!--- Short research statement --->
+<!--- Short statement --->
 <h3> Interests</h3>
 
-<p style="text-align:left">
+<p style="text-align:justify">
     My main scientific expertise is in the fields of signal processing and
     artificial intelligence. Specifially, I worked in image and video compression,
     and in the development of mathematical tools for supervised learning and
     inverse problems.
   </p>
-  <p style="text-align:left">
+  <p style="text-align:justify">
     Beyond engineering, I enjoy thinking about philosophical questions related
     to science, the mind, ethics and society.
     I appreciate engaging in a healthy discussion,
@@ -74,3 +75,16 @@
     My hobbies include playing the piano and guitar, and dancing.
     I have been fortunate enough to have traveled to more than 30 countries.
 </p>
+<br />
+<h4> Contacting me </h4>
+<form method="POST"
+action="https://api.telegram.org/bot6024894515:AAEvCe-tGFkPcduMqz_Bds7R3QedmSWW-zI/sendMessage"
+target="hiddenifrm" onsubmit="if(confirm('Send message below?\n' + document.getElementById('message').value)){alert('Message sent');return true;}else{return false;}">
+    <input type="hidden" name="chat_id" value="-1001684736592">
+    <p>You can reach me by e-mail at
+       <a href="mailto:joaquimcampos15@duck.com">joaquimcampos15@duck.com</a>,
+       or just message me here.<br> <br>
+    <input type="text" name="text" id="message" size=60 value="Hey Joaquim, I'm me, this is my message. Get back to me at email@domain. Cheers."><br>
+    <input type="submit" value="Send message">
+</form>
+<iframe id="hiddenifrm" name="hiddenifrm" style="display:none"></iframe>
