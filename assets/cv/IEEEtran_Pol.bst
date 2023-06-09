@@ -271,7 +271,7 @@ ENTRY
     dayfiled
     edition
     editor
-    Eprint
+    eprint
     howpublished
     institution
     intype
@@ -1935,15 +1935,15 @@ FUNCTION {format.url}
   if$
 }
 
-FUNCTION {format.Eprint}
+FUNCTION {format.eprint}
 { is.use.url
-    { Eprint empty$
+    { eprint empty$
       { "" }
       { this.to.prev.status
         this.status.std
         cap.yes 'status.cap :=
         name.url.prefix " " *
-        "\url{https://arxiv.org/abs/" * Eprint * "}" *
+        "\url{https://arxiv.org/abs/" * eprint * "}" *
         punct.no 'this.status.punct :=
         punct.period 'prev.status.punct :=
         space.normal 'this.status.space :=
@@ -2305,7 +2305,7 @@ FUNCTION {unpublished}
   format.date "year" output.warn
   format.note output
   format.url output
-  format.Eprint output
+  format.eprint output
   fin.entry
   if.url.std.interword.spacing
 }

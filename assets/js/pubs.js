@@ -4,10 +4,10 @@ angular.module('acadApp')
 	function($scope, $http, $filter, $uibModal) {
 
 	$scope.getDate = function(pub) {
-		if (pub.Fields.Month) {
-			return new Date(Date.parse(pub.Fields.Month + " 1, " + pub.Fields.Year));
+		if (pub.Fields.month) {
+			return new Date(Date.parse(pub.Fields.month + " 1, " + pub.Fields.year));
 		} else {
-			return new Date(Date.parse("Jan 1, " + pub.Fields.Year));
+			return new Date(Date.parse("Jan 1, " + pub.Fields.year));
 		}
 	};
 
@@ -24,8 +24,8 @@ angular.module('acadApp')
 	var setBib = function(pub) {
 		var text = '@' + pub.EntryType + '{' + pub.EntryKey
 		Object.keys(pub.Fields).forEach(function (key) {
-			if (key != 'Abstract' && key !='Author_noand'
-				&& key != 'Url' && key != 'Slides') {
+			if (key != 'abstract' && key !='author_noand'
+				&& key != 'url' && key != 'slides') {
 				text += ', \n  ' + key + ' = {' + pub.Fields[key] + '}'
 		}
 	})
@@ -42,16 +42,16 @@ angular.module('acadApp')
 
 	  	// Remove `and' between authors
 	  	for (index = 0; index < rawjson.entries.length; ++index) {
-	  		rawjson.entries[index].Fields.Author_noand =
-	  		replaceAllButLast(rawjson.entries[index].Fields.Author, " and");
+	  		rawjson.entries[index].Fields.author_noand = 
+	  		replaceAllButLast(rawjson.entries[index].Fields.author, " and");
 	  	}
 
 	  	sorted_pubs = [];
 
-      pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'unpublished'}, false);
+		pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'unpublished'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Preprints', pubs: pub_search}) };
 
-	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'article'}, false);
+		pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'article'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Journal papers', pubs: pub_search}) };
 
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'inproceedings'}, false);
@@ -60,14 +60,11 @@ angular.module('acadApp')
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'book'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Books and chapters', pubs: pub_search}) };
 
-      pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'patent'}, false);
+		pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'patent'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Patents', pubs: pub_search}) };
 
 	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'thesis'}, false);
 	  	if (pub_search.length) { sorted_pubs.push({ name:'Theses', pubs: pub_search}) };
-
-			pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'misc'}, false);
-	  	if (pub_search.length) { sorted_pubs.push({ name:'Essays', pubs: pub_search}) };
 
 	  	$scope.sorted_pubs = sorted_pubs
 

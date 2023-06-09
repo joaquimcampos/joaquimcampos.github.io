@@ -32,5 +32,5 @@ build: cv_Joaquim.html  ## Build .html
 view: cv_Joaquim.pdf ## View CV
 	open $(DOCNAME).pdf
 
-clean: ## Clean build
+clean: ## Clean CV build artifacts
 	rm -f *.out *.blg *.bbl *.aux *.log

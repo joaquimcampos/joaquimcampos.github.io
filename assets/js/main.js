@@ -12,16 +12,6 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
     .when('/bio', {
       templateUrl:'html/bio.html'
     })
-    .when('/more', {
-      templateUrl:'html/more.html'
-    })
-    .when('/teaching', {
-        controller: 'TeachCtrl',
-      templateUrl:'html/teaching.html'
-    })
-    .when('/talks', {
-      templateUrl:'html/talks.html'
-    })
     .otherwise({
       redirectTo:'html/main.html'
     })

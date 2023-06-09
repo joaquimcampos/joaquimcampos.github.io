@@ -19,8 +19,8 @@ serve:  ## Serve site
 view-cv: ## View CV
 	cd $(CVDIR) && $(MAKE) view
 
-clean-cv: ## Clean CV
+clean-cv: ## Clean CV build artifacts
 	cd $(CVDIR) && $(MAKE) clean
 
-clean: clean-cv ## Clean CV and built site
+clean: clean-cv ## clean-cv + remove built site
 	rm -rf _site
