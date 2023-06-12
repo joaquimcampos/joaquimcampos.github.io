@@ -1,0 +1,236 @@
+<h3> Projects </h3>
+
+<h4>Neural Image and Video Compression
+    <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">
+    @DisneyResearch</a>
+</h4>
+<h5> Video Compression </h5>
+<p style="text-align:justify">
+    While there are many deep learning based approaches for single image compression, the field of end-to-end learned video coding has remained much less explored. Therefore, in this work we present an inter-frame compression approach for neural video coding that can seamlessly build up on different existing neural image codecs. Our end-to-end solution performs temporal prediction by optical flow based motion compensation in pixel space. The key insight is that we can increase both decoding efficiency and reconstruction quality by encoding the required side information into a latent representation that directly decodes into motion and blending coefficients. In order to account for remaining prediction errors, residual information between the original image and the interpolated frame is needed. We propose to compute residuals directly in latent space instead of in pixel space as this allows to reuse the same image compression network for both key frames and intermediate frames. This has the advantage of making our video coding approach, more coherent, more memory efficient, and easier to train. Our extended evaluation on different datasets and resolutions shows that the rate-distortion performance of our approach is competitive with existing state-of-the-art codecs.
+    <br> <br>
+    Conclusion: <br>
+    Our neural video coding framework is able to achieve re-
+    sults competitive with existing video codecs that have wit-
+    nessed several decades of engineering improvements. This
+    is in particular due to the interpolation approach that em-
+    beds compression constraints and takes advantage of all
+    the available information at encoding time. In addition to
+    this, expressing residuals in latent space simplifies the video
+    compression task as the same network is used both for key-
+    frames and residuals. In this work, we have focused on
+    compressing intermediate frames that rely on key frames in
+    the past and future. However, our approach is also com-
+    patible with other settings such as only frames from the
+    past. Thus finding optimal strategies for key frame selec-
+    tion would be an interesting branch of future work.
+</p>
+
+<h5> Image Compression </h5>
+<p style="text-align:justify">
+    Abstract: <br>
+    The field of neural image compression has witnessed
+    exciting progress as recently proposed architectures al-
+    ready surpass the established transform coding based ap-
+    proaches. While, so far, research has mainly focused on
+    architecture and model improvements, in this work we ex-
+    plore content adaptive optimization. To this end, we intro-
+    duce an iterative procedure which adapts the latent repre-
+    sentation to the specific content we wish to compress while
+    keeping the parameters of the network and the predictive
+    model fixed. Our experiments show that this allows for an
+    overall increase in rate-distortion performance, indepen-
+    dently of the specific architecture used. Furthermore, we
+    also evaluate this strategy in the context of adapting a pre-
+    trained network to other content that is different in visual
+    appearance or resolution. Here, our experiments show that
+    our adaptation strategy can largely close the gap as com-
+    pared to models specifically trained for the given content
+    while having the benefit that no additional data in the form
+    of model parameter updates has to be transmitted.
+    <br> <br>
+    Conclusion: <br>
+    In this work we have investigated content adaptive com-
+    pression strategies which can be seen as a complementary
+    approach of improving neural image coding besides archi-
+    tecture refinements. More specifically, we have presented
+    a latent space refinement algorithm that allows to improve
+    quality by roughly 0.5 dB at the same bit rate on the Tecnick
+    data set. This strategy also allows to significantly close the
+    gap between generic pre-trained models and models that are
+    specifically trained for a given target content.Thus, the la-
+    tent space adaptation can be an effective strategy to make a
+    given encoding process more powerful and content adap-
+    tive. This is particularly beneficial in situations such as
+    streaming, where the encoding complexity is not the limit-
+    ing factor when compared to the transmission and decoding.
+    As the gap towards models that are entirely trained on the
+    specific target content cannot fully be closed, it would be
+    interesting to further investigate which more complex but
+    still practically viable form of adaptation may achieve this.
+    Also currently, neural image compression models are typi-
+    cally trained for each rate-distortion point and it would be
+    similarly beneficial to investigate strategies that allow auto-
+    matic adaptation to each quality level.
+</p>
+<h5> Impact </h5>
+<p style="text-align:justify">
+The work on video compression achieved state-of-the-art at the time.
+It has been cited by 140 scientific publications, including publications of
+<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_One-Shot_Free-View_Neural_Talking-Head_Synthesis_for_Video_Conferencing_CVPR_2021_paper.pdf">
+Nvidia</a>,
+<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Agustsson_Scale-Space_Flow_for_End-to-End_Optimized_Video_Compression_CVPR_2020_paper.pdf">
+Google</a>,
+<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Here</a>
+
+<a href="https://proceedings.neurips.cc/paper_files/paper/2021/
+file/96b250a90d3cf0868c83f8c965142d2a-Paper.pdf">
+Microsoft</a>
+</p>
+
+Image compression
+This work has been cited over 30 times
+<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Google</a>
+<a href="https://arxiv.org/abs/2103.03123">University of Oxford</a>
+<a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/
+066f182b787111ed4cb65ed437f0855b-Paper.pdf">
+</a>
+University of California, Irvine (IMPORTANT)
+<a href="https://openreview.net/pdf?id=IDwN6xjHnK8">
+Qualcomm
+</a>
+<a href="https://arxiv.org/pdf/2008.09180.pdf">
+Uber (CLOSE TO US)
+</a>
+<a href="https://openaccess.thecvf.com/content/CVPR2021W/CLIC/papers/Zhao_A_Universal_Encoder_Rate_Distortion_Optimization_Framework_for_Learned_Compression_CVPRW_2021_paper.pdf">
+Microsoft (Important)
+</a>
+<a href="https://arxiv.org/pdf/2007.16054.pdf">Nokia</a>
+<a href="https://arxiv.org/pdf/2108.09992.pdf">(Here too)</a>
+<a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w7/Guo_Variable_Rate_Image_Compression_With_Content_Adaptive_Optimization_CVPRW_2020_paper.pdf">
+Huawei
+</a>
+
+<h4>Learning with Hessian-Schatten Total Variation
+    <a href="https://bigwww.epfl.ch/">
+    @EPFL.BIG</a>
+</h4>
+<p style="text-align: justify">
+    <a href="https://github.com/joaquimcampos/HTV-Learn">Github Repository</a>
+    <br>
+    Abstract: <br>
+    We develop a novel 2D functional learning framework that employs a sparsity-promoting
+    regularization based on second-order derivatives. Motivated by the nature of the regularizer, we restrict the
+    search space to the span of piecewise-linear box splines shifted on a 2D lattice. Our formulation of the
+    infinite-dimensional problem on this search space allows us to recast it exactly as a finite-dimensional one
+    that can be solved using standard methods in convex optimization. Since our search space is composed of
+    continuous and piecewise-linear functions, our work presents itself as an alternative to training networks that
+    deploy rectified linear units, which also construct models in this family. The advantages of our method are
+    fourfold: the ability to enforce sparsity, favoring models with fewer piecewise-linear regions; the use of a ro-
+    tation, scale and translation-invariant regularization; a single hyperparameter that controls the complexity of
+    the model; and a clear model interpretability that provides a straightforward relation between the parameters
+    and the overall learned function. We validate our framework in various experimental setups and compare it
+    with neural networks.
+    <br> <br>
+    Conclusion: <br>
+    We have introduced a method to solve two-dimensional learn-
+    ing problems regularized with Hessian-nuclear total-variation
+    (HTV) seminorm. The starting point of our work has been
+    the observation that the HTV of (admissible) continuous and
+    piecewise-linear (CPWL) functions has a closed-form expres-
+    sion. Its computation, however, requires knowledge of the
+    gradient and boundaries of each partition. To circumvent this
+    drawback, we have formulated the problem in a search space
+    consisting of shifts of CPWL box-splines in a lattice. By doing
+    so, we are able to evaluate any model in the search space, as
+    well as compute its HTV, from the values at the lattice points
+    (model parameters). In particular, we showed that the latter
+    can be computed with a three-filter convolutional structure;
+    this allows us to discretize the problem exactly and to recast
+    it in the form of the generalized least-absolute shrinkage-and-
+    selection operator. Finally, we have demonstrated the sparsity-
+    promoting effect of our framework via numerical examples
+    where we have compared its performance with ReLU neural
+    networks and radial-basis functions.
+</p>
+
+<h4>Deep Spline Neural Networks
+    <a href="https://bigwww.epfl.ch/">
+    @EPFL.BIG</a>
+</h4>
+<p style="text-align:justify">
+    <a href="https://github.com/joaquimcampos/DeepSplines">Github Repository</a>
+    Abstract: <br>
+    We develop an efficient computational solution to train deep neural networks (DNN) with
+    free-form activation functions. To make the problem well-posed, we augment the cost functional of the DNN
+    by adding an appropriate shape regularization: the sum of the second-order total-variations of the trainable
+    nonlinearities. The representer theorem for DNNs tells us that the optimal activation functions are adaptive
+    piecewise-linear splines, which allows us to recast the problem as a parametric optimization. The challenging
+    point is that the corresponding basis functions (ReLUs) are poorly conditioned and that the determination of
+    their number and positioning is also part of the problem. We circumvent the difficulty by using an equivalent
+    B-spline basis to encode the activation functions and by expressing the regularization as an 1 -penalty. This
+    results in the specification of parametric activation function modules that can be implemented and optimized
+    efficiently on standard development platforms. We present experimental results that demonstrate the benefit
+    of our approach.
+    <br> <br>
+    Conclusion: <br>
+    We have presented an efficient computational solution to
+    train deep neural networks with learnable activation functions.
+    Specifically, we have focused on deep spline networks. They
+    form a superset of the traditional ReLU networks and are
+    known to be optimal with respect to the second-order total
+    variation of the adjustable nonlinearities. We have tackled
+    the resulting difficult joint-optimization problem by represent-
+    ing the linear-spline nonlinearities in terms of B-spline basis.
+    functions and by expressing the second-order total-variation
+    regularization as an l1 -penalty, thus unifying the paramet-
+    ric and functional approaches for the learning of activation
+    functions. The proposed B-spline representation was instru-
+    mental in making the training of the DNN computationally
+    feasible. Indeed, any computation concerning the activation
+    functions involves only two basis elements per data point.
+    Finally, we have demonstrated the benefits of our framework
+    through experiments in the context of classification and de-
+    convolution problems. In particular, we have observed that our
+    method compares favorably to the traditional ReLU networks,
+    the improvement being more pronounced for simpler/smaller
+    networks.
+    <br> <br> <br>
+    Lipschitz Abstract: <br>
+    We introduce a variational framework to learn the
+    activation functions of deep neural networks. Our aim is to increase
+    the capacity of the network while controlling an upper-bound of
+    the actual Lipschitz constant of the input-output relation. To that
+    end, we first establish a global bound for the Lipschitz constant of
+    neural networks. Based on the obtained bound, we then formulate
+    a variational problem for learning activation functions. Our vari-
+    ational problem is infinite-dimensional and is not computationally
+    tractable. However, we prove that there always exists a solution
+    that has continuous and piecewise-linear (linear-spline) activations.
+    This reduces the original problem to a finite-dimensional minimiza-
+    tion where an l1 penalty on the parameters of the activations favors
+    the learning of sparse nonlinearities. We numerically compare our
+    scheme with standard ReLU network and its variations, PReLU
+    and LeakyReLU and we empirically demonstrate the practical
+    aspects of our framework.
+    <br> <br>
+    Lipschitz Conclusion: <br>
+    In this paper, we have introduced a variational framework to
+    learn the activations of a deep neural network while controlling
+    its global Lipschitz regularity. We have considered neural net-
+    works with second-order bounded-variation activations and we
+    provided a global bound for their Lipschitz constants. We have
+    showed that the solution of our proposed variational problem
+    exists and is in the form of a deep-spline network with continuous
+    piecewise linear activation functions. Our future work in this
+    direction is to explore how the simplification of architectures can
+    be compensated by the deployment of more complex activations.
+</p>
+
+<h4>Converting Books to Audiobooks using AI
+    <a href="https://www.radiobooks.io/">
+    @Radiobooks</a>
+</h4>
+<p style="text-align:justify">
+    I am Co-Founder and CTO at <a href="https://www.radiobooks.io/"><strong>radiobooks</strong></a>,
+    a company that converts ebooks into audiobooks automatically using artificial intelligence.
+</p>
