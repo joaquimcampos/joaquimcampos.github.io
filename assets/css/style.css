@@ -3,7 +3,8 @@
 /********************/
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 15px Garamond, Helvetica, Arial, sans-serif; */
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 /* Set various colors */
@@ -121,4 +122,63 @@ a.label-theme {
 
 .pic-modal-back {
   opacity: 0.75 !important;
+}
+
+/********************/
+/* Projects page */
+/********************/
+
+.logo-radiobooks {
+    margin-bottom: 1cm;
+    margin-top: .4cm;
+}
+
+.contacting-me {
+  margin-bottom: 2cm;
+  margin-top: 1cm;
+}
+
+.new-project {
+  margin-top: 1.2cm;
+}
+
+/* Clear floats after image containers */
+.row-compression, .row-face{
+  margin-bottom: .8cm;
+}
+
+.row-compression{
+  margin-top: .3cm;
+  margin-left: -.1cm;
+}
+
+.row-face{
+  margin-left: -.2cm;
+}
+
+.row-compression::after, .row-face::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column-video-comp, .column-image-comp {
+  float: left;
+  padding: 5px;
+  width: 40.00%
+}
+
+.column-image-comp{
+  margin-top: .8cm;
+}
+
+.column-face {
+  float: left;
+  width: 20.00%;
+  padding: 15px;
+}
+
+.deepsplines {
+  margin-bottom: 1cm;
+  margin-top: .2cm;
 }

@@ -141,7 +141,7 @@ app.controller('HTVPubsCtrl', ['$scope', '$http', '$filter', '$uibModal',
     }
 ])
 
-app.controller('DeepSplinePubsCtrl', ['$scope', '$http', '$filter', '$uibModal',
+app.controller('DeepSplinesPubsCtrl', ['$scope', '$http', '$filter', '$uibModal',
     function($scope, $http, $filter, $uibModal) {
         const cite_keys = [
             "aziznejadDeepNeuralNetworks2020",
