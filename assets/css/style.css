@@ -2,35 +2,46 @@
 /*     Overall      */
 /********************/
 
+/* Colors: */
+/* #c8c3bc; text color*/
+/* #62a2b3; image color */
+
 body {
   /* font: 15px Garamond, Helvetica, Arial, sans-serif; */
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #181a1b;
+  color: #c8c3bc;
 }
 
-/* Set various colors */
+/* For MSc */
+h2 > small {
+  color: #9d9488;
+}
+
 .color-theme {
-  /*color: #428bca;*/
-  color: #ea3323;
+  color: #62a2b3;
 }
 
 /* Set link colors */
 a:link, a:visited, a:hover {
-    /*color: #428bca;*/
-    color: #ea3323;
+    color: #62a2b3;  /*image color*/
     cursor: pointer;
 }
 
-/* Labels */
 a.label-theme {
-  color: white;
-  /*background-color: #428bca;*/
-  background-color: #ea3323;
+  color: #e9e8e6;
+  background-color: #62a2b3;
+  padding: .4em .6em;
 }
 
-.btn-theme {
-  color: white;
-  /*background-color: #428bca;*/
-  background-color: #ea3323;
+/* Labels */
+small > a.label-theme {
+  padding: .6em .8em;
+}
+
+.navbar {
+  background-color: #181a1b;
+  border-color: #373b3e;
 }
 
 .container-fluid {
@@ -48,12 +59,50 @@ a.label-theme {
   vertical-align:top;
 }
 
+.navbar div .collapse > ul > li > a:hover {
+  color: #c8c3bc
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #c8c3bc;
+  background-color: #26292a;
+}
+
 /* Set up size 11 material icons */
 .material-icons.md-13 { font-size: 13px; }
+
+input[type=text], input[type=submit] {
+  background-color: #2b2a33;
+  border: 1px solid #9d9488;
+  color: #c8c3bc;
+  margin: 4px;
+}
+
+input[type=text]:hover, input[type=text]:focus{
+  border-color: #c8c3bc;
+  outline-style: none;
+}
+
+input[type=submit] {
+  border: 3px solid #9d9488;
+  border-radius: 3px;
+  /* font-weight: bold; */
+}
+
+input[type=submit]:hover {
+  background-color: #52525e;
+  border-color: #c8c3bc;
+}
 
 /********************/
 /*     Main page    */
 /********************/
+
+.contacting-me {
+  margin-bottom: 5cm;
+  margin-top: 1cm;
+}
 
 #portrait {
   width: 100%;
@@ -99,6 +148,12 @@ a.label-theme {
   cursor: pointer;
 }
 
+.list-group-item {
+  background-color: #181a1b;
+  border-color: #373b3e;
+  border-width: 1px;
+}
+
 /* Align and change size of icons */
 .list-group-item-text i {
   vertical-align:top;
@@ -128,57 +183,67 @@ a.label-theme {
 /* Projects page */
 /********************/
 
-.logo-radiobooks {
-    margin-bottom: 1cm;
-    margin-top: .4cm;
-}
-
-.contacting-me {
-  margin-bottom: 2cm;
-  margin-top: 1cm;
-}
-
 .new-project {
   margin-top: 1.2cm;
 }
 
-/* Clear floats after image containers */
-.row-compression, .row-face{
-  margin-bottom: .8cm;
+/* Image rows */
+
+.row-radiobooks, .row-compression, .row-face, .row-deepsplines {
+    border: 2px solid #62a2b3;
+    background-color: white;
 }
 
+/* Clear floats after image containers */
+.row-radiobooks::after,
+.row-deepsplines::after,
+.row-compression::after,
+.row-face::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.row-radiobooks, .row-deepsplines, .row-compression, .row-face {
+    margin-top: .4cm;
+    margin-bottom: 1cm;
+    padding: 10px;
+}
+
+.row-radiobooks {
+   width: 20%;
+}
+
+.row-deepsplines {
+    width: 40%;
+ }
+
 .row-compression{
-  margin-top: .3cm;
-  margin-left: -.1cm;
+    width: 80%;
 }
 
 .row-face{
-  margin-left: -.2cm;
+    width: 60.00%;
 }
 
-.row-compression::after, .row-face::after {
-  content: "";
-  clear: both;
-  display: table;
+/* Image columns */
+
+.column-video-comp,
+.column-image-comp,
+.column-face {
+    float: left;
 }
 
 .column-video-comp, .column-image-comp {
-  float: left;
-  padding: 5px;
-  width: 40.00%
+    padding: 5px;
+    width: 50.00%
 }
 
 .column-image-comp{
-  margin-top: .8cm;
+    margin-top: .8cm;
 }
 
 .column-face {
-  float: left;
-  width: 20.00%;
-  padding: 15px;
-}
-
-.deepsplines {
-  margin-bottom: 1cm;
-  margin-top: .2cm;
+    width: 33.33%;
+    padding: 10px;
 }

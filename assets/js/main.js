@@ -52,3 +52,4 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
         return Math.floor(input);
     };
 });
+

@@ -9,7 +9,6 @@ all: build
 DOCNAME=cv_Joaquim
 BIBFILE=../pubs/bibfile.bib
 
-# TODO: Workflows for compiling, install fixFONTproblem.sh
 # https://tex.stackexchange.com/questions/204291
 # https://tex.stackexchange.com/questions/223769
 # https://stackoverflow.com/questions/7815400
