@@ -189,7 +189,7 @@ input[type=submit]:hover {
 
 /* Image rows */
 
-.row-radiobooks, .row-compression, .row-face, .row-deepsplines {
+.row-compression, .row-face, .row-deepsplines {
     border: 2px solid #62a2b3;
     background-color: white;
 }
