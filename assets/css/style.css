@@ -6,93 +6,104 @@
 /* #c8c3bc; text color*/
 /* #62a2b3; image color */
 
+/* Body and navbar */
 body {
-  /* font: 15px Garamond, Helvetica, Arial, sans-serif; */
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #181a1b;
-  color: #c8c3bc;
+    /* font: 15px Garamond, Helvetica, Arial, sans-serif; */
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* For MSc */
+body, .navbar {
+    background-color: #181a1b;
+}
+
+body,
+.navbar div .collapse > ul > li > a:hover,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #c8c3bc;
+}
+
+/* h2 small -> MSc. */
+.navbar div .collapse > ul > li > a,
 h2 > small {
-  color: #9d9488;
+    color: #9d9488
 }
 
-.color-theme {
-  color: #62a2b3;
-}
-
-/* Set link colors */
-a:link, a:visited, a:hover {
-    color: #62a2b3;  /*image color*/
-    cursor: pointer;
-}
-
-a.label-theme {
-  color: #e9e8e6;
-  background-color: #62a2b3;
-  padding: .4em .6em;
-}
-
-/* Labels */
-small > a.label-theme {
-  padding: .6em .8em;
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: #26292a;
 }
 
 .navbar {
-  background-color: #181a1b;
-  border-color: #373b3e;
-}
-
-.container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 950px; /* or 800px */
+    border-color: #373b3e;
 }
 
 /* Align menu text with icons */
 .navbar div .collapse > ul > li > a {
-  line-height:24px;
-}
-.navbar div .collapse > ul > li > a > i,
-.navbar div .navbar-header > a {
-  vertical-align:top;
+    line-height: 24px;
+    padding-top: 19px;
 }
 
-.navbar div .collapse > ul > li > a:hover {
-  color: #c8c3bc
+.navbar div .collapse > ul > li > a > i,
+.navbar div .navbar-header > a {
+    vertical-align: top;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #c8c3bc;
-  background-color: #26292a;
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 950px; /* or 800px */
+}
+
+
+/* Set link colors */
+.color-theme, a:link, a:visited, a:hover {
+    color: #62a2b3;
+}
+
+
+/* Labels */
+a.label-theme {
+    background-color: #62a2b3;
+    color: #e9e8e6;
+    padding: .4em .6em;
+}
+
+/* CV Google scholar */
+small > a.label-theme {
+  padding: .6em .8em;
 }
 
 /* Set up size 11 material icons */
 .material-icons.md-13 { font-size: 13px; }
 
+/* Input form fields */
 input[type=text], input[type=submit] {
-  background-color: #2b2a33;
-  border: 1px solid #9d9488;
-  color: #c8c3bc;
-  margin: 4px;
+    background-color: #2b2a33;
+    color: #c8c3bc;
+    border-color: #9d9488;
+    border-style: solid;
+    margin: 4px;
 }
 
-input[type=text]:hover, input[type=text]:focus{
-  border-color: #c8c3bc;
-  outline-style: none;
+input[type=text]:hover, input[type=text]:focus, input[type=submit]:hover {
+    border-color: #c8c3bc;
+    outline-style: none;
+}
+
+input[type=text] {
+    border-width: 1px;
 }
 
 input[type=submit] {
-  border: 3px solid #9d9488;
-  border-radius: 3px;
-  /* font-weight: bold; */
+    border-width: 3px;
+    border-radius: 3px;
 }
 
 input[type=submit]:hover {
-  background-color: #52525e;
-  border-color: #c8c3bc;
+    background-color: #52525e;
 }
 
 /********************/
@@ -100,31 +111,31 @@ input[type=submit]:hover {
 /********************/
 
 .contacting-me {
-  margin-bottom: 5cm;
-  margin-top: 1cm;
+    margin-bottom: 5cm;
+    margin-top: 1cm;
 }
 
 #portrait {
-  width: 100%;
-  max-width: 230px;
+    width: 100%;
+    max-width: 230px;
 }
 
 @media (min-width: 768px) {
-  #portrait {
-    margin-top:25px;
-  }
+    #portrait {
+        margin-top:25px;
+    }
 }
 
 /********** xxs devices only **********/
 @media (max-width: 400px) {
-  .col-xxs-12{
-    position:relative;
-    min-height:1px;
-    padding-right:15px;
-    padding-left:15px;
-    float: left;
-    width: 100%;
-  }
+    .col-xxs-12{
+        position:relative;
+        min-height:1px;
+        padding-right:15px;
+        padding-left:15px;
+        float: left;
+        width: 100%;
+    }
 }
 
 /********************/
@@ -132,55 +143,55 @@ input[type=submit]:hover {
 /********************/
 
 #morearrow {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* Spacing in publications view*/
 #pubhidden {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 #pubButtons {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .pic {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .list-group-item {
-  background-color: #181a1b;
-  border-color: #373b3e;
-  border-width: 1px;
+    background-color: #181a1b;
+    border-color: #373b3e;
+    border-width: 1px;
 }
 
 /* Align and change size of icons */
 .list-group-item-text i {
-  vertical-align:top;
-  font-size: 18px;
+    vertical-align:top;
+    font-size: 18px;
 }
 
 .img-modal {
-  max-width: 90%;
-  max-height: 90%;
-  height: auto;
-  width: auto;
+    max-width: 90%;
+    max-height: 90%;
+    height: auto;
+    width: auto;
 }
 
 .pic-modal .modal-content {
-  text-align: center;
-  box-shadow: none;
-  border-radius: 0px;
-  background: transparent;
-  border-color: transparent;
+    text-align: center;
+    box-shadow: none;
+    border-radius: 0px;
+    background: transparent;
+    border-color: transparent;
 }
 
 .pic-modal-back {
-  opacity: 0.75 !important;
+    opacity: 0.75 !important;
 }
 
 /********************/
-/* Projects page */
+/*  Projects page   */
 /********************/
 
 .new-project {
@@ -188,9 +199,8 @@ input[type=submit]:hover {
 }
 
 /* Image rows */
-
 .row-compression, .row-face, .row-deepsplines {
-    border: 2px solid #62a2b3;
+    border: 6px solid #62a2b3;
     background-color: white;
 }
 
@@ -223,11 +233,10 @@ input[type=submit]:hover {
 }
 
 .row-face{
-    width: 60.00%;
+    width: 60%;
 }
 
 /* Image columns */
-
 .column-video-comp,
 .column-image-comp,
 .column-face {
