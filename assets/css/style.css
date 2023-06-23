@@ -217,11 +217,17 @@ input[type=submit]:hover {
 .row-radiobooks, .row-deepsplines, .row-compression, .row-face {
     margin-top: .4cm;
     margin-bottom: 1cm;
+}
+
+.margin-div {
     padding: 10px;
+    width: 100%;
+    float: left;
 }
 
 .row-radiobooks {
    width: 20%;
+   padding: 10px;
 }
 
 .row-deepsplines {
@@ -248,8 +254,24 @@ input[type=submit]:hover {
     width: 50.00%
 }
 
-.column-image-comp{
-    margin-top: .8cm;
+.column-video-comp {
+    border-right: 2px solid #62a2b3;
+}
+
+.column-video-comp > a {
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.img-video-comp {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    width: 90%;
+}
+
+.img-image-comp {
+    width: 90%;
+    margin: 55px 15px 0px 15px;
 }
 
 .column-face {
