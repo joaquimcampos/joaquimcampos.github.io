@@ -133,10 +133,10 @@ input[type=submit]:hover {
 /********** xxs devices only **********/
 @media (max-width: 400px) {
     .col-xxs-12{
-        position:relative;
-        min-height:1px;
-        padding-right:15px;
-        padding-left:15px;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
         float: left;
         width: 100%;
     }
@@ -289,14 +289,16 @@ input[type=submit]:hover {
 /* https://stackoverflow.com/questions/45907673 */
 /* https://stackoverflow.com/questions/25832340 */
 .tiles-wrapper {
-  display: grid;
-  grid-template-rows: 330px 330px 330px 330px;
-  grid-template-columns: 330px 330px;
-  grid-gap: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
 }
 
 /* https://stackoverflow.com/questions/25832340 */
 .tiles-box {
+  width: 320px;
+  height: 320px;
   border-radius: 10px;
   cursor: pointer;
   background-color: #9d9488;
