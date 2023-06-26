@@ -12,8 +12,12 @@ body {
     font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-body, .navbar {
+body {
     background-color: #181a1b;
+}
+
+.navbar {
+  background-color: #1c1e1f;
 }
 
 body,
@@ -277,4 +281,52 @@ input[type=submit]:hover {
 .column-face {
     width: 33.33%;
     padding: 10px;
+}
+
+
+/* Tiles */
+
+/* https://stackoverflow.com/questions/45907673 */
+/* https://stackoverflow.com/questions/25832340 */
+.tiles-wrapper {
+  display: grid;
+  grid-template-rows: 330px 330px 330px 330px;
+  grid-template-columns: 330px 330px;
+  grid-gap: 50px;
+}
+
+/* https://stackoverflow.com/questions/25832340 */
+.tiles-box {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #9d9488;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.tiles-box:hover {
+    outline: thick solid #62a2b3;
+    background-color: #c8c3bc;
+}
+
+.tiles-box.c {
+    padding: 8px;
+}
+
+.tiles-box.d {
+    padding: 12px;
+}
+
+.tiles-box.a > img {
+    width: 80%;
+}
+
+.tiles-box.b > img {
+    height: 70%;
+}
+
+.tiles-box.c > img,
+.tiles-box.d > img {
+    width: 100%;
 }

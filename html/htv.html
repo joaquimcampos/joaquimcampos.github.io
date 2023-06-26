@@ -1,0 +1,80 @@
+<h2> Hessian-Schatten Total Variation</h2>
+
+<h3 id="htv" class="new-project">
+    Learning with Hessian-Schatten Total Variation
+    <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a> |
+    <a href="https://github.com/joaquimcampos/HTV-Learn">
+        Github
+        <github-logo></github-logo>
+    </a>
+</h3>
+
+<div class="row-face">
+    <a href="https://ieeexplore.ieee.org/document/9655475">
+    <div class="margin-div">
+    <div class="column-face">
+        <img src="assets/images/htv1.png" alt="Face GT" style="width:100%">
+    </div>
+    <div class="column-face">
+      <img src="assets/images/htv2.png" alt="Face HTV" style="width:100%">
+    </div>
+    <div class="column-face">
+        <img src="assets/images/htv3.png" alt="Face NN" style="width:100%">
+    </div>
+    </div>
+    </a>
+</div>
+<p>
+    <br>
+    Abstract: <br>
+    We develop a novel 2D functional learning framework that employs a sparsity-promoting
+    regularization based on second-order derivatives. Motivated by the nature of the regularizer, we restrict the
+    search space to the span of piecewise-linear box splines shifted on a 2D lattice. Our formulation of the
+    infinite-dimensional problem on this search space allows us to recast it exactly as a finite-dimensional one
+    that can be solved using standard methods in convex optimization. Since our search space is composed of
+    continuous and piecewise-linear functions, our work presents itself as an alternative to training networks that
+    deploy rectified linear units, which also construct models in this family. The advantages of our method are
+    fourfold: the ability to enforce sparsity, favoring models with fewer piecewise-linear regions; the use of a ro-
+    tation, scale and translation-invariant regularization; a single hyperparameter that controls the complexity of
+    the model; and a clear model interpretability that provides a straightforward relation between the parameters
+    and the overall learned function. We validate our framework in various experimental setups and compare it
+    with neural networks.
+    <br> <br>
+    Conclusion: <br>
+    We have introduced a method to solve two-dimensional learn-
+    ing problems regularized with Hessian-nuclear total-variation
+    (HTV) seminorm. The starting point of our work has been
+    the observation that the HTV of (admissible) continuous and
+    piecewise-linear (CPWL) functions has a closed-form expres-
+    sion. Its computation, however, requires knowledge of the
+    gradient and boundaries of each partition. To circumvent this
+    drawback, we have formulated the problem in a search space
+    consisting of shifts of CPWL box-splines in a lattice. By doing
+    so, we are able to evaluate any model in the search space, as
+    well as compute its HTV, from the values at the lattice points
+    (model parameters). In particular, we showed that the latter
+    can be computed with a three-filter convolutional structure;
+    this allows us to discretize the problem exactly and to recast
+    it in the form of the generalized least-absolute shrinkage-and-
+    selection operator. Finally, we have demonstrated the sparsity-
+    promoting effect of our framework via numerical examples
+    where we have compared its performance with ReLU neural
+    networks and radial-basis functions.
+</p>
+<h4><b>Impact</b></h4>
+<p>
+This work has been cited in two papers of Mathematician
+<a href="https://en.wikipedia.org/wiki/Luigi_Ambrosio">Luigi Ambrosio</a>
+(<a href="https://arxiv.org/abs/2210.04077">[1]</a>,
+<a href="https://arxiv.org/abs/2302.12554">[2]</a>),
+leading expert in the calculus of variations and geometric measure theory, and
+Doctoral advisor of
+<a href="https://en.wikipedia.org/wiki/Fields_Medal">Fields Medal</a> winner
+<a href="https://en.wikipedia.org/wiki/Alessio_Figalli">
+Alessio Figalli
+</a>
+</p>
+
+<div ng-controller="HTVPubsCtrl">
+    <pubs-no-headers></pubs-no-headers>
+</div>

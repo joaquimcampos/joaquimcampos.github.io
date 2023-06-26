@@ -1,0 +1,94 @@
+<h2> Deep Spline Neural Networks</h2>
+
+<h3 id="deepsplines" class="new-project">
+    Deep Spline Neural Networks
+    <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a> |
+    <a href="https://github.com/joaquimcampos/DeepSplines">
+        Github
+        <github-logo></github-logo>
+    </a>
+</h3>
+
+<div class="row-deepsplines">
+    <a href="https://ieeexplore.ieee.org/document/9264754">
+    <div class="margin-div">
+        <img src="assets/images/deepsplines.png" alt="Deepsplines" style="width:100%">
+    </div>
+    </a>
+</div>
+
+<p>
+    Abstract: <br>
+    We develop an efficient computational solution to train deep neural networks (DNN) with
+    free-form activation functions. To make the problem well-posed, we augment the cost functional of the DNN
+    by adding an appropriate shape regularization: the sum of the second-order total-variations of the trainable
+    nonlinearities. The representer theorem for DNNs tells us that the optimal activation functions are adaptive
+    piecewise-linear splines, which allows us to recast the problem as a parametric optimization. The challenging
+    point is that the corresponding basis functions (ReLUs) are poorly conditioned and that the determination of
+    their number and positioning is also part of the problem. We circumvent the difficulty by using an equivalent
+    B-spline basis to encode the activation functions and by expressing the regularization as an 1 -penalty. This
+    results in the specification of parametric activation function modules that can be implemented and optimized
+    efficiently on standard development platforms. We present experimental results that demonstrate the benefit
+    of our approach.
+    <br> <br>
+    Conclusion: <br>
+    We have presented an efficient computational solution to
+    train deep neural networks with learnable activation functions.
+    Specifically, we have focused on deep spline networks. They
+    form a superset of the traditional ReLU networks and are
+    known to be optimal with respect to the second-order total
+    variation of the adjustable nonlinearities. We have tackled
+    the resulting difficult joint-optimization problem by represent-
+    ing the linear-spline nonlinearities in terms of B-spline basis.
+    functions and by expressing the second-order total-variation
+    regularization as an l1 -penalty, thus unifying the paramet-
+    ric and functional approaches for the learning of activation
+    functions. The proposed B-spline representation was instru-
+    mental in making the training of the DNN computationally
+    feasible. Indeed, any computation concerning the activation
+    functions involves only two basis elements per data point.
+    Finally, we have demonstrated the benefits of our framework
+    through experiments in the context of classification and de-
+    convolution problems. In particular, we have observed that our
+    method compares favorably to the traditional ReLU networks,
+    the improvement being more pronounced for simpler/smaller
+    networks.
+    <br> <br> <br>
+    Lipschitz Abstract: <br>
+    We introduce a variational framework to learn the
+    activation functions of deep neural networks. Our aim is to increase
+    the capacity of the network while controlling an upper-bound of
+    the actual Lipschitz constant of the input-output relation. To that
+    end, we first establish a global bound for the Lipschitz constant of
+    neural networks. Based on the obtained bound, we then formulate
+    a variational problem for learning activation functions. Our vari-
+    ational problem is infinite-dimensional and is not computationally
+    tractable. However, we prove that there always exists a solution
+    that has continuous and piecewise-linear (linear-spline) activations.
+    This reduces the original problem to a finite-dimensional minimiza-
+    tion where an l1 penalty on the parameters of the activations favors
+    the learning of sparse nonlinearities. We numerically compare our
+    scheme with standard ReLU network and its variations, PReLU
+    and LeakyReLU and we empirically demonstrate the practical
+    aspects of our framework.
+    <br> <br>
+    Lipschitz Conclusion: <br>
+    In this paper, we have introduced a variational framework to
+    learn the activations of a deep neural network while controlling
+    its global Lipschitz regularity. We have considered neural net-
+    works with second-order bounded-variation activations and we
+    provided a global bound for their Lipschitz constants. We have
+    showed that the solution of our proposed variational problem
+    exists and is in the form of a deep-spline network with continuous
+    piecewise linear activation functions. Our future work in this
+    direction is to explore how the simplification of architectures can
+    be compensated by the deployment of more complex activations.
+</p>
+<h4><b>Impact</b></h4>
+<p>
+This work has been cited over 65 times in scientific publications
+</p>
+
+<div ng-controller="DeepSplinesPubsCtrl">
+    <pubs-no-headers></pubs-no-headers>
+</div>

@@ -15,6 +15,18 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
         .when('/projects', {
         templateUrl:'html/projects.html'
         })
+        .when('/radiobooks', {
+        templateUrl:'html/radiobooks.html'
+        })
+        .when('/compression', {
+        templateUrl:'html/compression.html'
+        })
+        .when('/htv', {
+        templateUrl:'html/htv.html'
+        })
+        .when('/deepsplines', {
+        templateUrl:'html/deepsplines.html'
+        })
         .otherwise({
         redirectTo:'html/main.html'
         })
@@ -52,4 +64,3 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
         return Math.floor(input);
     };
 });
-

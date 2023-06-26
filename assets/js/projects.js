@@ -24,3 +24,14 @@ class InlineGithubLogo extends HTMLElement {
 
 customElements.define('github-logo', GithubLogo);
 customElements.define('inline-github-logo', InlineGithubLogo);
+
+// https://stackoverflow.com/questions/45907673/clickable-tiles-with-css-grid
+window.addEventListener("DOMContentLoaded", function() {
+  let boxes = document.querySelectorAll(".box");
+
+  Array.from(boxes, function(box) {
+    box.addEventListener("click", function() {
+      alert(this.classList[1]);
+    });
+  });
+});
