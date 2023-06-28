@@ -1,19 +1,18 @@
 <h2>List of publications</h2>
-<p style="margin-top: 5px; margin-bottom: 20px">
+<p style="margin-top: 5px; margin-bottom: 5px">
 	Also available in
 	<a href=https://scholar.google.com/citations?user=GT-VCroAAAAJ&hl=en">
-		<img src="https://scholar.google.se/favicon-png.ico" style="width:.9em;margin-bottom:.3em" alt="Google Scholar icon">
+		<img src="https://scholar.google.se/favicon-png.ico" style="width:.9em; margin-left: .2em; margin-bottom:.3em" alt="Google Scholar icon">
 		Google Scholar.
 	</a>
+</p>
+<p style="margin-bottom: 20px">
 	Click
 	<a style="font-weight: bold" href="assets/pubs/bibfile.bib">here</a>
 	to download the .bib file with my publications.
 </p>
 
 <!-- search bar -->
-<div class="row">
-	<div class="col-sm-4">
-		<input style="margin: 0 0 10px 0" ng-model="filter_text" type="text" class="form-control" placeholder="Search...">
-	</div>
-</div>
+
+<input id="search-bar" ng-model="filter_text" type="text" class="form-control" placeholder="Search...">
 <pubs-headers></pubs-headers>

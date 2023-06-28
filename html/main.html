@@ -7,13 +7,21 @@
   </div>
   <!--- Name and short description --->
   <div class="col-sm-9 col-xs-12">
-    <h2 style="margin-bottom: 20px">Joaquim Campos
-      <small>MSc.
-        <small><a class="label label-theme" href="assets/cv/cv_Joaquim.pdf ">PDF CV</a></small>
-        <small><a class="label label-theme" href="https://scholar.google.com/citations?user=GT-VCroAAAAJ&hl=en">
-        <img src="https://scholar.google.se/favicon-png.ico" style="width:1.3em;margin-right:.3em;margin-bottom:.48em" alt="Google Scholar icon">Google Scholar</a></small>
-      </small>
-    </h2>
+    <div id="name-row">
+      <div>
+        <h2 style="margin: 0;">Joaquim Campos
+          <small>MSc.</small>
+        </h2>
+      </div>
+      <div id="icons-row">
+        <a class="icons-label-theme" href="assets/cv/cv_Joaquim.pdf ">PDF CV</a>
+        <a class="icons-label-theme" href="https://scholar.google.com/citations?user=GT-VCroAAAAJ&hl=en">
+          <img src="https://scholar.google.se/favicon-png.ico"
+          alt="Google Scholar icon">
+          Google Scholar
+        </a>
+      </div>
+    </div>
     <p>
         I am an engineer, researcher, and programmer by profession, and I dedicate my after-work hours to philosophy, meditation, music, and dance.
     </p>
@@ -36,7 +44,7 @@
           <i class="material-icons">email</i><br />
             E-mail<br />
             <a href=mailto:joaquimcampos15@duck.com>
-              joaquimcampos15@duck.com
+              joaquimcampos15<br>@duck.com
             </a> <br />
         </p>
       </div>
@@ -91,7 +99,8 @@ target="hiddenifrm" onsubmit="if(confirm('Send message below?\n' + document.getE
        <a href="mailto:joaquimcampos15@duck.com">joaquimcampos15@duck.com</a>,
        or just message me here&mdash;but remember to include your phone number or email address so that I can get back to you!
     </p>
-    <input style="width:90%" type="text" name="text" id="message" autocapitalize="none" autocorrect="off" autocomplete="off" spellcheck="false" value="Hey Joaquim, I'm me, this is my message. Get back to me at email@domain. Cheers."><br>
+    <textarea id="message" spellcheck="false" name="text" cols="50" rows="5">Hey Joaquim,&#13;&#10;I'm me, this is my message.&#13;&#10;Get back to me at email@domain.&#13;&#10;Cheers.
+    </textarea>
     <input type="submit" value="Send message">
 </form>
 <iframe id="hiddenifrm" name="hiddenifrm" style="display:none"></iframe>

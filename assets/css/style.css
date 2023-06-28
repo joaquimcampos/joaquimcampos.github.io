@@ -67,38 +67,90 @@ h2 > small {
     color: #62a2b3;
 }
 
+#name-row {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 26px 0 20px 0;
+    column-gap: 10px;
+}
+
+#icons-row {
+    display: flex;
+    height: 33px;
+    align-items: center;
+    column-gap: 5px;
+}
+
 
 /* Labels */
-a.label-theme {
+a.pubs-label-theme,
+a.icons-label-theme {
     background-color: #62a2b3;
     color: #e9e8e6;
-    padding: .4em .6em;
+}
+
+a.pubs-label-theme {
+    padding: .6em .6em .4em .6em;
 }
 
 /* CV Google scholar */
-small > a.label-theme {
-  padding: .6em .8em;
+a.icons-label-theme {
+    height: 60%;
+    font-size: 68%;
+    font-weight: 700;
+    display: flex;
+    padding: .25em .6em 0 .6em;
+    margin-bottom: 2px;
+    align-items: center;
+    justify-content: center;
+    border-radius: .25em;
+}
+
+a.icons-label-theme > img {
+    width: 1.25em;
+    height: 1.2em;
+    margin-right: .4em;
+    margin-bottom: .55em
 }
 
 /* Set up size 11 material icons */
 .material-icons.md-13 { font-size: 13px; }
 
 /* Input form fields */
-input[type=text], input[type=submit] {
+#message,
+input[type=text],
+input[type=submit] {
     background-color: #2b2a33;
     color: #c8c3bc;
     border-color: #9d9488;
     border-style: solid;
-    margin: 4px;
+    padding: 5px;
 }
 
-input[type=text]:hover, input[type=text]:focus, input[type=submit]:hover {
+#message:hover,
+#message:focus,
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=submit]:hover {
     border-color: #c8c3bc;
     outline-style: none;
 }
 
-input[type=text] {
+#message, input[type=text] {
     border-width: 1px;
+}
+
+#search-bar {
+    width: 280px;
+    max-width: 90%;
+    margin: 0 0 20px 0;
+}
+
+#message {
+    display: block;
+    max-width: 95%;
+    margin-bottom: 6px;
 }
 
 input[type=submit] {
@@ -131,7 +183,7 @@ input[type=submit]:hover {
 }
 
 /********** xxs devices only **********/
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
     .col-xxs-12{
         position: relative;
         min-height: 1px;
@@ -291,20 +343,34 @@ input[type=submit]:hover {
 .tiles-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
+  justify-content: start;
+  gap: 40px;
 }
 
 /* https://stackoverflow.com/questions/25832340 */
 .tiles-box {
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
   border-radius: 10px;
   cursor: pointer;
   background-color: #9d9488;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
+}
+
+.empty-tiles-box {
+    width: 280px;
+    height: 280px;
+}
+
+@media only screen and (max-width: 950px) {
+    .empty-tiles-box {
+        display: none;
+    }
+    .tiles-wrapper {
+        justify-content: center;
+    }
 }
 
 .tiles-box:hover {

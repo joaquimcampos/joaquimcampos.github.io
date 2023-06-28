@@ -248,13 +248,13 @@ const inner_pubs = `
                                     {{pub.Fields.abstract}} </p>
                                 </span>
                 <div id="pubButtons">
-                    <a class="label label-theme" ng-show="pub.Fields.doi" href="https://doi.org/{{pub.Fields.doi}}">DOI: {{pub.Fields.doi}}</a>
-                    <a class="label label-theme" ng-show="pub.Fields.eprint" href="https://arxiv.org/abs/{{pub.Fields.eprint}}">arXiv: {{pub.Fields.eprint}} [{{pub.Fields.eprintclass}}]</a>
-                    <!-- <a class="label label-theme" ng-show="pub.Fields.doi" href="https://sci-hub.se/{{pub.Fields.doi}}">SCI-HUB</a> -->
-                    <a class="label label-theme" ng-show="pub.Fields.url" href="{{pub.Fields.url}}">PDF</a>
-                    <a class="label label-theme" ng-show="pub.Fields.slides" href="{{pub.Fields.slides}}">Slides</a>
-                    <a class="label label-theme" ng-show="pub.Fields.github" href="https://github.com/{{pub.Fields.github}}">GitHub</a>
-                    <a class="label label-theme" ng-click="open(pub)">BibTeX</a>
+                    <a class="label pubs-label-theme" ng-show="pub.Fields.doi" href="https://doi.org/{{pub.Fields.doi}}">DOI: {{pub.Fields.doi}}</a>
+                    <a class="label pubs-label-theme" ng-show="pub.Fields.eprint" href="https://arxiv.org/abs/{{pub.Fields.eprint}}">arXiv: {{pub.Fields.eprint}} [{{pub.Fields.eprintclass}}]</a>
+                    <!-- <a class="label pubs-label-theme" ng-show="pub.Fields.doi" href="https://sci-hub.se/{{pub.Fields.doi}}">SCI-HUB</a> -->
+                    <a class="label pubs-label-theme" ng-show="pub.Fields.url" href="{{pub.Fields.url}}">PDF</a>
+                    <a class="label pubs-label-theme" ng-show="pub.Fields.slides" href="{{pub.Fields.slides}}">Slides</a>
+                    <a class="label pubs-label-theme" ng-show="pub.Fields.github" href="https://github.com/{{pub.Fields.github}}">GitHub</a>
+                    <a class="label pubs-label-theme" ng-click="open(pub)">BibTeX</a>
                 </div>
             </div>
         </li>
