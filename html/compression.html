@@ -1,17 +1,21 @@
-<h2> Image and Video Compression</h2>
+<h2 class="new-project">Neural Image and Video Compression</h2>
 
-<h3 id="image-video-comp" class="new-project">
-    Neural Image and Video Compression
-    <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">@DisneyResearch</a>
+<h3 style="margin: 0;">
+    <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">
+        @DisneyResearch
+    </a>
 </h3>
+
 <div class="row-compression">
-    <div class="column-video-comp">
-        <a href="https://studios.disneyresearch.com/2019/10/27/neural-inter-frame-compression-for-video-coding/"><img class="img-video-comp" src="assets/images/video_compression.png" alt="Video Compression"></a>
-    </div>
-    <div class="column-image-comp">
-      <a href="https://openaccess.thecvf.com/content_CVPRW_2019/html/CLIC_2019/Campos_Content_Adaptive_Optimization_for_Neural_Image_Compression_CVPRW_2019_paper.html"><img class="img-image-comp" src="assets/images/image_compression.png" alt="Image Compression"></a>
-    </div>
+    <a href="https://studios.disneyresearch.com/2019/10/27/neural-inter-frame-compression-for-video-coding/">
+        <img src="assets/images/video_compression.png" alt="Video Compression">
+    </a>
+    <div></div>
+    <a href="https://openaccess.thecvf.com/content_CVPRW_2019/html/CLIC_2019/Campos_Content_Adaptive_Optimization_for_Neural_Image_Compression_CVPRW_2019_paper.html">
+        <img src="assets/images/image_compression.png" alt="Image Compression">
+    </a>
 </div>
+
 <p>
     While there are many deep learning based approaches for single image compression, the field of end-to-end learned video coding has remained much less explored. Therefore, in this work we present an inter-frame compression approach for neural video coding that can seamlessly build up on different existing neural image codecs. Our end-to-end solution performs temporal prediction by optical flow based motion compensation in pixel space. The key insight is that we can increase both decoding efficiency and reconstruction quality by encoding the required side information into a latent representation that directly decodes into motion and blending coefficients. In order to account for remaining prediction errors, residual information between the original image and the interpolated frame is needed. We propose to compute residuals directly in latent space instead of in pixel space as this allows to reuse the same image compression network for both key frames and intermediate frames. This has the advantage of making our video coding approach, more coherent, more memory efficient, and easier to train. Our extended evaluation on different datasets and resolutions shows that the rate-distortion performance of our approach is competitive with existing state-of-the-art codecs.
     <br> <br>

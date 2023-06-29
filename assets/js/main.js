@@ -27,6 +27,12 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
         .when('/deepsplines', {
         templateUrl:'html/deepsplines.html'
         })
+        .when('/mahayana', {
+        templateUrl:'html/mahayana.html'
+        })
+        .when('/next', {
+        templateUrl:'html/next.html'
+        })
         .otherwise({
         redirectTo:'html/main.html'
         })
