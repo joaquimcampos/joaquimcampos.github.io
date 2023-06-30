@@ -49,19 +49,37 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
 
     $scope.$on('$routeChangeStart', updateButton);
 
+    // Function to collapse the navbar when clicking away
+    var collapseNavbar = function() {
+        $scope.navbarCollapsed = true;
+    };
+
+    angular.element(document).on('click', function(e) {
+        if (e.target.closest('.navbar') === null) {
+            $scope.$apply(collapseNavbar);
+        }
+    });
+
+    // Function to collapse the navbar after clicking on a navbar icon
+    $scope.closeNavbar = function() {
+        if (!$scope.navbarCollapsed) {
+          $scope.navbarCollapsed = true;
+        }
+    };
+
     $scope.open_pic = function(pic_location) {
         var modalInstance = $uibModal.open({
-        animation: false,
-        templateUrl: 'html/picmodal.html',
-        controller: 'PicModalCtrl',
-        size: 'lg',
-        resolve: {
-            pic_location: function () {
-                return pic_location
-            }
-        },
-        windowClass: 'pic-modal',
-        backdropClass: 'pic-modal-back'
+            animation: false,
+            templateUrl: 'html/picmodal.html',
+            controller: 'PicModalCtrl',
+            size: 'lg',
+            resolve: {
+                pic_location: function () {
+                    return pic_location
+                }
+            },
+            windowClass: 'pic-modal',
+            backdropClass: 'pic-modal-back'
         }).result.then(function(){}, function(res){});
     }
 }])

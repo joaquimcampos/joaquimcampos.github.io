@@ -62,7 +62,7 @@ h2 > small {
 }
 
 .new-section {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 /* Set link colors */
@@ -170,7 +170,7 @@ input[type=submit]:hover {
 /********************/
 
 .contacting-me {
-    margin-bottom: 5cm;
+    margin-bottom: 3cm;
     margin-top: 1cm;
 }
 
@@ -179,7 +179,7 @@ input[type=submit]:hover {
     max-width: 230px;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     #portrait {
         margin-top:25px;
     }
@@ -350,8 +350,32 @@ input[type=submit]:hover {
 .tiles-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: space-evenly;
   gap: 40px;
+  margin-bottom: 3cm;
+}
+
+.tiles-title {
+    display: flex;
+    width: 280px;
+    height: 83px;
+    margin-bottom: -10px;
+}
+
+@media only screen and (max-width: 949.99px) {
+    .tiles-title.empty_b {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 629.99px) {
+    .tiles-title {
+        align-items: center;
+        justify-content: center;
+    }
+    .tiles-title.empty_a {
+        display: none;
+    }
 }
 
 /* https://stackoverflow.com/questions/25832340 */
@@ -364,20 +388,6 @@ input[type=submit]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.empty-tiles-box {
-    width: 280px;
-    height: 280px;
-}
-
-@media only screen and (max-width: 950px) {
-    .empty-tiles-box {
-        display: none;
-    }
-    .tiles-wrapper {
-        justify-content: center;
-    }
 }
 
 .tiles-box:hover {
