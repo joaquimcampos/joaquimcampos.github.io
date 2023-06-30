@@ -318,7 +318,7 @@ input[type=submit]:hover {
     width: 36em;
     aspect-ratio: 2 / 1;
     border-width: .3em;
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .row-compression a {
