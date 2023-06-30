@@ -165,12 +165,15 @@ input[type=submit]:hover {
     background-color: #52525e;
 }
 
+.last-element {
+    margin-bottom: 3cm;
+}
+
 /********************/
 /*     Main page    */
 /********************/
 
 .contacting-me {
-    margin-bottom: 3cm;
     margin-top: 1cm;
 }
 
@@ -265,13 +268,14 @@ input[type=submit]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 35px;
+    margin-top: 1.5em;
+    margin-bottom: 2.5em;
+    max-width: 95%;
 }
 
 .row-radiobooks {
-    width: 35%;
-    padding: 25px;
+    width: 20em;
+    padding: 2%;
 }
 
 .row-radiobooks img,
@@ -285,8 +289,8 @@ input[type=submit]:hover {
 .row-face,
 .row-deepsplines,
 .row-compression {
-    border: 6px solid #62a2b3;
-    border-radius: 10px;
+    border: .4em solid #62a2b3;
+    border-radius: .66em;
 }
 
 .row-radiobooks,
@@ -297,23 +301,23 @@ input[type=submit]:hover {
 }
 
 .row-mahayana {
-    width: 25%;
-    padding: 10px;
+    width: 16em;
+    padding: 1%;
 }
 
 .row-face {
-    width: 60%;
+    width: 32em;
 }
 
 .row-face img {
     width: 33.33%;
-    padding: 20px;
+    padding: 4%;
 }
 
 .row-compression {
-    width: 60%;
+    width: 36em;
     aspect-ratio: 2 / 1;
-    border-width: 4px;
+    border-width: .3em;
     background-color: white;
 }
 
@@ -333,12 +337,12 @@ input[type=submit]:hover {
 
 .row-compression a img {
     width: 100%;
-    padding: 10px;
+    padding: 4%;
 }
 
 .row-deepsplines {
-    width: 45%;
-    padding: 20px;
+    width: 28em;
+    padding: 1em;
     border-width: 5px;
 }
 
@@ -350,44 +354,32 @@ input[type=submit]:hover {
 .tiles-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 40px;
-  margin-bottom: 3cm;
+  justify-content: center;
+  align-items: center; 
+  column-gap: 30px;
+  row-gap: 30px;
 }
 
 .tiles-title {
     display: flex;
-    width: 280px;
-    height: 83px;
-    margin-bottom: -10px;
-}
-
-@media only screen and (max-width: 949.99px) {
-    .tiles-title.empty_b {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 629.99px) {
-    .tiles-title {
-        align-items: center;
-        justify-content: center;
-    }
-    .tiles-title.empty_a {
-        display: none;
-    }
+    align-items: start;
+    width: 240px;
+    height: 60px;
+    margin: 0;
 }
 
 /* https://stackoverflow.com/questions/25832340 */
+/* It's ok to use pixel values here because boxes have fixed pixel width */
 .tiles-box {
-  width: 280px;
-  height: 280px;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #9d9488;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    width: 240px;
+    height: 240px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #9d9488;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .tiles-box:hover {
@@ -449,4 +441,49 @@ input[type=submit]:hover {
 .tiles-box.f:hover,
 .tiles-box.f:active {
     text-decoration: none;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 809.5px) {
+    .tiles-title.empty_b {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 540.5px) {
+    .tiles-wrapper {
+        column-gap: 25px;
+        row-gap: 25px;
+    }
+    .tiles-box {
+        width: 160px;
+        height: 160px;
+    }
+    .tiles-title {
+        width: 160px;
+        height: 40px;
+    }
+    .tiles-title {
+        margin-bottom: 20px;
+    }
+    .tiles-box.f > div:nth-child(1) {
+        font-size: 20px;
+    }
+    .tiles-box.f > div:nth-child(2) {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 374.5px) {
+    .tiles-wrapper {
+        row-gap: 15px;
+    }
+    .tiles-title {
+        align-items: center;
+        justify-content: center;
+    }
+    .tiles-title.empty_a {
+        display: none;
+    }
 }
