@@ -15,36 +15,45 @@
 <div class="last-element">
 <p>
     Radiobooks is a start-up that converts books into audiobooks using AI.
-    Converting a book into audiobook costs a lot of money and time, and human resources.
-    And there are just too many books!
-    As a result, less than 1% of the books are converted into audio, and the great
-    majority is in english.
-    Books that do not have a high degree of exposure do not stand a
-    chance of ever being converted. Most small and independent authors
-    therefore do not have any option.
+    Our software consists of an editing studio that gives users ample control over the generated audio, allowing them to customize it to fit your requirements. We are focused on creating a well-designed, easy and intuitive user experience.
+</p>
+<h4 style="margin-top: 20px">How It Works</h4>
+<p>
+    First, you can create a project by uploading an EPub or PDF file and choosing a narration voice from a large selection of languages.
+    Then, our backend runs algorithms that analyze the submitted document&mdash;detecting images, tables, chapters, page numbers, etc.&mdash;and automatically identifies which content should be read or not (for example, the details of the publisher are automatically left out).
+    Once this is finished, you can listen to the generated audios (one per block of text) and make appropriate changes:
+    modify a particular piece of text, add pauses, change the narration voice, audio speed, pitch, and volume, etc.
+    Finally, once you're happy with the result, you can download the full generated audio or just a few chapters for listening on-the-go.
+</p>
+<h4 style="margin-top: 20px">The Motivation</h4>
+<p>
+    The classical way of converting a book into an audiobook involves renting a studio,
+    hiring a voice actor and a sound engineer, and going through a
+    recording-and-correction back-and-forth that usually
+    lasts several months.
+    As a consequence, only famous authors stand a chance of ever having
+    their books converted into audio&mdash;small and independent authors, and authors from less technologically developed countries, on the other hand, can only dream about it...
 </p>
 <p>
-    We see this project as an example of ethical AI. Famous books will always be
-    converted by human narrators, but are a tiny fraction of all existent books.
-    Our vision is to improve education worldwide by converting books to audio that would
-    not be converted otherwise.
-    We are aiming towards helping
-    Independent authors,
-    authors in developing countries with less financial resources,
-    and the literature student who doesn't have time to read all of the books in the
-    curriculum.
+    Even if we take finances out of the equation, there are just just too many books
+    and not enough people and time to convert them.
+    As a result, less than 1% of the books are converted into audio, and the great majority of them are in English.
+    Since the end result of classical human narration is obviously preferable to that of AI narration, the books that can be converted by classical means will always be. But, as this number shows, there is a lot of untapped potential here.
+    Our aim is to facilitate the conversion of all the books that would never be converted without this kind of technology (the other 99%). With that, we hope to improve education worldwide, and help small and independent authors, and authors in less technologically developed countries.
 </p>
 <p>
-    Our software consists of an editing studio that gives users ample control over the generated audio, allowing them to customize their audiobooks to fit their requirements.
-    Using our software, users can create a project by uploading an .EPUB or .PDF file, and choosing a language and voice from a wide selection.
-    We then run algorithms that analyze the submitted document&mdash;detecting images, tables, chapters, page numbers, etc.&mdash;and automatically identify which content should be read or not (for example, the details of the publisher are automatically left out.)
-    Once this is finished, the user can listen to the generated audios and make appropriate changes:
-    modify the text, add pauses, change the voice, audio speed, pitch, and volume, for a given block, etc.
-    At the end, the user can download the full generated audio or just a few chapters for listening to it wherever they wish.
+    
+    <!-- and to the literature student who doesn't have time to read all of the books in the curriculum. -->
 </p>
+</p>
+    All in all, we are hoping that our product becomes an example of ethical AI.
+</p>
+
+<h4 style="margin-top: 20px">My Contribution</h4>
 <p>
-    My role in this project has been to create the backend infrastructure. This includes developing and implementing the required algorithms, writing test suites, and managing CI-CD pipelines, cloud deployment, cloud storage, and database management.
-    Moreover, as CTO, I am leading the development team, talking with clients, and riding the usual startup rollercoaster, with all its ups and downs.
+    I am a Co-Founder and CTO of Radiobooks.
+    My role in this project has been to create the backend infrastructure; this includes developing and implementing the required algorithms, writing test suites, and managing CI-CD pipelines, cloud deployment, cloud storage, and database management.
+    Moreover, as CTO, I am working with the development team, talking with clients, and riding the usual startup rollercoaster, with all its ups and downs.
 </p>
 <p>
     I added a few code samples from the project's backend in this
@@ -54,5 +63,21 @@
         <inline-github-logo></inline-github-logo>
     </a>.
     It is only meant for showcasing purposes.
+</p>
+<h4 style="margin-top: 20px">Technologies</h4>
+<p>
+    Here I outline a few technologies that I used in this project.
+    <ul>
+        <li><a href="https://fastapi.tiangolo.com/">FastAPI</a>: Python web framework.</li>
+        <li><a href="https://pydantic-docs.helpmanual.io/">Pydantic</a>: Python dependency used to create and validate DTOs.</li>
+        <li><a href="https://spec.openapis.org/oas/latest.html">OpenAPI/Swagger</a>: Rest HTTP API specification format.</li>
+        <li><a href="https://docs.docker.com/compose/">Docker Compose</a>: For management of application containers.</li>
+        <li><a href="https://fly.io/docs/">Fly.io</a>: Global application platform used to deploy the containers.</li>
+        <li><a href="https://beanie-odm.dev/">Beanie</a>: An an asynchronous Python ODM for MongoDB.</li>
+        <li><a href="https://pymongo.readthedocs.io">PyMongo</a>: The Python &lt;&dash;&gt; mongo driver.</li>
+        <li><a href="https://pipenv.pypa.io/en/latest/">Pipenv</a>: Python dependency management tool.</li>
+        <li><a href="https://aioboto3.readthedocs.io/en/latest/usage.html">AWS aioboto3</a>: Async AWS SDK.</li>
+    </ul>
+    
 </p>
 </div>
