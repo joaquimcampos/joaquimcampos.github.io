@@ -188,6 +188,15 @@ input[type=submit]:hover {
     }
 }
 
+/* media queries */
+
+/********** small screen size (sm) and above **********/
+@media only screen and (min-width: 576px) {
+    .optional-break {
+        display: none;
+    }
+}
+
 /********** xxs devices only **********/
 @media only screen and (max-width: 400px) {
     .col-xxs-12{
