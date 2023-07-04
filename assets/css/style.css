@@ -312,7 +312,7 @@ input[type=submit]:hover {
 
 .row-radiobooks {
     width: 19em;
-    padding: 2%;
+    padding: 18px;
 }
 
 .row-radiobooks img,
@@ -386,6 +386,12 @@ input[type=submit]:hover {
 
 /* Tiles */
 
+:root {
+    --container-width: 920px;
+    --first-width: 280px;
+}
+
+/* Container fluid has 920 space */
 /* https://stackoverflow.com/questions/45907673 */
 /* https://stackoverflow.com/questions/25832340 */
 .tiles-wrapper {
@@ -393,15 +399,15 @@ input[type=submit]:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center; 
-  column-gap: 30px;
-  row-gap: 30px;
+  column-gap: calc((var(--container-width) - 3 * var(--first-width)) / 2);
+  row-gap: calc((var(--container-width) - 3 * var(--first-width)) / 2);
 }
 
 .tiles-title {
     display: flex;
     align-items: start;
-    width: 240px;
-    height: 60px;
+    width: var(--first-width);
+    height: 106px;
     margin: 0;
 }
 
@@ -409,8 +415,8 @@ input[type=submit]:hover {
 /* It's ok to use pixel values here because boxes have fixed pixel width */
 .tiles-box {
     display: flex;
-    width: 240px;
-    height: 240px;
+    width: var(--first-width);
+    height: var(--first-width);
     border-radius: 10px;
     cursor: pointer;
     background-color: #9d9488;
@@ -452,7 +458,6 @@ input[type=submit]:hover {
 
 .tiles-box.f {
     color: #2b2a33;
-    font-size: 30px;
     flex-wrap: wrap;
 }
 
@@ -466,12 +471,13 @@ input[type=submit]:hover {
 
 .tiles-box.f > div:nth-child(1) {
     align-items: flex-end;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .tiles-box.f > div:nth-child(2) {
     align-items: flex-start;
-    font-size: 20px;
+    font-size: 25px;
+    padding: 10px;
 }
 
 
@@ -482,40 +488,34 @@ input[type=submit]:hover {
 
 /* media queries */
 
-@media only screen and (max-width: 809.5px) {
+@media only screen and (max-width: 949.5px) {
     .tiles-title.empty_b {
         display: none;
     }
 }
 
-@media only screen and (max-width: 540.5px) {
+@media only screen and (max-width: 654.5px) {
     .tiles-wrapper {
-        column-gap: 25px;
-        row-gap: 25px;
+        row-gap: 30px;
+        column-gap: 30px
     }
     .tiles-box {
-        width: 160px;
-        height: 160px;
+        width: 220px;
+        height: 220px;
     }
     .tiles-title {
-        width: 160px;
-        height: 40px;
-    }
-    .tiles-title {
-        margin-bottom: 20px;
+        width: 220px;
+        margin-bottom: 5px;
     }
     .tiles-box.f > div:nth-child(1) {
-        font-size: 20px;
+        font-size: 30px;
     }
     .tiles-box.f > div:nth-child(2) {
-        font-size: 15px;
+        font-size: 20px;
     }
 }
 
-@media only screen and (max-width: 374.5px) {
-    .tiles-wrapper {
-        row-gap: 15px;
-    }
+@media only screen and (max-width: 499.5px) {
     .tiles-title {
         align-items: center;
         justify-content: center;
@@ -523,4 +523,48 @@ input[type=submit]:hover {
     .tiles-title.empty_a {
         display: none;
     }
+}
+
+/* HTV */
+
+.row-boxsplines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    background-color: #ffffff;
+    border: .3em solid #62a2b3;
+    border-radius: .66em;
+    width: 30em;
+    aspect-ratio: 2 / .8;
+    margin-bottom: 21px;
+}
+
+.row-boxsplines > div:nth-child(1),
+.row-boxsplines > div:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-boxsplines > div:nth-child(1) {
+    width: 59.6%;
+}
+
+.row-boxsplines > div:nth-child(2) {
+    width: 0.8%;
+    background-color: #62a2b3;
+    align-self: stretch;
+}
+
+.row-boxsplines > div:nth-child(3) {
+    width: 39.6%;
+}
+
+.row-boxsplines > div:nth-child(1) > img {
+    width: 90%;
+}
+
+.row-boxsplines > div:nth-child(3) > img {
+    width: 70%;
 }

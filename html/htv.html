@@ -8,7 +8,7 @@
     </a>
 </h3>
 
-<a class="row-face" href="https://ieeexplore.ieee.org/document/9655475">
+<a id="face-img" class="row-face" href="https://ieeexplore.ieee.org/document/9655475">
     <img src="assets/images/htv1.png" alt="Face GT">
     <img src="assets/images/htv2.png" alt="Face HTV">
     <img src="assets/images/htv3.png" alt="Face NN">
@@ -17,6 +17,65 @@
 <div class="last-element">
 <h4>This Work, Explained in Simple Terms</h4>
 <p>
+    Suppose we have some data with \(M\) datapoints, which we write mathematically as
+    \(\lbrace {\mathbf x}_m, y_m\rbrace _{m=1}^M\).
+    For example, this might be a sequence of mountain images and their corresponding
+    height in meters.
+</p>
+<p>
+    In supervised learning, our goal is to find a model such that for a new input
+    \({\mathbf x}_{\mathrm{new}}\) that is not present in the training data
+    (a new image of a mountain),
+    we can predict as best as possible its value \(y_{\mathrm{new}}\)
+    (its height in meters).
+    Mathematically, if the prediction is denoted as \(\hat{y}_{\mathrm{new}}\),
+    we want that \(\hat{y}_{\mathrm{new}} \approx y_{\mathrm{new}}\).
+</p>
+<p>
+    But this is a very difficult puzzle to solve, because there are infinite models
+    that could fit the data, and very few actually make sense.
+    So, therefore, we need to introduce some information to solve the problem:
+    Either we know what kind of models we are looking for or we choose the simplest ones,
+    following the Occam's razor principle: The simplest explanation is usually the best.
+</p>
+<p>
+    In mathematics, we usually define simple models as sparse, in the sense that we
+    don't need a lot of parameters to explain what is going on. This has the advantage
+    of being computationally feasible and chepar, <i>i.e.</i> a computer can do it and faster,
+    and also being more explainable, <i>i.e.</i> we actually know what is going on
+    (unlike ChatGPT &#x1F937).
+</p>
+<p>
+    One kind of model that is quite simple are piecewise-linear models &#x1F4C9 with few
+    regions. Piecewise-linear models are especially important nowadays because neural networks
+    With ReLU-like activations (the most common) are within that family.
+</p>
+<p>
+    What we did in this project is to find a way to obtain piecewise-linear models
+    with few regions from the data. And we actually compared it with neural networks.
+    Our model can be thought of as a lego where the pieces are piecewise-linear
+    box splines. In the following image you can see, on the left, the lego piece that
+    we use, and, on the right, the models it learns by summing different lego
+    pieces with different heights and different locations.
+</p>
+
+<div class="row-boxsplines">
+    <div>
+        <img src="assets/images/boxspline.png" alt="Box Spline">
+    </div>
+    <div></div>
+    <div>
+        <img src="assets/images/boxspline_model.png" alt="Piecewise-Linear Model">
+    </div>
+</div>
+<p>
+    The <a href="#/htv#face-img">top image in this page</a> shows, on the left, the ground-truth data from a
+    face dataset,
+    on the middle, the reconstruction with our algorithm from 5000 datapoints, and,
+    on the right, a neural network model trained on the same data.
+</p>
+
+<!-- <p>
     Abstract: <br>
     We develop a novel 2D functional learning framework that employs a sparsity-promoting
     regularization based on second-order derivatives. Motivated by the nature of the regularizer, we restrict the
@@ -25,8 +84,7 @@
     that can be solved using standard methods in convex optimization. Since our search space is composed of
     continuous and piecewise-linear functions, our work presents itself as an alternative to training networks that
     deploy rectified linear units, which also construct models in this family. The advantages of our method are
-    fourfold: the ability to enforce sparsity, favoring models with fewer piecewise-linear regions; the use of a ro-
-    tation, scale and translation-invariant regularization; a single hyperparameter that controls the complexity of
+    fourfold: the ability to enforce sparsity, favoring models with fewer piecewise-linear regions; the use of a rotation, scale and translation-invariant regularization; a single hyperparameter that controls the complexity of
     the model; and a clear model interpretability that provides a straightforward relation between the parameters
     and the overall learned function. We validate our framework in various experimental setups and compare it
     with neural networks.
@@ -51,8 +109,8 @@
     promoting effect of our framework via numerical examples
     where we have compared its performance with ReLU neural
     networks and radial-basis functions.
-</p>
-<h4 style="margin-top: 20px">Impact</h4>
+</p> -->
+<h4 style="margin-top: 40px">Impact</h4>
 <p>
 This work has been cited 13 times. In particular, these results were used in two papers (<a href="https://arxiv.org/abs/2210.04077">[1]</a>,
 <a href="https://arxiv.org/abs/2302.12554">[2]</a>) of mathematician
@@ -63,10 +121,11 @@ doctoral advisor of
 winner
 <a href="https://en.wikipedia.org/wiki/Alessio_Figalli">Alessio Figalli</a>.
 </p>
-<h4 style="margin-top: 20px">Publications</h4>
-    <div ng-controller="HTVPubsCtrl">
-        <pubs-no-headers></pubs-no-headers>
-    </div>
+<p style="margin-top: 20px; margin-bottom: 10px">
+    <b>Publications</b>
 </p>
+<div ng-controller="HTVPubsCtrl">
+    <pubs-no-headers></pubs-no-headers>
+</div>
 
 </div>  <!-- last element -->
