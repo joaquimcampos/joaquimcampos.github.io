@@ -15,50 +15,64 @@
 </a>
 
 <div class="last-element">
-<h4>This Work, Explained in Simple Terms</h4>
+<h4>This Project, Simply Explained</h4>
 <p>
-    Suppose we have some data with \(M\) datapoints, which we write mathematically as
-    \(\lbrace {\mathbf x}_m, y_m\rbrace _{m=1}^M\).
-    For example, this might be a sequence of mountain images and their corresponding
-    height in meters.
+    Suppose we have a dataset \({\mathrm D}\) with \(M\) datapoints, where each datapoint is a pair
+    of inputs and their corresponding values&mdash;mathematically, we write this statement
+    as \({\mathrm D} = \lbrace{\mathbf x}_m, y_m\rbrace _{m=1}^M\).
+    This dataset might be, for example, a sequence of images of mountains and their
+    corresponding height in meters, as depicted below.
+</p>
+<div class="row-matterhorn">
+    <img src="assets/images/matterhorn.png" alt="Radiobooks logo">
+</div>
+<p>
+    Continuing with the previous example, in supervised learning our goal is to find a model \(f\) that predicts the height \(y_m\) of each image \({\mathbf x}_m\) in our dataset fairly well <a href="" ng-click="scrollToElement('footnote-1')">[1]</a>
+    (<i>i.e.</i>, \(f({\bf x}_m) = \hat{y}_m \approx y_m\)),
+    and that is able to generalize to new inputs. Specifically, we want our model to accurately predict
+    the height of a mountain whose image it has not
+    seen before (<i>i.e.</i> is not present the training data). This is what learning is all about.
 </p>
 <p>
-    In supervised learning, our goal is to find a model such that for a new input
-    \({\mathbf x}_{\mathrm{new}}\) that is not present in the training data
-    (a new image of a mountain),
-    we can predict as best as possible its value \(y_{\mathrm{new}}\)
-    (its height in meters).
-    Mathematically, if the prediction is denoted as \(\hat{y}_{\mathrm{new}}\),
-    we want that \(\hat{y}_{\mathrm{new}} \approx y_{\mathrm{new}}\).
-</p>
-<p>
-    But this is a very difficult puzzle to solve, because there are infinite models
+    In general, this a very difficult puzzle to solve, because there are infinite models
     that could fit the data, and very few actually make sense.
-    So, therefore, we need to introduce some information to solve the problem:
-    Either we know what kind of models we are looking for or we choose the simplest ones,
-    following the Occam's razor principle: The simplest explanation is usually the best.
+    Therefore, we need to introduce some information to solve the problem.
+<!-- </p>
+<p> -->
+    First, if we know some prior information about the data distribution, then we can use
+    it. For example, if the data is the result of a linear mapping plus
+    some observation noise, <i>i.e.</i>, \(y = {\mathbf w}^T{\mathbf x} + b + \epsilon\),
+    then we can just search within family of models and just by trying to find
+    the optimal parameters \({\mathbf w}\) and \(b\). In this way, we transform an
+    a priori very complicated (infinite-dimensional) problem into a very simple
+    (finite-dimensional) one. Alternatively, we might search restrict ourselves to a family
+    of models that we know usually works for similar tasks.
+    Finally, we might also want to favor simple models, following the Occam's razor principle:
+    as long as it can do the job, the simpler, the better.
+    Simple models have the advantage of being faster to use,
+    ocupying less memory and being more robust.
+    Moreover, they are more explainable, since with less parameters the influence of
+    each one in the final result becomes easier to understand.
+    So we actually understand what is going on (unlike with ChatGPT &#x1F937).
+    
 </p>
 <p>
-    In mathematics, we usually define simple models as sparse, in the sense that we
-    don't need a lot of parameters to explain what is going on. This has the advantage
-    of being computationally feasible and chepar, <i>i.e.</i> a computer can do it and faster,
-    and also being more explainable, <i>i.e.</i> we actually know what is going on
-    (unlike ChatGPT &#x1F937).
+    Well, a family of models that has had a lot of success in the past few years
+    are neural networks, which are within the family of piecewise-linear models &#x1F4C9
+    <a href="" ng-click="scrollToElement('footnote-2')">[2]</a>.
+    The problem is that there is no way to control the number of linear regions of
+    neural networks.
+    In this project, we found a way to learn piecewise-linear models from the data
+    that have few regions and a straightforward relationship
+    with their parameters.
+    For this, we used a regularizer that enforces sparse second-derivatives (don't mind this too much),
+    and restricted ourselves to a family of models that is made of "lego pieces" called box splines.
+    In the following image you can see, on the left, the lego pieces that make up our models
+    and, on the right, the a learned model which results from summing shifted versions of this lego
+    pieces with different heights.
 </p>
-<p>
-    One kind of model that is quite simple are piecewise-linear models &#x1F4C9 with few
-    regions. Piecewise-linear models are especially important nowadays because neural networks
-    With ReLU-like activations (the most common) are within that family.
+<p> 
 </p>
-<p>
-    What we did in this project is to find a way to obtain piecewise-linear models
-    with few regions from the data. And we actually compared it with neural networks.
-    Our model can be thought of as a lego where the pieces are piecewise-linear
-    box splines. In the following image you can see, on the left, the lego piece that
-    we use, and, on the right, the models it learns by summing different lego
-    pieces with different heights and different locations.
-</p>
-
 <div class="row-boxsplines">
     <div>
         <img src="assets/images/boxspline.png" alt="Box Spline">
@@ -69,9 +83,10 @@
     </div>
 </div>
 <p>
-    The <a href="#/htv#face-img">top image in this page</a> shows, on the left, the ground-truth data from a
-    face dataset,
-    on the middle, the reconstruction with our algorithm from 5000 datapoints, and,
+    We also compared our method with neural networks.
+    The <a href="" ng-click="scrollToElement('face-img')">top image in this page</a>
+    shows, on the left, the ground-truth data from a facial dataset,
+    on the middle, the reconstruction with our algorithm from \(M = 5000\) datapoints, and,
     on the right, a neural network model trained on the same data.
 </p>
 
@@ -127,5 +142,21 @@ winner
 <div ng-controller="HTVPubsCtrl">
     <pubs-no-headers></pubs-no-headers>
 </div>
+
+<h4 class="subsection">Technologies</h4>
+<p>
+    Here I outline a few technologies that I used in this project.
+    <ul>
+        <li><a href="https://www.python.org/">Python</a>: Programming language.</li>
+        <li><a href="https://pytorch.org/">Pytorch</a>: Deep learning framework.</li>
+        <li><a href="https://www.gnu.org/software/bash/">Bash</a>: Unix shell and command language.</li>
+    </ul>
+    
+</p>
+
+<hr style="margin-top: 40px;">
+<h5>Footnotes</h5>
+<p style="margin-bottom: 0px;" id="footnote-1">[1] We call this "fitting the data".</p>
+<p id="footnote-2">[2] Those with ReLU-like activations, which are the most used ones.</p>
 
 </div>  <!-- last element -->

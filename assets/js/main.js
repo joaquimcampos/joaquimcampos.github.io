@@ -82,6 +82,14 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
             backdropClass: 'pic-modal-back'
         }).result.then(function(){}, function(res){});
     }
+
+    $scope.scrollToElement = function(ElementId) {
+        var Element = document.getElementById(ElementId);
+        if (Element) {
+            Element.scrollIntoView();
+        }
+    };
+    
 }])
 .filter('floor', function() {
     return function(input) {
