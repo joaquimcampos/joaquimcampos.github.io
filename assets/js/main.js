@@ -49,6 +49,15 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
 
     $scope.$on('$routeChangeStart', updateButton);
 
+    // Manually trigger MathJax to render the formulas
+    var renderMathJax = function() {
+        if (typeof MathJax !== 'undefined') {
+            MathJax.typeset();
+        }
+    };
+
+    $scope.$on('$viewContentLoaded', renderMathJax);
+
     // Function to collapse the navbar when clicking away
     var collapseNavbar = function() {
         $scope.navbarCollapsed = true;
