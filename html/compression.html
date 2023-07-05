@@ -19,6 +19,73 @@
 <div class="last-element">
 <h4>This Project, Simply Explained</h4>
 <p>
+    What is compression?
+</p>
+<p>
+    Let's say you would like a friend to try your home-made vegan chocolate cake.
+    What is the most reliable way of doing it? Well, you bake the cake yourself,
+    you drive up to your friend's house, and you give it to them.
+    However, this is also the most inefficient way: A cake is heavy, and it takes time
+    to bring it to your friend's house, especially if some road is cut on your way there.
+</p>
+<p>
+    Let's look for alternatives. Why don't you write down the recipe of your chocolate
+    cake and send it to them? Of course, the end result won't be ideal, especially
+    if your friend does not cook well, but it will be much more efficient. A recipe
+    is much lighter, it occupies much less space, and so it is faster to send.
+</p>
+    We can even have a third option. Let's say you meet your friend at a party and they
+    ask you for your cake's recipe. You cannot remember it so you tell them that
+    you'll check it and send it later. But because the recipe is very long, you decide
+    to agree on some things that will make it shorter so that it is faster to send.
+    You can agree, for example, that "One tablespoon" will be written as "1 Tbsp" (here
+    you already save >50% of space), or that "1 milk" means "1 pack of oatmilk
+    from <a href="https://www.oatly.com/en">Oatly</a>" (No, I don't receive any money from them &#128516;).
+    You can save a bunch more space.
+</p>
+<p>
+    That is the idea behind compression. The internet has "roads" that can be pretty congested.
+    If you request a film from Netflix at 1080p, they can send the value (0 to 256)
+    of each of the pixels (2073600) of each RGB channel (3) of each of the 130,000 frames of the film.
+    That's roughly 809 GB of information (almost 1 TB). You can wait for your movie to
+    download next year &#128516;...
+    Of course, the less memory and time-efficient solution is also the one that has the best
+    quality. So, if you were able to download all 809 GB, you can sure that it will be the
+    best quality possible.
+    But, we cannot wait for a year.
+    The smaller the space that your information occupies, the faster it will be to send.
+    But you still want the film to have a decent quality. 
+    There is fundamental trade-off here called the
+    <a href="https://en.wikipedia.org/wiki/Rate%E2%80%93distortion_theory">Rate-Distortion curve</a>.
+    We need to strike a balance between space occupied/speed and reconstruction quality. 
+    If you wish to summarize your chocolate cake recipe in two lines, you can do it.
+    But don't except the other person to come up with a version similar to your home-made cake.
+</p>
+    How can you do that in video? Well, videos are made of frames that oftentimes don't change
+    much. A simple way to think about compression in this case is that if you have an almost static scene
+    for 2 seconds, you can just encode the first frame and then send a small piece of information that
+    says "The next 47 frames are the same".
+    Otherwise, you can also encode one frame (called the intra-frame) and for the remaining
+    ones in the next two seconds you compute the differences in motion (motion vectors)
+    and just encode those.
+    What we actually do is to encode this side information like motion vectors into
+    a recipe themselves. So we have recipes for certain elements of the recipe!
+</p>
+<p>
+    Netflix has an encoder, your laptop has a copy of a decoder.
+    They are trained together, so that they can share information (like the third case
+    in the chocolate cake example).
+</p>
+<p>
+    In the second project we found a way to optimize a new recipe without
+    having to exchange new information between the encoder and the decoder,
+    just by tweaking the recipe itself.
+    Knowing the information that I have and knowing the information my friend has,
+    I can tweak the recipe in a way that I will either improve the quality or reduce
+    the space, compared to a baseline scenario where I just generate the recipe (encode
+    it) and don't tweak it.
+</p>
+
     While there are many deep learning based approaches for single image compression, the field of end-to-end learned video coding has remained much less explored. Therefore, in this work we present an inter-frame compression approach for neural video coding that can seamlessly build up on different existing neural image codecs. Our end-to-end solution performs temporal prediction by optical flow based motion compensation in pixel space. The key insight is that we can increase both decoding efficiency and reconstruction quality by encoding the required side information into a latent representation that directly decodes into motion and blending coefficients. In order to account for remaining prediction errors, residual information between the original image and the interpolated frame is needed. We propose to compute residuals directly in latent space instead of in pixel space as this allows to reuse the same image compression network for both key frames and intermediate frames. This has the advantage of making our video coding approach, more coherent, more memory efficient, and easier to train. Our extended evaluation on different datasets and resolutions shows that the rate-distortion performance of our approach is competitive with existing state-of-the-art codecs.
     <br> <br>
     Conclusion: <br>
