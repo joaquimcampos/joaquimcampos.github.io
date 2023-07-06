@@ -156,6 +156,14 @@ app.controller('DisneyPubsCtrl', ['$scope', '$http', '$filter', '$uibModal',
         const cite_keys = [
             "djelouahNeuralInterFrameCompression2019",
             "camposContentAdaptiveOptimization2019",
+        ];
+        PubsCtrlFunc($scope, $http, $filter, $uibModal, cite_keys)
+    }
+])
+
+app.controller('DisneyPatentsCtrl', ['$scope', '$http', '$filter', '$uibModal',
+    function ($scope, $http, $filter, $uibModal) {
+        const cite_keys = [
             "schroersContentAdaptiveOptimization2021",
             "schroersSystemsMethodsReconstructing2021",
             "schroersSystemsMethodsGenerating2021"

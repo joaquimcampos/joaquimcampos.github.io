@@ -8,152 +8,145 @@
 
 <div class="row-compression">
     <a href="https://studios.disneyresearch.com/2019/10/27/neural-inter-frame-compression-for-video-coding/">
-        <img src="assets/images/video_compression.png" alt="Video Compression">
+        <img id="video-compression" src="assets/images/video_compression.png" alt="Video Compression">
     </a>
     <div></div>
     <a href="https://openaccess.thecvf.com/content_CVPRW_2019/html/CLIC_2019/Campos_Content_Adaptive_Optimization_for_Neural_Image_Compression_CVPRW_2019_paper.html">
-        <img src="assets/images/image_compression.png" alt="Image Compression">
+        <img id="img-compression" src="assets/images/image_compression.png" alt="Image Compression">
     </a>
 </div>
 
 <div class="last-element">
-<h4>This Project, Simply Explained</h4>
+<h4>Compression, Simply Explained</h4>
 <p>
-    What is compression?
+    <b>What is compression?</b>
+    Most of us are familiar with MP3, JPEG, and MPEG&mdash;compression standards
+    for audio, image, and video, respectively.
+    And, nowadays, the internet relies on sophisticated versions of these codecs (coder/decoder)
+    in order to deliver media content to our devices almost instantaneously and with with very little quality loss.
+    Here, I will try to explain in simple terms the general idea behind compression algorithms,
+    and talk briefly about the research I conducted with my colleagues at
+    <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">Disney Research.</a>
 </p>
 <p>
-    Let's say you would like a friend to try your home-made vegan chocolate cake.
+    Let's image that you would like a friend to try your home-made vegan chocolate cake.
     What is the most reliable way of doing it? Well, you bake the cake yourself,
-    you drive up to your friend's house, and you give it to them.
-    However, this is also the most inefficient way: A cake is heavy, and it takes time
-    to bring it to your friend's house, especially if some road is cut on your way there.
+    drive up to your friend's house, and deliver it to her.
+    It works, but it is also quite inneficient: A cake is heavy and it takes time
+    to bring it all the way to other side of the country where your friend lives,
+    especially if you encounter heavy traffic on your way there.
 </p>
 <p>
-    Let's look for alternatives. Why don't you write down the recipe of your chocolate
-    cake and send it to them? Of course, the end result won't be ideal, especially
-    if your friend does not cook well, but it will be much more efficient. A recipe
-    is much lighter, it occupies much less space, and so it is faster to send.
+    If you really want your friend to eat the best version of your cake,
+    but you want to save some space, you can also not put the non-baked toppings,
+    like the store-bought chocolate chips, and then you can give them cake and
+    send them an sms with a list of the toppings with the exact brands,
+    the exact amount to use, and indications on where to locations on the cake.
+    This is what's called lossless compression, because the final version will be
+    the same as if you had included the toppings.
 </p>
-    We can even have a third option. Let's say you meet your friend at a party and they
-    ask you for your cake's recipe. You cannot remember it so you tell them that
-    you'll check it and send it later. But because the recipe is very long, you decide
-    to agree on some things that will make it shorter so that it is faster to send.
-    You can agree, for example, that "One tablespoon" will be written as "1 Tbsp" (here
+<p>
+    Lossless compression can only go up to a certain point, though.
+    The alternative is to allow some loss of information.
+    You can simply write down the steps required to
+    bake your cake, <i>i.e.</i> the recipe, and send it to your friend via sms.
+    A recipe is much lighter, it occupies much less space, and so it is faster to send.
+    Here, the recipe is the result of <i>compressing</i> your chocolate cake into a smaller version that is lighter and therefore faster can send. You are the <i>encoder</i>.
+    What your friend needs to do is to take this recipe and attempt her best <i>reconstruction</i> of your cake. She is the <i>decoder</i>.
+
+    But, of course, there is <a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">no free lunch</a> (or cake): the end result won't be ideal, especially if your friend does not bake as well as you.
+    Because your friend's version of your cake will not exactly correspond to the original one, the compression
+    is lossy (some information/quality was lost).
+    Further, if you try to summarize your recipe in fewer steps, although you'll be able to send it faster,
+    the quality will be even worse.
+    We need to strike a balance between space occupied/speed and reconstruction quality. 
+    This fundamental trade-off is called the
+    <a href="https://en.wikipedia.org/wiki/Rate%E2%80%93distortion_theory">Rate-Distortion curve</a>
+    (you can actually see one <a href="" ng-click="scrollToElement('img-compression')">above</a>):
+    It tells us that if you wish to summarize your chocolate cake recipe in two lines, you can,
+    but don't except your friend to come up with anything similar to your home-made cake.
+    A compression algorithm is better then another one if for the same number of recipe characters,
+    you can get a better reconstruction quality (as
+    in <a href="" ng-click="scrollToElement('img-compression')">above</a>)
+</p>
+</p>
+    It's already good, but we can still make this process more efficient in another way.
+    Let's say you meet your friend at a party.
+    You would like to give her the recipe, but you cannot remember it, so you'll have to
+    send it once you're back home. However, you know the recipe will turn out
+    to be very long, so you decide to agree on some things that will make it shorter
+    so that it is faster to send; you can agree, for example, that "One tablespoon" will be written as "1 Tbsp" (here
     you already save >50% of space), or that "1 milk" means "1 pack of oatmilk
     from <a href="https://www.oatly.com/en">Oatly</a>" (No, I don't receive any money from them &#128516;).
-    You can save a bunch more space.
+    (This is actually a lossless compression step relative to the second case, because no information
+    is, well, lost: "1 Tbsp" is mapped exactly to "one tablespoon").
+    In this way, by sharing information between the encoder (you) and decoder (your friend),
+    you can save a bunch more space.
 </p>
 <p>
     That is the idea behind compression. The internet has "roads" that can be pretty congested.
-    If you request a film from Netflix at 1080p, they can send the value (0 to 256)
-    of each of the pixels (2073600) of each RGB channel (3) of each of the 130,000 frames of the film.
-    That's roughly 809 GB of information (almost 1 TB). You can wait for your movie to
-    download next year &#128516;...
-    Of course, the less memory and time-efficient solution is also the one that has the best
-    quality. So, if you were able to download all 809 GB, you can sure that it will be the
-    best quality possible.
-    But, we cannot wait for a year.
-    The smaller the space that your information occupies, the faster it will be to send.
-    But you still want the film to have a decent quality. 
-    There is fundamental trade-off here called the
-    <a href="https://en.wikipedia.org/wiki/Rate%E2%80%93distortion_theory">Rate-Distortion curve</a>.
-    We need to strike a balance between space occupied/speed and reconstruction quality. 
-    If you wish to summarize your chocolate cake recipe in two lines, you can do it.
-    But don't except the other person to come up with a version similar to your home-made cake.
+    If you request a film from Netflix at 1080p, they could send you the RGB values
+    of each of the 2,073,600 pixels of each of the 130,000 frames of the film.
+    But that's roughly 809 GB of information (almost 1 TB), so you'd have to wait for a while &#x23F1;...
+    Few people have the time or the internet plan that allows them to download all of this.
+    But they also want a good enough quality. Neflix movies at 360p are not so fun to watch.
+    Again, there is a balance.
+    So Netflix has a good encoder that has some shared information with the decoder
+    in your laptop in order to deliver good-quality content to you with low latency.
 </p>
-    How can you do that in video? Well, videos are made of frames that oftentimes don't change
-    much. A simple way to think about compression in this case is that if you have an almost static scene
+    How can we translate all of this to video?
+    Well, videos are made of frames that oftentimes don't change
+    much. A simple way to explain it is that, if you have an almost static scene
     for 2 seconds, you can just encode the first frame and then send a small piece of information that
-    says "The next 47 frames are the same".
-    Otherwise, you can also encode one frame (called the intra-frame) and for the remaining
-    ones in the next two seconds you compute the differences in motion (motion vectors)
-    and just encode those.
-    What we actually do is to encode this side information like motion vectors into
-    a recipe themselves. So we have recipes for certain elements of the recipe!
+    says "The next 47 frames are the same". That's a way to compress!
+    A more sophisticated version, which is used in all codecs today,
+    is to encode some frames, called intra-frames, on their own and then encode
+    just encode the differences in motion on frames that are close-by relative to this frame.
+</p>
+<h4 style="margin-top: 40px">The First Project, Simply Explained</h4>
+<p>
+    First, alongside the recipe, we send another recipe with some side information
+    (motion information and blending coefficients)
+    that will then be used by our friend to help her reconstruct the cake.
+    But most importantly, before sending new recipes, we train for two weeks at our place with
+    our friend trying out different recipes, so we
+    know our friend's cooking style and the kind of mistakes she makes (so the training
+    is end-to-end).
+    Then, when it's time to send a new recipe, I can understand where my friend will
+    have trouble. So what I do is to send another recipe with annotations for her
+    to correct the mistakes,
+    The decoder (your friend) takes the original recipe, the side information recipe,
+    and the errata recipe, and puts them all together.
 </p>
 <p>
-    Netflix has an encoder, your laptop has a copy of a decoder.
-    They are trained together, so that they can share information (like the third case
-    in the chocolate cake example).
+    The <a href="" ng-click="scrollToElement('img-compression')">top-left image</a>
+    on the top of this page shows our results.
 </p>
+<h4 style="margin-top: 40px">The Second Project, Simply Explained</h4>
 <p>
     In the second project we found a way to optimize a new recipe without
     having to exchange new information between the encoder and the decoder,
-    just by tweaking the recipe itself.
+    just by tweaking the recipe itself and not changing its length.
     Knowing the information that I have and knowing the information my friend has,
     I can tweak the recipe in a way that I will either improve the quality or reduce
     the space, compared to a baseline scenario where I just generate the recipe (encode
-    it) and don't tweak it.
+    it) and don't tweak it. So our method is content-adaptive.
+    The downside is that it takes a bit more time, but if we wish to send the recipe
+    to several people, and what matters
+    is not how much time I take to write it but how fast I can send it when my friend
+    requests it and how fast they can recreate the cake, it's totally worth it.
+    When Netflix gets a new film, it doesn't really matter if they take an hour
+    more to compress it, if it will be faster to download when the users request it
+    and the quality is improved!
 </p>
-
-    While there are many deep learning based approaches for single image compression, the field of end-to-end learned video coding has remained much less explored. Therefore, in this work we present an inter-frame compression approach for neural video coding that can seamlessly build up on different existing neural image codecs. Our end-to-end solution performs temporal prediction by optical flow based motion compensation in pixel space. The key insight is that we can increase both decoding efficiency and reconstruction quality by encoding the required side information into a latent representation that directly decodes into motion and blending coefficients. In order to account for remaining prediction errors, residual information between the original image and the interpolated frame is needed. We propose to compute residuals directly in latent space instead of in pixel space as this allows to reuse the same image compression network for both key frames and intermediate frames. This has the advantage of making our video coding approach, more coherent, more memory efficient, and easier to train. Our extended evaluation on different datasets and resolutions shows that the rate-distortion performance of our approach is competitive with existing state-of-the-art codecs.
-    <br> <br>
-    Conclusion: <br>
-    Our neural video coding framework is able to achieve re-
-    sults competitive with existing video codecs that have wit-
-    nessed several decades of engineering improvements. This
-    is in particular due to the interpolation approach that em-
-    beds compression constraints and takes advantage of all
-    the available information at encoding time. In addition to
-    this, expressing residuals in latent space simplifies the video
-    compression task as the same network is used both for key-
-    frames and residuals. In this work, we have focused on
-    compressing intermediate frames that rely on key frames in
-    the past and future. However, our approach is also com-
-    patible with other settings such as only frames from the
-    past. Thus finding optimal strategies for key frame selec-
-    tion would be an interesting branch of future work.
+<p> 
+    The <a href="" ng-click="scrollToElement('img-compression')">top-right image</a>
+    on the top of this page shows our results.
 </p>
-<p>
-    Abstract: <br>
-    The field of neural image compression has witnessed
-    exciting progress as recently proposed architectures al-
-    ready surpass the established transform coding based ap-
-    proaches. While, so far, research has mainly focused on
-    architecture and model improvements, in this work we ex-
-    plore content adaptive optimization. To this end, we intro-
-    duce an iterative procedure which adapts the latent repre-
-    sentation to the specific content we wish to compress while
-    keeping the parameters of the network and the predictive
-    model fixed. Our experiments show that this allows for an
-    overall increase in rate-distortion performance, indepen-
-    dently of the specific architecture used. Furthermore, we
-    also evaluate this strategy in the context of adapting a pre-
-    trained network to other content that is different in visual
-    appearance or resolution. Here, our experiments show that
-    our adaptation strategy can largely close the gap as com-
-    pared to models specifically trained for the given content
-    while having the benefit that no additional data in the form
-    of model parameter updates has to be transmitted.
-    <br> <br>
-    Conclusion: <br>
-    In this work we have investigated content adaptive com-
-    pression strategies which can be seen as a complementary
-    approach of improving neural image coding besides archi-
-    tecture refinements. More specifically, we have presented
-    a latent space refinement algorithm that allows to improve
-    quality by roughly 0.5 dB at the same bit rate on the Tecnick
-    data set. This strategy also allows to significantly close the
-    gap between generic pre-trained models and models that are
-    specifically trained for a given target content.Thus, the la-
-    tent space adaptation can be an effective strategy to make a
-    given encoding process more powerful and content adap-
-    tive. This is particularly beneficial in situations such as
-    streaming, where the encoding complexity is not the limit-
-    ing factor when compared to the transmission and decoding.
-    As the gap towards models that are entirely trained on the
-    specific target content cannot fully be closed, it would be
-    interesting to further investigate which more complex but
-    still practically viable form of adaptation may achieve this.
-    Also currently, neural image compression models are typi-
-    cally trained for each rate-distortion point and it would be
-    similarly beneficial to investigate strategies that allow auto-
-    matic adaptation to each quality level.
-</p>
-<h4> <b>Impact</b> </h4>
+<h4 style="margin-top: 40px">Impact</h4>
 <p>
 The work on video compression achieved state-of-the-art at the time.
-It has been cited by 140 scientific publications, including publications of
+It has been cited by 140 scientific publications, including in publications of
 <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_One-Shot_Free-View_Neural_Talking-Head_Synthesis_for_Video_Conferencing_CVPR_2021_paper.pdf">
 Nvidia</a>,
 <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Agustsson_Scale-Space_Flow_for_End-to-End_Optimized_Video_Compression_CVPR_2020_paper.pdf">
@@ -164,31 +157,58 @@ Google</a>,
 file/96b250a90d3cf0868c83f8c965142d2a-Paper.pdf">
 Microsoft</a>
 </p>
-
-Image Compression
-This work has been cited over 30 times
-<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Google</a>
+<p>
+The work on image compression achieved state-of-the-art at the time.
+It has been cited over 30 times, including in publications of
+<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Google</a>,
 <a href="https://arxiv.org/abs/2103.03123">University of Oxford</a>
 <a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/
 066f182b787111ed4cb65ed437f0855b-Paper.pdf">
-</a>
-University of California, Irvine (IMPORTANT)
+University of California, Irvine
+</a> (IMPORTANT),
 <a href="https://openreview.net/pdf?id=IDwN6xjHnK8">
-Qualcomm
+Qualcomm,
 </a>
 <a href="https://arxiv.org/pdf/2008.09180.pdf">
-Uber (CLOSE TO US)
-</a>
+Uber
+</a> (CLOSE TO US),
 <a href="https://openaccess.thecvf.com/content/CVPR2021W/CLIC/papers/Zhao_A_Universal_Encoder_Rate_Distortion_Optimization_Framework_for_Learned_Compression_CVPRW_2021_paper.pdf">
-Microsoft (Important)
-</a>
-<a href="https://arxiv.org/pdf/2007.16054.pdf">Nokia</a>
-<a href="https://arxiv.org/pdf/2108.09992.pdf">(Here too)</a>
+Microsoft
+</a> (Important),
+Nokia
+[<a href="https://arxiv.org/pdf/2007.16054.pdf">1</a>,
+<a href="https://arxiv.org/pdf/2108.09992.pdf">2</a>], and
 <a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w7/Guo_Variable_Rate_Image_Compression_With_Content_Adaptive_Optimization_CVPRW_2020_paper.pdf">
-Huawei
-</a>
+Huawei</a>.
+</p>
+<p>
+Both works together led to the registration of three US patents
+[<a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10972749">1</a>, 
+ <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11012718">2</a>, 
+ <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11057634">3</a>].
+</p>
 
+<p style="margin-top: 20px; margin-bottom: 10px">
+    <b>Publications</b>
+</p>
 <div ng-controller="DisneyPubsCtrl">
     <pubs-no-headers></pubs-no-headers>
 </div>
+
+<p style="margin-top: 20px; margin-bottom: 10px">
+    <b>Patents</b>
+</p>
+<div ng-controller="DisneyPatentsCtrl">
+    <pubs-no-headers></pubs-no-headers>
+</div>
+
+<h4 class="subsection">Technologies</h4>
+<p>
+    Here I outline a few technologies that I used in these projects.
+    <ul>
+        <li><a href="https://www.python.org/">Python</a>: Programming language.</li>
+        <li><a href="https://pytorch.org/">Pytorch</a>: Deep learning framework.</li>
+        <li><a href="https://www.gnu.org/software/bash/">Bash</a>: Unix shell and command language.</li>
+    </ul>
+</p>
 </div>  <!-- last element -->
