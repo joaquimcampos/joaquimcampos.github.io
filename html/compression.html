@@ -18,79 +18,86 @@
 
 <div class="last-element">
 <p>
-    Most of us are familiar with file extensions like MP3, JPEG, and MPEG. But they are not just that: They are, first and foremost, compression standards. The internet relies on them&mdash;and on their newer and more sophisticated versions, like H.265/HEVC&mdash;in order to deliver audio, image, and video content to our devices almost instantaneously and with very little quality loss.
+    Most of us are familiar with file extensions like MP3, JPEG, and MPEG. But they are not just that: They are, first and foremost, compression standards. The internet relies on them and their newer versions <a href="" ng-click="scrollToElement('footnote-compression-1')">[1]</a> in order to deliver audio, image, and video content to our devices almost instantaneously and with very little quality loss.
+</p>
+<p>
     Here, I will try to explain in simple terms the general idea behind compression algorithms,
     and talk briefly about the research I conducted with my colleagues at
     <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">Disney Research.</a>
 </p>    
 <h4>What is compression?</h4>
 <p>
-    Let's imagine that you would like a friend to try your original homemade vegan chocolate cake.
-    If you want to make sure that she tries the best version of your cake, it's straightforward: you can bake the cake yourself,
-    drive up to your friend's house, and deliver it to her.
+    (Story time)
+</p>
+<p>
+    Let's imagine that your friend Sarah would like to try your already-famous homemade vegan chocolate cake.
+    If you want to make sure that she tries the best possible version of the cake, it's straightforward: you bake the cake yourself,
+    drive up to her house, and deliver it to her.
     This works, but it is also quite inefficient: The cake is heavy and it takes time
-    to bring it all the way to other side of the country where your friend lives,
+    to bring it to Sara's place,
     especially if you encounter heavy traffic on your way there.
-    
 </p>
 <p>
 <!-- </p>
 <p> -->
     If you are not willing to compromise on the quality of the cake, it's hard
-    to get something much more efficient.
-    But, still, there is some room for improvement.
-    In order to save space, you can, for example, the give the cake to your friend without any of the heavy
-    store-bought toppings, like the chocolate chips, and send her a messsage with the list of the toppings,
-    including the correct brands and amounts, and with exact indications on where and in which order to
+    to get something much more efficient than this.
+    But, still, there is some room for improvement in case you want make the cake a bit lighter.
+    One idea is to give Sarah the cake without any of the heavy
+    store-bought toppings, like the chocolate chips, and message her a list of the toppings
+    via <a href="https://www.signal.org/">Signal</a>,
+    including the correct brands and amounts, and with exact indications on when and where to
     place them on the cake.
-    The catch is that this also requires a bit of work on both sides: you need to write
-    all of these details, and your friend needs to go shopping.
+    The catch is that this also requires a bit of extra work on both sides: you need to write
+    all of these details, and Sarah needs to go shopping.
 </p>
 <p>
-    But all of this still takes too much time, and you are quite busy.
-    So we need alternatives.
-    Well, why don't you write down all the steps required to
-    bake your cake, <i>i.e.</i> the recipe, and send it to your friend? Much better. A recipe is much lighter than a cake, and it occupies much less space. Therefore, it is faster to send (a simple SMS will do).
-    But, of course, there is no <a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">no free lunch</a> (or cake). Now you need to accept that the end result won't be exactly like yours, especially if your friend does not bake as well as you.
-    But it's worth it if you want to save some time.
-    And if you'd like 50 other friends to try your cake too as well,
-    forwarding the message is a much better strategy than baking 50 other cakes.
+    But if all of this still sounds too tiring, why don't you write down all the steps required to
+    bake your cake, A.K.A. the recipe, and send it to Sarah? Much better! A recipe only occupies a few Megabytes of space, therefore it is much faster to send.
+    But, of course, even though the cake is free, there is <a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">no free lunch</a>: Now you need to accept that the end result won't be exactly like yours, especially if Sarah does not bake as well as you.
+    But it's worth it if you want to save some time. (Actually, a lot of time!)
+    And if you receive 50 other cake requests,
+    forwarding a message with a few Megabytes is a much better strategy than baking
+    50 other cakes.
 </p>
 <p>
-    Now, we've already found a good solution. But if your recipe is very long and
-    you want to shorten it, you can use another idea.
-    Let's say that your friend had asked you for the recipe at a party.
-    At that moment, you still haven't fully settled down on the recipe, so you'll
-    have to send it later. However, you can take advantage of the fact that you can share
-    information with her ahead of time, so you decide to agree on some things that will
-    shorten the size of your recipe: you can agree, for example, that "One tablespoon"
-    will be written as "1 Tbsp",
-    or that "1 milk" means "1 pack of oatmilk
-    from <a href="https://www.oatly.com/en">Oatly</a>" (No, I don't receive any money from them &#128516;).
-    In this way, you can save a bunch more space.
+    Now, we've already found a good solution. But let's say that Sarah and 50 other friends
+    all ask you for the recipe at a party (because why not?).
+    You promise them that you'll write down the recipe and send it later,
+    but you only have 30 MB left on your internet budget, so you really need to save space!
+    An idea is to take advantage of the fact that, at that moment, you can
+    agree on some things: "One tablespoon" will be written as "1 Tbsp",
+    "half teaspoon" as "1/2 tsp", "1 pack of oatmilk
+    from <a href="https://www.oatly.com/en">Oatly</a>" as
+    "1 milk" (no, I don't receive any money from them &#128516;).
+    In this way, you can shorten the size of your recipe and fall within your internet plan.
 </p>
 <p>
-    End of story. I will now explain what I've said before in terms of compression algorithms.
+    (End of story)
 </p>
 <p>
-    In the two versions of the story, the quality of the cake was the best possible.
+    I will now explain all of these ideas in the language of compression.
+</p>
+<p>
+    In the first two versions of the story, the quality of the cake was the best possible.
     Still, in the second version, you were able to carry a lighter cake at the small expense
-    of a paper list that you carried in your pocket. Because you were able to save space
-    without loosing any quality&mdash;provided that your friend can follow the instructions correctly&mdash;
+    of a message with the list of toppings that took you 10 minutes to right down.
+    Because you were able to save space
+    without loosing any quality&mdash;provided that Sarah can follow the instructions correctly&mdash;
     you actually performed <i>lossless compression</i>.
 </p>
     Lossless compression can only go up to a certain point, though.
-    The alternative is to allow some loss of quality, that is, perform <i>lossy compression</i>,
-    for the sake of saving a lot of space and time.
-    The idea here is that you're the <i>encoder</i>&mdash;you encode your chocolate cake into a recipe (the compressed information)&mdash;, and your friend is the decoder <i>decoder</i>&mdash;she takes the compressed information (the recipe) and attempts her best <i>reconstruction</i> of your cake.
+    The alternative is to allow some loss of quality
+    for the sake of saving a lot of space and time. This is known as (you guessed it...) <i>lossy compression</i>.
+    The idea here is that you're the <i>encoder</i>&mdash;you encode your chocolate cake into a recipe (the compressed information)&mdash;, and your friend is the <i>decoder</i>&mdash;she takes the compressed information (the recipe) and attempts her best <i>reconstruction</i> of your cake.
     The quality will depend on how well you can summarize the recipe and how well your friend can reconstruct it.
     If, on one hand, your recipe is very detailed, it will be very long and take a lot of time to send.
     If, on the other hand, you try to summarize your recipe in very few steps, although you'll be able to send it faster,
-    the quality will dimish.
-    So we need to strike a balance between the space occupied/speed and the reconstruction quality. 
+    the quality of the end-result will suffer.
+    So we need to strike a balance between the space occupied&mdash;which impacts the speed of transmission&mdash;and the reconstruction quality. 
     This fundamental trade-off is called the
     <a href="https://en.wikipedia.org/wiki/Rate%E2%80%93distortion_theory">Rate-Distortion curve</a>
-    (you can actually see one <a href="" ng-click="scrollToElement('img-compression')">above</a>):
+    (you can see one such curve <a href="" ng-click="scrollToElement('img-compression')">above</a>):
     It essentially tells us that if you wish to write down your chocolate cake recipe in two lines, you can,
     but don't except your friend to come up with anything similar to your home-made cake.
     A good way to compare compression algorithm is by comparing the reconstruction quality
@@ -101,22 +108,22 @@
     The internet has "roads" that can be pretty congested.
     If you request a film from Netflix at 1080p, they could send you the RGB values
     of each of the 2,073,600 pixels of each of the 130,000 frames of the film.
-    But that's roughly 809 GB of information (almost 1 TB), so you'd have to wait for a while &#x23F1;,
-    and possibly reach the limit your internet plan...
-    But, although you want the movie to be faster to download,
-    you still want a good enough quality. (Neflix movies at 360p are not so fun to watch.)
-    Again, there is a balance.
-    So Netflix has a good encoder and your laptop a good decoder 
-    in order to deliver good-quality content to you, the end-user, with low latency.
+    (This is the equivalent of the first scenario.)
+    But that's roughly 809 GB of information (almost 1 TB), so you'd have to wait for a while &#x23F1;.
+    The opposite scenario is the movie downloading almost instantly, but the quality being very low.
+    Neflix movies at 360p are not so fun to watch. All in all, we need a balance between these two cases.
 </p>
+<h4 style="margin-top: 40px">Video Compression</h4>
     How can we translate all of this to video?
     Well, videos are made of frames that oftentimes don't change
-    much. A simple way to explain it is that, if you have an almost static scene
-    for 2 seconds, you can just encode the first frame and then send a small piece of information that
-    says "The next 47 frames are the same". That's a way to compress!
-    A more sophisticated version, which is used in all codecs today,
-    is to encode some frames, called intra-frames, on their own and then encode
-    just encode the differences in motion on frames that are close-by relative to this frame.
+    much (we say that there is a lot of redundancy in the signal).
+    Therefore, if you have an almost static scene
+    for 2 seconds, a simple way to compress is to just encode the first frame and
+    then send a small piece of information that
+    says "The next 47 frames are the same". You can even drop some frames and do <a href="https://en.wikipedia.org/wiki/Stop_motion">stop-motion</a>!
+    A much more sophisticated version, which is used in all codecs today,
+    is to encode key frames on their own, called intra-frames, and then encode
+    just the differences in motion on frames that are close-by relative to this frame.
 </p>
 <h4 style="margin-top: 40px">The First Project, Simply Explained</h4>
 <p>
@@ -135,8 +142,9 @@
     and the errata recipe, and puts them all together.
 </p>
 <p>
-    The <a href="" ng-click="scrollToElement('img-compression')">top-left image</a>
-    on the top of this page shows our results.
+    The top-left image
+    on the <a href="" ng-click="scrollToElement('img-compression')">top of this page
+    </a> shows our results.
 </p>
 <h4 style="margin-top: 40px">The Second Project, Simply Explained</h4>
 <p>
@@ -156,54 +164,46 @@
     and the quality is improved!
 </p>
 <p> 
-    The <a href="" ng-click="scrollToElement('img-compression')">top-right image</a>
-    on the top of this page shows our results.
+    The top-right image
+    on the <a href="" ng-click="scrollToElement('img-compression')">top of this page
+    </a> shows our results.
 </p>
 <h4 style="margin-top: 40px">Impact</h4>
 <p>
-The work on video compression achieved state-of-the-art at the time.
-It has been cited by 140 scientific publications, including in publications of
+Both works achieved state-of-the-art results at the time of publication;
+together, they led to the registration of three US patents
+[<a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10972749">1</a>, 
+ <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11012718">2</a>, 
+ <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11057634">3</a>].
+
+The work on video compression has been cited over 140 times, including in publications from
 <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_One-Shot_Free-View_Neural_Talking-Head_Synthesis_for_Video_Conferencing_CVPR_2021_paper.pdf">
 Nvidia</a>,
-<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Agustsson_Scale-Space_Flow_for_End-to-End_Optimized_Video_Compression_CVPR_2020_paper.pdf">
-Google</a>,
-<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Here</a>
-
+Google [<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Agustsson_Scale-Space_Flow_for_End-to-End_Optimized_Video_Compression_CVPR_2020_paper.pdf">1</a>,
+<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">2</a>],
+and
 <a href="https://proceedings.neurips.cc/paper_files/paper/2021/
 file/96b250a90d3cf0868c83f8c965142d2a-Paper.pdf">
-Microsoft</a>
-</p>
-<p>
-The work on image compression achieved state-of-the-art at the time.
-It has been cited over 30 times, including in publications of
+Microsoft</a>.
+
+The work on image compression has been cited over 30 times, including in publications from
 <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Google</a>,
-<a href="https://arxiv.org/abs/2103.03123">University of Oxford</a>
+<a href="https://arxiv.org/abs/2103.03123">University of Oxford</a>,
 <a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/
 066f182b787111ed4cb65ed437f0855b-Paper.pdf">
-University of California, Irvine
-</a> (IMPORTANT),
+UC Irvine</a>, <!-- (IMPORTANT) -->
 <a href="https://openreview.net/pdf?id=IDwN6xjHnK8">
-Qualcomm,
-</a>
+Qualcomm</a>,
 <a href="https://arxiv.org/pdf/2008.09180.pdf">
-Uber
-</a> (CLOSE TO US),
+Uber</a>, <!-- (CLOSE TO US) -->
 <a href="https://openaccess.thecvf.com/content/CVPR2021W/CLIC/papers/Zhao_A_Universal_Encoder_Rate_Distortion_Optimization_Framework_for_Learned_Compression_CVPRW_2021_paper.pdf">
-Microsoft
-</a> (Important),
+Microsoft</a>, <!-- (Important) -->
 Nokia
 [<a href="https://arxiv.org/pdf/2007.16054.pdf">1</a>,
 <a href="https://arxiv.org/pdf/2108.09992.pdf">2</a>], and
 <a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w7/Guo_Variable_Rate_Image_Compression_With_Content_Adaptive_Optimization_CVPRW_2020_paper.pdf">
 Huawei</a>.
 </p>
-<p>
-Both works together led to the registration of three US patents
-[<a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10972749">1</a>, 
- <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11012718">2</a>, 
- <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11057634">3</a>].
-</p>
-
 <p style="margin-top: 20px; margin-bottom: 10px">
     <b>Publications</b>
 </p>
@@ -230,6 +230,9 @@ Both works together led to the registration of three US patents
 
 <hr style="margin-top: 40px;">
 <h5>Footnotes</h5>
-<p style="margin-bottom: 0px;" id="footnote-compression-1">[1] To be precise, it mostly relies on sophisticated versions of these codecs, like .</p>
+<p style="margin-bottom: 0px;" id="footnote-compression-1">
+    [1] Some examples of sophisticated video codecs that evolved from MPEG are
+    H.265/HEVC, VP9, and AV1. The latter is used by Netflix.
+</p>
 
 </div>  <!-- last element -->
