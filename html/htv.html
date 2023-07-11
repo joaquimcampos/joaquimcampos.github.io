@@ -11,67 +11,75 @@
 <a id="face-img" class="row-face" href="https://ieeexplore.ieee.org/document/9655475">
     <img src="assets/images/htv1.png" alt="Face GT">
     <img src="assets/images/htv2.png" alt="Face HTV">
-    <img src="assets/images/htv3.png" alt="Face NN">
+    <img src="assets/images/htv3.png" alt="Face HTV sparser">
 </a>
 
 <div class="last-element">
 <h4>This Project, Simply Explained</h4>
 <p>
-    Suppose we have a dataset \({\mathrm D}\) with \(M\) datapoints, where each datapoint is an
-    input-value pair&mdash;mathematically, we write this statement
-    as \({\mathrm D} = \lbrace{\mathbf x}_m, y_m\rbrace _{m=1}^M\).
-    This dataset might be, for example, a sequence of \(M\) images of mountains and their
-    corresponding height in meters, as depicted below. (We will use this example from now on.)
+    Suppose you have a dataset \({\mathrm D}\) that consists of sequence of \(M\) images
+    of mountains together with their
+    <a href="https://en.wikipedia.org/wiki/Topographic_prominence">prominence</a> in meters
+    (I'll just call it height, because being precise about mountain geography is not the point here).
+    Mathematically, we write this statement as
+    \({\mathrm D} = \lbrace{\mathbf x}_m, y_m\rbrace _{m=1}^M\), where each
+    datapoint \(({\mathbf x}_m, y_m)\)
+    is an image-height pair, as depicted below.
 </p>
 <div class="row-matterhorn">
     <img src="assets/images/matterhorn.png" alt="Radiobooks logo">
 </div>
 <p>
-    In supervised learning our goal is to find a model \(f\) that predicts the height \(y_m\) of each image \({\mathbf x}_m\) in our dataset fairly well <a href="" ng-click="scrollToElement('footnote-1')">[1]</a>
+    
+    In supervised learning, our goal is to find a model \(f\) that predicts fairly well the height \(y_m\) of each mountain in our dataset from its depiction \({\mathbf x}_m\) <a href="" ng-click="scrollToElement('footnote-htv-1')">[1]</a>
     (<i>i.e.</i>, \(f({\bf x}_m) = \hat{y}_m \approx y_m\)),
-    and that is able to generalize to new inputs. In other words, we are looking for a model that can accurately predict
+    and that is able to generalize to new inputs: that is, that can accurately predict
     the heights of mountains from their respective images even when it has not
-    seen those images before in the training data. (This is what learning is all about.)
+    seen those images before in the training data.
 </p>
 <p>
-    This is a very difficult task to solve in general, because there are infinite models
-    that fit the data well enough. And, actually, very few actually make sense and are able
-    to generalize.
-    Therefore, we need to introduce some information to solve the problem.
-<!-- </p>
-<p> -->
-    First, if we know something about the data distribution, then we can use
+    In general, this is a very difficult task to solve because even though there are infinite models
+    that fit the data well enough, very few of them actually make sense and are able
+    to generalize. To tackle this issue, it is helpful to introduce some constraints.
+</p>
+<p>
+    If we know something about the data distribution, then we can use
     that information. For example, if the data is the result of a linear mapping plus
-    some observation noise, <i>i.e.</i>, \(y = {\mathbf w}^T{\mathbf x} + b + \epsilon\),
-    then we can just search within family of models by just trying to find
-    the optimal parameters \({\mathbf w}\) and \(b\); in this way, we transform an
-    a priori very complicated (infinite-dimensional) problem into a very simple
-    (finite-dimensional) one. Alternatively, we might restrict ourselves to a family
-    of models that we know to contain models that perform well for similar tasks.
-    Finally, we might also want to favor simple models, following the Occam's razor principle:
+    some measurement noise, <i>i.e.</i>, \(y = {\mathbf w}^T{\mathbf x} + b + \epsilon\),
+    then we can just search within this family of linear models; in this way,
+    an a priori complicated problem is reduced
+    to a simple one of finding the optimal parameters \({\mathbf w}\) and \(b\).
+    Alternatively, we might restrict ourselves to a family
+    of models that we know to contain elements that perform well for similar tasks.
+    Lastly, we might also want to favor simple models, following the Occam's razor principle:
     as long as it can do the job, the simpler, the better.
-    Simple models have the advantage of being faster to use,
-    ocupying less memory and being more robust.
-    Moreover, they are more explainable, since with less parameters the influence of
-    each one in the final result becomes easier to understand,
-    so that we actually have an idea of what is going on (unlike with ChatGPT &#x1F937).
-    
+    Simple models have the advantage of being lighter (<i>i.e.</i>, ocupying less memory),
+    faster, and being more robust&mdash;, in
+    that small or irrelevant changes in the image are less likely to screw up the predictions
+    <a href="" ng-click="scrollToElement('footnote-htv-2')">[2]</a>.
+    Moreover, simple models are more explainable/interpretable: if they make a prediction error,
+    we have a better chance
+    of actually understanding what went wrong (*cough* ChatGPT *cough*)
+    <a href="" ng-click="scrollToElement('footnote-htv-3')">[3]</a>.
 </p>
 <p>
     A family of models that has had a lot of success in the past few years
-    are neural networks, which are piecewise-linear &#x1F4C9
-    <a href="" ng-click="scrollToElement('footnote-2')">[2]</a>.
-    The problem is that there is no way to control the number of linear regions of
-    neural networks.
+    are neural networks, which are part of the larger family piecewise-linear
+    functions &#x1F4C9
+    <a href="" ng-click="scrollToElement('footnote-htv-4')">[4]</a>.
+    But left to their own devices, neural nets lead to a <a href="https://arxiv.org/pdf/1402.1869.pdf">very large number of linear regions</a>, which makes them less robust and interpretable.
+    
+</p>
+<p>
     In this project, we found a way to learn piecewise-linear models
     that have few regions and a straightforward relationship
-    with their parameters.
+    with their parameters (<i>i.e.</i>, are interpretable).
     For this, we used a regularizer called Hessian-Schatten Total Variation (don't mind this)
-    that enforces sparse second-derivatives (don't mind this either),
-    and restricted ourselves to a family of models that is made up of "lego pieces" called box splines.
-    In the following image you can see, on the left, a box spline and, on the right,
-    an example of a learned model which results from putting different lego
-    pieces with different heights in different locations (and summing them up).
+    that enforces sparse second-derivatives (and neither this),
+    and restricted ourselves to a family of models that is made up of lego pieces called <i>box splines</i>.
+    In the following image you can see (on the left) one of these lego pieces, and (on the right)
+    an example of a learned model that (in simple terms) results from placing different lego
+    pieces with different heights at different locations.
 </p>
 <p> 
 </p>
@@ -85,14 +93,14 @@
     </div>
 </div>
 <p>
-    The <a href="" ng-click="scrollToElement('face-img')">top image in this page</a>
-    shows how our method compares to neural networks when trained on a dataset with
-    \(M = 5000\) samples from a face.
-    On the left you can see the ground-truth, in the middle our learned model,
-    and on the right the neural network model. Surprisingly, neural network model
-    does not seem to have many piecewise-linear regions.
-    This might explain why neural nets are able to generalize well even when sometimes
-    containing millions or billions (ChatGPT) of parameters.
+    And the great thing is that by changing a single parameter&mdash;the regularization weight&mdash;
+    we are able to control the degree of simplicity (sparsity) of our models.
+    This is shown in <a href="" ng-click="scrollToElement('face-img')">top image in this page</a>,
+    where we trained our models on a face dataset with \(M = 5000\) samples.
+    On the left, you can see the ground-truth; in the middle and right, you can see our learned models
+    with different regularization weights, respectively.
+    The model in the middle, which has a lower regularization weight, can fit the data better but has more
+    linear regions than the model on the right.
 </p>
 
 <!-- <p>
@@ -134,7 +142,7 @@
 <p>
 This work has been cited 13 times. In particular, these results were used in two papers (<a href="https://arxiv.org/abs/2210.04077">[1]</a>,
 <a href="https://arxiv.org/abs/2302.12554">[2]</a>) of mathematician
-<a href="https://en.wikipedia.org/wiki/Luigi_Ambrosio">Luigi Ambrosio</a>,
+<a href="https://en.wikipedia.org/wiki/Luigi_Ambrosio">Luigi Ambrosio</a>, a
 leading expert in the calculus of variations and geometric measure theory, and
 doctoral advisor of
 <a href="https://en.wikipedia.org/wiki/Fields_Medal">Fields Medal</a>
@@ -160,7 +168,19 @@ winner
 
 <hr style="margin-top: 40px;">
 <h5>Footnotes</h5>
-<p style="margin-bottom: 0px;" id="footnote-1">[1] We call this "fitting the data".</p>
-<p id="footnote-2">[2] Those with ReLU-like activations, which are the most used ones.</p>
+<p style="margin-bottom: 0px;" id="footnote-htv-1">[1] We call this "fitting the data".</p>
+<p style="margin-bottom: 0px;" id="footnote-htv-2">[2]
+    <a href="https://arxiv.org/pdf/1707.08945.pdf">
+    Here
+    </a> you can see an example where lack of robustness can lead to tragic consequences.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-htv-3">[3]
+    Neural networks are sometimes called
+    <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
+        "black-box models"
+    </a>
+    partly because of their lack of interpretability.
+</p>
+<p id="footnote-htv-4">[4] Those with ReLU-like activations, which are the most used ones.</p>
 
 </div>  <!-- last element -->
