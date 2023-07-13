@@ -7,12 +7,12 @@
 </h3>
 
 <div class="row-compression">
-    <a href="https://studios.disneyresearch.com/2019/10/27/neural-inter-frame-compression-for-video-coding/">
-        <img id="video-compression" src="assets/images/video_compression2.png" alt="Video Compression">
-    </a>
-    <div></div>
     <a href="https://openaccess.thecvf.com/content_CVPRW_2019/html/CLIC_2019/Campos_Content_Adaptive_Optimization_for_Neural_Image_Compression_CVPRW_2019_paper.html">
         <img id="img-compression" src="assets/images/image_compression.png" alt="Image Compression">
+    </a>
+    <div></div>
+    <a href="https://studios.disneyresearch.com/2019/10/27/neural-inter-frame-compression-for-video-coding/">
+        <img id="video-compression" src="assets/images/video_compression2.png" alt="Video Compression">
     </a>
 </div>
 
@@ -25,10 +25,9 @@
     and talk briefly about the research that I conducted with my colleagues at
     <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">Disney Research.</a>
 </p>    
-<h4>What is compression?</h4>
+<h4 class="subsection">What is compression?</h4>
+<h5>A Cake Analogy</h5>
 <p>
-    (Story time)
-    <br>
     Let's imagine that your friend Sarah would like to try your famous homemade vegan chocolate cake.
     If you want to make sure that she tries the best possible version of the cake, it's straightforward: you bake the cake yourself,
     drive up to her house, and deliver it to her.
@@ -41,65 +40,71 @@
 <p> -->
     If you are not willing to compromise on the quality of the cake, it's hard
     to get something much more efficient than this.
-    But, still, there is some room for improvement in case you want make the cake a bit lighter,
+    But, even under these circumstances, there are still ways to make the cake a bit lighter
     and therefore easier to carry.
     One idea is to give Sarah the cake without any of the heavy
     store-bought toppings like the chocolate chips and message her a list of the toppings
-    via <a href="https://www.signal.org/">Signal</a>,
+    through <a href="https://www.signal.org/">Signal</a>,
     including the correct brands and amounts, and with exact indications on when and where to
     place them on the cake.
-    The catch is that this also requires a bit of extra work on both sides: you need to write
+    The catch is that this requires a bit of extra work on both sides: you need to write
     all of these details, and Sarah needs to do the shopping.
 </p>
 <p>
-    But if all of this still sounds too tiring, why don't you write down all the steps required to
-    bake your cake (aka, the recipe) and send it to Sarah? Much better! A recipe only occupies a few Megabytes of space, thus it is much faster to send.
-    But, of course, there is <a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">no free lunch</a> (or cake?): Now you need to accept that the end result won't be exactly like yours, especially if Sarah does not bake as well as you.
-    But it's completely worth it if your goal is to save some time (actually, a lot!).
+    But if all of this still sounds too tiring, why don't you simply write down all the steps required to
+    bake your cake (aka, the recipe) and send it to Sarah? A recipe only occupies a few Megabytes of space, thus it is much faster to send.
+    But, of course, although this is a great idea, there is <a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">no free lunch</a> (or cake?): Now you need to accept that the end result won't be exactly like yours, especially if Sarah does not bake as well as you.
+    But if your goal is to save some time (actually, a lot!), it's completely worth it.
     Besides, if you receive 50 other cake requests,
     forwarding a message with a few Megabytes is a much better strategy than baking
     50 other cakes.
 </p>
 <p>
-    Now, we've already found a good solution. But let's suppose that Sarah and 50 other friends
+    Now, we already found a good solution, but let us introduce a final idea.
+    Suppose that Sarah and 50 other friends
     all ask you for the recipe at a party (because why not?).
-    You promise them that you'll write down the recipe and send it later,
-    but you only have 30 MB left on your internet budget, so you really need to save space!
-    An idea is to take advantage of the fact that, at that moment, you can
-    share some information. By agreeing that "One tablespoon" will be written as "1 Tbsp",
-    "half teaspoon" as "1/2 tsp", "1 pack of oatmilk
+    As you are happy to share your recipe with everyone who asks for it,
+    you promise them that you'll write it down in a message later on and send
+    it to each of them individually through Signal (you haven't discovered group chats yet).
+    But there is a slight problem: you realize that you only have 30 MB left on your internet budget,
+    so you need to save as much as space as you can!
+    An idea to overcome this challenge is to take advantage of the fact that, at that moment, you can
+    share some information with each other; for example, you can agree that "One tablespoon" will
+    be written as "1 Tbsp", "half teaspoon" as "1/2 tsp", "1 pack of oatmilk
     from <a href="https://www.oatly.com/en">Oatly</a>" as
-    "1 milk" (no, I don't receive any money from them &#128516;), etc.,
-    you can shorten the size of your recipe and fall within your internet plan.
+    "1 milk" (no, I don't receive any money from them &#128516;), etc.
+    This allows you to shorten the size of your recipe and fall within your internet plan.
     <br>
-    (End of story)
 </p>
+<h5>Back to Science</h5>
 <p>
     I will now explain all of these ideas in the language of compression.
-    The idea here is that you're the <i>encoder</i>&mdash;you encode your chocolate cake into a <i>compressed message</i>&mdash;, and Sarah is the <i>decoder</i>&mdash;she takes the compressed message and attempts her best <i>reconstruction</i> of your cake
+    The idea here is that you're the <i>encoder</i>&mdash;you encode the cake into a <i>compressed message</i>&mdash;, and Sarah is the <i>decoder</i>&mdash;she takes the compressed message and attempts her best <i>reconstruction</i> of the cake
     from it.
 </p>
 <p>
-    In the first version of this analogy, the cake is not compressed at all; a digital equivalent
+    In the first version of this analogy, the cake was not compressed at all. A digital equivalent
     of this is a raw file.
-    As most photographers know, <a href="https://en.wikipedia.org/wiki/Raw_image_format">raw images</a> have the best quality but are also very heavy.
-    Not to mention raw videos!
-    If you could request an uncompressed film from Netflix at 4K resolution,
-    they would send you the RGB values
-    of each of the 8,294,400 pixels of each of the 130,000 frames of the film.
-    That gives you roughly <b>3.43 Terabytes</b> of information to download!
-    Just like our car roads, internet "roads" also do not have unlimited space (bandwidth)
-    and can get quite congested, so you'd certainly have to wait &#x23F1; for a good while...
+    As most photographers know, <a href="https://en.wikipedia.org/wiki/Raw_image_format">raw images</a> have the best quality but are also very heavy. And raw videos are almost untenable in terms of storage!
+    If you could request an uncompressed film from Disney Plus at 4K resolution,
+    they would have to send you the RGB values
+    of each of the 8,294,400 pixels of each of the 130,000 frames of the film. This
+    gives you a total of <b>3.43 Terabytes</b> of information to download!
+    Just like our car roads, internet "roads" do not have
+    unlimited space (bandwidth) and can get quite congested, so you'd certainly
+    have to wait &#x23F1; for a good while before being able to watch the film.
 </p>
 <p>
-    The second version was more efficient than the first because you carried a much lighter cake
-    at the small expense
-    of a message with the list of toppings, that took you 10 minutes to right down.
+    The second version of the analogy was more efficient than the first because you carried
+    a lighter cake at the small expense of a Signal message with the list of toppings.
     Here, The compressed message was the cake without toppings
-    plus a list; from these two, Sarah was able to perfectly reconstruct the cake,
+    plus the list; from these two components, Sarah was able to perfectly reconstruct the cake,
     provided that she followed the instructions correctly.
     Because you were able to save space without loosing any quality,
-    you performed <i>lossless compression</i>. 
+    you performed <i>lossless compression</i>.
+    The downside is that compression requires a bit of "local" work
+    from both the encoder and the decoder: writing down the toppings list
+    and doing the shopping, respectively.
 </p>
 <p>
     Lossless compression can only go up to a certain point, though.
@@ -124,151 +129,239 @@
     in <a href="" ng-click="scrollToElement('img-compression')">above</a>).
 </p>
 <p>
-    The third scenario is just a way of depicting the way encoders and decoders work
+    You might ask whether the extra work of encoding and decoding might not
+    take so long that it becomes comparable to the transmission speed.
+    This is very rarely the case; most often, encoding and decoding times
+    are negligible compared to the transmission speed, so the latter is the real bottleneck.
+    Moreover, the encoder only needs to do the work of encoding the recipe once.
+    Once the recipe is created it can be stored and forwarded to the receiver each time it
+    is requested.
+    (For example, Disney Plus is not encoding films into "recipes" every time you click on a film&mdash;
+    they just send you the "recipe" that is already stored in their servers.)
+</p>
+<p>
+    The last scenario above is just a way of depicting the way encoders and decoders work
     in relation to each other:
     if the encoder does one operation at some point (replacing "One tablespoon" with "1 Tbsp"),
     the decoder will have to do the inverse (replacing "1 Tbsp" with "One tablespoon").
-    Roughly speaking, decoders are mirrors of encoders.
+    Roughly speaking, decoders mirror the operations of encoders.
 </p>
-<h4 style="margin-top: 40px">Video Compression</h4>
+<h5>AI-driven Compression</h5>
 <p>
-    I will briefly give an idea of how compression can be applied to videos.
-</p>
-<p>
-    Videos are a sequence of frames (pictures). Since, there are usually 24 or 30 frames
-    per second (fps), the visual differences between frames are usually very small <a href="" ng-click="scrollToElement('footnote-compression-2')">[2]</a>. (The exceptions are when
-    there is a cut in the scene.)
-    So, for example, if we consider a 2-second static scene of a landscape,
-    a simple way to compress is to just encode the first frame and
-    then send a small piece of information that
-    says "The next 47 frames are the same".
-    Another very simple way to compress a video (with loss) is to just drop 1 out of 3 frames,
-    and send a piece of info to the decoder that says "repeat each of these frames 3 times".
-    This gives you a <a href="https://www.youtube.com/watch?v=kA2XrXeHSRg">stop motion film</a>!
-    (This is often done in animation for aesthetic purposes.)
-    Of course, actual video codecs are much more sophisticated.
-    One technique that is used by codecs is called <a href="https://en.wikipedia.org/wiki/Motion_compensation">
-    motion compensation</a>".
-    The idea to encode key frames on their own, called intra-frames,
-    and then encode just the differences in motion of close-by frames relative to the intra-frames.
-    The decoder then reconstructs the intra-frames on their own, and uses the differences in
-    motion to get the nearby frames.
-    In this way, if an intra-frame is encoded at the beggining of a static scene,
-    very little information is needed to reconstruct the following frames.
-</p>
-<h4 style="margin-top: 40px">AI-driven Compression</h4>
-<p>
-    With Neural or AI-driven compression, the encoder and decoder are trained
-    on data, that is, for each new recipe that you write down, your recipe-writing skills improve,
-    and for each cake Sarah makes from your recipes, her recipe-reading/interpreting and baking skills
+    With Neural/AI-driven compression, the encoder and decoder are trained
+    on data; that is, for each new recipe that you write down, your recipe-writing skills improve,
+    and for each cake Sarah makes, her recipe-reading/interpreting and baking skills
     improve as well.
 </p>
-<h4 style="margin-top: 40px">The First Project, Simply Explained</h4>
+<h5>Video Compression</h5>
 <p>
-    The first important idea in this project is end-to-end compression.
-    Continuing with the cake example, this means that
-    you and Sarah go on a cooking retreat together; during that retreat,
+    Videos are a sequence of frames (pictures). Since, there are usually 24 or 30 frames
+    per second (fps), the visual differences between frames are usually very small <a href="" ng-click="scrollToElement('footnote-compression-2')">[2]</a>. (An exception is when
+    there is scene cut.)
+    So if we consider, for example, a 2-second static scene of a landscape,
+    a simple way to compress is to encode the first frame in the scene and
+    then send a small piece of information to the receiver that
+    says "The next 47 frames are the same".
+    Another very simple way to perform lossy compression of a video is to just drop 1 out of 3 frames,
+    and send a piece of info to the receiver that says "repeat each of these frames 3 times".
+    This gives you a <a href="https://www.youtube.com/watch?v=kA2XrXeHSRg">stop motion film</a>,
+    which is often used in animation for aesthetic purposes. Because close frames are so correlated,
+    doing this still gives you a fairly good&mdash;but not seamless&mdash;viewing experience.
+</p>
+<p>
+    Of course, the way actual video codecs work is much more sophisticated.
+    One technique that is used by all video codecs is
+    <a href="https://en.wikipedia.org/wiki/Motion_compensation">
+    motion compensation</a>.
+    The idea here is to encode key frames in a film, called intra-frames, on their own (<i>i.e.</i>,
+    without using the information of any other frames),
+    and then just encode the differences in motion of other frames relative to the intra-frames.
+    The decoder then reconstructs the intra-frames on their own, and uses this motion information
+    to reconstruct the remaining frames.
+    In this way, if an intra-frame is encoded at the beggining of a static scene,
+    very little information is needed to reconstruct the following frames
+    <a href="" ng-click="scrollToElement('footnote-compression-3')">[3]</a>.
+</p>
+<h4 class="subsection">The Projects, Simply Explained</h4>
+<p>
+    A fundamental idea in both projects is neural end-to-end compression, so I'll
+    start with that.
+</p>
+<h5>End-to-end Compression</h5>
+<p>
+    Continuing with the cake example, end-to-end neural compression can be likened
+    to you and Sarah go on a cooking retreat together; during that retreat,
     you take a selection of cakes, write down the recipes, and
-    Sarah tries to bake them. As the retreat progresses, you both improve your sills over time
-    by <b>learning jointly</b> from your mistakes.
+    Sarah tries to bake them. As the retreat progresses, you both improve your sills
+    over time by <b>learning jointly</b> from your mistakes, that is, by comparing
+    the original cake with Sarah's version and learn how to write
+    a better recipe and improve the baking so as to offset those differences.
     (Now, get ready for some Sci-Fi...)
     After the retreat, both you and Sarah <a href="https://en.wikipedia.org/wiki/Mind_uploading">upload your minds</a>
     into a cyborg and switch off the cyborgs' training mode:
     your cyborg cannot improve its recipe-writing skills and Sarah's
     cannot improve its reconstruction skills.
-    (Just like ChatGTP&mdash;"humanity's cyborg" &#x1F605;&mdash;
+    (Just like ChatGTP&mdash;humanity's cyborg, apparently &#x1F605;&mdash;
     has its training mode switched off since its creation in 2021.)
-    
-    Then, once you have a new cake, you ask your cyborg to write down the recipe,
-    and send it to Sarah, and she asks her cyborg to take the recipe and bake the cake.
+    Then once you have a new cake, you ask your cyborg to write down the recipe
+    and send it to Sarah, and she asks her cyborg to bake the cake from it.
     Having trained together for two weeks, the results will be much more satisfying
-    than if you had not done it.
+    than if you had not.
 </p>
 <p>
-    The second important idea is of latent-space residual encoding (don't mind this).
-    Now, apart from your own cyborgs, you also have each other's cyborg at your respective places.
-    The process is now a bit more convoluted, but let's see it carefully.
-    On your end, Oonce you have a new cake, you first ask your cyborg to write down its recipe.
-    Second, you ask your version of Sarah's cyborg to bake its flawed version of the cake
-    from the recipe.
-    Third, you ask your cyborg to take the cake that Sarah's cyborg baked
-    and write down another recipe from it. (Just follow me here &#x1F605;.)
-    Ok, so now you have two recipes. The last thing you need to do is to check the
-    differences between the recipes and write down an errata to correct for the mistakes.
-    Finally, you can send the original recipe together with the errata to Sarah.
-    Once Sara receives this information, she first asks her cyborg to bake its imperfect version of
-    the cake from the recipe.
-    Second, she asks her version of your cyborg to write down the recipe from the cake
-    that your cyborg just baked. (These two steps are the same for both).
-    Third, she takes the new recipe, reads the errata and uses it to correct the new recipe,
-    thus generating a corrected version of the recipe.
-    Finally, she asks her cyborg to bake the final cake from the corrected recipe.
-    That's it!
+    Notice that now we have separated the sender (you) from the encoder (your cyborg), and
+    the receiver (Sarah) from the decoder (her cyborg). (In streaming terms, the
+    sender might be Disney Plus, the encoder a piece of software in their servers,
+    the decoder a piece of software in your laptop, and the receiver you&mdash;the end user.)
+    These distinctions are important to explain that both the sender and the receiver
+    can have access to the encoder and decoder. In terms of our analogy, this means that
+    both you and Sarah can have a clone of each other's cyborg at your respective places
+    (apart from your own cyborgs).
+    From now on, assume this is the case.
 </p>
-<h4 style="margin-top: 40px">The Second Project, Simply Explained</h4>
+<h5>The First Project</h5>
 <p>
-    In the second project we found a way to optimize a new recipe without
-    having to exchange new information between the encoder and the decoder,
-    just by tweaking the recipe itself and not changing its length.
-    Knowing the information that I have and knowing the information my friend has,
-    I can tweak the recipe in a way that I will either improve the quality or reduce
-    the space, compared to a baseline scenario where I just generate the recipe (encode
-    it) and don't tweak it. So our method is content-adaptive.
-    The downside is that it takes a bit more time, but if we wish to send the recipe
-    to several people, and what matters
-    is not how much time I take to write it but how fast I can send it when my friend
-    requests it and how fast they can recreate the cake, it's totally worth it.
-    When Netflix gets a new film, it doesn't really matter if they take an hour
-    more to compress it, if it will be faster to download when the users request it
-    and the quality is improved!
+    <!-- We would like an encoder to be able to take in any cake and summarize it into a recipe,
+    and same thing goes for the encoder in the opposite direction. -->
+    We're at the point now where both of your cyborgs have finished their training together,
+    and you have a new cake to send. You might ask
+    if it was really necessary to switch their learning modes off, or if, on the other hand,
+    the cyborgs might be able to continue improving with each recipe. Let's take a look at it.
 </p>
-<h4 style="margin-top: 40px">The results</h4>
-<p> 
-    We achieved state-of-the-art results at the time of publication of both works.
-    The top-left image
-    on the <a href="" ng-click="scrollToElement('img-compression')">top of this page
-    </a> shows how our video compression method compares with standard codecs such as <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">HEVC/H.256</a>.
+<p>
+    First, the version of Sarah's cyborg that is at her place does not know
+    which cake actually originated the recipe (that's its job to guess), so it cannot use the
+    differences to improve itself&mdash;
+    unlike when you were both training together in your cooking retreat.
+    Therefore, the decoder needs to be fixed.
+</p>
+<p>
+    But what about your cyborg?
+    It does have access to both the original cake and to the end result because you
+    have a copy of Sarah's baking cyborg on your end.
+    So, in theory, you could leave your cyborg's
+    training mode on and run the process of recipe-writing-and-baking
+    a few times for each new cake so that your cyborg can adjust itself to
+    create a better recipe for that specific cake.
+    This would make the compression <b>Content-Adaptive</b> (or cake-adaptive).
+
+    There are, however, a few problems with this approach. The first is that your
+    cyborg has a lot of parameters to tweak, and you don't have as much time
+    as when you were in the cooking retreat.
+    Second, you would like to have reliable results.
+    It might well be the case that if you start tweaking your cyborg to
+    improve the results for a specific cake, it does poorly on other
+    cakes, even with tweaking there. And if you give your non-fixed cyborg the same recipe
+    at different times, it will give you different results and one of them might
+    be much worse than the baseline. (Imagine that, at some point, you download a film
+    on Disney Plus with good quality, and a month later the quality is much worse,
+    even with the same bandwidth...)
+</p>
+<p>
+    What if there was a way to magically tweak the recipe itself without
+    having to modify neither the encoder nor the decoder, while mantaining the recipe
+    length so that the transmission time is not increased and having the assurance
+    that the quality of the end result will be, at best, much better, and, at worst,
+    the same?
+
+    In this project, we found a way to do this precisely this.
+    The sender (you) can run the process of recipe-writing-and-baking
+    a few times for each new cake and simply tweak the recipe, which is now a little
+    cyborg itself, without modifying the cyborgs.
+    Because the recipe is much less complicated than the cyborgs, it is much faster
+    to update, and because it occupies very little space,
+    you can save the original recipe
+    after the first encoding just in case the tweaked one
+    does not give you better results.
+
+    The downside is that this still takes a bit of extra work and time on the sender side,
+    even though it is much faster than updating the encoder.
+    However, if the time that it takes to write down the recipe doesn't really matter
+    compared to how fast I can send it when someone
+    requests it, it's worth it! Fortunately, this is usually the case.
+    For example, when Disney Plus launches a new film, it doesn't really matter if they take
+    an hour more to compress it if the end-quality is improved and it does not take more
+    time to send when users ask for it!
+    Again, the recipe only needs to be created once. After that, it can then be copied and
+    forwarded as much as necessary.
+</p>
+<p>
     The top-right image
     on the <a href="" ng-click="scrollToElement('img-compression')">top of this page
     </a> shows how our content-adaptive image compression method compares to standard
     image codecs like
     <a href="https://en.wikipedia.org/wiki/WebP">Webp</a>, and to the baseline neural
-    compression without adaption.
+    compression without adaption. 
 </p>
-<h4 style="margin-top: 40px">Impact</h4>
+<h5>The Second Project</h5>
 <p>
-Together, these works led to the registration of three US patents
-[<a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10972749">1</a>, 
- <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11012718">2</a>, 
- <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11057634">3</a>].
+    This project incorporates many different ideas. Here, I will only give the general
+    picture and explain the concept of latent-space residual encoding (don't mind this).
+</p>
+<p>
+    Now, the process is a bit more convoluted, but let's see it carefully.
+    This is what you to do to create the compressed message for a new cake:
+    First, you ask your cyborg to write down the recipe for the cake.
+    Second, you ask your version of Sarah's cyborg to bake its (flawed) version of the cake
+    from that recipe.
+    Third, you make a second request to your cyborg, asking it to
+    write down the recipe for the (flawed) cake Sarah's cyborg just baked.
+    (Just follow me here &#x1F605;.)
+    Ok, so now you have two recipes. The last thing you need to do is to check the
+    differences between the recipes and write down an errata (<i>i.e.</i>, a side recipe)
+    to correct for the mistakes.
+    Finally, you can send the first recipe together with the errata to Sarah.
+    Now, this is what Sarah does to reconstruct the cake from the first recipe and
+    the errata:
+    First, she asks her cyborg to bake its flawed version of
+    the cake from the recipe.
+    Second, she asks her version of your cyborg to write down the recipe from the cake
+    that your cyborg just baked. (These two steps are the same for both).
+    Third, she takes the most recent recipe, reads the errata and uses it to correct
+    the new recipe, thus generating a corrected version of the recipe.
+    Finally, she asks her cyborg to bake the final cake from the corrected recipe.
+    That's it!
+</p>
+<p>
+    The top-left image
+    on the <a href="" ng-click="scrollToElement('img-compression')">top of this page
+    </a> shows how our video compression method compares with standard codecs such as <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">HEVC/H.256</a>.
+</p>
+<h4 class="subsection">Impact</h4>
+<p>
+    We achieved state-of-the-art results at the time of publication with both works,
+    and together they led to the registration of three US patents
+    [<a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10972749">1</a>, 
+    <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11012718">2</a>, 
+    <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11057634">3</a>].
 
-The work on video compression has been cited over 140 times, including in publications from
-<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_One-Shot_Free-View_Neural_Talking-Head_Synthesis_for_Video_Conferencing_CVPR_2021_paper.pdf">
-Nvidia</a>,
-Google [<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Agustsson_Scale-Space_Flow_for_End-to-End_Optimized_Video_Compression_CVPR_2020_paper.pdf">1</a>,
-<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">2</a>],
-and
-<a href="https://proceedings.neurips.cc/paper_files/paper/2021/
-file/96b250a90d3cf0868c83f8c965142d2a-Paper.pdf">
-Microsoft</a>.
+    The work on video compression has been cited over 140 times, including in publications from
+    <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_One-Shot_Free-View_Neural_Talking-Head_Synthesis_for_Video_Conferencing_CVPR_2021_paper.pdf">
+    Nvidia</a>,
+    Google [<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Agustsson_Scale-Space_Flow_for_End-to-End_Optimized_Video_Compression_CVPR_2020_paper.pdf">1</a>,
+    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">2</a>],
+    and
+    <a href="https://proceedings.neurips.cc/paper_files/paper/2021/
+    file/96b250a90d3cf0868c83f8c965142d2a-Paper.pdf">
+    Microsoft</a>.
 
-The work on image compression has been cited over 30 times, including in publications from
-<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Google</a>,
-<a href="https://arxiv.org/abs/2103.03123">University of Oxford</a>,
-<a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/
-066f182b787111ed4cb65ed437f0855b-Paper.pdf">
-UC Irvine</a>, <!-- (IMPORTANT) -->
-<a href="https://openreview.net/pdf?id=IDwN6xjHnK8">
-Qualcomm</a>,
-<a href="https://arxiv.org/pdf/2008.09180.pdf">
-Uber</a>, <!-- (CLOSE TO US) -->
-<a href="https://openaccess.thecvf.com/content/CVPR2021W/CLIC/papers/Zhao_A_Universal_Encoder_Rate_Distortion_Optimization_Framework_for_Learned_Compression_CVPRW_2021_paper.pdf">
-Microsoft</a>, <!-- (Important) -->
-Nokia
-[<a href="https://arxiv.org/pdf/2007.16054.pdf">1</a>,
-<a href="https://arxiv.org/pdf/2108.09992.pdf">2</a>], and
-<a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w7/Guo_Variable_Rate_Image_Compression_With_Content_Adaptive_Optimization_CVPRW_2020_paper.pdf">
-Huawei</a>.
+    The work on image compression has been cited over 30 times, including in publications from
+    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9242247">Google</a>,
+    <a href="https://arxiv.org/abs/2103.03123">University of Oxford</a>,
+    <a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/
+    066f182b787111ed4cb65ed437f0855b-Paper.pdf">
+    UC Irvine</a>, <!-- (IMPORTANT) -->
+    <a href="https://openreview.net/pdf?id=IDwN6xjHnK8">
+    Qualcomm</a>,
+    <a href="https://arxiv.org/pdf/2008.09180.pdf">
+    Uber</a>, <!-- (CLOSE TO US) -->
+    <a href="https://openaccess.thecvf.com/content/CVPR2021W/CLIC/papers/Zhao_A_Universal_Encoder_Rate_Distortion_Optimization_Framework_for_Learned_Compression_CVPRW_2021_paper.pdf">
+    Microsoft</a>, <!-- (Important) -->
+    Nokia
+    [<a href="https://arxiv.org/pdf/2007.16054.pdf">1</a>,
+    <a href="https://arxiv.org/pdf/2108.09992.pdf">2</a>], and
+    <a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w7/Guo_Variable_Rate_Image_Compression_With_Content_Adaptive_Optimization_CVPRW_2020_paper.pdf">
+    Huawei</a>.
 </p>
 <p style="margin-top: 20px; margin-bottom: 10px">
     <b>Publications</b>
@@ -294,7 +387,7 @@ Huawei</a>.
     </ul>
 </p>
 
-<hr style="margin-top: 40px;">
+<hr class="subsection">
 <h5>Footnotes</h5>
 <p style="margin-bottom: 0px;" id="footnote-compression-1">
     [1] More sophisticated standards have since taken the place of these older ones.
@@ -303,6 +396,11 @@ Huawei</a>.
 </p>
 <p style="margin-bottom: 0px;" id="footnote-compression-2">
     [2] We say that there is a lot of redundancy in the signal.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-compression-3">
+    [3] This is because motion information has a much lower
+    <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a> (<i>i.e.</i>,
+    is easier to compress) than full frames.
 </p>
 
 </div>  <!-- last element -->
