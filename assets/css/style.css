@@ -20,17 +20,17 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin-bottom: 15px;
 }
 
 h4 {
-    font-size: 1.3em;
+    font-size: 1.4em;
     margin-bottom: 13px;
 }
 
 h5 {
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 10px;
 }
 
@@ -88,7 +88,11 @@ h2 > small {
 }
 
 .subsection {
-    margin-top: 40px;
+    margin-top: 50px;
+}
+
+.subsubsection {
+    margin-top: 30px;
 }
 
 /* Set link colors */

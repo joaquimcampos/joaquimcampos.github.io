@@ -24,9 +24,9 @@
     Here, I will try to explain in simple terms the general idea behind compression algorithms,
     and talk briefly about the research that I conducted with my colleagues at
     <a href="https://studios.disneyresearch.com/researchlab/disney-research-zurich/">Disney Research.</a>
-</p>    
+</p>
 <h4 class="subsection">What is compression?</h4>
-<h5>A Cake Analogy</h5>
+<h5 class="subsubsection">A Cake Analogy</h5>
 <p>
     Let's imagine that your friend Sarah would like to try your famous homemade vegan chocolate cake.
     If you want to make sure that she tries the best possible version of the cake, it's straightforward: you bake the cake yourself,
@@ -76,7 +76,7 @@
     This allows you to shorten the size of your recipe and fall within your internet plan.
     <br>
 </p>
-<h5>Back to Science</h5>
+<h5 class="subsubsection">Back to Science</h5>
 <p>
     I will now explain all of these ideas in the language of compression.
     The idea here is that you're the <i>encoder</i>&mdash;you encode the cake into a <i>compressed message</i>&mdash;, and Sarah is the <i>decoder</i>&mdash;she takes the compressed message and attempts her best <i>reconstruction</i> of the cake
@@ -146,14 +146,14 @@
     the decoder will have to do the inverse (replacing "1 Tbsp" with "One tablespoon").
     Roughly speaking, decoders mirror the operations of encoders.
 </p>
-<h5>AI-driven Compression</h5>
+<h5 class="subsubsection">AI-driven Compression</h5>
 <p>
     With Neural/AI-driven compression, the encoder and decoder are trained
     on data; that is, for each new recipe that you write down, your recipe-writing skills improve,
     and for each cake Sarah makes, her recipe-reading/interpreting and baking skills
     improve as well.
 </p>
-<h5>Video Compression</h5>
+<h5 class="subsubsection">Video Compression</h5>
 <p>
     Videos are a sequence of frames (pictures). Since, there are usually 24 or 30 frames
     per second (fps), the visual differences between frames are usually very small <a href="" ng-click="scrollToElement('footnote-compression-2')">[2]</a>. (An exception is when
@@ -187,7 +187,7 @@
     A fundamental idea in both projects is neural end-to-end compression, so I'll
     start with that.
 </p>
-<h5>End-to-end Compression</h5>
+<h5 class="subsubsection">End-to-End Compression</h5>
 <p>
     Continuing with the cake example, end-to-end neural compression can be likened
     to you and Sarah go on a cooking retreat together; during that retreat,
@@ -219,7 +219,7 @@
     (apart from your own cyborgs).
     From now on, assume this is the case.
 </p>
-<h5>The First Project</h5>
+<h5 class="subsubsection">The First Project: Content-Adaptive Neural Image Compression</h5>
 <p>
     <!-- We would like an encoder to be able to take in any cake and summarize it into a recipe,
     and same thing goes for the encoder in the opposite direction. -->
@@ -293,7 +293,7 @@
     <a href="https://en.wikipedia.org/wiki/WebP">Webp</a>, and to the baseline neural
     compression without adaption. 
 </p>
-<h5>The Second Project</h5>
+<h5 class="subsubsection">The Second Project: Neural Inter-Frame Video Compression</h5>
 <p>
     This project incorporates many different ideas. Here, I will only give the general
     picture and explain the concept of latent-space residual encoding (don't mind this).
