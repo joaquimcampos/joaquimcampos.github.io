@@ -9,10 +9,74 @@
 </h3>
 
 <a class="row-deepsplines" href="https://ieeexplore.ieee.org/document/9264754">
-    <img src="assets/images/deepsplines.png" alt="Deepsplines">
+    <img id="deepsplines" src="assets/images/deepsplines.png" alt="Deepsplines">
 </a>
 
 <div class="last-element">
+
+<h4 class="subsection">Introduction: Supervised Learning</h4>
+
+<p>
+    <i>Note: It might be useful to read <a href="#/htv">this project</a>'s introduction too</i>.
+</p>
+<p style="margin-bottom: 0">
+    Suppose we have a dataset \({\mathrm D}\) that consists of sequence of \(M\) images
+    of cats and dogs together with their respective labels.
+    Mathematically, we write this statement as \({\mathrm D} = \lbrace{\mathbf x}_m, y_m\rbrace _{m=1}^M\),
+    where \(y_m = 0\) if \({\mathbf x}_m\) represents a cat, and \(y_m = 1\) otherwise,
+    as depicted below.
+</p>
+<div class="row-cat-dog">
+    <img src="assets/images/cat.png" alt="Cat">
+    <img src="assets/images/dog.png" alt="Dog">
+</div>
+<p>
+    In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes both for the images in our dataset <a href="" ng-click="scrollToElement('footnote-fitting')">[1]</a>
+    and also new images that it has not seen before in the training data
+    [<a href="" ng-click="scrollToElement('footnote-overfitting')">2</a>,
+    <a href="" ng-click="scrollToElement('footnote-classification')">3</a>].
+    (In the cat-dog example, the output of our model can be a vector of two values, <i>i.e.</i> \(f({\mathbf x}_m) = (y_0, y_1)\), and the predictions \({\hat y}_m\) be assigned to \({\hat y}_m = 0\) if \(y_0 >= y_1\), and \({\hat y}_m = 1\) otherwise.)
+</p>
+<h5 class="subsubsection">Neural Networks</h5>
+<p>
+    A very standard way of solving supervised learning problems is to use neural networks.
+    Neural nets are sequences of simple linear transformations and pointwise
+    nonlinearities called activation functions <a href="" ng-click="scrollToElement('footnote-pointwise')">[4]</a>.
+    In mathematical terms, this is written as
+    \[
+        {\mathbf f}_{\boldsymbol{\Theta }}({\mathbf x}):
+        {\mathbf W}_L \circ \cdots \circ {\boldsymbol{\sigma }}_\ell \circ {\mathbf W}_\ell \circ \dots \circ {\boldsymbol{\sigma }}_1 \circ {\mathbf W}_1 ({\mathbf x}),
+    \]
+    where \(L\) is the depth of the neural net and \({\boldsymbol \Theta}\) is a list of all the parameters that are adjusted during the learning process.
+    The most popular neural networks use piecewise-linear activation functions called
+    <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLUs</a>. With such kind of activations,
+    the whole network becomes a multidimensional piecewise-linear function &#x1F4C9;.
+</p>
+
+<h4 class="subsection">This Project, Simply Explained</h4>
+<p>
+    Usually, only the linear transformations are adjusted learned the training, and
+    the nonlinearities are fixed.
+    So, piecewise linear networks work very well, but we would also like that
+    the activation functions themselves would be learnable modules.
+    But this would make the problem not solvable.
+    What if we could add a regularization term for which there are guarantees
+    that there are optimal solutions that are piecewise-linear. Then, we could
+    just focus on piecewise-linear functions.
+    This is called second-order total variation \({\rm TV}^{(2)}\).
+    But we need a way to parametrize the functions.
+    We actually control the simplicity (sparsity) of the activation functions,
+    by having a regularization weight that can control the number of knots.
+</p>
+<p>
+    Our lego pieces now are piece-wise linear functions called B(1)-splines
+    $$
+    \begin{align*} \varphi _k(x)=\beta ^1(x-k), \text{ for } k_{\min } < k < k_{\max}, \tag{10} \end{align*} 
+    $$
+    You can see how several lego pieces work together to form a parametrized activation function
+    <a href="" ng-click="scrollToElement('deepsplines')">above</a> (there are just some extra boundary
+    functions to make the location of the knots bounded to a region of interest).
+</p>
 <p>
     Abstract: <br>
     We develop an efficient computational solution to train deep neural networks (DNN) with
@@ -85,8 +149,29 @@
 This work has been cited over 65 times in scientific publications
 </p>
 
+<p style="margin-top: 20px; margin-bottom: 10px">
+    <b>Publications</b>
+</p>
 <div ng-controller="DeepSplinesPubsCtrl">
     <pubs-no-headers></pubs-no-headers>
 </div>
 
-</div>  <!-- last element -->
+
+
+<hr style="margin-top: 40px;">
+<h5>Footnotes</h5>
+<p style="margin-bottom: 0px;" id="footnote-fitting">
+    [1] We say the model "fits the data".
+</p>
+<p style="margin-bottom: 0px;" id="footnote-overfitting">
+    [2] We say the model "generalizes well to new inputs". The problem of
+    having a model that fits the data but is not able to generalize is called
+    <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-classification">
+    [3] I am restricting myself here to classification for didactic purposes.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-pointwise">
+    [4] This means that each output element depends on a single input one.
+</p>
+</div>

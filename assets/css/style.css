@@ -314,7 +314,8 @@ input[type=submit]:hover {
 .row-compression,
 .row-deepsplines,
 .row-boxsplines,
-.row-matterhorn {
+.row-matterhorn,
+.row-cat-dog {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -331,7 +332,13 @@ input[type=submit]:hover {
     margin-bottom: 2.5em;
 }
 
-.row-radiobooks, .row-matterhorn {
+.row-cat-dog {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.row-radiobooks,
+.row-matterhorn {
     width: 19em;
 }
 
@@ -383,9 +390,10 @@ input[type=submit]:hover {
     background-color: #ffffff;
 }
 
-.row-compression {
-    width: 34em;
-    aspect-ratio: 2 / 1;    
+.row-compression,
+.row-cat-dog {
+    aspect-ratio: 2 / 1;
+    width: 34em;  
 }
 
 .row-compression a {
@@ -405,6 +413,10 @@ input[type=submit]:hover {
 .row-compression a img {
     width: 100%;
     padding: 4%;
+}
+
+.row-cat-dog img {
+    width: 50%;
 }
 
 .row-deepsplines {
