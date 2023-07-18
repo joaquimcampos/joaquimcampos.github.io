@@ -18,7 +18,7 @@
 
 <div class="last-element">
 <p>
-    Most of us are familiar with names like MP3, JPEG, and MPEG. Although we probably know them as file extensions, they are not just that: they are, first and foremost, compression standards <a href="" ng-click="scrollToElement('footnote-compression-1')">[1]</a>. The internet relies on such <a hreaf="https://en.wikipedia.org/wiki/Codec">codecs</a> in order to deliver audio, image, and video content to our devices almost instantaneously and with very little quality loss.
+    Most of us are familiar with names like MP3, JPEG, and MPEG. Although we probably know them as file extensions, they are not just that: they are, first and foremost, compression standards <a href="" ng-click="scrollToElement('footnote-standards')">[1]</a>. The internet relies on such <a hreaf="https://en.wikipedia.org/wiki/Codec">codecs</a> in order to deliver audio, image, and video content to our devices almost instantaneously and with very little quality loss.
 </p>
 <p>
     Here, I will try to explain in simple terms the general idea behind compression algorithms,
@@ -88,7 +88,7 @@
     gave you guarantees of pristine quality, but also required a lot of time.
     Sending uncompressed content over the internet is usually prohibitive:
     If you could request an uncompressed film from Disney Plus
-    <a href="" ng-click="scrollToElement('footnote-compression-2')">[2]</a>
+    <a href="" ng-click="scrollToElement('footnote-disney')">[2]</a>
     at 4K resolution,
     they would have to send you the RGB values
     of each of the 8,294,400 pixels of each of the 130,000 frames of the film, which
@@ -161,7 +161,7 @@
 </p>
 <p>
     Videos are a sequence of frames (pictures). Since, there are usually 24 or 30 frames
-    per second (fps), the visual differences between frames are usually very small <a href="" ng-click="scrollToElement('footnote-compression-3')">[3]</a> (an exception is when
+    per second (fps), the visual differences between frames are usually very small <a href="" ng-click="scrollToElement('footnote-redundancy')">[3]</a> (an exception is when
     there is scene cut).
     So if we consider, for example, a 2-second static scene of a landscape,
     a simple way to compress is to encode the first frame in the scene and
@@ -186,7 +186,7 @@
     remaining frames by "adding" their motion information to the intra-frames.
     In this way, if an intra-frame is encoded at the beggining of an almost-static scene,
     very little information is needed to reconstruct the following frames
-    because very little motion is present <a href="" ng-click="scrollToElement('footnote-compression-4')">[4]</a>.
+    because very little motion is present <a href="" ng-click="scrollToElement('footnote-entropy')">[4]</a>.
 </p>
 <h4 class="subsection">The Projects, Simply Explained</h4>
 <p>
@@ -432,20 +432,20 @@
 
 <hr class="subsection">
 <h5>Footnotes</h5>
-<p style="margin-bottom: 0px;" id="footnote-compression-1">
+<p style="margin-bottom: 0px;" id="footnote-standards">
     [1] More sophisticated standards have since taken the place of these older ones.
     Some examples in video (which are based on MPEG) are H.265/HEVC, VP9, and AV1.
     The latter is used by Netflix.
 </p>
-<p style="margin-bottom: 0px;" id="footnote-compression-2">
+<p style="margin-bottom: 0px;" id="footnote-disney">
     [2] I am using Disney Plus for the streaming examples
     because these projects are the result of joint work with my colleagues at Disney&mdash;whom I love&mdash;and
     I also don't want to get into legal trouble &#x1F605;.
 </p>
-<p style="margin-bottom: 0px;" id="footnote-compression-3">
+<p style="margin-bottom: 0px;" id="footnote-redundancy">
     [3] We say that there is a lot of redundancy in the signal.
 </p>
-<p style="margin-bottom: 0px;" id="footnote-compression-4">
+<p style="margin-bottom: 0px;" id="footnote-entropy">
     [4] Motion information has a much lower
     <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a>
     than full frames, which means it is much easier to compress.

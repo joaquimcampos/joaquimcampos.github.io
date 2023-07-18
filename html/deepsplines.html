@@ -21,7 +21,7 @@
 </p>
 <p style="margin-bottom: 0">
     Suppose we have a dataset \({\mathrm D}\) that consists of sequence of \(M\) images
-    of cats and dogs together with their respective labels.
+    of cats and dogs, together with their respective labels.
     Mathematically, we write this statement as \({\mathrm D} = \lbrace{\mathbf x}_m, y_m\rbrace _{m=1}^M\),
     where \(y_m = 0\) if \({\mathbf x}_m\) represents a cat, and \(y_m = 1\) otherwise,
     as depicted below.
@@ -31,122 +31,139 @@
     <img src="assets/images/dog.png" alt="Dog">
 </div>
 <p>
-    In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes both for the images in our dataset <a href="" ng-click="scrollToElement('footnote-fitting')">[1]</a>
-    and also new images that it has not seen before in the training data
+    In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes for images in our dataset <a href="" ng-click="scrollToElement('footnote-fitting')">[1]</a>
+    as well as new images that are not found in the training data
     [<a href="" ng-click="scrollToElement('footnote-overfitting')">2</a>,
     <a href="" ng-click="scrollToElement('footnote-classification')">3</a>].
-    (In the cat-dog example, the output of our model can be a vector of two values, <i>i.e.</i> \(f({\mathbf x}_m) = (y_0, y_1)\), and the predictions \({\hat y}_m\) be assigned to \({\hat y}_m = 0\) if \(y_0 >= y_1\), and \({\hat y}_m = 1\) otherwise.)
+</p>
+<p>
+    <i>(Skippable mathematical details)</i> <br>
+    In the cat-or-dog example, the output of our model is a two-element vector where each value represents the "confidence" in each label, and the predictions \({\hat y}_m\) are assigned according to the label with the highest confidence; that is,
+    $$
+    \begin{align*}
+    f({\mathbf x}_m) & = (a_{m,0}, a_{m,1}) \\[5pt]
+    {\hat y}_m & = 
+    \begin{cases}
+    0 & \text{if} \ \ a_{m,0} \geq a_{m,1} \\
+    1 & \text{if} \ \ a_{m,0} < a_{m,1}
+    \end{cases}
+    \end{align*} 
+    $$
+    <i>(End of mathematics)</i>
 </p>
 <h5 class="subsubsection">Neural Networks</h5>
 <p>
-    A very standard way of solving supervised learning problems is to use neural networks.
-    Neural nets are sequences of simple linear transformations and pointwise
+    Nowadays, neural networks are the most standard way of solving supervised learning
+    problems. Neural nets are sequences of simple linear transformations and pointwise
     nonlinearities called activation functions <a href="" ng-click="scrollToElement('footnote-pointwise')">[4]</a>.
+    <!-- <i>(Skippable mathematical details)</i> <br>
     In mathematical terms, this is written as
     \[
         {\mathbf f}_{\boldsymbol{\Theta }}({\mathbf x}):
         {\mathbf W}_L \circ \cdots \circ {\boldsymbol{\sigma }}_\ell \circ {\mathbf W}_\ell \circ \dots \circ {\boldsymbol{\sigma }}_1 \circ {\mathbf W}_1 ({\mathbf x}),
     \]
-    where \(L\) is the depth of the neural net and \({\boldsymbol \Theta}\) is a list of all the parameters that are adjusted during the learning process.
-    The most popular neural networks use piecewise-linear activation functions called
-    <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLUs</a>. With such kind of activations,
-    the whole network becomes a multidimensional piecewise-linear function &#x1F4C9;.
+    where \(L\) is the depth of the neural net and \({\boldsymbol \Theta}\) is a list of all the parameters that are adjusted during the learning process. <br>
+    <i>(End of mathematics)</i> -->
+    The most popular activation functions are called
+    <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a>.
+    These functions are continuous and piecewise-linear (CPWL),
+    meaning that their graph is composed of
+    straight-line segments like this &#x1F4C9;.
+    Interestingly, networks with CPWL activations are CPWL functions themselves.
 </p>
 
-<h4 class="subsection">This Project, Simply Explained</h4>
+<h4 class="subsection">The Projects, Simply Explained</h4>
 <p>
-    Usually, only the linear transformations are adjusted learned the training, and
-    the nonlinearities are fixed.
-    So, piecewise linear networks work very well, but we would also like that
-    the activation functions themselves would be learnable modules.
-    But this would make the problem not solvable.
-    What if we could add a regularization term for which there are guarantees
-    that there are optimal solutions that are piecewise-linear. Then, we could
-    just focus on piecewise-linear functions.
-    This is called second-order total variation \({\rm TV}^{(2)}\).
-    But we need a way to parametrize the functions.
-    We actually control the simplicity (sparsity) of the activation functions,
-    by having a regularization weight that can control the number of knots.
+    In the standard deep learning paradigm, only the linear transformations are
+    learned during the training, and the activation functions are fixed.
+    In this project, we found a computationally cheap and fast way to also learn the
+    latter. Our method showed better results compared to the baseline.
+    Here, we'll see how it works.
+</p>
+<h5 class="subsubsection">A Bit of Theory</h5>
+<p>
+    In order to learn the activation functions of a neural network, we need a way
+    to turn them into learnable modules that depend on discrete
+    parameters, just like the other parameters in the network
+    <a href="" ng-click="scrollToElement('footnote-ill-posed')">[5]</a>.
+    To do this, we have to introduce some constraints.
+    Since networks with CPWL activations seem to work very well, it would be
+    great if we could mantain this behaviour.
 </p>
 <p>
-    Our lego pieces now are piece-wise linear functions called B(1)-splines
-    $$
-    \begin{align*} \varphi _k(x)=\beta ^1(x-k), \text{ for } k_{\min } < k < k_{\max}, \tag{10} \end{align*} 
-    $$
-    You can see how several lego pieces work together to form a parametrized activation function
-    <a href="" ng-click="scrollToElement('deepsplines')">above</a> (there are just some extra boundary
-    functions to make the location of the knots bounded to a region of interest).
+    Well, it turns out that we can modify our problem statement slightly
+    by adding a <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">
+    regularization</a> term called second-order total variation,
+    and have guarantees that there are optimal solutions to the problem that actually have
+    CPWL activation functions. In that case, we have a theoretical justification to just focus
+    on learning models with CPWL activations functions.
+    (For example, if you are looking for very fast bike in a shop, and someone tells you
+    that the last Tour de France was won with a bike of this particular brand,
+    then it's smarter to just try out bikes from that specific brand&mdash;
+    you know at least one of them will do the job well.)
+</p>
+
+<h5 class="subsubsection">The First Project: Deep Spline Networks</h5>
+<p>
+    <i>
+    (There are a few important steps in getting from the theory to the actual
+    algorithm that we have ommited here for the sake of simplicity.
+    If you'd like more details, you can read
+    <a href="https://ieeexplore.ieee.org/document/9264754">the paper</a>.)
+    </i>
 </p>
 <p>
-    Abstract: <br>
-    We develop an efficient computational solution to train deep neural networks (DNN) with
-    free-form activation functions. To make the problem well-posed, we augment the cost functional of the DNN
-    by adding an appropriate shape regularization: the sum of the second-order total-variations of the trainable
-    nonlinearities. The representer theorem for DNNs tells us that the optimal activation functions are adaptive
-    piecewise-linear splines, which allows us to recast the problem as a parametric optimization. The challenging
-    point is that the corresponding basis functions (ReLUs) are poorly conditioned and that the determination of
-    their number and positioning is also part of the problem. We circumvent the difficulty by using an equivalent
-    B-spline basis to encode the activation functions and by expressing the regularization as an 1 -penalty. This
-    results in the specification of parametric activation function modules that can be implemented and optimized
-    efficiently on standard development platforms. We present experimental results that demonstrate the benefit
-    of our approach.
-    <br> <br>
-    Conclusion: <br>
-    We have presented an efficient computational solution to
-    train deep neural networks with learnable activation functions.
-    Specifically, we have focused on deep spline networks. They
-    form a superset of the traditional ReLU networks and are
-    known to be optimal with respect to the second-order total
-    variation of the adjustable nonlinearities. We have tackled
-    the resulting difficult joint-optimization problem by represent-
-    ing the linear-spline nonlinearities in terms of B-spline basis.
-    functions and by expressing the second-order total-variation
-    regularization as an l1 -penalty, thus unifying the paramet-
-    ric and functional approaches for the learning of activation
-    functions. The proposed B-spline representation was instru-
-    mental in making the training of the DNN computationally
-    feasible. Indeed, any computation concerning the activation
-    functions involves only two basis elements per data point.
-    Finally, we have demonstrated the benefits of our framework
-    through experiments in the context of classification and de-
-    convolution problems. In particular, we have observed that our
+    In order to have learnable functions, we construct them using "lego pieces" (basis functions)
+    called \(\beta ^1\)-splines in equally-spaced locations. As such, the models that our method
+    is able to find, which include all ReLU-like models, are called "deep spline networks".
+    You can see <a href="" ng-click="scrollToElement('deepsplines')">above</a>
+    how several lego pieces work together to form a parametrized activation function
+    <a href="" ng-click="scrollToElement('footnote-boundary')">[6]</a>.
+    During training, we learn the heights (coefficients) of the lego pieces together
+    with the other parameters in the network.
+</p>
+<p>
+    Apart from being theoretically supported, our method has two practical key strengths.
+    First, the lego pieces that we use are are localized, meaning
+    that they are zero outside a small range. This makes the output
+    of the activaton at a specific location depend on, at most, two lego pieces
+    <a href="" ng-click="scrollToElement('footnote-relu-basis')">[7]</a>.
+    For this reason, <b>our method is stable (well-conditioned), and fast to run.</b>
+    Second, <b>we can control the degree of simplicity of
+    our activations&mdash;as measured by the number of knots/linear regions&mdash;by
+    changing the strength of the regularization applied </b>
+    <a href="" ng-click="scrollToElement('footnote-sparse')">[8]</a>.
+    Therefore, our approach compatible with the Occam's razor principle:
+    as long as it can do the job, the simpler, the better.
+    Simple models have the advantage of being lighter
+    (ocupying less memory) and faster.
+    Moreover, they are more explainable/interpretable: if they make a prediction error,
+    we have a better chance
+    of actually understanding what went wrong (*cough* ChatGPT *cough*)
+    <a href="" ng-click="scrollToElement('footnote-black-box')">[9]</a>.
+</p>
+<p>
+    Overall, we found that our method have observed that our
     method compares favorably to the traditional ReLU networks,
     the improvement being more pronounced for simpler/smaller
     networks.
-    <br> <br> <br>
-    Lipschitz Abstract: <br>
-    We introduce a variational framework to learn the
-    activation functions of deep neural networks. Our aim is to increase
-    the capacity of the network while controlling an upper-bound of
-    the actual Lipschitz constant of the input-output relation. To that
-    end, we first establish a global bound for the Lipschitz constant of
-    neural networks. Based on the obtained bound, we then formulate
-    a variational problem for learning activation functions. Our vari-
-    ational problem is infinite-dimensional and is not computationally
-    tractable. However, we prove that there always exists a solution
-    that has continuous and piecewise-linear (linear-spline) activations.
-    This reduces the original problem to a finite-dimensional minimiza-
-    tion where an l1 penalty on the parameters of the activations favors
-    the learning of sparse nonlinearities. We numerically compare our
-    scheme with standard ReLU network and its variations, PReLU
-    and LeakyReLU and we empirically demonstrate the practical
-    aspects of our framework.
-    <br> <br>
-    Lipschitz Conclusion: <br>
-    In this paper, we have introduced a variational framework to
-    learn the activations of a deep neural network while controlling
-    its global Lipschitz regularity. We have considered neural net-
-    works with second-order bounded-variation activations and we
-    provided a global bound for their Lipschitz constants. We have
-    showed that the solution of our proposed variational problem
-    exists and is in the form of a deep-spline network with continuous
-    piecewise linear activation functions. Our future work in this
-    direction is to explore how the simplification of architectures can
-    be compensated by the deployment of more complex activations.
 </p>
+
+<h5 class="subsubsection">The Second Project: Deep Spline Networks with Controlled Lipschitz Constant</h5>
+<p>
+    This project is a variation of the latter. By modifying slightly the regularization
+    term, we showed that we could control the Lipschitz constant of the network,
+    which measures how robust the network's predictions are to small, irrelevant changes
+    in the input. This is very important to ensure that neural nets are stable and reliable:
+    for example, we don't want self-driving cars to not be able to detect stop signs
+    if someone pastes small stickers on top, as has been shown to happen
+    <a href="https://arxiv.org/pdf/1707.08945.pdf">here</a>. This is a clear example
+    of how a lack of robustness can lead to tragic consequences.
+</p>
+
 <h4><b>Impact</b></h4>
 <p>
-This work has been cited over 65 times in scientific publications
+The first and second works have been cited over 28 and 34 times, respectively.
 </p>
 
 <p style="margin-top: 20px; margin-bottom: 10px">
@@ -155,8 +172,6 @@ This work has been cited over 65 times in scientific publications
 <div ng-controller="DeepSplinesPubsCtrl">
     <pubs-no-headers></pubs-no-headers>
 </div>
-
-
 
 <hr style="margin-top: 40px;">
 <h5>Footnotes</h5>
@@ -172,6 +187,31 @@ This work has been cited over 65 times in scientific publications
     [3] I am restricting myself here to classification for didactic purposes.
 </p>
 <p style="margin-bottom: 0px;" id="footnote-pointwise">
-    [4] This means that each output element depends on a single input one.
+    [4] A pointwise operation is one for which each output element depends on a
+    single input one.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-ill-posed">
+    [5] Otherwise the problem is 
+    <a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-boundary">
+    [6] There are some extra boundary functions to make the location of the
+    knots bounded to a region of interest.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-relu-basis">
+    [7] This is not the case with ReLU basis functions, because they are not localized
+    (they are non-zero at any point to the right of the knot).
+    Therefore, we say they are poorly-conditioned.
+</p>
+<p style="margin-bottom: 0px;" id="footnote-sparse">
+    [8] In technical terms, our method is able to enforce activation functions with
+    sparse second-derivatives (in the weak sense).
+</p>
+<p style="margin-bottom: 0px;" id="footnote-black-box">
+    [9] Neural networks are sometimes called
+    <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
+        "black-box models"
+    </a>
+    partly because of their lack of interpretability.
 </p>
 </div>

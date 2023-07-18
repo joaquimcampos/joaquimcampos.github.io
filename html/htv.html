@@ -30,8 +30,8 @@
     <img src="assets/images/matterhorn.png" alt="Radiobooks logo">
 </div>
 <p>
-    In supervised learning, our goal is to find a model \(f\) that predicts fairly well the height \(y_m\) of each mountain in our dataset from its depiction \({\mathbf x}_m\) <a href="" ng-click="scrollToElement('footnote-htv-1')">[1]</a>
-    (<i>i.e.</i>, \(f({\bf x}_m) = \hat{y}_m \approx y_m\)),
+    In supervised learning, our goal is to find a model \(f\) that predicts fairly well the height \(y_m\) of each mountain in our dataset from its depiction \({\mathbf x}_m\)
+    (mathematically, \(f({\bf x}_m) = \hat{y}_m \approx y_m\)) <a href="" ng-click="scrollToElement('footnote-data-fitting')">[1]</a>,
     and that is able to generalize to new inputs: that is, that can accurately predict
     the heights of mountains from their respective images even when it has not
     seen those images before in the training data.
@@ -44,44 +44,45 @@
 <p>
     First, if we know something about the data distribution, then we can use
     that information. For example, if the data is the result of a linear mapping plus
-    some measurement noise, <i>i.e.</i>, \(y = {\mathbf w}^T{\mathbf x} + b + \epsilon\),
+    some measurement noise (mathematically, \(y = {\mathbf w}^T{\mathbf x} + b + \epsilon\)),
     then we can just search within this family of linear models; in this way,
     an a priori complicated problem is reduced
-    to a simple one of finding the optimal parameters \({\mathbf w}\) and \(b\).
+    to a simple one of finding just a few parameters (\({\mathbf w}\) and \(b\)).
     Alternatively, we might restrict ourselves to a family
     of models that we know to contain elements that perform well for similar tasks
     and introduce some information about what kind of models we're looking for in the form of
     <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a>.
     This serves to make the problem solvable or to favor models that can generalize well
-    <a href="" ng-click="scrollToElement('footnote-htv-2')">[2]</a>.
+    <a href="" ng-click="scrollToElement('footnote-regularization')">[2]</a>.
     A very common practice is to use regularization terms favor simple models
     from the search space. This follows from the Occam's razor principle:
     as long as it can do the job, the simpler, the better.
-    Simple models have the advantage of being lighter (<i>i.e.</i>, ocupying less memory),
-    faster, and being more robust&mdash;, in
+    Simple models have the advantage of being lighter (ocupying less memory),
+    faster, and being more robust&mdash;in
     that small or irrelevant changes in the image are less likely to screw up the predictions
-    <a href="" ng-click="scrollToElement('footnote-htv-3')">[3]</a>.
-    Moreover, simple models are more explainable/interpretable: if they make a prediction error,
+    <a href="" ng-click="scrollToElement('footnote-robustness')">[3]</a>.
+    Moreover, they are more are more explainable/interpretable: if they make a prediction error,
     we have a better chance
     of actually understanding what went wrong (*cough* ChatGPT *cough*)
-    <a href="" ng-click="scrollToElement('footnote-htv-4')">[4]</a>.
+    <a href="" ng-click="scrollToElement('footnote-black-box')">[4]</a>.
 </p>
 <p>
     A family of models that has had a lot of success in the past few years
-    are neural networks, which are part of the larger family piecewise-linear
-    functions &#x1F4C9;
-    <a href="" ng-click="scrollToElement('footnote-htv-5')">[5]</a>.
+    are neural networks, which are part of the larger family of continuous and piecewise-linear
+    functions (functions whose graph is composed of straight-line segments like this &#x1F4C9;)
+    <a href="" ng-click="scrollToElement('footnote-relu')">[5]</a>.
     But left to their own devices, neural nets lead to a <a href="https://arxiv.org/pdf/1402.1869.pdf">very large number of linear regions</a>, which makes them less robust and interpretable.    
 </p>
 
 <h4 class="subsection">This Project, Simply Explained</h4>
 <p>
-    In this project, we found a way to learn piecewise-linear models
+    In this project, we found a way to learn continous and piecewise-linear models
     that have few regions and a straightforward relationship
     with their parameters (<i>i.e.</i>, are interpretable).
     For this, we used a regularizer called Hessian-Schatten Total Variation (don't mind this)
     that enforces sparse second-derivatives (and neither this),
-    and restricted ourselves to a family of models that is made up of lego pieces called <i>box splines</i>.
+    and restricted ourselves to a family of models that is made up of "lego pieces" (basis functions)
+    called <i>box splines</i>.
     In the following image you can see (on the left) one of these lego pieces, and (on the right)
     an example of a learned model that (in simple terms) results from placing different lego
     pieces with different heights at different locations.
@@ -144,27 +145,27 @@ winner
 
 <hr style="margin-top: 40px;">
 <h5>Footnotes</h5>
-<p style="margin-bottom: 0px;" id="footnote-htv-1">
+<p style="margin-bottom: 0px;" id="footnote-data-fitting">
     [1] We call this "fitting the data".
 </p>
-<p style="margin-bottom: 0px;" id="footnote-htv-2">
+<p style="margin-bottom: 0px;" id="footnote-regularization">
     [2] In technical terms, regularization is used to make the problem
     <a href="https://en.wikipedia.org/wiki/Well-posed_problem">well-posed</a>
     or to prevent <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
 </p>
-<p style="margin-bottom: 0px;" id="footnote-htv-3">
+<p style="margin-bottom: 0px;" id="footnote-robustness">
     [3] <a href="https://arxiv.org/pdf/1707.08945.pdf">
     Here
     </a> you can see an example where lack of robustness can lead to tragic consequences.
 </p>
-<p style="margin-bottom: 0px;" id="footnote-htv-4">
+<p style="margin-bottom: 0px;" id="footnote-black-box">
     [4] Neural networks are sometimes called
     <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
         "black-box models"
     </a>
     partly because of their lack of interpretability.
 </p>
-<p id="footnote-htv-5">
+<p id="footnote-relu">
     [5] Those with ReLU-like activations, which are the most used ones.
 </p>
 
