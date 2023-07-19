@@ -31,13 +31,13 @@
     <img src="assets/images/dog.png" alt="Dog">
 </div>
 <p>
-    In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes for images in our dataset <a href="" ng-click="scrollToElement('footnote-fitting')">[1]</a>
+    In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes for the images in our dataset <a href="" ng-click="scrollToElement('footnote-fitting')">[1]</a>
     as well as new images that are not found in the training data
     [<a href="" ng-click="scrollToElement('footnote-overfitting')">2</a>,
     <a href="" ng-click="scrollToElement('footnote-classification')">3</a>].
 </p>
 <p>
-    <i>(Skippable mathematical details)</i> <br>
+    <i>(Mathematical details)</i> <br>
     In the cat-or-dog example, the output of our model is a two-element vector where each value represents the "confidence" in each label, and the predictions \({\hat y}_m\) are assigned according to the label with the highest confidence; that is,
     $$
     \begin{align*}
@@ -64,18 +64,18 @@
     \]
     where \(L\) is the depth of the neural net and \({\boldsymbol \Theta}\) is a list of all the parameters that are adjusted during the learning process. <br>
     <i>(End of mathematics)</i> -->
-    The most popular activation functions are called
-    <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a>.
-    These functions are continuous and piecewise-linear (CPWL),
-    meaning that their graph is composed of
-    straight-line segments like this &#x1F4C9;.
+    The most popular activation function is the
+    <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a>,
+    which is a continuous and piecewise-linear (CPWL) function,
+    meaning that its graph is composed of
+    straight-line segments (like this &#x1F4C9;).
     Interestingly, networks with CPWL activations are CPWL functions themselves.
 </p>
 
 <h4 class="subsection">The Projects, Simply Explained</h4>
 <p>
     In the standard deep learning paradigm, only the linear transformations are
-    learned during the training, and the activation functions are fixed.
+    learned during the training, and the activation functions are kept fixed.
     In this project, we found a computationally cheap and fast way to also learn the
     latter. Our method showed better results compared to the baseline.
     Here, we'll see how it works.
@@ -84,23 +84,23 @@
 <p>
     In order to learn the activation functions of a neural network, we need a way
     to turn them into learnable modules that depend on discrete
-    parameters, just like the other parameters in the network
+    parameters, as is the case with the linear transformation
     <a href="" ng-click="scrollToElement('footnote-ill-posed')">[5]</a>.
     To do this, we have to introduce some constraints.
-    Since networks with CPWL activations seem to work very well, it would be
-    great if we could mantain this behaviour.
 </p>
 <p>
+    Since networks with CPWL activations seem to work very well, it would be
+    great if we could mantain this behaviour.
     Well, it turns out that we can modify our problem statement slightly
     by adding a <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">
-    regularization</a> term called second-order total variation,
-    and have guarantees that there are optimal solutions to the problem that actually have
-    CPWL activation functions. In that case, we have a theoretical justification to just focus
-    on learning models with CPWL activations functions.
-    (For example, if you are looking for very fast bike in a shop, and someone tells you
+    regularization</a> term called "second-order total variation",
+    and have guarantees that there are optimal solutions to the problem (<i>i.e.</i>, optimal models) that actually have
+    CPWL activation functions. In that case, we have a theoretical justification to restrict our search
+    to such kinds of models.
+    (For example, if you are looking for a very fast bike in a big bike shop, and someone tells you
     that the last Tour de France was won with a bike of this particular brand,
-    then it's smarter to just try out bikes from that specific brand&mdash;
-    you know at least one of them will do the job well.)
+    then it's smarter to just try out bikes from that specific brand because
+    you know that at least one of them will do the job well.)
 </p>
 
 <h5 class="subsubsection">The First Project: Deep Spline Networks</h5>
@@ -108,27 +108,28 @@
     <i>
     (There are a few important steps in getting from the theory to the actual
     algorithm that we have ommited here for the sake of simplicity.
-    If you'd like more details, you can read
+    If you'd like to know more details, you can read
     <a href="https://ieeexplore.ieee.org/document/9264754">the paper</a>.)
     </i>
 </p>
 <p>
-    In order to have learnable functions, we construct them using "lego pieces" (basis functions)
-    called \(\beta ^1\)-splines in equally-spaced locations. As such, the models that our method
-    is able to find, which include all ReLU-like models, are called "deep spline networks".
+    In order to have learnable activation functions, we construct them using "lego pieces" (basis functions)
+    called \(\beta ^1\)-splines, which are placed at equally-spaced locations.
     You can see <a href="" ng-click="scrollToElement('deepsplines')">above</a>
     how several lego pieces work together to form a parametrized activation function
     <a href="" ng-click="scrollToElement('footnote-boundary')">[6]</a>.
     During training, we learn the heights (coefficients) of the lego pieces together
     with the other parameters in the network.
+    The models that can be found using our method are called "deep spline networks";
+    they include all models with ReLU-like activations (ReLU, LeakyReLU, PReLU, etc.).
 </p>
 <p>
-    Apart from being theoretically supported, our method has two practical key strengths.
-    First, the lego pieces that we use are are localized, meaning
-    that they are zero outside a small range. This makes the output
-    of the activaton at a specific location depend on, at most, two lego pieces
+    Apart from being theoretically supported, our method has two practical key strengths:
+    First, the output of the activatons at a specific location depends on (at most)
+    two lego pieces because the lego pieces are localized, meaning
+    that they are zero outside a small range.
     <a href="" ng-click="scrollToElement('footnote-relu-basis')">[7]</a>.
-    For this reason, <b>our method is stable (well-conditioned), and fast to run.</b>
+    This makes <b>our method is stable (well-conditioned), and fast to run.</b>
     Second, <b>we can control the degree of simplicity of
     our activations&mdash;as measured by the number of knots/linear regions&mdash;by
     changing the strength of the regularization applied </b>
@@ -143,27 +144,29 @@
     <a href="" ng-click="scrollToElement('footnote-black-box')">[9]</a>.
 </p>
 <p>
-    Overall, we found that our method have observed that our
+    In terms of results, we have observed that our
     method compares favorably to the traditional ReLU networks,
-    the improvement being more pronounced for simpler/smaller
-    networks.
+    with the improvement being more pronounced for simpler/smaller networks.
 </p>
 
 <h5 class="subsubsection">The Second Project: Deep Spline Networks with Controlled Lipschitz Constant</h5>
 <p>
-    This project is a variation of the latter. By modifying slightly the regularization
-    term, we showed that we could control the Lipschitz constant of the network,
-    which measures how robust the network's predictions are to small, irrelevant changes
-    in the input. This is very important to ensure that neural nets are stable and reliable:
-    for example, we don't want self-driving cars to not be able to detect stop signs
-    if someone pastes small stickers on top, as has been shown to happen
-    <a href="https://arxiv.org/pdf/1707.08945.pdf">here</a>. This is a clear example
+    In this work, we modified "slightly" the regularization term used in the previous work&mdash;the new
+    version being called "second-order bounded variation"&mdash;and showed that this allowed us
+    to control the Lipschitz constant of the network,
+    which measures how robust the network's predictions are to small changes
+    in the input. This is very important to ensure the reliability of neural nets.
+    For example, we dont't want self-driving cars to not be able to detect stop signs
+    if someone graffitied them or pasted small stickers on top.
+    Unfortunately, this has been shown to happen with standard neural nets
+    <a href="https://arxiv.org/pdf/1707.08945.pdf">here</a>: a clear example
     of how a lack of robustness can lead to tragic consequences.
 </p>
 
-<h4><b>Impact</b></h4>
+<h4 style="margin-top: 40px">Impact</h4>
 <p>
-The first and second works have been cited over 28 and 34 times, respectively.
+The first work has been cited over 28 in the scientific literature. The
+second work has been cited over 34 times.
 </p>
 
 <p style="margin-top: 20px; margin-bottom: 10px">
@@ -176,10 +179,10 @@ The first and second works have been cited over 28 and 34 times, respectively.
 <hr style="margin-top: 40px;">
 <h5>Footnotes</h5>
 <p style="margin-bottom: 0px;" id="footnote-fitting">
-    [1] We say the model "fits the data".
+    [1] In technical jargon, we say the model "fits the data".
 </p>
 <p style="margin-bottom: 0px;" id="footnote-overfitting">
-    [2] We say the model "generalizes well to new inputs". The problem of
+    [2] In technical jargon, we say the model "generalizes well to new inputs". The problem of
     having a model that fits the data but is not able to generalize is called
     <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
 </p>
@@ -188,10 +191,10 @@ The first and second works have been cited over 28 and 34 times, respectively.
 </p>
 <p style="margin-bottom: 0px;" id="footnote-pointwise">
     [4] A pointwise operation is one for which each output element depends on a
-    single input one.
+    single input element.
 </p>
 <p style="margin-bottom: 0px;" id="footnote-ill-posed">
-    [5] Otherwise the problem is 
+    [5] Otherwise, the problem is 
     <a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>.
 </p>
 <p style="margin-bottom: 0px;" id="footnote-boundary">
@@ -199,7 +202,7 @@ The first and second works have been cited over 28 and 34 times, respectively.
     knots bounded to a region of interest.
 </p>
 <p style="margin-bottom: 0px;" id="footnote-relu-basis">
-    [7] This is not the case with ReLU basis functions, because they are not localized
+    [7] This is not the case with ReLU basis functions because they are not localized
     (they are non-zero at any point to the right of the knot).
     Therefore, we say they are poorly-conditioned.
 </p>
