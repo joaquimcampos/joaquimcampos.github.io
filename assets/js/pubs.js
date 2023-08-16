@@ -181,11 +181,11 @@ const inner_pubs = `
         <li class="list-group-item publist_row" ng-repeat="pub in filteredpubs = (pub_info.pubs | orderBy: getDate : true | filter:filter_text)">
 
             <!-- switch through publication types (set handler for click events and configure type of item) -->
-            <span class="list-group-item-text" ng-switch on="pub.EntryType" ng-click="showMore = !showMore" >
+            <span ng-switch on="pub.EntryType" ng-click="showMore = !showMore" >
 
                             <!-- format for case: unpublished (calling it preprints) -->
                 <span ng-switch-when="unpublished">
-                    <i class="material-icons">insert_drive_file</i>
+                    <i class="material-icons pubs-icons">insert_drive_file</i>
                     <span ng-show="pub.Fields.github"> <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>,
                     <span ng-show="pub.Fields.journal"><em>{{pub.Fields.journal}}</em>, </span>
@@ -196,8 +196,8 @@ const inner_pubs = `
                             </span>
                             <!-- format for case: article -->
                 <span ng-switch-when="article">
-                    <i class="material-icons">insert_drive_file</i>
-                    <span ng-show="pub.Fields.github"> <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
+                    <i class="material-icons pubs-icons">insert_drive_file</i>
+                    <span ng-show="pub.Fields.github"> <svg height="40" viewBox="0 0 16 16" version="1.1" width="40" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>,
                     <em>{{pub.Fields.journal}}</em>,
                     <span ng-show="pub.Fields.volume">vol. {{pub.Fields.volume}}, </span>
@@ -207,46 +207,46 @@ const inner_pubs = `
                             </span>
                             <!-- format for case: inproceedings -->
                 <span ng-switch-when="inproceedings">
-                    <i class="material-icons">insert_drive_file</i>
+                    <i class="material-icons pubs-icons">insert_drive_file</i>
                     <span ng-show="pub.Fields.github"> <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>, in <em>{{pub.Fields.booktitle}}</em>,
                                         <span ng-show="pub.Fields.pages">pp. {{pub.Fields.pages}},</span> {{pub.Fields.year}}
                 </span>
                 <!-- format for case: book -->
                 <span ng-switch-when="book">
-                        <i class="material-icons">book</i>
+                        <i class="material-icons pubs-icons">book</i>
                         <span ng-show="pub.Fields.github"> <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>, {{pub.Fields.publisher}}, {{pub.Fields.year}}
                 </span>
                 <!-- format for case: inbook (chapters) -->
                 <span ng-switch-when="inbook">
-                        <i class="material-icons">book</i>
+                        <i class="material-icons pubs-icons">book</i>
                         <span ng-show="pub.Fields.github"> <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.chapter}}</strong>, in {{pub.Fields.title}}, pp. {{pub.Fields.pages}}, {{pub.Fields.publisher}}, {{pub.Fields.year}}
                 </span>
                 <!-- format for case: mastersthesis -->
                 <span ng-switch-when="mastersthesis">
-                    <i class="material-icons">book</i>
+                    <i class="material-icons pubs-icons">book</i>
                     <span ng-show="pub.Fields.github"> <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"> <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></span>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>, <span ng-if="pub.Fields.type">{{pub.Fields.type}}</span><span ng-if="!pub.Fields.type">Master's thesis</span> at <em>{{pub.Fields.school}}</em>, {{pub.Fields.year}}
                 </span>
                 <!-- format for case: thesis -->
                 <span ng-switch-when="thesis">
-                    <i class="material-icons">book</i>
+                    <i class="material-icons pubs-icons">book</i>
                     {{pub.Fields.author}}, <strong>{{pub.Fields.title}}</strong>, <span ng-if="pub.Fields.type">{{pub.Fields.type}}</span><span ng-if="!pub.Fields.type">Thesis</span> at <em>{{pub.Fields.school}}</em>, {{pub.Fields.year}}
                 </span>
                 <!-- format for case: phdthesis -->
                 <span ng-switch-when="phdthesis">
-                    <i class="material-icons">book</i>
+                    <i class="material-icons pubs-icons">book</i>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>, Ph.D. thesis at <em>{{pub.Fields.school}}</em>, {{pub.Fields.year}}
                 </span>
                 <!-- format for case: patent -->
                 <span ng-switch-when="patent">
-                    <i class="material-icons">assignment_turned_in</i>
+                    <i class="material-icons pubs-icons">assignment_turned_in</i>
                     {{pub.Fields.author_noand}}, <strong>{{pub.Fields.title}}</strong>, {{pub.Fields.nationality}} <span ng-if="pub.Fields.type">{{pub.Fields.type}}</span><span ng-if="!pub.Fields.type">Patent</span><span ng-show="pub.Fields.number"> {{pub.Fields.number}}</span>, {{pub.Fields.year}}
                 </span>
                 <!-- arrow to expand, common to all cases (controlled by showMore variable for each pub) -->
-                            <i id="morearrow" class="material-icons color-theme"> {{showMore ? 'arrow_downward' : 'arrow_forward'}} </i> </a>
+                            <i id="morearrow" class="material-icons pubs-icons color-theme"> {{showMore ? 'arrow_downward' : 'arrow_forward'}} </i> </a>
             </span>
 
                         <!-- Extra info all pubs may have, show only if available. Abstract, DOI link, arXiv link, URL, slides link, and BibTex reference (always) -->

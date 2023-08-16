@@ -58,9 +58,27 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
 
     $scope.$on('$viewContentLoaded', renderMathJax);
 
+    // Function to handle navbar toggle click and custom functionality
+    $scope.toggleNavbar = function() {
+        $scope.navbarCollapsed = !$scope.navbarCollapsed; // Toggle navbar state
+
+        if (!$scope.navbarCollapsed) {
+            console.log("Navbar expanded.");
+            var mainContentContainer = document.querySelector(".main-content"); // Change to your container class
+            mainContentContainer.style.paddingTop = "230.5px";
+        } else {
+            var mainContentContainer = document.querySelector(".main-content"); // Change to your container class
+            mainContentContainer.style.paddingTop = "0";
+            // remove focus on collapsed navbar
+            document.activeElement.blur();
+        }
+    };
+
     // Function to collapse the navbar when clicking away
-    var collapseNavbar = function() {
+    var collapseNavbar = function () {
         $scope.navbarCollapsed = true;
+        var mainContentContainer = document.querySelector(".main-content"); // Change to your container class
+        mainContentContainer.style.paddingTop = "0";
     };
 
     angular.element(document).on('click', function(e) {
@@ -70,7 +88,7 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
     });
 
     // Function to collapse the navbar after clicking on a navbar icon
-    $scope.closeNavbar = function() {
+    $scope.closeNavbar = function () {
         if (!$scope.navbarCollapsed) {
           $scope.navbarCollapsed = true;
         }

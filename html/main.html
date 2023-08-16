@@ -1,26 +1,26 @@
-<div class="row">
+
+<div class="top-element">
+</div>
+<div id="short-bio">
   <!--- Picture --->
-  <div class="col-sm-3 col-xs-12">
-    <center>
-      <img id="portrait" class="img-responsive img-center" src="assets/images/Joaquim_square.png">
-    </center>
-  </div>
-  <!--- Name and short description --->
-  <div class="col-sm-9 col-xs-12">
-    <div id="name-row">
-      <div id="name-container">
-        <h2 style="margin: 0;">Joaquim Campos
-          <small>MSc.</small>
-        </h2>
-      </div>
-      <div id="icons-row">
-        <a class="icons-label-theme" href="assets/cv/cv_Joaquim.pdf ">PDF CV</a>
-        <a class="icons-label-theme" href="https://scholar.google.com/citations?user=GT-VCroAAAAJ&hl=en">
-          <img src="https://scholar.google.se/favicon-png.ico"
-          alt="Google Scholar icon">
-          Google Scholar
+  <div class="fig-column">
+    <div id="portrait-row">
+      <img style="width: 100%" src="assets/images/Joaquim_square.png">
+    </div>
+    <div id="icons-row">
+        <a class="icon icon-1 icons-label-theme material-icons" href="mailto:joaquimcampos15@duck.com>">email</a>
+        <a class="icon icon-2 icons-label-theme" href="assets/cv/cv_Joaquim.pdf">CV</a>
+        <a class="icon icon-3 icons-label-theme" href="https://scholar.google.com/citations?user=GT-VCroAAAAJ&hl=en">
+          <img src="https://scholar.google.se/favicon-png.ico" alt="Google Scholar icon">
         </a>
-      </div>
+    </div>
+  </div>  <!-- end of fig-column -->
+  <!--- Name and short description --->
+  <div class="text-column">
+    <div id="name-row">
+      <h2 style="margin: 0;">Joaquim Campos
+        <small>MSc.</small>
+      </h2>
     </div>
     <p>
         I am an engineer, researcher, and programmer by profession, and I dedicate my after-work hours to philosophy, meditation, music, and dance.
@@ -35,35 +35,11 @@
     <p>
         In September, I will join a 3-month-long intensive study program on buddhist philosophy and meditation at <a href="https://tergarinstitute.org/program/">Tergar Insitute</a>, Kathmandu, Nepal.
     </p>
-    <br />
-
-    <div class="row">
-      <!--- E-mail --->
-      <div class="col-xs-6 col-xxs-12" style="text-align: center">
-        <p>
-          <i class="material-icons">email</i><br />
-            E-mail<br />
-            <a href=mailto:joaquimcampos15@duck.com>
-              joaquimcampos15<br class="optional-break">@duck.com
-            </a> <br />
-        </p>
-      </div>
-      <!--- Home address --->
-      <div class="col-xs-6 col-xxs-12" style="text-align: center">
-        <p>
-        <i class="material-icons">home</i><br />
-          Place of Residence<br />
-          Porto, Portugal
-      </p>
-      </div>
-    </div>
-
-  </div> <!-- end of col -->
-
-</div> <!-- end of row -->
+  </div> <!-- end of text-column -->
+</div>
 
 <!--- Short statement --->
-<h3> Interests</h3>
+<h3 id="interests">Interests</h3>
 
 <p>
     My main scientific expertise is in the fields of signal processing and
@@ -79,17 +55,17 @@
     I have been fortunate enough to have traveled to more than 30 countries.
 </p>
 
-<div class="contacting-me last-element">
+<div id="contacting-me" class="last-element">
 <h3> Contacting me </h3>
 <form method="POST"
 action="https://api.telegram.org/bot6024894515:AAEvCe-tGFkPcduMqz_Bds7R3QedmSWW-zI/sendMessage"
 target="hiddenifrm" onsubmit="if(confirm('Send message below?\n' + document.getElementById('message').value)){alert('Message sent');return true;}else{return false;}">
     <input type="hidden" name="chat_id" value="585318822">
-    <p style="margin-bottom: 20px">You can reach me by e-mail at
+    <!-- <p style="margin-bottom: 20px">You can reach me by e-mail at
        <a href="mailto:joaquimcampos15@duck.com">joaquimcampos15@duck.com</a>,
-       or just message me here&mdash;but remember to include your phone number or email address so that I can get back to you!
-    </p>
-    <textarea id="message" spellcheck="false" name="text" cols="50" rows="5">Hey Joaquim,&#13;&#10;I'm me, this is my message.&#13;&#10;Get back to me at email@domain.&#13;&#10;Cheers.
+       or just message me here.
+    </p> -->
+    <textarea id="message" spellcheck="false" name="text" cols="60" rows="5">If you'd like to contact me me, please write your message here and include your contact information so that I can get back to you.
     </textarea>
     <input type="submit" value="Send message">
 </form>

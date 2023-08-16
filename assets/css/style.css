@@ -2,18 +2,156 @@
 /*     Overall      */
 /********************/
 
-/* Colors: */
-/* #c8c3bc; text color*/
-/* #62a2b3; image color */
+/* TODO: Check collapsed navbar */
 
-/* Body and navbar */
-body {
-    font-size: 19px;
-    font-family: Garamond, Helvetica, Arial, sans-serif;
-    /* font-family: Lucida Grande,Helvetica,Arial, sans-serif; */
-    line-height: 1.4em;
-    background-color: #181a1b;
+/* root and body */
+
+:root {
+    --container-width: 1240px;
+    --container-padding: 45px;
+    --background-color: #181a1b;
+    --text-color: #c8c3bc;
+    --image-color: #62a2b3;
+    --navbar-background-color: #1c1e1f;
+    --message-background-color: #2b2a33;
+    --icons-color: #9d9488;
+    --icons-border: 2px;
+    --tiles-min-width: 290px;
+    --tiles-max-width: 370px;
+    --tiles-gap: 50px;
 }
+
+body {    
+    font-family: "Open Sans", "Helvetica Neue", Arial;
+    font-size: 2.52em;
+    line-height: 1.7em;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/********************/
+/*     index.html   */
+/********************/
+
+.navbar {
+    position: fixed;
+    margin-top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navigation bar stays on top of everything */
+    background-color: var(--navbar-background-color);
+    border-color: #373b3e;
+}
+
+.navbar-header {
+    height: 60px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: var(--icons-color);
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: var(--text-color);
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: var(--message-background-color);
+    color: var(--text-color);
+}
+
+.container-fluid {
+    max-width: calc(var(--container-width) + 2 * var(--container-padding));
+    padding: 0 var(--container-padding);
+}
+
+.main-content {
+    margin-top: 0;
+    padding-top: 0; /* Initial padding */
+    transition: padding-top 0.3s ease; /* Add the transition property */
+}
+
+/* Align menu text with icons */
+.navbar div .collapse > ul > li > a {
+    line-height: 24px;
+    padding-top: 19px;
+}
+
+.navbar div .collapse > ul > li > a > i,
+.navbar div .navbar-header > a {
+    vertical-align: top;
+}
+
+.navbar-brand {
+    font-size: 1em;
+    height: 100%;
+}
+
+.navbar-toggle {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+/* Add the transition property to .navbar-collapse */
+.navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+/* Adjust the max-height value for the expanded navbar */
+.navbar-collapse.in {
+    max-height: 1000px; /* Adjust this value as needed */
+}
+
+/**********************/
+/*  divs and sections */
+/**********************/
+
+.top-element {
+    margin-top: 125px;
+}
+
+.last-element {
+    margin-bottom: 3cm;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.subsection {
+    margin-top: 50px;
+}
+
+.subsubsection {
+    margin-top: 30px;
+}
+
+/**********/
+/*  links */
+/**********/
+
+/* Set link colors */
+.color-theme, a:link, a:visited, a:hover {
+    color: var(--image-color);
+}
+
+/* Labels */
+a.pubs-label-theme {
+    background-color: var(--image-color);
+    color: #e9e8e6;
+    padding: .6em .6em .4em .6em;
+}
+
+/* Set up size 11 material icons */
+.material-icons { font-size: 1.1em; }
+
+
+/**************************/
+/* Headers and Paragraphs */
+/**************************/
 
 h2 {
     font-size: 1.8em;
@@ -38,159 +176,92 @@ p {
     margin-bottom: 1.1em;
 }
 
-.navbar {
-    background-color: #1c1e1f;
-}
 
-body,
-.navbar div .collapse > ul > li > a:hover,
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    color: #c8c3bc;
-}
+/********************/
+/*     Main page    */
+/********************/
 
-/* h2 small -> MSc. */
-.navbar div .collapse > ul > li > a,
-h2 > small {
-    color: #9d9488
-}
-
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    background-color: #26292a;
-}
-
-.navbar {
-    border-color: #373b3e;
-}
-
-/* Align menu text with icons */
-.navbar div .collapse > ul > li > a {
-    line-height: 24px;
-    padding-top: 19px;
-}
-
-.navbar div .collapse > ul > li > a > i,
-.navbar div .navbar-header > a {
-    vertical-align: top;
-}
-
-.container-fluid {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 950px; /* or 800px */
-}
-
-.section {
-    margin-bottom: 30px;
-}
-
-.subsection {
-    margin-top: 50px;
-}
-
-.subsubsection {
-    margin-top: 30px;
-}
-
-/* Set link colors */
-.color-theme, a:link, a:visited, a:hover {
-    color: #62a2b3;
-}
-
-#name-row {
+#short-bio {
     display: flex;
-    display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    margin: 26px 0 20px 0;
-    row-gap: 10px;
-    column-gap: 10px;
+    row-gap: 70px;
+    column-gap: 60px;
 }
 
-#name-container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
+/* figure columm */
+
+.fig-column {
+    flex: 0 0 calc(var(--container-width) * 1 / 4);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #icons-row {
     display: flex;
-    align-items: center;
-    column-gap: .4em;
+    width: 100%;
+    margin-top: 15px;
 }
 
 
-/* Labels */
-a.pubs-label-theme,
 a.icons-label-theme {
-    background-color: #62a2b3;
-    color: #e9e8e6;
-}
-
-a.pubs-label-theme {
-    padding: .6em .6em .4em .6em;
-}
-
-/* CV Google scholar */
-a.icons-label-theme {
-    height: 60%;
-    font-size: 70%;
-    font-weight: 700;
+    flex: 1;
+    background-color: var(--background-color);
+    color: var(--icons-color);
+    border: var(--icons-border) solid var(--icons-color);
     display: flex;
-    padding: 0em .6em;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    border-radius: .25em;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 a.icons-label-theme > img {
     width: 1.25em;
     height: 1.25em;
-    margin-right: .4em;
-    margin-bottom: .2em
 }
 
-/* Set up size 11 material icons */
-.material-icons.md-13 { font-size: 13px; }
+a.icons-label-theme.icon-1,
+a.icons-label-theme.icon-2 {
+    border-right: 0;
+}
+
+a.icons-label-theme:hover {
+    text-decoration: none;
+    border: var(--icons-border) solid var(--text-color);
+    color: var(--text-color);
+    background-color: var(--message-background-color);
+}
+
+a.icons-label-theme.icon-1:hover + a.icons-label-theme.icon-2,
+a.icons-label-theme.icon-2:hover + a.icons-label-theme.icon-3 {
+    border-left: none;
+}
+
+
+/* text columm */
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 655px;
+    align-items: start;
+}
+
+#name-row {
+    margin: -6px 0 24px 0;
+}
+
+#name-row > h2 > small {
+    color: var(--icons-color);  /* MSc. */
+}
 
 /* Input form fields */
-#message,
-input[type=text],
-input[type=submit] {
-    background-color: #2b2a33;
-    color: #c8c3bc;
-    border-color: #9d9488;
-    border-style: solid;
-    padding: 5px;
-}
-
-#message:hover,
-#message:focus,
-input[type=text]:hover,
-input[type=text]:focus,
-input[type=submit]:hover {
-    border-color: #c8c3bc;
-    outline-style: none;
-}
-
-#message, input[type=text] {
-    border-width: 1px;
-}
-
-#search-bar {
-    width: 280px;
-    max-width: 90%;
-    margin: 0 0 20px 0;
-}
-
 #message {
     display: block;
     max-width: 95%;
-    margin-bottom: 6px;
+    margin: 25px 0 6px 0;
 }
 
 input[type=submit] {
@@ -202,37 +273,38 @@ input[type=submit]:hover {
     background-color: #52525e;
 }
 
-.last-element {
-    margin-bottom: 3cm;
+#message,
+input[type=text],
+input[type=submit] {
+    background-color: var(--message-background-color);
+    color: var(--text-color);
+    border-color: var(--icons-color);
+    border-style: solid;
+    padding: 5px 14px;
 }
 
-/********************/
-/*     Main page    */
-/********************/
-
-.contacting-me {
-    margin-top: 1cm;
+#message:hover,
+#message:focus,
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=submit]:hover {
+    border-color: var(--text-color);
+    outline-style: none;
 }
 
-#portrait {
-    width: 100%;
-    max-width: 230px;
+#message, input[type=text] {
+    border-width: 1px;
 }
 
-@media only screen and (min-width: 768px) {
-    #portrait {
-        margin-top:25px;
-    }
+#interests {
+    margin-top: 30px;
+}
+
+#contacting-me {
+    margin-top: 55px;
 }
 
 /* media queries */
-
-/********** small screen size (sm) and above **********/
-@media only screen and (min-width: 576px) {
-    .optional-break {
-        display: none;
-    }
-}
 
 /********** xxs devices only **********/
 @media only screen and (max-width: 400px) {
@@ -249,6 +321,15 @@ input[type=submit]:hover {
 /********************/
 /* Publication page */
 /********************/
+
+#search-bar {
+    width: 280px;
+    max-width: 90%;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    font-size: 1em;
+    height: 40px;
+}
 
 #morearrow {
     cursor: pointer;
@@ -268,15 +349,23 @@ input[type=submit]:hover {
 }
 
 .list-group-item {
-    background-color: #181a1b;
+    background-color: var(--background-color);
     border-color: #373b3e;
     border-width: 1px;
 }
 
-/* Align and change size of icons */
-.list-group-item-text i {
-    vertical-align:top;
-    font-size: 18px;
+.material-icons.pubs-icons {
+    font-size: 1.2em;
+}
+
+.material-icons.pubs-icons,
+.list-group-item svg {
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+#morearrow {
+    padding-bottom: 5px;
 }
 
 .img-modal {
@@ -298,9 +387,121 @@ input[type=submit]:hover {
     opacity: 0.75 !important;
 }
 
+
 /********************/
 /*  Projects page   */
 /********************/
+
+/* Tiles */
+
+/* Container fluid has 920 space */
+/* https://stackoverflow.com/questions/45907673 */
+/* https://stackoverflow.com/questions/25832340 */
+.tiles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 55px;
+}
+  
+.tiles-title {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 100%;
+}
+
+.tiles-title > h2 {
+    margin: 0;
+}
+
+/* https://stackoverflow.com/questions/25832340 */
+/* It's ok to use pixel values here because boxes have fixed pixel width */
+.tiles-box {
+    display: flex;
+    flex: 1 0 calc(var(--tiles-min-width));
+    max-width: var(--tiles-max-width);
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--icons-color);
+    justify-content: center;
+    align-items: center;
+}
+
+.tiles-box:hover {
+    outline: thick solid var(--image-color);
+    background-color: var(--text-color);
+}
+
+.tiles-box.a {
+    padding: 8px;
+}
+
+.tiles-box.d {
+    padding: 12px;
+}
+
+.tiles-box.e {
+    padding: 12px;
+}
+
+.tiles-box.b > img {
+    width: 80%;
+}
+
+.tiles-box.c > img {
+    width: 50%;
+}
+
+.tiles-box.a > img,
+.tiles-box.d > img,
+.tiles-box.e > img {
+    width: 100%;
+}
+
+.tiles-box.f {
+    color: var(--message-background-color);
+    flex-wrap: wrap;
+}
+
+.tiles-box.f div {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.tiles-box.f > div:nth-child(1) {
+    align-items: flex-end;
+    font-size: 35px;
+}
+
+.tiles-box.f > div:nth-child(2) {
+    align-items: flex-start;
+    font-size: 25px;
+    padding: 10px;
+}
+
+
+.tiles-box.f:hover,
+.tiles-box.f:active {
+    text-decoration: none;
+}
+
+
+/* media queries */
+
+@media only screen and (max-width: 724.9px) {
+    .tiles-title {
+        align-items: center;
+        justify-content: center;
+    }
+    .tiles-wrapper {
+        justify-content: center;
+    }
+}
 
 .new-project {
     margin-bottom: 8px;
@@ -359,7 +560,7 @@ input[type=submit]:hover {
 .row-deepsplines,
 .row-compression,
 .row-boxsplines {
-    border: .4em solid #62a2b3;
+    border: .4em solid var(--image-color);
     border-radius: .66em;
 }
 
@@ -367,7 +568,7 @@ input[type=submit]:hover {
 .row-mahayana,
 .row-face,
 .row-deepsplines {
-    background-color: #9d9488;
+    background-color: var(--icons-color);
 }
 
 .row-mahayana {
@@ -406,7 +607,7 @@ input[type=submit]:hover {
 
 .row-compression div {
     width: 0.8%;
-    background-color: #62a2b3;
+    background-color: var(--image-color);
     align-self: stretch;
 }
 
@@ -444,7 +645,7 @@ input[type=submit]:hover {
 
 .row-boxsplines > div:nth-child(2) {
     width: 0.8%;
-    background-color: #62a2b3;
+    background-color: var(--image-color);
     align-self: stretch;
 }
 
@@ -458,145 +659,4 @@ input[type=submit]:hover {
 
 .row-boxsplines > div:nth-child(3) > img {
     width: 70%;
-}
-
-/* Tiles */
-
-:root {
-    --container-width: 920px;
-    --first-width: 280px;
-}
-
-/* Container fluid has 920 space */
-/* https://stackoverflow.com/questions/45907673 */
-/* https://stackoverflow.com/questions/25832340 */
-.tiles-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; 
-  column-gap: calc((var(--container-width) - 3 * var(--first-width)) / 2);
-  row-gap: calc((var(--container-width) - 3 * var(--first-width)) / 2);
-}
-
-.tiles-title {
-    display: flex;
-    align-items: start;
-    width: var(--first-width);
-    height: 106px;
-    margin: 0;
-}
-
-/* https://stackoverflow.com/questions/25832340 */
-/* It's ok to use pixel values here because boxes have fixed pixel width */
-.tiles-box {
-    display: flex;
-    width: var(--first-width);
-    height: var(--first-width);
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #9d9488;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-.tiles-box:hover {
-    outline: thick solid #62a2b3;
-    background-color: #c8c3bc;
-}
-
-.tiles-box.c {
-    padding: 8px;
-}
-
-.tiles-box.d {
-    padding: 12px;
-}
-
-.tiles-box.e {
-    padding: 12px;
-}
-
-.tiles-box.a > img {
-    width: 80%;
-}
-
-.tiles-box.b > img {
-    height: 70%;
-}
-
-.tiles-box.c > img,
-.tiles-box.d > img,
-.tiles-box.e > img {
-    width: 100%;
-}
-
-.tiles-box.f {
-    color: #2b2a33;
-    flex-wrap: wrap;
-}
-
-.tiles-box.f div {
-    width: 100%;
-    height: 50%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-.tiles-box.f > div:nth-child(1) {
-    align-items: flex-end;
-    font-size: 35px;
-}
-
-.tiles-box.f > div:nth-child(2) {
-    align-items: flex-start;
-    font-size: 25px;
-    padding: 10px;
-}
-
-
-.tiles-box.f:hover,
-.tiles-box.f:active {
-    text-decoration: none;
-}
-
-/* media queries */
-
-@media only screen and (max-width: 949.5px) {
-    .tiles-title.empty_b {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 654.5px) {
-    .tiles-wrapper {
-        row-gap: 30px;
-        column-gap: 30px
-    }
-    .tiles-box {
-        width: 220px;
-        height: 220px;
-    }
-    .tiles-title {
-        width: 220px;
-        margin-bottom: 5px;
-    }
-    .tiles-box.f > div:nth-child(1) {
-        font-size: 30px;
-    }
-    .tiles-box.f > div:nth-child(2) {
-        font-size: 20px;
-    }
-}
-
-@media only screen and (max-width: 499.5px) {
-    .tiles-title {
-        align-items: center;
-        justify-content: center;
-    }
-    .tiles-title.empty_a {
-        display: none;
-    }
 }

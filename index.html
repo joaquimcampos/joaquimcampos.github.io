@@ -48,22 +48,22 @@
   <nav class="navbar navbar-default navbar-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+        <button type="button" class="navbar-toggle" ng-click="toggleNavbar()">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <a ng-click="closeNavbar()" class="navbar-brand" href="#/">
-              <i style="margin-top: -0.7px;" class="color-theme material-icons">account_balance</i>
+              <i style="margin-top: -0.2px;" class="color-theme material-icons">account_balance</i>
         </a>
       </div>
 
-      <div class="collapse navbar-collapse" uib-collapse="navbarCollapsed" >
+      <div class="collapse navbar-collapse" ng-class="{'in': !navbarCollapsed}" uib-collapse="navbarCollapsed" >
         <ul class="nav navbar-nav">
           <li ng-click="closeNavbar()" ng-class="{'active': button == '/bio'}">
             <a href="#/bio">
-              <i style="margin-top: -3.5px; padding-right: 1.5px" class="material-icons">face</i> Bio
+              <i style="margin-top: -3.2px; padding-right: 1.5px" class="material-icons">face</i> Bio
             </a>
           </li>
           <li ng-click="closeNavbar()" ng-class="{'active': button == '/pubs'}">
@@ -73,14 +73,14 @@
           </li>
           <li ng-click="closeNavbar()" ng-class="{'active': button == '/projects'}">
             <a href="#/projects">
-              <i style="margin-top: -2.6px;" class="material-icons">science</i> Projects
+              <i style="margin-top: -2.4px;" class="material-icons">science</i> Projects
               <!-- <i class="material-icons">rocket_launch</i> Projects -->
               <!-- <i class="material-icons">psychiatry</i> Projects -->
             </a>
           </li>
           <li ng-click="closeNavbar()" ng-class="{'active': button == '/cv'}">
             <a href="assets/cv/cv_Joaquim.pdf" target="_self">
-              <i style="margin-top: -3.2px;" class="material-icons">insert_drive_file</i> CV
+              <i style="margin-top: -3.3px;" class="material-icons">insert_drive_file</i> CV
             </a>
           </li>
         </ul>
@@ -88,7 +88,7 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="container-fluid" ng-view> </div>
+  <div class="container-fluid main-content" ng-view> </div>
 
 </body>
 </html>
