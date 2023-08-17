@@ -318,6 +318,12 @@ input[type=submit]:hover {
     }
 }
 
+@media only screen and (max-width: 576px) {
+    .container-fluid {
+        padding: 0 15px;
+    }
+}
+
 /********************/
 /* Publication page */
 /********************/
