@@ -276,7 +276,7 @@ class PubsHeaders extends HTMLElement {
             <p ng-show="error" class="bg-danger">No publications found</p>
             
             <!-- loop through publication types -->
-            <div ng-repeat="pub_info in sorted_pubs">
+            <div class="pub-types" ng-repeat="pub_info in sorted_pubs">
 
                 <!-- header for publication type (hide if none in this type, see header names in pubs.js) -->
                 <h4 ng-hide = "!filteredpubs.length">{{pub_info.name}}</h4>

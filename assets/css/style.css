@@ -10,21 +10,25 @@
     --container-width: 1240px;
     --container-padding: 45px;
     --background-color: #181a1b;
+    --body-font-size: 25.2px;
+    --aux-body-font-size: 25.2px;
+    --body-line-height: 1.72em;
+    --aux-body-line-height: 1.72em;
     --text-color: #c8c3bc;
     --image-color: #62a2b3;
     --navbar-background-color: #1c1e1f;
     --message-background-color: #2b2a33;
     --icons-color: #9d9488;
     --icons-border: 2px;
-    --tiles-min-width: 290px;
-    --tiles-max-width: 370px;
-    --tiles-gap: 50px;
+    --tiles-min-width: 250px;
+    --tiles-max-width: 315px;
+    --tiles-gap: 45px;
 }
 
 body {    
     font-family: "Open Sans", "Helvetica Neue", Arial;
-    font-size: 2.52em;
-    line-height: 1.7em;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -84,7 +88,7 @@ body {
 }
 
 .navbar-brand {
-    font-size: 1em;
+    font-size: 25.2px;
     height: 100%;
 }
 
@@ -105,28 +109,32 @@ body {
     max-height: 1000px; /* Adjust this value as needed */
 }
 
+.navbar-collapse.in > ul > li > a {
+    padding: 15px 0;
+}
+
 /**********************/
 /*  divs and sections */
 /**********************/
 
 .top-element {
-    margin-top: 125px;
+    margin-top: calc(4.96 * var(--body-font-size));
 }
 
 .last-element {
-    margin-bottom: 3cm;
+    margin-bottom: calc(4.48 * var(--body-font-size));
 }
 
 .section {
-    margin-bottom: 30px;
+    margin-bottom: calc(1.19 * var(--body-font-size));
 }
 
 .subsection {
-    margin-top: 50px;
+    margin-top: calc(1.98 * var(--body-font-size));
 }
 
 .subsubsection {
-    margin-top: 30px;
+    margin-top: calc(1.19 * var(--body-font-size));
 }
 
 /**********/
@@ -146,7 +154,7 @@ a.pubs-label-theme {
 }
 
 /* Set up size 11 material icons */
-.material-icons { font-size: 1.1em; }
+.material-icons { font-size: 27.7px; }
 
 
 /**************************/
@@ -154,26 +162,27 @@ a.pubs-label-theme {
 /**************************/
 
 h2 {
-    font-size: 1.8em;
+    font-size: calc(1.8 * var(--body-font-size));
 }
 
 h3 {
-    font-size: 1.6em;
-    margin-bottom: 15px;
+    font-size: calc(1.6 * var(--body-font-size));
+    margin-bottom: calc(0.6 * var(--body-font-size));
 }
 
 h4 {
-    font-size: 1.4em;
-    margin-bottom: 13px;
+    font-size: calc(1.4 * var(--body-font-size));
+    margin-bottom: calc(0.52 * var(--body-font-size));
 }
 
 h5 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: calc(1.2 * var(--body-font-size));
+    margin-bottom: calc(0.4 * var(--body-font-size));
 }
 
 p {
-    margin-bottom: 1.1em;
+    font-size: var(--body-font-size);
+    margin-bottom: calc(1.1 * var(--body-font-size));
 }
 
 
@@ -218,8 +227,8 @@ a.icons-label-theme {
 }
 
 a.icons-label-theme > img {
-    width: 1.25em;
-    height: 1.25em;
+    width: 30px;
+    height: 30px;
 }
 
 a.icons-label-theme.icon-1,
@@ -297,11 +306,11 @@ input[type=submit]:hover {
 }
 
 #interests {
-    margin-top: 30px;
+    margin-top: calc(1.19 * var(--body-font-size));
 }
 
 #contacting-me {
-    margin-top: 55px;
+    margin-top: calc(2.18 * var(--body-font-size));
 }
 
 /* media queries */
@@ -322,6 +331,10 @@ input[type=submit]:hover {
     .container-fluid {
         padding: 0 15px;
     }
+    :root {
+        --body-font-size: calc(var(--aux-body-font-size) * 0.92);
+        --body-line-height: calc(var(--aux-body-line-height) * 0.92);
+    }
 }
 
 /********************/
@@ -331,10 +344,14 @@ input[type=submit]:hover {
 #search-bar {
     width: 280px;
     max-width: 90%;
-    margin: 0 0 20px 0;
+    margin-bottom: calc(1.7 * var(--body-font-size));
     padding: 10px;
-    font-size: 1em;
+    font-size: var(--body-font-size);
     height: 40px;
+}
+
+.pub-types {
+    margin-bottom: calc(1.5 * var(--body-font-size));
 }
 
 #morearrow {
@@ -361,17 +378,17 @@ input[type=submit]:hover {
 }
 
 .material-icons.pubs-icons {
-    font-size: 1.2em;
+    font-size: calc(1.2 * var(--body-font-size));
 }
 
 .material-icons.pubs-icons,
 .list-group-item svg {
     vertical-align: middle;
-    padding-bottom: 10px;
+    padding-bottom: calc(0.4 * var(--body-font-size));
 }
 
 #morearrow {
-    padding-bottom: 5px;
+    padding-bottom: calc(0.2 * var(--body-font-size));
 }
 
 .img-modal {
@@ -408,7 +425,7 @@ input[type=submit]:hover {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 55px;
+    gap: var(--tiles-gap);
 }
   
 .tiles-title {
@@ -425,7 +442,7 @@ input[type=submit]:hover {
 /* It's ok to use pixel values here because boxes have fixed pixel width */
 .tiles-box {
     display: flex;
-    flex: 1 0 calc(var(--tiles-min-width));
+    flex: 0 0 calc(var(--tiles-max-width));
     max-width: var(--tiles-max-width);
     aspect-ratio: 1/1;
     border-radius: 10px;
@@ -509,8 +526,17 @@ input[type=submit]:hover {
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .tiles-wrapper {
+        gap: calc(var(--tiles-gap) - 5px);
+    }
+    .tiles-box {
+        flex: 1 0 calc(var(--tiles-min-width));
+    }
+}
+
 .new-project {
-    margin-bottom: 8px;
+    margin-bottom: calc(0.32 * var(--body-font-size));
 }
 
 /* Images */
@@ -535,8 +561,8 @@ input[type=submit]:hover {
 .row-compression,
 .row-deepsplines,
 .row-matterhorn {
-    margin-top: 1.5em;
-    margin-bottom: 2.5em;
+    margin-top: calc(1.7 * var(--body-font-size));
+    margin-bottom: calc(2.5 * var(--body-font-size));
 }
 
 .row-cat-dog {
