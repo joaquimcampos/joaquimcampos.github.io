@@ -21,8 +21,8 @@
     --icons-color: #9d9488;
     --icons-border: 2px;
     --tiles-min-width: 250px;
-    --tiles-max-width: 315px;
-    --tiles-gap: 45px;
+    --tiles-max-width: 290px;
+    --tiles-gap: 40px;
 }
 
 body {    
@@ -451,6 +451,7 @@ input[type=submit]:hover {
 /* https://stackoverflow.com/questions/25832340 */
 .tiles-wrapper {
     display: flex;
+    /* max-width: 1200px; */
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
@@ -469,21 +470,28 @@ input[type=submit]:hover {
 
 /* https://stackoverflow.com/questions/25832340 */
 /* It's ok to use pixel values here because boxes have fixed pixel width */
-.tiles-box {
+.tiles-box, .empty-tile {
     display: flex;
     flex: 0 0 calc(var(--tiles-max-width));
     max-width: var(--tiles-max-width);
     aspect-ratio: 1/1;
     border-radius: 10px;
-    cursor: pointer;
-    background-color: var(--icons-color);
     justify-content: center;
     align-items: center;
+}
+
+.tiles-box {
+    cursor: pointer;
+    background-color: var(--icons-color);
 }
 
 .tiles-box:hover {
     outline: thick solid var(--image-color);
     background-color: var(--text-color);
+}
+
+.empty-tile {
+    background-color: var(--background-color);
 }
 
 .tiles-box.a {
@@ -545,13 +553,9 @@ input[type=submit]:hover {
 
 /* media queries */
 
-@media screen and (max-width: 724.9px) {
-    .tiles-title {
-        align-items: center;
-        justify-content: center;
-    }
-    .tiles-wrapper {
-        justify-content: center;
+@media only screen and (max-width: 1429.9px) {
+    .empty-tile {
+        display: none;
     }
 }
 
@@ -561,6 +565,16 @@ input[type=submit]:hover {
     }
     .tiles-box {
         flex: 1 0 calc(var(--tiles-min-width));
+    }
+}
+
+@media screen and (max-width: 724.9px) {
+    .tiles-title {
+        align-items: center;
+        justify-content: center;
+    }
+    .tiles-wrapper {
+        justify-content: center;
     }
 }
 
