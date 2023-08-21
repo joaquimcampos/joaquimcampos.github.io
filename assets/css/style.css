@@ -311,8 +311,7 @@ input[type=submit]:hover {
 
 /* media queries */
 
-/********** xxs devices only **********/
-@media only screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
     .col-xxs-12{
         position: relative;
         min-height: 1px;
@@ -323,7 +322,31 @@ input[type=submit]:hover {
     }
 }
 
-@media only screen and (max-width: 576px) {
+@media screen and (min-width: 1264px) and (max-width: 1500px) {
+    :root {
+        --body-font-size: calc(var(--aux-body-font-size) * 0.97);
+        --body-line-height: calc(var(--aux-body-line-height) * 0.97);
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1264px) {
+    :root {
+        --body-font-size: calc(var(--aux-body-font-size) * 0.94);
+        --body-line-height: calc(var(--aux-body-line-height) * 0.94);
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 800px) {
+    :root {
+        --body-font-size: calc(var(--aux-body-font-size) * 0.93);
+        --body-line-height: calc(var(--aux-body-line-height) * 0.93);
+    }
+    .container-fluid {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
     .container-fluid {
         padding: 0 15px;
     }
@@ -512,7 +535,7 @@ input[type=submit]:hover {
 
 /* media queries */
 
-@media only screen and (max-width: 724.9px) {
+@media screen and (max-width: 724.9px) {
     .tiles-title {
         align-items: center;
         justify-content: center;
@@ -522,7 +545,7 @@ input[type=submit]:hover {
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .tiles-wrapper {
         gap: calc(var(--tiles-gap) - 5px);
     }
