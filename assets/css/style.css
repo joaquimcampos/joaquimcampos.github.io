@@ -7,8 +7,8 @@
 /* root and body */
 
 :root {
-    --container-width: 1240px;
-    --container-padding: 45px;
+    --container-width: 1300px;
+    --container-padding: 75px;
     --background-color: #181a1b;
     --body-font-size: 25.2px;
     --aux-body-font-size: 25.2px;
@@ -331,24 +331,34 @@ input[type=submit]:hover {
 
 @media screen and (min-width: 800px) and (max-width: 1264px) {
     :root {
-        --body-font-size: calc(var(--aux-body-font-size) * 0.94);
-        --body-line-height: calc(var(--aux-body-line-height) * 0.94);
+        --body-font-size: calc(var(--aux-body-font-size) * 0.95);
+        --body-line-height: calc(var(--aux-body-line-height) * 0.95);
     }
 }
 
-@media screen and (min-width: 576px) and (max-width: 800px) {
+@media screen and (min-width: 650px) and (max-width: 800px) {
+    :root {
+        --body-font-size: calc(var(--aux-body-font-size) * 0.94);
+        --body-line-height: calc(var(--aux-body-line-height) * 0.94);
+    }
+    .container-fluid {
+        padding: 0 60px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 650px) {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.93);
         --body-line-height: calc(var(--aux-body-line-height) * 0.93);
     }
     .container-fluid {
-        padding: 0 30px;
+        padding: 0 40px;
     }
 }
 
 @media screen and (max-width: 576px) {
     .container-fluid {
-        padding: 0 15px;
+        padding: 0 20px;
     }
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.92);
