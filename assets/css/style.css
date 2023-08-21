@@ -109,10 +109,6 @@ body {
     max-height: 1000px; /* Adjust this value as needed */
 }
 
-.navbar-collapse.in > ul > li > a {
-    padding: 15px 0;
-}
-
 /**********************/
 /*  divs and sections */
 /**********************/
@@ -620,7 +616,7 @@ input[type=submit]:hover {
 .row-compression,
 .row-boxsplines {
     border-width: .3em;
-    background-color: #ffffff;
+    background-color: #fffdfd;
 }
 
 .row-compression,
