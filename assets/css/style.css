@@ -8,18 +8,23 @@
 
 :root {
     --container-width: 1300px;
-    --container-padding: 75px;
+    --container-padding: 120px;
     --background-color: #181a1b;
     --body-font-size: 25.2px;
     --aux-body-font-size: 25.2px;
+    --size-factor: 1;
     --body-line-height: 1.72em;
     --aux-body-line-height: 1.72em;
     --text-color: #c8c3bc;
     --image-color: #62a2b3;
     --navbar-background-color: #1c1e1f;
+    --navbar-border-color: #373b3e;
     --message-background-color: #2b2a33;
+    --submit-hover-color: #52525e;
     --icons-color: #9d9488;
     --icons-border: 2px;
+    --pubs-label-color: #e9e8e6;
+    --pubs-border-color: #373b3e;
     --tiles-min-width: 250px;
     --tiles-max-width: 290px;
     --tiles-gap: 40px;
@@ -43,7 +48,7 @@ body {
     width: 100%;
     z-index: 1000; /* Ensure the navigation bar stays on top of everything */
     background-color: var(--navbar-background-color);
-    border-color: #373b3e;
+    border-color: var(--navbar-border-color);
 }
 
 .navbar-header {
@@ -145,8 +150,8 @@ body {
 /* Labels */
 a.pubs-label-theme {
     background-color: var(--image-color);
-    color: #e9e8e6;
-    padding: .6em .6em .4em .6em;
+    color: var(--pubs-label-color);
+    padding: .6em;
 }
 
 /* Set up size 11 material icons */
@@ -158,21 +163,21 @@ a.pubs-label-theme {
 /**************************/
 
 h2 {
-    font-size: calc(1.8 * var(--body-font-size));
+    font-size: calc(1.8 * var(--body-font-size) * var(--size-factor));
 }
 
 h3 {
-    font-size: calc(1.6 * var(--body-font-size));
+    font-size: calc(1.6 * var(--body-font-size) * var(--size-factor));
     margin-bottom: calc(0.6 * var(--body-font-size));
 }
 
 h4 {
-    font-size: calc(1.4 * var(--body-font-size));
+    font-size: calc(1.4 * var(--body-font-size) * var(--size-factor));
     margin-bottom: calc(0.52 * var(--body-font-size));
 }
 
 h5 {
-    font-size: calc(1.2 * var(--body-font-size));
+    font-size: calc(1.2 * var(--body-font-size) * var(--size-factor));
     margin-bottom: calc(0.4 * var(--body-font-size));
 }
 
@@ -187,6 +192,7 @@ p {
 /********************/
 
 #short-bio {
+    min-height: 454px;
     display: flex;
     flex-wrap: wrap;
     row-gap: 70px;
@@ -275,7 +281,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #52525e;
+    background-color: var(--submit-hover-color);
 }
 
 #message,
@@ -326,6 +332,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.97);
         --body-line-height: calc(var(--aux-body-line-height) * 0.97);
+        --size-factor: 0.9;
     }
 }
 
@@ -333,6 +340,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.95);
         --body-line-height: calc(var(--aux-body-line-height) * 0.95);
+        --size-factor: 0.85;
     }
 }
 
@@ -340,6 +348,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.94);
         --body-line-height: calc(var(--aux-body-line-height) * 0.94);
+        --size-factor: 0.8;
     }
     .container-fluid {
         padding: 0 60px;
@@ -350,6 +359,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.93);
         --body-line-height: calc(var(--aux-body-line-height) * 0.93);
+        --size-factor: 0.75;
     }
     .container-fluid {
         padding: 0 40px;
@@ -363,6 +373,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.92);
         --body-line-height: calc(var(--aux-body-line-height) * 0.92);
+        --size-factor: 0.7;
     }
 }
 
@@ -402,7 +413,7 @@ input[type=submit]:hover {
 
 .list-group-item {
     background-color: var(--background-color);
-    border-color: #373b3e;
+    border-color: var(--pubs-border-color);
     border-width: 1px;
 }
 
@@ -446,31 +457,31 @@ input[type=submit]:hover {
 
 /* Tiles */
 
-/* Container fluid has 920 space */
 /* https://stackoverflow.com/questions/45907673 */
 /* https://stackoverflow.com/questions/25832340 */
 .tiles-wrapper {
     display: flex;
-    /* max-width: 1200px; */
+    max-width: 1200px;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     gap: var(--tiles-gap);
 }
-  
-.tiles-title {
-    display: flex;
-    align-items: flex-start;
-    flex: 1 0 100%;
+
+.project-title {
+    margin-bottom: 10px;
 }
 
-.tiles-title > h2 {
+.project-title > h2 {
     margin: 0;
+    text-align: center;
+    flex: 0 1 660px;
 }
 
 /* https://stackoverflow.com/questions/25832340 */
 /* It's ok to use pixel values here because boxes have fixed pixel width */
-.tiles-box, .empty-tile {
+/* .empty-tile, */
+.tiles-box {
     display: flex;
     flex: 0 0 calc(var(--tiles-max-width));
     max-width: var(--tiles-max-width);
@@ -478,9 +489,6 @@ input[type=submit]:hover {
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-}
-
-.tiles-box {
     cursor: pointer;
     background-color: var(--icons-color);
 }
@@ -488,10 +496,6 @@ input[type=submit]:hover {
 .tiles-box:hover {
     outline: thick solid var(--image-color);
     background-color: var(--text-color);
-}
-
-.empty-tile {
-    background-color: var(--background-color);
 }
 
 .tiles-box.a {
@@ -553,12 +557,6 @@ input[type=submit]:hover {
 
 /* media queries */
 
-@media only screen and (max-width: 1429.9px) {
-    .empty-tile {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 1200px) {
     .tiles-wrapper {
         gap: calc(var(--tiles-gap) - 5px);
@@ -568,143 +566,97 @@ input[type=submit]:hover {
     }
 }
 
-@media screen and (max-width: 724.9px) {
-    .tiles-title {
-        align-items: center;
-        justify-content: center;
-    }
-    .tiles-wrapper {
-        justify-content: center;
-    }
-}
-
+/* TODO: REVIEW */
 .new-project {
     margin-bottom: calc(0.32 * var(--body-font-size));
 }
 
-/* Images */
+/********************/
+/*   Subprojects    */
+/********************/
+
+/* Github button */
+
+.github-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.github-button > a {
+    border: var(--icons-border) solid var(--icons-color);
+    border-radius: 10px;
+    color: var(--icons-color);
+    background-color: var(--background-color);
+    text-decoration: none;
+    padding: 0 10px;
+    font-size: calc(1.2 * var(--body-font-size) * var(--size-factor));
+}
+
+.github-button > a:hover {
+    text-decoration: none;
+    border: var(--icons-border) solid var(--text-color);
+    color: var(--text-color);
+    background-color: var(--message-background-color);
+}
+
+.full-width-center  {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+}
 
 .row-radiobooks,
 .row-mahayana,
 .row-face,
 .row-compression,
-.row-deepsplines,
-.row-boxsplines,
+.row-deepsplines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    margin-top: 35px;
+    margin-bottom: calc(2 * var(--body-font-size));
+}
+
+/*** HTV ***/
+
 .row-matterhorn,
-.row-cat-dog {
+.row-boxsplines{
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 95%;
 }
 
-.row-radiobooks,
-.row-mahayana,
-.row-face,
-.row-compression,
-.row-deepsplines,
+.row-matterhorn,
+.row-boxsplines {
+    margin-top: calc(2 * var(--body-font-size));
+    margin-bottom: calc(2 * var(--body-font-size));
+}
+
 .row-matterhorn {
-    margin-top: calc(1.7 * var(--body-font-size));
-    margin-bottom: calc(2.5 * var(--body-font-size));
+    width: 19em
 }
 
-.row-cat-dog {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.row-radiobooks,
-.row-matterhorn {
-    width: 19em;
-}
-
-.row-radiobooks {
-    padding: 18px;
-}
-
-.row-radiobooks img,
-.row-mahayana img,
-.row-deepsplines img,
 .row-matterhorn img {
     width: 100%;
 }
 
-.row-radiobooks,
-.row-mahayana,
-.row-face,
-.row-deepsplines,
-.row-compression,
 .row-boxsplines {
-    border: .4em solid var(--image-color);
     border-radius: .66em;
-}
-
-.row-radiobooks,
-.row-mahayana,
-.row-face,
-.row-deepsplines {
-    background-color: var(--icons-color);
-}
-
-.row-mahayana {
-    width: 16em;
-    padding: 1%;
-}
-
-.row-face {
-    width: 30em;
-}
-
-.row-face img {
-    width: 33.33%;
-    padding: 4%;
-}
-
-.row-compression,
-.row-boxsplines {
     border-width: .3em;
     background-color: #ffffff;
-}
-
-.row-compression,
-.row-cat-dog {
-    aspect-ratio: 2 / 1;
-    width: 34em;  
-}
-
-.row-compression a {
-    width: 49.6%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-}
-
-.row-compression div {
-    width: 0.8%;
-    background-color: var(--image-color);
-    align-self: stretch;
-}
-
-.row-compression a img {
-    width: 100%;
-    padding: 4%;
-}
-
-.row-cat-dog img {
-    width: 50%;
-}
-
-.row-deepsplines {
-    width: 26em;
-    padding: 1em;
-    border-width: 5px;
-}
-
-.row-boxsplines {
     aspect-ratio: 2 / .8;
     width: 30em;
-    margin-bottom: 21px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    border:  .2em solid var(--image-color);
 }
 
 .row-boxsplines > div:nth-child(1),
@@ -734,4 +686,109 @@ input[type=submit]:hover {
 
 .row-boxsplines > div:nth-child(3) > img {
     width: 70%;
+}
+
+
+/* OTHERS */
+
+.row-radiobooks,
+.row-mahayana,
+.row-face,
+.row-deepsplines,
+.row-compression {
+    border-radius: .66em;
+}
+
+.row-radiobooks,
+.row-mahayana,
+.row-face,
+.row-deepsplines {
+    background-color: var(--icons-color);
+}
+
+.row-face:hover {
+    outline: thick solid var(--image-color);
+    background-color: var(--text-color);
+}
+
+.row-face {
+    width: 26em;
+}
+
+.row-face img {
+    width: 33.33%;
+    padding: 4%;
+}
+
+.row-cat-dog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.row-radiobooks {
+    width: 19em;
+}
+
+.row-radiobooks {
+    padding: 18px;
+}
+
+.row-radiobooks img,
+.row-mahayana img,
+.row-deepsplines img,
+.row-matterhorn img {
+    width: 100%;
+}
+
+.row-mahayana {
+    width: 14em;
+    padding: 1%;
+}
+
+.row-compression {
+    border-width: .3em;
+    background-color: #ffffff;
+}
+
+.row-cat-dog {
+    aspect-ratio: 2 / 1;
+    width: 34em;  
+}
+
+.row-compression {
+    aspect-ratio: 2 / 1;
+    width: 28em;
+}
+
+.row-compression a {
+    width: 49.6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+.row-compression div {
+    width: 0.8%;
+    background-color: var(--image-color);
+    align-self: stretch;
+}
+
+.row-compression a img {
+    width: 100%;
+    padding: 4%;
+}
+
+.row-cat-dog img {
+    width: 50%;
+}
+
+.row-deepsplines {
+    width: 20em;
+    padding: 1em;
+    border-width: 5px;
 }

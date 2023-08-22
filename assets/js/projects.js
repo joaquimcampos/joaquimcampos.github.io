@@ -5,7 +5,7 @@ const logo_path = `
 class GithubLogo extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="--darkreader-inline-fill: currentColor; margin-bottom: -5px" data-darkreader-inline-fill="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="--darkreader-inline-fill: currentColor; margin-bottom: -3px" data-darkreader-inline-fill="">
                 ${logo_path}
             </svg>
         `;

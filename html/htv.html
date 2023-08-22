@@ -1,20 +1,26 @@
-<h2 class="top-element new-project">Learning with Hessian-Schatten Total Variation</h2>
+<div class="top-element full-width-center">
+    <div class="full-width-center project-title">
+        <h2>Learning with Hessian-Schatten Total Variation
+        <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a></h2>
+    </div>
+    <div class="full-width-center">
+        <div class="github-button">
+            <!-- <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a> | -->
+            <a href="https://github.com/joaquimcampos/HTV-Learn">
+                Github
+                <github-logo></github-logo>
+            </a>
+        </div>
+    </div>
+    <div class="full-width-center">
+        <a id="face-img" class="row-face" href="https://ieeexplore.ieee.org/document/9655475">
+            <img src="assets/images/htv1.png" alt="Face GT">
+            <img src="assets/images/htv2.png" alt="Face HTV">
+            <img src="assets/images/htv3.png" alt="Face HTV sparser">
+        </a>
+    </div>
+</div>
 
-<h3 style="margin: 0;">
-    <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a> |
-    <a href="https://github.com/joaquimcampos/HTV-Learn">
-        Github
-        <github-logo></github-logo>
-    </a>
-</h3>
-
-<a id="face-img" class="row-face" href="https://ieeexplore.ieee.org/document/9655475">
-    <img src="assets/images/htv1.png" alt="Face GT">
-    <img src="assets/images/htv2.png" alt="Face HTV">
-    <img src="assets/images/htv3.png" alt="Face HTV sparser">
-</a>
-
-<div class="last-element">
 <h4 class="subsection">Introduction: Supervised Learning and Regularization</h4>
 <p>
     Suppose you have a dataset \({\mathrm D}\) that consists of sequence of \(M\) images
@@ -26,8 +32,10 @@
     datapoint \(({\mathbf x}_m, y_m)\)
     is an image-height pair, as depicted below.
 </p>
-<div class="row-matterhorn">
-    <img src="assets/images/matterhorn.png" alt="Radiobooks logo">
+<div class="full-width-center">
+    <div class="row-matterhorn">
+        <img src="assets/images/matterhorn.png" alt="Radiobooks logo">
+    </div>
 </div>
 <p>
     In supervised learning, our goal is to find a model \(f\) that predicts fairly well the height \(y_m\) of each mountain in our dataset from its depiction \({\mathbf x}_m\)
@@ -87,15 +95,15 @@
     an example of a learned model that (in simple terms) results from placing different lego
     pieces with different heights at different locations.
 </p>
-<p> 
-</p>
-<div class="row-boxsplines">
-    <div>
-        <img src="assets/images/boxspline.png" alt="Box Spline">
-    </div>
-    <div></div>
-    <div>
-        <img src="assets/images/boxspline_model.png" alt="Piecewise-Linear Model">
+<div class="full-width-center">
+    <div class="row-boxsplines">
+        <div>
+            <img src="assets/images/boxspline.png" alt="Box Spline">
+        </div>
+        <div></div>
+        <div>
+            <img src="assets/images/boxspline_model.png" alt="Piecewise-Linear Model">
+        </div>
     </div>
 </div>
 <p>
@@ -144,29 +152,29 @@ winner
 </p>
 
 <hr style="margin-top: 40px;">
-<h5>Footnotes</h5>
-<p style="margin-bottom: 0px;" id="footnote-data-fitting">
-    [1] We call this "fitting the data".
-</p>
-<p style="margin-bottom: 0px;" id="footnote-regularization">
-    [2] In technical terms, regularization is used to make the problem
-    <a href="https://en.wikipedia.org/wiki/Well-posed_problem">well-posed</a>
-    or to prevent <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-robustness">
-    [3] <a href="https://arxiv.org/pdf/1707.08945.pdf">
-    Here
-    </a> you can see an example where lack of robustness can lead to tragic consequences.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-black-box">
-    [4] Neural networks are sometimes called
-    <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
-        "black-box models"
-    </a>
-    partly because of their lack of interpretability.
-</p>
-<p id="footnote-relu">
-    [5] Those with ReLU-like activations, which are the most used ones.
-</p>
-
-</div>  <!-- last element -->
+<div class="last-element">
+    <h5>Footnotes</h5>
+    <p style="margin-bottom: 0px;" id="footnote-data-fitting">
+        [1] We call this "fitting the data".
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-regularization">
+        [2] In technical terms, regularization is used to make the problem
+        <a href="https://en.wikipedia.org/wiki/Well-posed_problem">well-posed</a>
+        or to prevent <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-robustness">
+        [3] <a href="https://arxiv.org/pdf/1707.08945.pdf">
+        Here
+        </a> you can see an example where lack of robustness can lead to tragic consequences.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-black-box">
+        [4] Neural networks are sometimes called
+        <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
+            "black-box models"
+        </a>
+        partly because of their lack of interpretability.
+    </p>
+    <p id="footnote-relu">
+        [5] Those with ReLU-like activations, which are the most used ones.
+    </p>
+</div>
