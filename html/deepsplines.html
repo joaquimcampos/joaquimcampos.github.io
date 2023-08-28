@@ -1,21 +1,27 @@
-<h2 class="top-element new-project">Deep Spline Neural Networks</h2>
-
-<h3 style="margin: 0;">
-    <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a> |
-    <a href="https://github.com/joaquimcampos/Deepsplines">
-        Github
-        <github-logo></github-logo>
-    </a>
-</h3>
-
-<a class="row-deepsplines" href="https://ieeexplore.ieee.org/document/9264754">
-    <img id="deepsplines" src="assets/images/deepsplines.png" alt="Deepsplines">
-</a>
-
-<div class="last-element">
+<div class="top-element full-width-center">
+    <div id="deepsplines-div" class="project-icon">
+        <div class="project-title">
+            <h2>Deep Spline Neural Networks
+                <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a>
+            </h2>
+        </div>
+        <div class="full-width-center">
+            <div class="github-button">
+                <a href="https://github.com/joaquimcampos/Deepsplines">
+                    Github
+                    <github-logo></github-logo>
+                </a>
+            </div>
+        </div>
+        <div class="full-width-center">
+            <a id="deepsplines-row" class="project-img-link brown-bg" href="https://ieeexplore.ieee.org/document/9264754">
+                <img id="deepsplines" src="assets/images/deepsplines.png" alt="Deepsplines">
+            </a>
+        </div>
+    </div>
+</div>
 
 <h4 class="subsection">Introduction: Supervised Learning</h4>
-
 <p>
     <i>Note: It might be useful to read <a href="#/htv">this project</a>'s introduction too</i>.
 </p>
@@ -27,7 +33,7 @@
     as depicted below.
 </p>
 <div class="full-width-center">
-    <div class="row-cat-dog">
+    <div id="cat-dog-row" class="center-img-div">
         <img src="assets/images/cat.png" alt="Cat">
         <img src="assets/images/dog.png" alt="Dog">
     </div>
@@ -179,44 +185,45 @@ second work has been cited over 34 times.
 </div>
 
 <hr style="margin-top: 40px;">
-<h5>Footnotes</h5>
-<p style="margin-bottom: 0px;" id="footnote-fitting">
-    [1] In technical jargon, we say the model "fits the data".
-</p>
-<p style="margin-bottom: 0px;" id="footnote-overfitting">
-    [2] In technical jargon, we say the model "generalizes well to new inputs". The problem of
-    having a model that fits the data but is not able to generalize is called
-    <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-classification">
-    [3] I am restricting myself here to classification for didactic purposes.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-pointwise">
-    [4] A pointwise operation is one for which each output element depends on a
-    single input element.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-ill-posed">
-    [5] Otherwise, the problem is 
-    <a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-boundary">
-    [6] There are some extra boundary functions to make the location of the
-    knots bounded to a region of interest.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-relu-basis">
-    [7] This is not the case with ReLU basis functions because they are not localized
-    (they are non-zero at any point to the right of the knot).
-    Therefore, we say they are poorly-conditioned.
-</p>
-<p style="margin-bottom: 0px;" id="footnote-sparse">
-    [8] In technical terms, our method is able to enforce activation functions with
-    sparse second-derivatives (in the weak sense).
-</p>
-<p style="margin-bottom: 0px;" id="footnote-black-box">
-    [9] Neural networks are sometimes called
-    <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
-        "black-box models"
-    </a>
-    partly because of their lack of interpretability.
-</p>
+<div class="last-element">
+    <h5>Footnotes</h5>
+    <p style="margin-bottom: 0px;" id="footnote-fitting">
+        [1] In technical jargon, we say the model "fits the data".
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-overfitting">
+        [2] In technical jargon, we say the model "generalizes well to new inputs". The problem of
+        having a model that fits the data but is not able to generalize is called
+        <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-classification">
+        [3] I am restricting myself here to classification for didactic purposes.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-pointwise">
+        [4] A pointwise operation is one for which each output element depends on a
+        single input element.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-ill-posed">
+        [5] Otherwise, the problem is 
+        <a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-boundary">
+        [6] There are some extra boundary functions to make the location of the
+        knots bounded to a region of interest.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-relu-basis">
+        [7] This is not the case with ReLU basis functions because they are not localized
+        (they are non-zero at any point to the right of the knot).
+        Therefore, we say they are poorly-conditioned.
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-sparse">
+        [8] In technical terms, our method is able to enforce activation functions with
+        sparse second-derivatives (in the weak sense).
+    </p>
+    <p style="margin-bottom: 0px;" id="footnote-black-box">
+        [9] Neural networks are sometimes called
+        <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
+            "black-box models"
+        </a>
+        partly because of their lack of interpretability.
+    </p>
 </div>

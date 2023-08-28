@@ -1,28 +1,30 @@
 <div class="top-element full-width-center">
-    <div class="full-width-center project-title">
-        <h2>Learning with Hessian-Schatten Total Variation
-        <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a></h2>
-    </div>
-    <div class="full-width-center">
-        <div class="github-button">
-            <!-- <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a> | -->
-            <a href="https://github.com/joaquimcampos/HTV-Learn">
-                Github
-                <github-logo></github-logo>
+    <div id="face-div" class="project-icon">
+        <div class="project-title">
+            <h2>Learning with Hessian-Schatten Total Variation
+            <a href="https://bigwww.epfl.ch/">@EPFL.BIG</a>
+            </h2>
+        </div>
+        <div class="full-width-center">
+            <div class="github-button">
+                <a href="https://github.com/joaquimcampos/HTV-Learn">
+                    Github
+                    <github-logo></github-logo>
+                </a>
+            </div>
+        </div>
+        <div class="full-width-center">
+            <a id="face-row" class="project-img-link brown-bg" href="https://ieeexplore.ieee.org/document/9655475">
+                <img src="assets/images/htv1.png" alt="Face GT">
+                <img src="assets/images/htv2.png" alt="Face HTV">
+                <img src="assets/images/htv3.png" alt="Face HTV sparser">
             </a>
         </div>
-    </div>
-    <div class="full-width-center">
-        <a id="face-img" class="row-face" href="https://ieeexplore.ieee.org/document/9655475">
-            <img src="assets/images/htv1.png" alt="Face GT">
-            <img src="assets/images/htv2.png" alt="Face HTV">
-            <img src="assets/images/htv3.png" alt="Face HTV sparser">
-        </a>
     </div>
 </div>
 
 <h4 class="subsection">Introduction: Supervised Learning and Regularization</h4>
-<p>
+<p style="margin-bottom: 0px;">
     Suppose you have a dataset \({\mathrm D}\) that consists of sequence of \(M\) images
     of mountains together with their
     <a href="https://en.wikipedia.org/wiki/Topographic_prominence">prominence</a> in meters
@@ -33,7 +35,7 @@
     is an image-height pair, as depicted below.
 </p>
 <div class="full-width-center">
-    <div class="row-matterhorn">
+    <div id="matterhorn" class="center-img-div">
         <img src="assets/images/matterhorn.png" alt="Radiobooks logo">
     </div>
 </div>
@@ -83,7 +85,7 @@
 </p>
 
 <h4 class="subsection">This Project, Simply Explained</h4>
-<p>
+<p style="margin-bottom: 0px;">
     In this project, we found a way to learn continous and piecewise-linear models
     that have few regions and a straightforward relationship
     with their parameters (<i>i.e.</i>, are interpretable).
@@ -96,7 +98,7 @@
     pieces with different heights at different locations.
 </p>
 <div class="full-width-center">
-    <div class="row-boxsplines">
+    <div id="boxsplines-row" class="center-img-div">
         <div>
             <img src="assets/images/boxspline.png" alt="Box Spline">
         </div>
@@ -109,7 +111,7 @@
 <p>
     And the great thing is that by changing a single parameter&mdash;the regularization weight&mdash;
     we are able to control the degree of simplicity (sparsity) of our models.
-    This is shown in <a href="" ng-click="scrollToElement('face-img')">top image in this page</a>,
+    This is shown in <a href="" ng-click="scrollToElement('face-row')">top image in this page</a>,
     where we trained our models on a face dataset with \(M = 5000\) samples.
     On the left, you can see the ground-truth; in the middle and right, you can see our learned models
     with different regularization weights, respectively.

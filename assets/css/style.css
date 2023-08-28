@@ -2,13 +2,11 @@
 /*     Overall      */
 /********************/
 
-/* TODO: Check collapsed navbar */
-
 /* root and body */
 
 :root {
     --container-width: 1300px;
-    --container-padding: 120px;
+    --container-padding: 120px;  /* TODO: Reduce width */
     --background-color: #181a1b;
     --body-font-size: 25.2px;
     --aux-body-font-size: 25.2px;
@@ -342,6 +340,9 @@ input[type=submit]:hover {
         --body-line-height: calc(var(--aux-body-line-height) * 0.95);
         --size-factor: 0.85;
     }
+    .container-fluid {
+        padding: 0 80px;
+    }
 }
 
 @media screen and (min-width: 650px) and (max-width: 800px) {
@@ -469,13 +470,13 @@ input[type=submit]:hover {
 }
 
 .project-title {
-    margin-bottom: 10px;
+    margin-bottom: 40px;
+    flex: 0 0 100%;
 }
 
 .project-title > h2 {
     margin: 0;
     text-align: center;
-    flex: 0 1 660px;
 }
 
 /* https://stackoverflow.com/questions/25832340 */
@@ -582,7 +583,7 @@ input[type=submit]:hover {
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
-    margin-top: 25px;
+    margin-bottom: 40px;
 }
 
 .github-button > a {
@@ -611,184 +612,198 @@ input[type=submit]:hover {
     flex-wrap: wrap;
 }
 
-.row-radiobooks,
-.row-mahayana,
-.row-face,
-.row-compression,
-.row-deepsplines {
+.project-icon {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     max-width: 95%;
-    margin-top: 35px;
     margin-bottom: calc(2 * var(--body-font-size));
 }
 
-/*** HTV ***/
+.project-img-link {
+    border-radius: .66em;
+}
 
-.row-matterhorn,
-.row-boxsplines{
+.project-img-link > img {
+    width: 100%;  /* default */
+}
+
+.project-img-link:hover {
+    outline: thick solid var(--image-color);
+}
+
+.brown-bg {
+    background-color: var(--icons-color);
+}
+
+.brown-bg:hover {
+    background-color: var(--text-color);
+}
+
+.white-bg {
+    background-color: #ffffff;
+}
+
+/* Images */
+
+.center-img-div {
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 95%;
-}
-
-.row-matterhorn,
-.row-boxsplines {
     margin-top: calc(2 * var(--body-font-size));
     margin-bottom: calc(2 * var(--body-font-size));
 }
 
-.row-matterhorn {
-    width: 19em
-}
-
-.row-matterhorn img {
+.center-img-div > img {
     width: 100%;
 }
 
-.row-boxsplines {
-    border-radius: .66em;
-    border-width: .3em;
-    background-color: #ffffff;
-    aspect-ratio: 2 / .8;
-    width: 30em;
-    margin-bottom: 40px;
-    margin-top: 20px;
-    border:  .2em solid var(--image-color);
+
+/**** Subprojects ****/
+
+/*** Compression ***/
+
+#compression-div {
+    display: flex;
+    width: 800px;
 }
 
-.row-boxsplines > div:nth-child(1),
-.row-boxsplines > div:nth-child(3) {
+#compression-row {
     display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
+}
+
+#compression-row a {
+    display: flex;
+    aspect-ratio: 1 / 1;
+    flex: 0 1 49%;
+    min-width: 300px;
     align-items: center;
 }
 
-.row-boxsplines > div:nth-child(1) {
-    width: 59.6%;
+#compression-row a img {
+    width: 100%;
+    padding: 4%;
 }
 
-.row-boxsplines > div:nth-child(2) {
-    width: 0.8%;
-    background-color: var(--image-color);
-    align-self: stretch;
+/*** Radiobooks ***/
+
+#radiobooks-div {
+    width: 700px;
 }
 
-.row-boxsplines > div:nth-child(3) {
-    width: 39.6%;
+#radiobooks-row {
+    flex: 0 1 550px;
 }
 
-.row-boxsplines > div:nth-child(1) > img {
-    width: 90%;
+#radiobooks-row > img {
+    padding: 18px;
 }
 
-.row-boxsplines > div:nth-child(3) > img {
-    width: 70%;
+/*** HTV ***/
+
+#face-div {
+    width: 700px;
 }
 
-
-/* OTHERS */
-
-.row-radiobooks,
-.row-mahayana,
-.row-face,
-.row-deepsplines,
-.row-compression {
-    border-radius: .66em;
+#face-row {
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: center;
 }
 
-.row-radiobooks,
-.row-mahayana,
-.row-face,
-.row-deepsplines {
-    background-color: var(--icons-color);
-}
-
-.row-face:hover {
-    outline: thick solid var(--image-color);
-    background-color: var(--text-color);
-}
-
-.row-face {
-    width: 26em;
-}
-
-.row-face img {
+#face-row img {
     width: 33.33%;
     padding: 4%;
 }
 
-.row-cat-dog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 95%;
-    margin-top: 0;
-    margin-bottom: 0;
+/* images */
+
+#matterhorn {
+    flex: 0 1 550px;
 }
 
-.row-radiobooks {
-    width: 19em;
-}
-
-.row-radiobooks {
-    padding: 18px;
-}
-
-.row-radiobooks img,
-.row-mahayana img,
-.row-deepsplines img,
-.row-matterhorn img {
-    width: 100%;
-}
-
-.row-mahayana {
-    width: 14em;
-    padding: 1%;
-}
-
-.row-compression {
-    border-width: .3em;
+#boxsplines-row {
+    flex: 0 1 700px;
+    border-radius: .66em;
     background-color: #ffffff;
+    aspect-ratio: 2 / .8;
+    border: .2em solid var(--image-color);
 }
 
-.row-cat-dog {
-    aspect-ratio: 2 / 1;
-    width: 34em;  
-}
-
-.row-compression {
-    aspect-ratio: 2 / 1;
-    width: 28em;
-}
-
-.row-compression a {
-    width: 49.6%;
+#boxsplines-row > div:nth-child(1),
+#boxsplines-row > div:nth-child(3) {
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: stretch;
 }
 
-.row-compression div {
+#boxsplines-row > div:nth-child(1) {
+    width: 59.6%;
+}
+
+#boxsplines-row > div:nth-child(2) {
     width: 0.8%;
     background-color: var(--image-color);
     align-self: stretch;
 }
 
-.row-compression a img {
-    width: 100%;
-    padding: 4%;
+#boxsplines-row > div:nth-child(3) {
+    width: 39.6%;
 }
 
-.row-cat-dog img {
+#boxsplines-row > div:nth-child(1) > img {
+    width: 90%;
+}
+
+#boxsplines-row > div:nth-child(3) > img {
+    width: 70%;
+}
+
+
+/*** Deepsplines ***/
+
+#deepsplines-div {
+    width: 700px;
+}
+
+#deepsplines-row {
+    flex: 0 1 550px;
+}
+
+#deepsplines-row > img {
+    padding: 35px;
+}
+
+/* Images */
+
+#cat-dog-row {
+    aspect-ratio: 2 / 1;
+    flex: 0 1 700px;
+    margin: 0px;
+}
+
+#cat-dog-row img {
     width: 50%;
 }
 
-.row-deepsplines {
-    width: 20em;
-    padding: 1em;
-    border-width: 5px;
+/*** Mahayana ***/
+
+#mahayana-div {
+    width: 700px;
 }
+
+#mahayana-row {
+    flex: 0 1 380px;
+}
+
+#mahayana-row > img {
+    padding: 10px;
+}
+
+/* *************** */
