@@ -40,7 +40,7 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
     $locationProvider.html5Mode(false);
     $locationProvider.hashPrefix('');
 })
-.controller('mainCtrl', ['$scope', '$location', '$uibModal', function($scope, $location, $uibModal) {
+.controller('mainCtrl', ['$scope', '$window', '$location', '$rootScope', '$uibModal', function($scope, $window, $location, $rootScope, $uibModal) {
     var updateButton = function() {
         $scope.button = $location.url();
     };
@@ -113,10 +113,14 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
     $scope.scrollToElement = function(ElementId) {
         var Element = document.getElementById(ElementId);
         if (Element) {
-            Element.scrollIntoView();
+            Element.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    
+
+    $rootScope.$on('$routeChangeSuccess', function () {
+        // Scroll to the top of the page
+        $window.scrollTo(0, 0);
+    });
 }])
 .filter('floor', function() {
     return function(input) {
