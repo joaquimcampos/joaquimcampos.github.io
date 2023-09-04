@@ -331,7 +331,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.97);
         --body-line-height: calc(var(--aux-body-line-height) * 0.97);
-        --size-factor: 0.9;
+        --size-factor: 0.95;
     }
 }
 
@@ -339,7 +339,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.95);
         --body-line-height: calc(var(--aux-body-line-height) * 0.95);
-        --size-factor: 0.85;
+        --size-factor: 0.925;
     }
     .container-fluid {
         padding: 0 80px;
@@ -350,7 +350,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.94);
         --body-line-height: calc(var(--aux-body-line-height) * 0.94);
-        --size-factor: 0.8;
+        --size-factor: 0.9;
     }
     .container-fluid {
         padding: 0 60px;
@@ -361,7 +361,7 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.93);
         --body-line-height: calc(var(--aux-body-line-height) * 0.93);
-        --size-factor: 0.75;
+        --size-factor: 0.875;
     }
     .container-fluid {
         padding: 0 40px;
@@ -375,7 +375,9 @@ input[type=submit]:hover {
     :root {
         --body-font-size: calc(var(--aux-body-font-size) * 0.92);
         --body-line-height: calc(var(--aux-body-line-height) * 0.92);
-        --size-factor: 0.7;
+        --size-factor: 0.85;
+        /* size factor is such that min-size-factor * 1.2 (h5 font size) >= 1
+        so that h5 is never smaller than --body-font-size */
     }
 }
 
