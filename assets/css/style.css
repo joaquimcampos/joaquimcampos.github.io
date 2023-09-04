@@ -470,6 +470,10 @@ input[type=submit]:hover {
     gap: var(--tiles-gap);
 }
 
+.tiles-wrapper h2 {
+    margin: 0 0 10px 0;
+}
+
 .project-title {
     margin-bottom: 40px;
     flex: 0 0 100%;
