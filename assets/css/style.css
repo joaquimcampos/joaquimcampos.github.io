@@ -63,7 +63,8 @@ body {
 }
 
 .navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:visited {
     background-color: var(--message-background-color);
     color: var(--text-color);
 }
