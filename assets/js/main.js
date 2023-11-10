@@ -9,8 +9,8 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
         controller:'PubsCtrl',
         templateUrl:'html/pubs.html'
         })
-        .when('/bio', {
-        templateUrl:'html/bio.html'
+        .when('/about', {
+        templateUrl:'html/about.html'
         })
         .when('/projects', {
         templateUrl:'html/projects.html'
