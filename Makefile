@@ -9,18 +9,10 @@ CVDIR=assets/cv
 all: build
 
 build: ## Build CV and site
-	cd $(CVDIR) && $(MAKE) build
 	bundle exec jekyll build
 
 serve:  ## Serve site
-	cd $(CVDIR) && $(MAKE) build
 	bundle exec jekyll serve  --livereload
 
-view-cv: ## View CV
-	cd $(CVDIR) && $(MAKE) view
-
-clean-cv: ## Clean CV build artifacts
-	cd $(CVDIR) && $(MAKE) clean
-
-clean: clean-cv ## clean-cv + remove built site
+clean: ## clean-cv + remove built site
 	rm -rf _site

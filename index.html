@@ -1,93 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Homepage of Joaquim Campos">
-  <meta name="keywords" content="Joaquim Campos, Joaquim, Tergar Institute, EPFL, Disney Research, IST, philosophy, signal processing, machine learning, deep learning, biomedical imaging, inverse problems">
-  <meta name="author" content="Joaquim Campos">
-  <base href="/">
-  <base target="_blank">
+<!DOCTYPE html>
+<html>
+<body>
 
-  <link rel="shortcut icon" href="assets/images/Joaquim_square.ico">
-
-  <title>Joaquim Campos</title>
-
-  <!-- Remote: angular and bootstrap -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-resource.min.js"></script>
-  <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Mathjax -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-  </script>
-
-  <!-- Remote: Google material icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Local js -->
-    <!-- Bibtex parser -->
-    <script src="assets/js/Parser.js"></script>
-    <!-- Others -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/projects.js"></script>
-    <script src="assets/js/pubs.js"></script>
-    <script src="assets/js/bibmodal.js"></script>
-    <script src="assets/js/picmodal.js"></script>
-
-  <!-- Local css -->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-</head>
-
-<body ng-app="acadApp" ng-controller="mainCtrl">
-
-  <nav class="container-fluid navbar navbar-default navbar-top" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" ng-click="toggleNavbar()">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a ng-click="closeNavbar()" class="navbar-brand" href="#">
-            <span>Joaquim Campos</span>
-      </a>
-    </div>
-    <div id="menu-primary" class="collapse navbar-collapse" ng-class="{'in': !navbarCollapsed}" uib-collapse="navbarCollapsed">
-      <ul class="nav navbar-nav">
-        <li ng-click="closeNavbar()" ng-class="{'active': button == '/about'}">
-          <a href="#/about">
-            <span>ABOUT</span>
-          </a>
-        </li>
-        <!-- TODO: About, Publications, Projects, Contact  -->
-        <li ng-click="closeNavbar()" ng-class="{'active': button == '/pubs'}">
-          <a href="#/pubs">
-            <!-- <i style="margin-top: -2.5px; padding-right: 2px" class="material-icons">school</i> -->
-            <span>PUBLICATIONS</span>
-          </a>
-        </li>
-        <li ng-click="closeNavbar()" ng-class="{'active': button == '/projects'}">
-          <a href="#/projects">
-            <!-- <i style="margin-top: -2.4px;" class="material-icons">science</i> -->
-            <span>PROJECTS</span>
-          </a>
-        </li>
-        <!-- But CV in About -->
-        <!-- <li ng-click="closeNavbar()" ng-class="{'active': button == '/cv'}">
-          <a href="assets/cv/cv_Joaquim.pdf" target="_self">
-            <i style="margin-top: -3.3px;" class="material-icons">insert_drive_file</i> CV
-          </a>
-        </li> -->
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </nav>
-
-  <div class="container-fluid main-content" ng-view> </div>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
 
 </body>
 </html>
