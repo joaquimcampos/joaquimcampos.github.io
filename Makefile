@@ -8,10 +8,13 @@ CVDIR=assets/cv
 
 all: build
 
-build: ## Build CV and site
+sass:
+	sass assets/sass/main.scss assets/css/main.css
+
+build: sass ## Build CV and site
 	bundle exec jekyll build
 
-serve:  ## Serve site
+serve: sass ## Serve site
 	bundle exec jekyll serve  --livereload
 
 clean: ## clean-cv + remove built site
