@@ -30,4 +30,10 @@
 				font-family: 'Font Awesome 5 Brands';
 			}
 		}
+
+		&.fa-envelope {
+			&:before {
+				font-family: 'Font Awesome 5 Free';
+			}
+		}
 	}

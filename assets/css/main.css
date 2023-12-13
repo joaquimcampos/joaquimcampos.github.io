@@ -1203,6 +1203,8 @@ input[type="radio"] + label:before {
     font-weight: 900; }
   .icon.brands:before, .icon.fa-brands:before {
     font-family: 'Font Awesome 5 Brands'; }
+  .icon.fa-envelope:before {
+    font-family: 'Font Awesome 5 Free'; }
 
 /* Image */
 .image {
