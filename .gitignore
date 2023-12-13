@@ -10,3 +10,5 @@ vendor
 *.bbl
 *.log
 *.aux
+
+*.css.map
