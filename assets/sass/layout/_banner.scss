@@ -17,7 +17,7 @@
 		.content {
 			@include vendor('flex-grow', '1');
 			@include vendor('flex-shrink', '1');
-			width: 50%;
+			width: 60%;
 		}
 
 		.image {
@@ -25,7 +25,7 @@
 			@include vendor('flex-shrink', '0');
 			display: block;
 			margin: 0 0 _size(element-margin) (_size(element-margin) * 2);
-			width: 50%;
+			width: 40%;
 
 			img {
 				height: 100%;
@@ -60,10 +60,24 @@
 				@include vendor('flex-grow', '0');
 				@include vendor('flex-shrink', '0');
 				margin: 0 0 (_size(element-margin) * 2) 0;
-				height: 25em;
+				height: 27em;
 				max-height: 50vh;
 				min-height: 18em;
 				width: 100%;
+			}
+
+			@include breakpoint('>=medium') {
+				.image {
+					width: 65%;
+					align-self: center;
+				}
+			}
+
+			@include breakpoint('small') {
+				.image {
+					width: 72%;
+					align-self: center;
+				}
 			}
 
 			@include breakpoint('<=xsmall') {
