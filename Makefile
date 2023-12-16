@@ -8,14 +8,25 @@ CVDIR=assets/cv
 
 all: build
 
-sass:
+build-cv:
+	cd $(CVDIR) && $(MAKE) build
+
+sass:  ## Compile scss files
 	sass assets/sass/main.scss assets/css/main.css
 
 build: sass ## Build CV and site
+	cd $(CVDIR) && $(MAKE) build
 	bundle exec jekyll build
 
 serve: sass ## Serve site
+	cd $(CVDIR) && $(MAKE) build
 	bundle exec jekyll serve  --livereload
 
-clean: ## clean-cv + remove built site
+view-cv: ## View CV
+	cd $(CVDIR) && $(MAKE) view
+
+clean-cv: ## Clean CV build artifacts
+	cd $(CVDIR) && $(MAKE) clean
+
+clean: clean-cv ## clean-cv + remove built site
 	rm -rf _site

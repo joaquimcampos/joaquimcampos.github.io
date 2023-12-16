@@ -12,6 +12,15 @@
 		}
 	}
 
+	.pubs {
+		font-family: _font(family-heading);
+		font-size: 1em;
+		font-weight: _font(weight-heading-alt);
+		letter-spacing: _font(kerning-heading);
+		text-transform: uppercase;
+		color: _palette(fg);
+	}
+
 	header {
 		p {
 			font-family: _font(family-heading);

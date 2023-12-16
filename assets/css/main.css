@@ -985,6 +985,14 @@ hr {
 section.special, article.special {
   text-align: center; }
 
+.pubs {
+  font-family: "Roboto Slab", serif;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  color: #7f888f; }
+
 header p {
   font-family: "Roboto Slab", serif;
   font-size: 1em;
