@@ -78,8 +78,10 @@
 				$sidebar.addClass('inactive');
 			});
 
-			breakpoints.on('>large', function() {
-				$sidebar.removeClass('inactive');
+		// Me: Changed to default inactive
+			breakpoints.on('>large', function () {
+				$sidebar.addClass('inactive');
+				// $sidebar.removeClass('inactive');
 			});
 
 		// Hack: Workaround for Chrome/Android scrollbar position bug.

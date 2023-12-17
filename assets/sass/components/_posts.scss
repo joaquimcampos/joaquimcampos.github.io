@@ -178,3 +178,19 @@
 			}
 		}
 	}
+
+	.projects {
+		h3 {
+			span {
+				color: _palette(fg);
+			}
+		}
+		ul {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		p {
+			margin-bottom: 4em;
+		}
+	}
