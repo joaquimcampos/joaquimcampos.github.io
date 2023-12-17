@@ -13,12 +13,25 @@
 	}
 
 	.pubs {
-		font-family: _font(family-heading);
-		font-size: 1em;
-		font-weight: _font(weight-heading-alt);
-		letter-spacing: _font(kerning-heading);
-		text-transform: uppercase;
-		color: _palette(fg);
+		h3 {
+			margin-top: 2em;
+			font-family: _font(family-heading);
+			font-size: 1em;
+			font-weight: _font(weight-heading-alt);
+			letter-spacing: _font(kerning-heading);
+			text-transform: uppercase;
+			color: _palette(fg);
+		}
+		p {
+			margin-bottom: 0;
+		}
+		div {
+			display: flex;
+			justify-content: flex-start;
+			gap: .6em;
+			// Compensate paragraph bottom margin
+			margin-bottom: 1em;
+		}
 	}
 
 	header {

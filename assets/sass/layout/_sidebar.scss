@@ -54,7 +54,7 @@
 
 		> .inner {
 			@include padding($pad, $pad, (0, 0, $pad, 0));
-			position: relative;
+			position: fixed;
 			width: _size(sidebar-width);
 
 			> * {

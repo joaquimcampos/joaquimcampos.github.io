@@ -109,12 +109,11 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
   color: #447b8c;
   text-decoration: none; }
   a:hover {
     border-bottom-color: #447b8c;
-    color: #447b8c !important; }
+    color: #6c97a4 !important; }
     a:hover strong {
       color: inherit; }
 
@@ -985,13 +984,21 @@ hr {
 section.special, article.special {
   text-align: center; }
 
-.pubs {
+.pubs h3 {
+  margin-top: 2em;
   font-family: "Roboto Slab", serif;
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   color: #7f888f; }
+.pubs p {
+  margin-bottom: 0; }
+.pubs div {
+  display: flex;
+  justify-content: flex-start;
+  gap: .6em;
+  margin-bottom: 1em; }
 
 header p {
   font-family: "Roboto Slab", serif;
@@ -1357,6 +1364,9 @@ ul.icons {
       color: inherit; }
       ul.icons li .icon:before {
         font-size: 1.25em; }
+
+.pubs .icon {
+  color: inherit; }
 
 /* Contact */
 ul.contact {
@@ -1941,7 +1951,7 @@ button,
     font-size: 1.3888888889em; }
   #sidebar > .inner {
     padding: 2.2222222222em 2.2222222222em 2.4444444444em 2.2222222222em ;
-    position: relative;
+    position: fixed;
     width: 26em; }
     #sidebar > .inner > * {
       border-bottom: solid 2px rgba(210, 215, 217, 0.75);
