@@ -4,6 +4,9 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+$('#header').load('html/header.html'); // loads the .html in the #header
+$('#footer').load('html/footer.html'); // loads the .html in the #footer
+
 (function($) {
 
 	var	$window = $(window),
@@ -21,6 +24,17 @@
 			'xlarge-to-max':    '(min-width: 1681px)',
 			'small-to-xlarge':  '(min-width: 481px) and (max-width: 1680px)'
 		});
+	
+		function setProjectSpanSize() {
+			// Make font size of project span (e.g. @Disney Research)
+			// between h1 and h2 size
+			var fontSizeh1 = $("h1").css('font-size')
+			var fontSizeh2 = $("h2").css('font-size')
+			var fontSize = ((parseFloat(fontSizeh1) + parseFloat(fontSizeh2)) / 2.0).toString() + 'px'
+				
+			var spanEl = $('#project header h1 span')
+			spanEl.css({ 'font-size': fontSize });
+		}
 
 	// Stops animations/transitions until the page has ...
 
@@ -29,6 +43,7 @@
 				window.setTimeout(function() {
 					$body.removeClass('is-preload');
 				}, 100);
+				setProjectSpanSize();
 			});
 
 		// ... stopped resizing.
@@ -45,6 +60,8 @@
 					resizeTimeout = setTimeout(function() {
 						$body.removeClass('is-resizing');
 					}, 100);
+				
+				setProjectSpanSize();
 
 			});
 
