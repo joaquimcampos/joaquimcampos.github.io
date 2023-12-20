@@ -7,6 +7,9 @@
 $('#header').load('html/header.html'); // loads the .html in the #header
 $('#footer').load('html/footer.html'); // loads the .html in the #footer
 
+$('#disney-pubs').load('html/pubs.html #disney-pubs-inner');
+$('#patents').load('html/pubs.html #patents-inner');
+
 (function($) {
 
 	var	$window = $(window),
@@ -45,7 +48,7 @@ $('#footer').load('html/footer.html'); // loads the .html in the #footer
 				}, 100);
 				setProjectSpanSize();
 			});
-
+		
 		// ... stopped resizing.
 			var resizeTimeout;
 

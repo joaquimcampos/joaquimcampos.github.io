@@ -985,7 +985,7 @@ section.special, article.special {
   text-align: center; }
 
 .pubs h3 {
-  margin-top: 2em;
+  margin-top: 3em;
   font-family: "Roboto Slab", serif;
   font-size: 1em;
   font-weight: 400;
@@ -994,7 +994,8 @@ section.special, article.special {
   color: #7f888f; }
 .pubs p {
   margin-bottom: 0; }
-.pubs div {
+
+.pub-buttons {
   display: flex;
   justify-content: flex-start;
   gap: .6em;
@@ -1025,36 +1026,53 @@ header.main > :last-child {
 
 .tooltip {
   position: relative;
-  display: inline-block; }
-  .tooltip .tooltip-text {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    /* Position the tooltip text */
+  vertical-align: super;
+  color: #7f888f;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1.3px 6px;
+  border-radius: 100%;
+  font-size: 11px;
+  cursor: help; }
+  .tooltip:before, .tooltip:after {
+    font-size: inherit;
     position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    /* Fade in tooltip */
+    left: 4%;
+    top: 0;
     opacity: 0;
-    transition: opacity 0.3s; }
-    .tooltip .tooltip-text:after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: #555 transparent transparent transparent; }
-  .tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1; }
+    transition: all ease 0.3s; }
+  .tooltip:before {
+    content: "";
+    border-style: solid; }
+  .tooltip:after {
+    content: attr(data-tooltip);
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    margin-left: -165px;
+    width: 350px;
+    border-radius: 10px;
+    color: #eee;
+    padding: 14px; }
+  .tooltip:hover {
+    border-bottom-color: none;
+    color: #7f888f !important; }
+    .tooltip:hover:before, .tooltip:hover:after {
+      opacity: 1; }
+
+.tooltip.top:after, .tooltip.top:before {
+  margin-top: -15px; }
+.tooltip.top:after {
+  transform: translateY(-100%); }
+.tooltip.top:before {
+  border-width: 10px 8px 0 8px;
+  border-color: rgba(0, 0, 0, 0.6) transparent transparent transparent; }
+
+.tooltip.bottom:before, .tooltip.bottom:after {
+  margin-top: 22px; }
+.tooltip.bottom:after {
+  top: 9.6px; }
+.tooltip.bottom:before {
+  border-width: 0 8px 10px 8px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent; }
 
 /* Form */
 form {

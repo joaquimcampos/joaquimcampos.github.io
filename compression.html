@@ -42,12 +42,8 @@
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 
 									<p>
-										Most of us are familiar with names like MP3, JPEG, and MPEG. Although we probably know them as file extensions, they are not just that: they are, first and foremost, compression standards
-										<!-- <a href="#footnotes" class="tooltip">[1]
-											<span class="tooltip-text">More sophisticated standards have since taken the place of these older ones. Some examples in video (which are based on MPEG) are H.265/HEVC, VP9, and AV1. The latter is used by Netflix.</span>
-										</a>. -->
-										<a href="#footnotes">[1]</a>.
-										The internet relies on such <a href="https://en.wikipedia.org/wiki/Codec">codecs</a> in order to deliver audio, image, and video content to our devices almost instantaneously and with very little quality loss.
+										Most of us are familiar with names like MP3, JPEG, and MPEG. Although we probably know them as file extensions, they are not just that: they are, first and foremost, compression standards.
+										<a href="#footnotes" class="tooltip bottom" data-tooltip="The internet relies on such codecs in order to deliver audio, image, and video content to our devices almost instantaneously and with very little quality loss.">?</a>
 									</p>
 									<p>
 										Here, I will try to explain in simple terms the general idea behind compression algorithms,
@@ -116,7 +112,10 @@
 										In the first version, the cake was not compressed at all. Sending the complete cake
 										gave you guarantees of pristine quality, but also required a lot of time.
 										Sending uncompressed content over the internet is usually prohibitive:
-										If you could request an uncompressed film from Disney Plus <a href="#footnotes">[2]</a> at 4K resolution, they would have to send you the RGB values of each of the 8,294,400 pixels of each of the 130,000 frames of the film, which gives you a total of <b>3.43 Terabytes</b> of information to download!
+										If you could request an uncompressed film from Disney Plus
+										<a href="#footnotes" class="tooltip top" data-tooltip="I am using Disney Plus for the streaming examples
+										because these projects are the result of joint work with my colleagues at Disney&mdash;whom I love&mdash;and I also don't want to get into legal trouble &#x1F605;.">?</a>
+										at 4K resolution, they would have to send you the RGB values of each of the 8,294,400 pixels of each of the 130,000 frames of the film, which gives you a total of <b>3.43 Terabytes</b> of information to download!
 										Just like our car roads, internet "roads" do not have
 										unlimited space (bandwidth) and can get quite congested, so you'd certainly have to wait &#x23F1; for a good while before being able to watch the film.
 									</p>
@@ -188,7 +187,9 @@
 									</p>
 									<p>
 										Videos are a sequence of frames (pictures). Since, there are usually 24 or 30 frames
-										per second (fps), the visual differences between frames are usually very small <a href="#footnotes">[3]</a> (an exception is when
+										per second (fps), the visual differences between frames are usually very small
+										<a href="#footnotes" class="tooltip top" data-tooltip="We say that there is a lot of redundancy in the signal.">?</a>
+										(an exception is when
 										there is scene cut).
 										So if we consider, for example, a 2-second static scene of a landscape,
 										a simple way to compress is to encode the first frame in the scene and
@@ -213,7 +214,9 @@
 										remaining frames by "adding" their motion information to the intra-frames.
 										In this way, if an intra-frame is encoded at the beggining of an almost-static scene,
 										very little information is needed to reconstruct the following frames
-										because very little motion is present <a href="#footnotes">[4]</a>.
+										because very little motion is present
+										<a href="#footnotes" class="tooltip bottom" data-tooltip="Motion information has a much lower
+										entropy than full frames, which means it is much easier to compress.">?</a>.
 									</p>
 									
 									<hr class="major" />
@@ -390,9 +393,24 @@
 									</p>
 									<p>
 										The top-right image
-										on the <a href="" ng-click="scrollToElement('img-compression')">top of this page
+										on the <a href="
+										" ng-click="scrollToElement('img-compression')">top of this page
 										</a> shows how our video compression method compares with standard codecs such as <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">HEVC/H.256</a>.
 									</p>
+									
+									<hr class="major" />
+
+									<h2>Publications</h2>
+
+									<div id="disney-pubs" class="pubs">
+									</div>
+
+									<hr class="major" />
+
+									<h2>Patents</h2>
+
+									<div id="patents" class="pubs">
+									</div>
 									
 									<hr class="major" />
 
