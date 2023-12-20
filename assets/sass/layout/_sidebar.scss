@@ -48,12 +48,16 @@
 		position: relative;
 		width: _size(sidebar-width);
 
+		// Added
+		
+
 		h2 {
 			font-size: (1.25em / 0.9);
 		}
 
 		> .inner {
 			@include padding($pad, $pad, (0, 0, $pad, 0));
+			// position: relative;  // original
 			position: fixed;
 			width: _size(sidebar-width);
 
@@ -93,7 +97,11 @@
 			line-height: 7.5em;
 			outline: 0;
 			overflow: hidden;
-			position: absolute;
+                        // Original
+			// position: absolute;
+			// Added
+			position: fixed;
+			// 
 			text-align: center;
 			text-indent: -15em;
 			white-space: nowrap;
@@ -116,6 +124,10 @@
 
 		&.inactive {
 			margin-left: (_size(sidebar-width) * -1);
+                        // Added
+			.toggle {
+				left: 0;
+			}
 		}
 
 		@include breakpoint('<=xlarge') {

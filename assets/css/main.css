@@ -2051,7 +2051,7 @@ button,
     line-height: 7.5em;
     outline: 0;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     text-align: center;
     text-indent: -15em;
     white-space: nowrap;
@@ -2081,6 +2081,8 @@ button,
       width: inherit; }
   #sidebar.inactive {
     margin-left: -26em; }
+    #sidebar.inactive .toggle {
+      left: 0; }
   @media screen and (max-width: 1680px) {
     #sidebar {
       width: 24em; }
