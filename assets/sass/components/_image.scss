@@ -6,14 +6,21 @@
 
 /* Image */
 
-	.image {
+	// Added .flex-image
+	.image, .flex-image {
 		border-radius: _size(border-radius);
 		border: 0;
+
+		img {
+			border-radius: _size(border-radius);
+		}
+	}
+
+	.image {
 		display: inline-block;
 		position: relative;
 
 		img {
-			border-radius: _size(border-radius);
 			display: block;
 		}
 
@@ -59,7 +66,44 @@
 		}
 	}
 
-	a.image {
+	// Added
+	.flex-box {
+		display: flex;
+		flex: 0 0 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0 0 (_size(element-margin) * 1.5) 0;
+
+		#compression-row {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 20px;
+	
+			a {
+				display: flex;
+				aspect-ratio: 1 / 1;
+				max-width: 400px;  // can grow until 400px
+				flex: 1 0 150px;  // can shrink until 150px
+				align-items: center;
+				background-color: _palette(bg-alt);
+	
+				img {
+					width: 100%;
+					padding: 4%;
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			#compression-row {
+				gap: 10px;
+			}
+		}
+	}
+
+	// Added a.flex-image
+	a.image, a.flex-image {
 		overflow: hidden;
 
 		img {

@@ -33,7 +33,7 @@ $('#patents').load('html/pubs.html #patents-inner');
 			// between h1 and h2 size
 			var fontSizeh1 = $("h1").css('font-size')
 			var fontSizeh2 = $("h2").css('font-size')
-			var fontSize = ((parseFloat(fontSizeh1) + parseFloat(fontSizeh2)) / 2.0).toString() + 'px'
+			var fontSize = (0.25 * parseFloat(fontSizeh1) + 0.75 * parseFloat(fontSizeh2)).toString() + 'px'
 				
 			var spanEl = $('#project header h1 span')
 			spanEl.css({ 'font-size': fontSize });
