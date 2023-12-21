@@ -1323,20 +1323,27 @@ input[type="radio"] + label:before {
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 0 3em 0; }
+  .flex-box a {
+    display: flex;
+    flex: 1 0 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f6f7; }
+    .flex-box a img {
+      width: 100%; }
+  .flex-box #radiobooks-img img {
+    padding: 5%;
+    max-width: 600px; }
   .flex-box #compression-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px; }
     .flex-box #compression-row a {
-      display: flex;
       aspect-ratio: 1 / 1;
       max-width: 400px;
-      flex: 1 0 150px;
-      align-items: center;
-      background-color: #f5f6f7; }
+      flex-basis: 150px; }
       .flex-box #compression-row a img {
-        width: 100%;
         padding: 4%; }
   @media screen and (max-width: 736px) {
     .flex-box #compression-row {

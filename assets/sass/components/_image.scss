@@ -74,22 +74,37 @@
 		justify-content: center;
 		margin: 0 0 (_size(element-margin) * 1.5) 0;
 
+		a {
+			display: flex;
+			flex: 1 0 150px;  // can shrink until 150px
+			justify-content: center;
+			align-items: center;
+			background-color: _palette(bg-alt);
+			
+			img {
+				width: 100%;
+			}
+		}
+
+		#radiobooks-img {
+			img {
+				padding: 5%;
+				max-width: 600px; 
+			}
+		}
+
 		#compression-row {
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
 			gap: 20px;
-	
+
 			a {
-				display: flex;
 				aspect-ratio: 1 / 1;
 				max-width: 400px;  // can grow until 400px
-				flex: 1 0 150px;  // can shrink until 150px
-				align-items: center;
-				background-color: _palette(bg-alt);
-	
+				flex-basis: 150px;
+
 				img {
-					width: 100%;
 					padding: 4%;
 				}
 			}
