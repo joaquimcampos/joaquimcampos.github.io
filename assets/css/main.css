@@ -1029,7 +1029,7 @@ header.main > :last-child {
   vertical-align: super;
   color: #7f888f;
   background: rgba(0, 0, 0, 0.1);
-  padding: 1.3px 6px;
+  padding: 1.5px 6px;
   border-radius: 100%;
   font-size: 11px;
   cursor: help; }
@@ -1057,6 +1057,14 @@ header.main > :last-child {
     color: #7f888f !important; }
     .tooltip:hover:before, .tooltip:hover:after {
       opacity: 1; }
+
+.tooltip-narrow:after {
+  margin-left: -105px;
+  width: 220px; }
+
+.tooltip-narrowest:after {
+  margin-left: -55px;
+  width: 120px; }
 
 .tooltip.top:after, .tooltip.top:before {
   margin-top: -15px; }
@@ -1319,35 +1327,62 @@ input[type="radio"] + label:before {
 
 .flex-box {
   display: flex;
-  flex: 0 0 100%;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 0 3em 0; }
   .flex-box a {
     display: flex;
-    flex: 1 0 150px;
+    flex: 1 0 0;
     justify-content: center;
     align-items: center;
     background-color: #f5f6f7; }
     .flex-box a img {
       width: 100%; }
+  .flex-box #matterhorn-img {
+    flex: 0 1 550px; }
+    .flex-box #matterhorn-img img {
+      width: 100%; }
+  .flex-box #htv-img {
+    justify-content: space-around; }
+    .flex-box #htv-img img {
+      padding: 1.5%;
+      width: 33.33%;
+      max-width: 250px; }
   .flex-box #radiobooks-img img {
-    padding: 5%;
+    padding: 3%;
     max-width: 600px; }
   .flex-box #compression-row {
+    border-radius: 0.375em;
+    border: 0;
+    background-color: #f5f6f7;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; }
+    .flex-box #compression-row a {
+      aspect-ratio: 1 / 1;
+      flex: 1 0 0;
+      max-width: 400px; }
+      .flex-box #compression-row a img {
+        width: 100%; }
+    .flex-box #compression-row a:nth-child(1) img {
+      padding: 4%; }
+    .flex-box #compression-row a:nth-child(2) img {
+      padding: 10%; }
+  .flex-box #boxspline-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px; }
-    .flex-box #compression-row a {
-      aspect-ratio: 1 / 1;
-      max-width: 400px;
-      flex-basis: 150px; }
-      .flex-box #compression-row a img {
-        padding: 4%; }
-  @media screen and (max-width: 736px) {
-    .flex-box #compression-row {
-      gap: 10px; } }
+    gap: 4%; }
+    .flex-box #boxspline-row .flex-image {
+      background-color: #f5f6f7;
+      aspect-ratio: 1.24 / 1;
+      flex: 1 0 0; }
+      .flex-box #boxspline-row .flex-image img {
+        width: 100%; }
+
+.body-box {
+  margin-bottom: 2em; }
 
 a.image, a.flex-image {
   overflow: hidden; }

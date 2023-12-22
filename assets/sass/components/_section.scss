@@ -85,7 +85,7 @@
 		vertical-align: super;
 		color: _palette(fg);
 		background: rgba(0,0,0,0.1);
-		padding: 1.3px 6px;
+		padding: 1.5px 6px;
 		border-radius: 100%;
 		font-size: 11px;
     	cursor: help;
@@ -126,6 +126,22 @@
 			}
 		}
 
+	}
+
+	.tooltip-narrow {
+		// bubble
+		&:after{
+			margin-left: -105px; // (150-10)px (half-triangle_width)
+			width: 220px;
+		}
+	}
+
+	.tooltip-narrowest {
+		// bubble
+		&:after{
+			margin-left: -55px; // (150-10)px (half-triangle_width)
+			width: 120px;
+		}
 	}
 
 	.tooltip.top {

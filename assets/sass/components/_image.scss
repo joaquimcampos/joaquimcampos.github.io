@@ -69,14 +69,13 @@
 	// Added
 	.flex-box {
 		display: flex;
-		flex: 0 0 100%;
 		flex-wrap: wrap;
 		justify-content: center;
 		margin: 0 0 (_size(element-margin) * 1.5) 0;
 
 		a {
 			display: flex;
-			flex: 1 0 150px;  // can shrink until 150px
+			flex: 1 0 0;
 			justify-content: center;
 			align-items: center;
 			background-color: _palette(bg-alt);
@@ -86,35 +85,84 @@
 			}
 		}
 
+		#matterhorn-img {
+			flex: 0 1 550px;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		#htv-img {
+			justify-content: space-around;
+
+			img {
+				padding: 1.5%;
+				width: 33.33%;
+				max-width: 250px;
+			}
+		}
+
 		#radiobooks-img {
 			img {
-				padding: 5%;
+				padding: 3%;
 				max-width: 600px; 
 			}
 		}
 
 		#compression-row {
-			display: flex;
+			border-radius: _size(border-radius);
+			border: 0;
+			background-color: _palette(bg-alt);
 			justify-content: center;
+			// justify-content: space-evenly;
+			width: 100%; // Uncomment this for full banner
+			display: flex;
 			flex-wrap: wrap;
-			gap: 20px;
 
 			a {
 				aspect-ratio: 1 / 1;
+				flex: 1 0 0 ;
 				max-width: 400px;  // can grow until 400px
-				flex-basis: 150px;
 
+				img {
+					width: 100%;
+				}
+			}
+
+			a:nth-child(1) {
 				img {
 					padding: 4%;
 				}
 			}
-		}
 
-		@include breakpoint('<=small') {
-			#compression-row {
-				gap: 10px;
+			a:nth-child(2) {
+				img {
+					padding: 10%;
+				}
 			}
 		}
+
+		#boxspline-row {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 4%;
+
+			.flex-image {
+				background-color: _palette(bg-alt);
+				aspect-ratio: 1.24 / 1;
+				flex: 1 0 0;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.body-box {
+		margin-bottom: 2em;
 	}
 
 	// Added a.flex-image
