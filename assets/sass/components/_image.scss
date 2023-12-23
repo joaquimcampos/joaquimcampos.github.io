@@ -93,6 +93,16 @@
 			}
 		}
 
+		#cat-dog-row {
+			display: flex;
+			justify-content: center;
+
+			img {
+				flex: 1 0 0;
+				width: 100%;
+			}
+		}
+
 		#htv-img {
 			justify-content: space-around;
 
@@ -100,6 +110,13 @@
 				padding: 1.5%;
 				width: 33.33%;
 				max-width: 250px;
+			}
+		}
+
+		#deepsplines-img {
+			img {
+				padding: 3%;
+				max-width: 650px;
 			}
 		}
 
@@ -122,7 +139,7 @@
 
 			a {
 				aspect-ratio: 1 / 1;
-				flex: 1 0 0 ;
+				flex: 1 0 0;
 				max-width: 400px;  // can grow until 400px
 
 				img {
@@ -146,18 +163,14 @@
 		#boxspline-row {
 			display: flex;
 			justify-content: center;
-			flex-wrap: wrap;
 			gap: 4%;
 
-			.flex-image {
+			img {
 				background-color: _palette(bg-alt);
-				aspect-ratio: 1.24 / 1;
 				flex: 1 0 0;
-
-				img {
-					width: 100%;
-				}
+				width: 100%;
 			}
+
 		}
 	}
 

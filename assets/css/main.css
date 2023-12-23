@@ -1342,12 +1342,21 @@ input[type="radio"] + label:before {
     flex: 0 1 550px; }
     .flex-box #matterhorn-img img {
       width: 100%; }
+  .flex-box #cat-dog-row {
+    display: flex;
+    justify-content: center; }
+    .flex-box #cat-dog-row img {
+      flex: 1 0 0;
+      width: 100%; }
   .flex-box #htv-img {
     justify-content: space-around; }
     .flex-box #htv-img img {
       padding: 1.5%;
       width: 33.33%;
       max-width: 250px; }
+  .flex-box #deepsplines-img img {
+    padding: 3%;
+    max-width: 650px; }
   .flex-box #radiobooks-img img {
     padding: 3%;
     max-width: 600px; }
@@ -1372,14 +1381,11 @@ input[type="radio"] + label:before {
   .flex-box #boxspline-row {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 4%; }
-    .flex-box #boxspline-row .flex-image {
+    .flex-box #boxspline-row img {
       background-color: #f5f6f7;
-      aspect-ratio: 1.24 / 1;
-      flex: 1 0 0; }
-      .flex-box #boxspline-row .flex-image img {
-        width: 100%; }
+      flex: 1 0 0;
+      width: 100%; }
 
 .body-box {
   margin-bottom: 2em; }
@@ -2410,6 +2416,8 @@ button,
         color: #447b8c; }
       #menu ul a.opener.active + ul, #menu ul span.opener.active + ul {
         display: block; }
+        #menu ul a.opener.active + ul li #current, #menu ul span.opener.active + ul li #current {
+          color: #3d4449; }
       #menu ul a.opener.active:before, #menu ul span.opener.active:before {
         -moz-transform: rotate(-180deg);
         -webkit-transform: rotate(-180deg);
