@@ -52,7 +52,7 @@
 									<h2>Introduction: Supervised Learning</h2>
 
 									<p>
-										<i>Note: It might be useful to read <a href="#/htv">this project</a>'s introduction too</i>.
+										<i>Note: It might be useful to read <a href="htv.html" target="_blank">this project's introduction</a> too</i>.
 									</p>
 									<p>
 										Suppose we have a dataset \({\mathrm D}\) that consists of sequence of \(M\) images
@@ -68,14 +68,15 @@
 										</div>
 									</div>
 									<p>
-										In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes for the images in our dataset <a href="#footnotes" class="tooltip tooltip-narrow bottom" data-tooltip='In technical jargon, we say the model "fits the data".'>1</a>
+										In supervised learning, our goal is to find a model \(f\) that makes few classification mistakes for the images in our dataset <a href="#footnotes" class="tooltip tooltip-narrow bottom" data-tooltip='In technical terms, we say that our goal is to find a model that "fits the data".'>1</a>
 										as well as new images that are not found in the training data
-										<a href="#footnotes" class="tooltip bottom" data-tooltip='In technical jargon, we say the model "generalizes well to new inputs". The problem of
+										<a href="#footnotes" class="tooltip bottom" data-tooltip='In technical terms, we say that we are looking for a model that "generalizes well to new inputs". The problem of
 										having a model that fits the data but is not able to generalize is called overfitting.'>2</a>
 										<a href="#footnotes" class="tooltip tooltip-narrow bottom" data-tooltip='I am restricting myself here to classification for didactic purposes.'>3</a>.
 									</p>
+
+									<h4>Mathematical Details</h4>
 									<p>
-										<i>(Mathematical details)</i> <br>
 										In the cat-or-dog example, the output of our model is a two-element vector where each value represents the "confidence" in each label, and the predictions \({\hat y}_m\) are assigned according to the label with the highest confidence; that is,
 										$$
 										\begin{align*}
@@ -87,7 +88,6 @@
 										\end{cases}
 										\end{align*} 
 										$$
-										<i>(End of mathematics)</i>
 									</p>
 
 									<h3>Neural Networks</h3>
@@ -145,7 +145,7 @@
 										(There are a few important steps in getting from the theory to the actual
 										algorithm that we have ommited here for the sake of simplicity.
 										If you'd like to know more details, you can read
-										<a href="https://ieeexplore.ieee.org/document/9264754">the paper</a>.)
+										<a href="https://ieeexplore.ieee.org/document/9264754">the corresponding article</a>.)
 										</i>
 									</p>
 									<p>
@@ -197,7 +197,7 @@
 										For example, we dont't want self-driving cars to not be able to detect stop signs
 										if someone graffitied them or pasted small stickers on top.
 										Unfortunately, this has been shown to happen with standard neural nets
-										<a href="https://arxiv.org/pdf/1707.08945.pdf">here</a>: a clear example
+										<a href="https://arxiv.org/pdf/1707.08945.pdf">in this paper</a>: a clear example
 										of how a lack of robustness can lead to tragic consequences.
 									</p>
 
@@ -205,7 +205,7 @@
 
 									<h2>Publications</h2>
 
-									<div id="htv-pubs" class="pubs">
+									<div id="deepspline-pubs" class="pubs">
 									</div>
 									
 									<hr class="major" />
@@ -213,8 +213,8 @@
 									<h2>Impact</h2>
 
 									<p>
-										The first work has been cited over 28 in the scientific literature. The
-										second work has been cited over 34 times.
+										The foundational work on deep spline neural networks has been cited over 34 times in the scientific literature; the
+										second work on the lipschitz control of such networks has been cited over 36 times.
 									</p>
 
 									<hr class="major" />
@@ -243,12 +243,11 @@
 									<div id="footnotes">
 										<h2>Footnotes</h2>
 										<p>
-											[1] In technical jargon, we say the model "fits the data".
+											[1] In technical terms, we say that our goal is to find a model that "fits the data".
 										</p>
 										<p>
-											[2] In technical jargon, we say the model "generalizes well to new inputs". The problem of
-											having a model that fits the data but is not able to generalize is called
-											<a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
+											[2] In technical terms, we say that we are looking for a model that "generalizes well to new inputs". The problem of
+											having a model that fits the data but is not able to generalize is called <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
 										</p>
 										<p>
 											[3] I am restricting myself here to classification for didactic purposes.
