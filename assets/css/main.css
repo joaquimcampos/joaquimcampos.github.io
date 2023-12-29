@@ -1357,9 +1357,27 @@ input[type="radio"] + label:before {
   .flex-box #deepsplines-img img {
     padding: 3%;
     max-width: 650px; }
+  .flex-box #mahayana-img img {
+    padding: 1.5%;
+    max-width: 400px; }
+  @media screen and (max-width: 480px) {
+    .flex-box #mahayana-img {
+      padding: 3%; } }
+  .flex-box #madhyamaka-img img {
+    padding: 0;
+    max-width: 750px; }
+  @media screen and (max-width: 980px) {
+    .flex-box #madhyamaka-img {
+      padding: 1.5%; } }
+  @media screen and (max-width: 736px) {
+    .flex-box #madhyamaka-img {
+      padding: 2%; } }
   .flex-box #radiobooks-img img {
     padding: 3%;
-    max-width: 600px; }
+    max-width: 650px; }
+  @media screen and (max-width: 736px) {
+    .flex-box #radiobooks-img {
+      padding: 4%; } }
   .flex-box #compression-row {
     border-radius: 0.375em;
     border: 0;
@@ -1402,6 +1420,9 @@ a.image, a.flex-image {
     -webkit-transform: scale(1.075);
     -ms-transform: scale(1.075);
     transform: scale(1.075); }
+
+.project-banner {
+  margin-bottom: 6em; }
 
 /* List */
 ol {

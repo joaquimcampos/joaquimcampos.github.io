@@ -11,6 +11,7 @@ $('#disney-pubs').load('html/pubs.html #disney-pubs-inner');
 $('#htv-pubs').load('html/pubs.html #htv-pubs-inner');
 $('#patents').load('html/pubs.html #patents-inner');
 $('#deepspline-pubs').load('html/pubs.html #deepspline-pubs-inner');
+$('#mahayana-pubs').load('html/pubs.html #mahayana-pubs-inner');
 
 (function($) {
 
