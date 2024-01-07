@@ -15,17 +15,23 @@
 		}
 
 		.content {
-			@include vendor('flex-grow', '1');
-			@include vendor('flex-shrink', '1');
 			width: 60%;
+			// @include vendor('flex-grow', '0');
+			// @include vendor('flex-shrink', '0');
+		}
+
+		.image:nth-of-type(2) {
+			display: none;
 		}
 
 		.image {
-			@include vendor('flex-grow', '0');
-			@include vendor('flex-shrink', '0');
 			display: block;
 			margin: 0 0 _size(element-margin) (_size(element-margin) * 2);
 			width: 40%;
+
+			@include breakpoint('<=medium') {
+				margin-left: _size(element-margin);
+			}
 
 			img {
 				height: 100%;
@@ -41,48 +47,72 @@
 			}
 		}
 
-		@include orientation(portrait) {
-			@include vendor('flex-direction', 'column-reverse');
+		@if _misc(banner-img) == "hoian" {
 
-			h1 {
-				br {
+			@include breakpoint('<=lsmall') {
+				@include vendor('flex-direction', 'column');
+				
+				.content {
+					width: 100%;
+				}
+
+				.image:nth-of-type(1) {
 					display: none;
 				}
-			}
 
-			.content {
-				@include vendor('flex-grow', '0');
-				@include vendor('flex-shrink', '0');
-				width: 100%;
-			}
+				.image:nth-of-type(2) {
+					display: block;
+				}
 
-			.image {
-				@include vendor('flex-grow', '0');
-				@include vendor('flex-shrink', '0');
-				margin: 0 0 (_size(element-margin) * 2) 0;
-				height: 27em;
-				max-height: 50vh;
-				min-height: 18em;
-				width: 100%;
-			}
-
-			@include breakpoint('>=medium') {
 				.image {
-					width: 65%;
+					width: 100%;
+					margin: 0 0 (_size(element-margin) * 1.5) 0;
 					align-self: center;
 				}
 			}
 
-			@include breakpoint('small') {
-				.image {
-					width: 72%;
-					align-self: center;
-				}
-			}
+		} @else {
+			@include orientation(portrait) {
+				@include vendor('flex-direction', 'column-reverse');
 
-			@include breakpoint('<=xsmall') {
+				h1 {
+					br {
+						display: none;
+					}
+				}
+
+				.content {
+					@include vendor('flex-grow', '0');
+					@include vendor('flex-shrink', '0');
+					width: 100%;
+				}
+
 				.image {
-					max-height: 35vh;
+					margin: 0 0 (_size(element-margin) * 2) 0;
+					height: 27em;
+					max-height: 50vh;
+					min-height: 18em;
+					width: 100%;
+				}
+
+				@include breakpoint('>=medium') {
+					.image {
+						width: 65%;
+						align-self: center;
+					}
+				}
+
+				@include breakpoint('small') {
+					.image {
+						width: 72%;
+						align-self: center;
+					}
+				}
+
+				@include breakpoint('<=xsmall') {
+					.image {
+						max-height: 35vh;
+					}
 				}
 			}
 		}

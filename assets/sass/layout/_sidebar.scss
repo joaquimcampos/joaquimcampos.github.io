@@ -207,7 +207,7 @@
 			}
 		}
 
-		@include breakpoint('<=small') {
+		@include breakpoint('<=medium') {
 			.toggle {
 				text-indent: 7.25em;
 				width: 7.25em;

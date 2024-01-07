@@ -63,7 +63,16 @@
 
 	#project {
 		h1 {
-			line-height: 1.1;
+			line-height: 1.02;
+
+			@include breakpoint('<=large') {
+				line-height: 1.05;
+			}
+
+			@include breakpoint('<=medium') {
+				line-height: 1.08;
+			}
+
 			span {
 				color: _palette(fg);
 			}
