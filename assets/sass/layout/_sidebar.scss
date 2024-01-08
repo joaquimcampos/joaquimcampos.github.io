@@ -35,21 +35,36 @@
 	}
 
 	#sidebar {
+		// display: none;
 		$pad: 2em / 0.9;
+		display: flex;
+		height: 100%;
+		right: 0;
+		position: fixed;
+		top: 0;
+		z-index: 10000;
 
 		@include vendor('flex-grow', '0');
 		@include vendor('flex-shrink', '0');
 		@include vendor('transition', (
-			'margin-left 0.5s ease',
+			'margin-right 0.5s ease',
 			'box-shadow 0.5s ease'
 		));
+		box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
 		background-color: _palette(bg-alt);
 		font-size: 0.9em;
-		position: relative;
 		width: _size(sidebar-width);
+		// same as topbar height
+		margin-top: 110px; 
 
 		// Added
-		
+
+		#sidebar-footer {
+			.copyright {
+				color: _palette(fg-light);
+				font-size: 0.9em;
+			}
+		}
 
 		h2 {
 			font-size: (1.25em / 0.9);
@@ -88,24 +103,27 @@
 
 		.toggle {
 			@include icon(false, solid);
-			@include vendor('transition', 'left 0.5s ease');
+			// @include vendor('transition', 'right 0.5s ease');
 			-webkit-tap-highlight-color: rgba(255,255,255,0);
 			border: 0;
 			display: block;
-			height: 7.5em;
-			left: _size(sidebar-width);
-			line-height: 7.5em;
+			height: 110px;
+			line-height: 105px;
 			outline: 0;
 			overflow: hidden;
                         // Original
 			// position: absolute;
 			// Added
+			// display: none;
+			height: 100%;
+			
 			position: fixed;
-			// 
 			text-align: center;
 			text-indent: -15em;
 			white-space: nowrap;
 			top: 0;
+			// right: _size(sidebar-width);
+			right: 0;
 			width: 6em;
 			z-index: _misc(z-index-base);
 
@@ -113,7 +131,7 @@
 				content: '\f0c9';
 				font-size: 2rem;
 				height: inherit;
-				left: 0;
+				right: 0;
 				line-height: inherit;
 				position: absolute;
 				text-indent: 0;
@@ -123,14 +141,16 @@
 		}
 
 		&.inactive {
-			margin-left: (_size(sidebar-width) * -1);
+			margin-right: (_size(sidebar-width) * -1);
                         // Added
 			.toggle {
-				left: 0;
+				right: 0;
 			}
 		}
 
 		@include breakpoint('<=xlarge') {
+			display: flex;
+			// display: none;
 			$pad: 1.5em / 0.9;
 
 			width: _size(sidebar-width-alt);
@@ -140,33 +160,34 @@
 				width: _size(sidebar-width-alt);
 
 				> .alt {
-					margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
+					margin: 0 ($pad * -1) ($pad * 2) ($pad * -1);
 					padding: $pad;
 					width: calc(100% + #{$pad * 2});
 				}
 			}
 
-			.toggle {
-				height: 6.25em;
-				left: _size(sidebar-width-alt);
-				line-height: 6.25em;
-				text-indent: 5em;
-				width: 5em;
+			// .toggle {
+				// height: 6.25em;
+				// right: _size(sidebar-width-alt);
+				// line-height: 6.25em;
+				// text-indent: 5em;
+				// width: 5em;
 
-				&:before {
-					font-size: 1.5rem;
-				}
-			}
+				// &:before {
+				// 	font-size: 1.5rem;
+				// }
+			// }
 
 			&.inactive {
-				margin-left: (_size(sidebar-width-alt) * -1);
+				margin-right: (_size(sidebar-width-alt) * -1);
 			}
 		}
 
-		@include breakpoint('<=large') {
-			box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
+		@include breakpoint('<=xlarge') {
+			display: flex;
+			// display: none;
 			height: 100%;
-			left: 0;
+			right: 0;
 			position: fixed;
 			top: 0;
 			z-index: _misc(z-index-base);
@@ -178,7 +199,7 @@
 			> .inner {
 				-webkit-overflow-scrolling: touch;
 				height: 100%;
-				left: 0;
+				right: 0;
 				overflow-x: hidden;
 				overflow-y: auto;
 				position: absolute;
@@ -192,15 +213,15 @@
 				}
 			}
 
-			.toggle {
-				text-indent: 6em;
-				width: 6em;
+			// .toggle {
+			// 	text-indent: 6em;
+			// 	width: 6em;
 
-				&:before {
-					font-size: 1.5rem;
-					margin-left: (-0.875em / 2);
-				}
-			}
+			// 	&:before {
+			// 		font-size: 1.5rem;
+			// 		margin-right: (-0.875em / 2);
+			// 	}
+			// }
 
 			body.is-preload & {
 				display: none;
@@ -208,13 +229,17 @@
 		}
 
 		@include breakpoint('<=medium') {
+			display: flex;
+			margin-top: 85px;
 			.toggle {
 				text-indent: 7.25em;
 				width: 7.25em;
+				// height: 10em;
+				line-height: 6em;
 
 				&:before {
 					color: _palette(fg);
-					margin-left: (-0.125em / 2);
+					margin-right: (-0.125em / 2);
 					margin-top: (-0.5em / 2);
 					font-size: 1.1rem;
 					z-index: 1;
@@ -225,7 +250,7 @@
 					border-radius: _size(border-radius);
 					content: '';
 					height: 3.5em;
-					left: 1em;
+					right: 1em;
 					position: absolute;
 					top: 1em;
 					width: 5em;

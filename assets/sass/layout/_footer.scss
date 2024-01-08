@@ -7,8 +7,23 @@
 /* Footer */
 
 	#footer {
-		.copyright {
-			color: _palette(fg-light);
-			font-size: 0.9em;
+		background-color: _palette(bg-alt);
+		height: 200px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		text-align: center;
+		gap: 1em;
+
+		p {
+			margin: 0;
+		}
+
+		div {
+			ul {
+				margin: 0;
+			}
 		}
 	}

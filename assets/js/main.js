@@ -5,7 +5,7 @@
 */
 
 $('#header').load('html/header.html'); // loads the .html in the #header
-$('#footer').load('html/footer.html'); // loads the .html in the #footer
+$('#sidebar-footer').load('html/sidebar-footer.html'); // loads the .html in the #sidebar-footer
 
 $('#disney-pubs').load('html/pubs.html #disney-pubs-inner');
 $('#htv-pubs').load('html/pubs.html #htv-pubs-inner');
@@ -132,9 +132,9 @@ $('#mahayana-pubs').load('html/pubs.html #mahayana-pubs-inner');
 			// Link clicks.
 				$sidebar.on('click', 'a', function(event) {
 
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
+					// // >large? Bail.
+					// 	if (breakpoints.active('>large'))
+					// 		return;
 
 					// Vars.
 						var $a = $(this),
@@ -161,15 +161,14 @@ $('#mahayana-pubs').load('html/pubs.html #mahayana-pubs-inner');
 								window.location.href = href;
 
 						}, 500);
-
 				});
 
 			// Prevent certain events inside the panel from bubbling.
 				$sidebar.on('click touchend touchstart touchmove', function(event) {
 
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
+					// // >large? Bail.
+					// 	if (breakpoints.active('>large'))
+					// 		return;
 
 					// Prevent propagation.
 						event.stopPropagation();
@@ -179,9 +178,9 @@ $('#mahayana-pubs').load('html/pubs.html #mahayana-pubs-inner');
 			// Hide panel on body click/tap.
 				$body.on('click touchend', function(event) {
 
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
+					// // >large? Bail.
+					// 	if (breakpoints.active('>large'))
+					// 		return;
 
 					// Deactivate.
 						$sidebar.addClass('inactive');

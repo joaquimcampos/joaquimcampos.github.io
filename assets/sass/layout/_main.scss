@@ -6,13 +6,13 @@
 
 /* Main */
 
-	#main {
+	#main, #topbar {
 		@include vendor('flex-grow', '1');
 		@include vendor('flex-shrink', '1');
 		width: 100%;
 
 		> .inner {
-			@include padding(0, 6em);
+			@include padding(5em, 6em);
 			margin: 0 auto;
 			max-width: 1360px;
 			// max-width: 80em;
@@ -23,56 +23,6 @@
 
 				&:first-of-type {
 				 	border-top: 0 !important;
-				}
-			}
-		}
-
-		@include breakpoint('<=xlarge') {
-			> .inner {
-				@include padding(0, 5em);
-
-				> section {
-					@include padding(5em, 0);
-				}
-			}
-		}
-
-		@include breakpoint('<=large') {
-			> .inner {
-				@include padding(0, 4em);
-
-				> section {
-					@include padding(4em, 0);
-				}
-			}
-		}
-
-		@include breakpoint('<=medium') {
-			> .inner {
-				@include padding(0, 2.5em);
-
-				> section {
-					@include padding(3em, 0);
-				}
-			}
-		}
-
-		@include breakpoint('<=small') {
-			> .inner {
-				@include padding(0, 1.5em);
-
-				> section {
-					@include padding(2.5em, 0);
-				}
-			}
-		}
-
-		@include breakpoint('<=xsmall') {
-			> .inner {
-				@include padding(0, 1em);
-
-				> section {
-					@include padding(2em, 0);
 				}
 			}
 		}
