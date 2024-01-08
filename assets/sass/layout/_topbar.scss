@@ -30,5 +30,6 @@
 
 		@include breakpoint('<=medium') {
 			height: 85px;
+			padding: 2em;
 		}
 	}
