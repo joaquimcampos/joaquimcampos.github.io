@@ -8,20 +8,31 @@
 
 	ul.icons {
 		cursor: default;
+		display: flex;
+		align-items: stretch;
+		flex-direction: row;
 		list-style: none;
 		padding-left: 0;
-
+		
 		li {
-			display: inline-block;
-			padding: 0 1em 0 0;
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			padding: 0 1.5em 0 0;
+
+			a {
+				display: flex;
+				align-items: end;
+				justify-content: end;
+				font-size: larger;
+			}
 
 			&:last-child {
 				padding-right: 0;
 			}
 
 			.icon {
-				color: inherit;
-
+				color: _palette(fg-light);
 				&:before {
 					font-size: 1.25em;
 				}

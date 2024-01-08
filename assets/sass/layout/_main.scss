@@ -12,17 +12,68 @@
 		width: 100%;
 
 		> .inner {
-			@include padding(5em, 6em);
+			padding: 6em;
+			padding-bottom: 0;
 			margin: 0 auto;
 			max-width: 1360px;
 			// max-width: 80em;
 
 			> section {
-				@include padding(6em, 0);
+				padding: 6em 0;
 				border-top: solid 2px _palette(border);
 
 				&:first-of-type {
 				 	border-top: 0 !important;
+				}
+			}
+		}
+
+		@include breakpoint('<=xlarge') {
+			> .inner {
+				padding: 6em 5em;
+
+				> section {
+					padding: 5em 0;
+				}
+			}
+		}
+
+		@include breakpoint('<=large') {
+			> .inner {
+				padding: 6em 4em;
+
+				> section {
+					padding: 4em 0;
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			> .inner {
+				padding: 6em 2.5em;
+
+				> section {
+					padding: 3em 0;
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			> .inner {
+				padding: 6em 1.5em;
+
+				> section {
+					padding: 2.5em 0;
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			> .inner {
+				padding: 6em 1em;
+
+				> section {
+					padding: 2em 0;
 				}
 			}
 		}

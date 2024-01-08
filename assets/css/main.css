@@ -2105,18 +2105,29 @@ ul.actions.fit.stacked {
 /* Icons */
 ul.icons {
   cursor: default;
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
   list-style: none;
   padding-left: 0;
 }
 ul.icons li {
-  display: inline-block;
-  padding: 0 1em 0 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 1.5em 0 0;
+}
+ul.icons li a {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  font-size: larger;
 }
 ul.icons li:last-child {
   padding-right: 0;
 }
 ul.icons li .icon {
-  color: inherit;
+  color: #9fa3a6;
 }
 ul.icons li .icon:before {
   font-size: 1.25em;
@@ -2751,58 +2762,60 @@ button:disabled,
   width: 100%;
 }
 #main > .inner, #topbar > .inner {
-  padding: 5em 6em 3em 6em;
+  padding: 6em;
+  padding-bottom: 0;
   margin: 0 auto;
   max-width: 1360px;
 }
 #main > .inner > section, #topbar > .inner > section {
-  padding: 6em 0 4em 0;
+  padding: 6em 0;
   border-top: solid 2px rgba(210, 215, 217, 0.75);
 }
 #main > .inner > section:first-of-type, #topbar > .inner > section:first-of-type {
   border-top: 0 !important;
 }
+@media screen and (max-width: 1680px) {
+  #main > .inner, #topbar > .inner {
+    padding: 6em 5em;
+  }
+  #main > .inner > section, #topbar > .inner > section {
+    padding: 5em 0;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #main > .inner, #topbar > .inner {
+    padding: 6em 4em;
+  }
+  #main > .inner > section, #topbar > .inner > section {
+    padding: 4em 0;
+  }
+}
+@media screen and (max-width: 980px) {
+  #main > .inner, #topbar > .inner {
+    padding: 6em 2.5em;
+  }
+  #main > .inner > section, #topbar > .inner > section {
+    padding: 3em 0;
+  }
+}
+@media screen and (max-width: 736px) {
+  #main > .inner, #topbar > .inner {
+    padding: 6em 1.5em;
+  }
+  #main > .inner > section, #topbar > .inner > section {
+    padding: 2.5em 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  #main > .inner, #topbar > .inner {
+    padding: 6em 1em;
+  }
+  #main > .inner > section, #topbar > .inner > section {
+    padding: 2em 0;
+  }
+}
 
 /* Sidebar */
-#search form {
-  text-decoration: none;
-  position: relative;
-}
-#search form:before {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
-  text-transform: none !important;
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-}
-#search form:before {
-  -moz-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  transform: scaleX(-1);
-  color: #7f888f;
-  content: "\f002";
-  cursor: default;
-  display: block;
-  font-size: 1.5em;
-  height: 2em;
-  line-height: 2em;
-  opacity: 0.325;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 2em;
-}
-#search form input[type=text] {
-  padding-right: 2.75em;
-}
-
 #sidebar {
   display: flex;
   height: 100%;
@@ -2825,12 +2838,8 @@ button:disabled,
   box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
   background-color: #f5f6f7;
   font-size: 0.9em;
-  width: 26em;
+  width: 27em;
   margin-top: 110px;
-}
-#sidebar #sidebar-footer .copyright {
-  color: #9fa3a6;
-  font-size: 0.9em;
 }
 #sidebar h2 {
   font-size: 1.3888888889em;
@@ -2838,7 +2847,21 @@ button:disabled,
 #sidebar > .inner {
   padding: 2.2222222222em 2.2222222222em 2.4444444444em 2.2222222222em;
   position: fixed;
-  width: 26em;
+  width: 27em;
+  margin-bottom: 10em;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+}
+#sidebar > .inner:after {
+  content: "";
+  display: block;
+  height: 4em;
+  width: 100%;
 }
 #sidebar > .inner > * {
   border-bottom: solid 2px rgba(210, 215, 217, 0.75);
@@ -2903,19 +2926,19 @@ button:disabled,
   width: inherit;
 }
 #sidebar.inactive {
-  margin-right: -26em;
+  margin-right: -27em;
+  box-shadow: none;
 }
 #sidebar.inactive .toggle {
   right: 0;
 }
 @media screen and (max-width: 1680px) {
   #sidebar {
-    display: flex;
-    width: 24em;
+    width: 25em;
   }
   #sidebar > .inner {
     padding: 1.6666666667em 1.6666666667em 1.3333333333em 1.6666666667em;
-    width: 24em;
+    width: 25em;
   }
   #sidebar > .inner > .alt {
     margin: 0 -1.6666666667em 3.3333333333em -1.6666666667em;
@@ -2923,35 +2946,7 @@ button:disabled,
     width: calc(100% + 3.3333333333em);
   }
   #sidebar.inactive {
-    margin-right: -24em;
-  }
-}
-@media screen and (max-width: 1680px) {
-  #sidebar {
-    display: flex;
-    height: 100%;
-    right: 0;
-    position: fixed;
-    top: 0;
-    z-index: 10000;
-  }
-  #sidebar.inactive {
-    box-shadow: none;
-  }
-  #sidebar > .inner {
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
-    right: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: absolute;
-    top: 0;
-  }
-  #sidebar > .inner:after {
-    content: "";
-    display: block;
-    height: 4em;
-    width: 100%;
+    margin-right: -25em;
   }
   body.is-preload #sidebar {
     display: none;
@@ -2964,7 +2959,8 @@ button:disabled,
   }
   #sidebar .toggle {
     text-indent: 7.25em;
-    width: 7.25em;
+    width: 7.5em;
+    height: 85px;
     line-height: 6em;
     margin-right: 0;
   }
@@ -3100,7 +3096,8 @@ button:disabled,
 /* Footer */
 #footer {
   background-color: #f5f6f7;
-  height: 200px;
+  height: 15em;
+  padding-bottom: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3128,19 +3125,34 @@ button:disabled,
   z-index: 10000;
   padding: 0 4em;
   width: 100%;
-  color: #3d4449;
-  font-family: "Roboto Slab", serif;
 }
 #topbar #home-button {
   display: flex;
-  width: 100%;
   margin: 0;
   flex: 1;
+}
+#topbar #home-button a {
+  font-family: "Roboto Slab", serif;
+  color: #3d4449;
+}
+#topbar #menu-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  margin-right: 6em;
+  gap: 1.3em;
+}
+#topbar #menu-buttons a {
+  font-family: "Roboto Slab", serif;
+  color: #7f888f;
 }
 @media screen and (max-width: 980px) {
   #topbar {
     height: 85px;
-    padding: 2em;
+    padding: 0 2em;
+  }
+  #topbar #menu-buttons {
+    display: none;
   }
 }
 

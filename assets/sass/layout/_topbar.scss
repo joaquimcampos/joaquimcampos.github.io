@@ -13,23 +13,41 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		height: 110px;
+		height: _size(topbar-height);
 		z-index: _misc(z-index-base);
 		padding: 0 4em;
 
 		width: 100%;
-		color: _palette(fg-bold);
-		font-family: "Roboto Slab", serif;
 		
 		#home-button {
 			display: flex;
-			width: 100%;
 			margin: 0;
 			flex: 1;
+
+			a {
+				font-family: "Roboto Slab", serif;
+				color: _palette(fg-bold);
+			}
+		}
+
+		#menu-buttons {
+			display: flex;
+			justify-content: flex-end;
+			flex: 1;
+			margin-right: 6em;
+			gap: 1.3em;
+
+			a {
+				font-family: "Roboto Slab", serif;
+				color: _palette(fg);
+			}
 		}
 
 		@include breakpoint('<=medium') {
-			height: 85px;
-			padding: 2em;
+			height: _size(topbar-height-small);
+			padding: 0 2em;
+			#menu-buttons {
+				display: none;
+			}
 		}
 	}
