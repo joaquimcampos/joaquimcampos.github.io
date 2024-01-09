@@ -1886,9 +1886,9 @@ input[type=radio] + label:before {
   justify-content: space-around;
 }
 .flex-box #htv-img img {
-  padding: 1.5%;
+  padding: 2%;
   width: 33.33%;
-  max-width: 250px;
+  max-width: 275px;
 }
 .flex-box #deepsplines-img img {
   padding: 3%;
@@ -1904,8 +1904,8 @@ input[type=radio] + label:before {
   }
 }
 .flex-box #madhyamaka-img img {
-  padding: 0;
-  max-width: 750px;
+  padding: 1%;
+  max-width: 960px;
 }
 @media screen and (max-width: 980px) {
   .flex-box #madhyamaka-img {
@@ -1918,8 +1918,8 @@ input[type=radio] + label:before {
   }
 }
 .flex-box #radiobooks-img img {
-  padding: 3%;
-  max-width: 650px;
+  padding: 6%;
+  max-width: 840px;
 }
 @media screen and (max-width: 736px) {
   .flex-box #radiobooks-img {
@@ -1981,7 +1981,8 @@ a.image:hover img, a.flex-image:hover img {
 }
 
 .project-banner {
-  margin-bottom: 4.5em;
+  margin-top: 2em;
+  margin-bottom: 7em;
 }
 @media screen and (max-width: 1280px) {
   .project-banner {
@@ -3043,23 +3044,15 @@ button:disabled,
   margin-top: -0.125em;
 }
 #banner .content {
-  width: 60%;
-}
-#banner .image:nth-of-type(2) {
-  display: none;
+  width: 57%;
 }
 #banner .image {
-  display: block;
+  display: flex;
   margin: 0 0 2em 4em;
-  width: 40%;
-}
-@media screen and (max-width: 980px) {
-  #banner .image {
-    margin-left: 2em;
-  }
+  width: 43%;
+  align-items: center;
 }
 #banner .image img {
-  height: 100%;
   -moz-object-fit: cover;
   -webkit-object-fit: cover;
   -ms-object-fit: cover;
@@ -3068,28 +3061,55 @@ button:disabled,
   -webkit-object-position: center;
   -ms-object-position: center;
   object-position: center;
-  width: 100%;
+  max-width: 100%;
 }
-@media screen and (max-width: 620px) {
+@media screen and (orientation: portrait) {
   #banner {
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    -moz-flex-direction: column-reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
-  #banner .content {
-    width: 100%;
-  }
-  #banner .image:nth-of-type(1) {
+  #banner h1 br {
     display: none;
   }
-  #banner .image:nth-of-type(2) {
-    display: block;
+  #banner .content {
+    -moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    width: 100%;
   }
   #banner .image {
-    width: 100%;
-    margin: 0 0 3em 0;
+    -moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
     align-self: center;
+    justify-content: center;
+    margin: 0 0 4em 0;
+    height: 29em;
+    width: 100%;
+  }
+  #banner .image img {
+    max-height: 100%;
+  }
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+  #banner .image {
+    height: auto;
+    max-height: 27em;
+    width: 100%;
+    img-height: auto;
+    img-width: 100%;
   }
 }
 

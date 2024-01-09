@@ -15,26 +15,29 @@
 		}
 
 		.content {
-			width: 60%;
-			// @include vendor('flex-grow', '0');
-			// @include vendor('flex-shrink', '0');
+			// @include vendor('flex-grow', '1');
+			// @include vendor('flex-shrink', '1');
+			width: 57%;
 		}
 
-		.image:nth-of-type(2) {
-			display: none;
-		}
+		// .image:nth-of-type(2) {
+		// 	display: none;
+		// }
 
 		.image {
-			display: block;
+			display: flex;
 			margin: 0 0 _size(element-margin) (_size(element-margin) * 2);
-			width: 40%;
+			width: 43%;
+			align-items: center;
+			// @include vendor('flex-grow', '1');
+			// @include vendor('flex-shrink', '1');
 
-			@include breakpoint('<=medium') {
-				margin-left: _size(element-margin);
-			}
+			// @include breakpoint('<=medium') {
+			//	margin-left: _size(element-margin);
+			// }
 
 			img {
-				height: 100%;
+				// height: 100%;
 				-moz-object-fit: cover;
 				-webkit-object-fit: cover;
 				-ms-object-fit: cover;
@@ -43,7 +46,7 @@
 				-webkit-object-position: center;
 				-ms-object-position: center;
 				object-position: center;
-				width: 100%;
+				max-width: 100%;
 			}
 		}
 
@@ -72,7 +75,7 @@
 			}
 
 		} @else {
-			@include orientation(portrait) {
+            @include orientation(portrait) {
 				@include vendor('flex-direction', 'column-reverse');
 
 				h1 {
@@ -88,32 +91,39 @@
 				}
 
 				.image {
+					@include vendor('flex-grow', '0');
+					@include vendor('flex-shrink', '0');
+					align-self: center;
+					justify-content: center;
 					margin: 0 0 (_size(element-margin) * 2) 0;
-					height: 27em;
-					max-height: 50vh;
-					min-height: 18em;
+					// height: 29em;
+					height: 29em;
+					// min-height: 18em;
 					width: 100%;
-				}
 
-				@include breakpoint('>=medium') {
-					.image {
-						width: 65%;
-						align-self: center;
-					}
-				}
-
-				@include breakpoint('small') {
-					.image {
-						width: 72%;
-						align-self: center;
+					img {
+						max-height: 100%;
 					}
 				}
 
 				@include breakpoint('<=xsmall') {
 					.image {
-						max-height: 35vh;
+						height: auto;
+						max-height: 27em;
+						width: 100%;
+
+						img: {
+							height: auto;
+							width: 100%;
+						}
 					}
 				}
-			}
+
+				// @include breakpoint('<=xsmall') {
+				// 	.image {
+				// 		max-height: 35vh;
+				// 	}
+				// }
+            }
 		}
 	}
