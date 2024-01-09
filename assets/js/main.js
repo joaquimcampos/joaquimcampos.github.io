@@ -5,6 +5,8 @@
 */
 
 $('#topbar').load('html/topbar.html'); // loads the .html in the #topbar
+$('#footer').load('html/footer.html');
+$('#projects-section').load('html/projects-section.html');
 
 $('#disney-pubs').load('html/pubs.html #disney-pubs-inner');
 $('#htv-pubs').load('html/pubs.html #htv-pubs-inner');
