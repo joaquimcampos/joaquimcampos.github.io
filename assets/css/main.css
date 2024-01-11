@@ -1524,12 +1524,14 @@ header.main > :last-child {
   color: #eee;
   padding: 14px;
 }
-.tooltip:hover {
-  border-bottom-color: none;
-  color: #7f888f !important;
-}
-.tooltip:hover:before, .tooltip:hover:after {
-  opacity: 1;
+@media screen and (min-width: 1400px) {
+  .tooltip:hover {
+    border-bottom-color: none;
+    color: #7f888f !important;
+  }
+  .tooltip:hover:before, .tooltip:hover:after {
+    opacity: 1;
+  }
 }
 
 .tooltip-narrow:after {

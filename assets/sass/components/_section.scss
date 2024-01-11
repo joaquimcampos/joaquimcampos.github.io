@@ -126,12 +126,15 @@
 			padding: 14px;
 		}
 		
+		// Only show tooltip hover when screen is xlarge-higher-min
 		&:hover {
-			border-bottom-color: none;
-  			color: _palette(fg) !important;
-			
-			&:before, &:after {
-				opacity: 1;
+			@include breakpoint('>=xlarge-higher-min') {
+				border-bottom-color: none;
+				color: _palette(fg) !important;
+				
+				&:before, &:after {
+					opacity: 1;
+				}
 			}
 		}
 
