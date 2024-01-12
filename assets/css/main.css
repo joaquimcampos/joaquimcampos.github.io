@@ -3128,6 +3128,18 @@ button:disabled,
   text-align: center;
   gap: 1em;
 }
+#footer .copyright .design-toggle {
+  display: none;
+}
+#footer .copyright br {
+  display: none;
+}
+#footer.show-design .design-toggle {
+  display: inline-block;
+}
+#footer.show-design br {
+  display: inline-block;
+}
 #footer p {
   margin: 0;
 }

@@ -18,6 +18,24 @@
 		text-align: center;
 		gap: 1em;
 
+		.copyright {
+			.design-toggle {
+				display: none;
+			}
+			br {
+				display: none;
+			}
+		}
+
+		&.show-design {
+			.design-toggle {
+				display: inline-block
+			}
+			br {
+				display: inline-block;
+			}
+		}
+
 		p {
 			margin: 0;
 		}
