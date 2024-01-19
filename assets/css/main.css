@@ -1488,7 +1488,7 @@ header.main > :last-child {
   color: #7f888f;
 }
 
-#footnotes p {
+#footnotes p, #bibliography p {
   margin-bottom: 0px;
 }
 
