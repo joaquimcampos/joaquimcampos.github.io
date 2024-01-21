@@ -11,3 +11,10 @@ vendor
 *.log
 *.aux
 *.css.map
+
+# images
+images/disney_research2.png
+images/disney_research3.png
+images/big_epfl.png
+images/IST_C_RGB_NEG.png
+images/DEEC_RGB_EN.png
