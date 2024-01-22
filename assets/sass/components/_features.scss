@@ -27,8 +27,8 @@
 				align-items: center;
 				padding: 1em;
 				display: flex;
-				height: 10em;
-				width: 10em;
+				height: 11.2em;
+				width: 11.2em;
 				background-color: _palette(bg-alt);
 				border-radius: 1rem;
 				margin: 0 _size(element-margin) 0 0;
@@ -65,12 +65,9 @@
 		}
 
 		@include breakpoint('<=medium') {
-			
 			article {
 				.icon {
 					padding: .5em;
-					height: 8em;
-					width: 8em;
 				}
 			}
 		}

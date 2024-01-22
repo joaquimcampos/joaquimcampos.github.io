@@ -2463,8 +2463,8 @@ button:disabled,
   align-items: center;
   padding: 1em;
   display: flex;
-  height: 10em;
-  width: 10em;
+  height: 11.2em;
+  width: 11.2em;
   background-color: #f5f6f7;
   border-radius: 1rem;
   margin: 0 2em 0 0;
@@ -2496,8 +2496,6 @@ button:disabled,
 @media screen and (max-width: 980px) {
   .features article .icon {
     padding: 0.5em;
-    height: 8em;
-    width: 8em;
   }
 }
 @media screen and (max-width: 736px) {
