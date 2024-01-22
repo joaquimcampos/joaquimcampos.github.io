@@ -2500,15 +2500,18 @@ button:disabled,
     width: 8em;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 736px) {
   .features #tecnico-article .icon, .features #tergar-article .icon {
     padding: 0.7em;
   }
-  .features #radiobooks-article .icon {
-    padding: 1.5em;
+  .features #disney-article .icon {
+    padding: 1em;
   }
   .features .epfl-article .icon {
     padding: 2em;
+  }
+  .features #radiobooks-article .icon {
+    padding: 1.5em;
   }
   .features article {
     -moz-flex-direction: column;

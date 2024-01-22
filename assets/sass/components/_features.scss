@@ -75,7 +75,7 @@
 			}
 		}
 
-		@include breakpoint('<=xsmall') {
+		@include breakpoint('<=small') {
 
 			#tecnico-article, #tergar-article {
 				.icon {
@@ -83,18 +83,24 @@
 				}
 			}
 
-			#radiobooks-article {
+			#disney-article {
 				.icon {
-					padding: 1.5em;
+					padding: 1em;
 				}
 			}
-
+			
 			.epfl-article {
 				.icon {
 					padding: 2em;
 				}
 			}
 			
+			#radiobooks-article {
+				.icon {
+					padding: 1.5em;
+				}
+			}
+
 			article {
 				@include vendor('flex-direction', 'column');
 				@include vendor('align-items', 'flex-start');
