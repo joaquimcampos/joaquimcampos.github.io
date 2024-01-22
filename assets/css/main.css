@@ -2469,7 +2469,7 @@ button:disabled,
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  padding: 1.2em;
   display: flex;
   height: 11.2em;
   width: 11.2em;
@@ -2501,24 +2501,18 @@ button:disabled,
 .features article .content p {
   margin: 0;
 }
+.features #disney-article .icon, .features .epfl-article .icon, .features #radiobooks-article .icon {
+  padding: 0.8em;
+}
 @media screen and (max-width: 980px) {
   .features article .icon {
-    padding: 0.5em;
+    padding: 1em;
+  }
+  .features #disney-article .icon {
+    padding: 0.8em;
   }
 }
 @media screen and (max-width: 736px) {
-  .features #tecnico-article .icon, .features #tergar-article .icon {
-    padding: 0.7em;
-  }
-  .features #disney-article .icon {
-    padding: 1em;
-  }
-  .features .epfl-article .icon {
-    padding: 2em;
-  }
-  .features #radiobooks-article .icon {
-    padding: 1.5em;
-  }
   .features article {
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
@@ -2532,6 +2526,16 @@ button:disabled,
   .features article .icon {
     width: 100%;
     margin-bottom: 1.5em;
+    padding: 1em;
+  }
+  .features #disney-article .icon {
+    padding: 2.2em;
+  }
+  .features .epfl-article .icon {
+    padding: 2.9em;
+  }
+  .features #radiobooks-article .icon {
+    padding: 2.2em;
   }
 }
 

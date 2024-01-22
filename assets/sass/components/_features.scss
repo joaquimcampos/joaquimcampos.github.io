@@ -25,7 +25,7 @@
 				@include vendor('flex-shrink', '0');
 				justify-content: center;
 				align-items: center;
-				padding: 1em;
+				padding: 1.2em;
 				display: flex;
 				height: 11.2em;
 				width: 11.2em;
@@ -64,39 +64,27 @@
 			}
 		}
 
-		@include breakpoint('<=medium') {
-			article {
-				.icon {
-					padding: .5em;
-				}
+		#disney-article, .epfl-article, #radiobooks-article {
+			.icon {
+				padding: .8em;
 			}
 		}
 
-		@include breakpoint('<=small') {
-
-			#tecnico-article, #tergar-article {
+		@include breakpoint('<=medium') {
+			article {
 				.icon {
-					padding: 0.7em;
+					padding: 1em;
 				}
 			}
 
 			#disney-article {
 				.icon {
-					padding: 1em;
+					padding: .8em;
 				}
 			}
-			
-			.epfl-article {
-				.icon {
-					padding: 2em;
-				}
-			}
-			
-			#radiobooks-article {
-				.icon {
-					padding: 1.5em;
-				}
-			}
+		}
+
+		@include breakpoint('<=small') {
 
 			article {
 				@include vendor('flex-direction', 'column');
@@ -105,9 +93,28 @@
 				.icon {
 					width: 100%;
 					margin-bottom: 1.5em;
+					padding: 1em;
 					// margin: 0 0 (_size(element-margin) * 0.75) 0;
 				}
 	
+			}
+
+			#disney-article {
+				.icon {
+					padding: 2.2em;
+				}
+			}
+
+			.epfl-article {
+				.icon {
+					padding: 2.9em;
+				}
+			}
+
+			#radiobooks-article {
+				.icon {
+					padding: 2.2em;
+				}
 			}
 		}
 	}
