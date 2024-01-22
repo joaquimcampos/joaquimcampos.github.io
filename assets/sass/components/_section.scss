@@ -81,6 +81,18 @@
 
 	// Bibliography, Footnotes, and tooltips
 
+	#languages {
+		// h3, h4 {
+		// 	margin-bottom: 0;
+		// }
+		p {
+			margin-bottom: 0;
+			.phantom {
+				visibility: hidden;
+			}
+		}
+	}
+
 	#footnotes, #bibliography {
 		p {
 			margin-bottom: 0px;
