@@ -11,6 +11,9 @@ vendor
 *.log
 *.aux
 *.css.map
+*.fdb_latexmk
+*.synctex.gz
+*.fls
 
 # images
 images/disney_research2.png

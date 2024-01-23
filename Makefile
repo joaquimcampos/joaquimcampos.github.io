@@ -8,7 +8,7 @@ CVDIR=assets/cv
 
 all: build
 
-build-cv:
+build-cv: ## Build CV
 	cd $(CVDIR) && $(MAKE) build
 
 sass:  ## Compile scss files
