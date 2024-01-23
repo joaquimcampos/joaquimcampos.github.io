@@ -17,17 +17,22 @@
 
 // Breakpoints.
 
+	// hmin = higher min, lmin = lower min
+	// hmax = higher max, lmax = lower max 
 	@include breakpoints((
-		xlarge:   			( 1281px,  1680px ),
-		xlarge-higher-min:  (1400px,   1680px ),
-		large:    			( 981px,   1280px ),
-		medium:   			( 737px,   980px  ),
-		small:    			( 481px,   736px  ),
-		small-lower-max:    ( 481px,   620px  ),
-		xsmall:   			( 361px,   480px  ),
-		xxsmall: 			( null,    360px  ),
-		xlarge-to-max:     '(min-width: 1681px)',
-		small-to-xlarge:   '(min-width: 481px) and (max-width: 1680px)'
+		xlarge:   			   ( 1281px,  1680px ),
+		xlarge-hmin:           ( 1400px,  1680px ),
+		large:    			   ( 981px,   1280px ),
+		medium-hmax:           ( 737px,   1100px ),
+		medium:   			   ( 737px,   980px  ),
+		small:    			   ( 481px,   736px  ),
+		small-lmax:            ( 481px,   620px  ),
+		xsmall:   			   ( 361px,   480px  ),
+		xxsmall: 			   ( null,    360px  ),
+		xlarge-to-max:        '(min-width: 1681px)',
+		medium-hmax-to-max:   '(min-width: 1101px)',
+		small-to-xlarge:      '(min-width: 481px ) and (max-width: 1680px)',
+		small-to-medium-hmax: '(min-width: 481px ) and (max-width: 980px )'
 	));
 
 // Base.

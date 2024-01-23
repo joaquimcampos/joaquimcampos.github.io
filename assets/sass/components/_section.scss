@@ -138,9 +138,9 @@
 			padding: 14px;
 		}
 		
-		// Only show tooltip hover when screen is xlarge-higher-min
+		// Only show tooltip hover when screen is xlarge-hmin
 		&:hover {
-			@include breakpoint('>=xlarge-higher-min') {
+			@include breakpoint('>=xlarge-hmin') {
 				border-bottom-color: none;
 				color: _palette(fg) !important;
 				

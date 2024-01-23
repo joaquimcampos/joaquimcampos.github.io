@@ -52,7 +52,7 @@
 
 		@if _misc(banner-img) == "hoian" {
 
-			@include breakpoint('<=small-lower-max') {
+			@include breakpoint('<=small-lmax') {
 				@include vendor('flex-direction', 'column');
 				
 				.content {
