@@ -56,7 +56,6 @@ exclude:
   - Makefile
   - README.md
   - LICENSE
-  - "assets/pubs/*.pdf"
   - "assets/cv/Makefile"
   - "*.log"
   - "*.zip"
