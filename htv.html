@@ -97,14 +97,7 @@
 										<h2>This Project, Explained</h2>
 									</header>
 									<p>
-										In this project, we found a way to learn continous and piecewise-linear models
-										that have few regions and a straightforward relationship
-										with their parameters (<i>i.e.</i>, are interpretable).
-										For this, we used a regularizer called Hessian-Schatten Total Variation (don't mind this)
-										that enforces sparse second-derivatives (and neither this),
-										and restricted ourselves to a family of models that is made up of "lego pieces" (basis functions)
-										called <i>box splines</i>.
-										In the following image you can see (on the left) one of these lego pieces, and (on the right)
+										In this project, my colleagues at the Biomedical Imaging Group and I developed a method for learning continuous and piecewise-linear models characterized by few regions and a clear relationship with their parameters, rendering them interpretable. To achieve this, we employed a novel regularizer known as Hessian-Schatten Total Variation, designed to enforce sparse second derivatives, and restricted our search to a family of models composed of 'lego pieces' (basis functions) called <em>box splines</em>. In the following image you can see (on the left) one of these lego pieces, and (on the right)
 										an example of a learned model that (in simple terms) results from placing different lego
 										pieces with different heights at different locations.
 									</p>
@@ -115,16 +108,8 @@
 										</div>
 									</div>
 									<p>
-										And the great thing is that by changing a single parameter—the regularization weight—
-										we are able to control the degree of simplicity (sparsity) of our models.
-										This is shown in
-										<!-- <a href="" ng-click="scrollToElement('face-row')"> -->
-										top image in this page</a>,
-										where we trained our models on a face dataset with \(M = 5000\) samples.
-										On the left, you can see the ground-truth; in the middle and right, you can see our learned models
-										with different regularization weights, respectively.
-										The model in the middle, which has a lower regularization weight, can fit the data better but has more
-										linear regions than the model on the right.
+										With this method we are able to regulate the level of simplicity (sparsity) in our models by adjusting a single parameter—the regularization weight. This is shown in <a href="#htv-img">top image in this page</a>,
+										where we trained our models on a face dataset with \(M = 5000\) samples. On the left, you can see the ground-truth; in the middle and right, you can see our learned models with different regularization weights, respectively. The model in the middle, which has a lower regularization weight, can fit the data better but has more linear regions than the model on the right.
 									</p>
 
 									<hr class="major" />
