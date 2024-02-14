@@ -7,7 +7,7 @@
 /* Sidebar */
 
 	#sidebar {
-		$pad: 2em / 0.9;
+		$pad: calc(2em / 0.9);
 		display: flex;
 		height: 100%;
 		right: 0;
@@ -29,7 +29,7 @@
 		margin-top: _size(topbar-height); 
 
 		h2 {
-			font-size: (1.25em / 0.9);
+			font-size: calc(1.25em / 0.9);
 		}
 
 		> .inner {
@@ -120,7 +120,7 @@
 		}
 
 		@include breakpoint('<=xlarge') {
-			$pad: 1.5em / 0.9;
+			$pad: calc(1.5em / 0.9);
 
 			width: _size(sidebar-width-alt);
 
@@ -156,8 +156,8 @@
 
 				&:before {
 					color: _palette(fg);
-					margin-right: (-0.125em / 2);
-					margin-top: (-0.5em / 2);
+					margin-right: calc(-0.125em / 2);
+					margin-top: calc(-0.5em / 2);
 					font-size: 1.1rem;
 					z-index: 1;
 				}
