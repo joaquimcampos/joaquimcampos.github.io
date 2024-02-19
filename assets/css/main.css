@@ -1885,12 +1885,12 @@ input[type=radio] + label:before {
   width: 100%;
 }
 .flex-box #cat-dog-row {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 .flex-box #cat-dog-row img {
-  flex: 1 0 0;
-  width: 100%;
+  width: 50%;
 }
 .flex-box #htv-img {
   justify-content: space-around;
@@ -1961,16 +1961,17 @@ input[type=radio] + label:before {
 }
 .flex-box #boxspline-row {
   display: flex;
+  width: 100%;
   justify-content: center;
   gap: 4%;
 }
 .flex-box #boxspline-row img {
   background-color: #f5f6f7;
-  flex: 1 0 0;
-  width: 100%;
+  width: 48%;
 }
 
 .body-box {
+  width: 100%;
   margin-bottom: 2em;
 }
 

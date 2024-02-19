@@ -94,12 +94,12 @@
 		}
 
 		#cat-dog-row {
+			width: 100%;
 			display: flex;
 			justify-content: center;
 
 			img {
-				flex: 1 0 0;
-				width: 100%;
+				width: 50%;
 			}
 		}
 
@@ -192,19 +192,21 @@
 
 		#boxspline-row {
 			display: flex;
+			width: 100%;
 			justify-content: center;
 			gap: 4%;
 
 			img {
 				background-color: _palette(bg-alt);
-				flex: 1 0 0;
-				width: 100%;
+				// 50% - gap / 2
+				width: 48%;
 			}
 
 		}
 	}
 
 	.body-box {
+		width: 100%;
 		margin-bottom: 2em;
 	}
 
