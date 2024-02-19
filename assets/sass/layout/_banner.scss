@@ -96,9 +96,7 @@
 					align-self: center;
 					justify-content: center;
 					margin: 0 0 (_size(element-margin) * 2) 0;
-					// height: 29em;
 					height: 29em;
-					// min-height: 18em;
 					width: 100%;
 
 					img {
@@ -112,7 +110,7 @@
 						max-height: 27em;
 						width: 100%;
 
-						img: {
+						img {
 							height: auto;
 							width: 100%;
 						}

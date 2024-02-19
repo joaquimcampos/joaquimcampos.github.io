@@ -3096,8 +3096,10 @@ button:disabled,
     height: auto;
     max-height: 27em;
     width: 100%;
-    img-height: auto;
-    img-width: 100%;
+  }
+  #banner .image img {
+    height: auto;
+    width: 100%;
   }
 }
 
