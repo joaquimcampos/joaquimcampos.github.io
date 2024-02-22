@@ -29,7 +29,7 @@ compile: cv_Joaquim.pdf  ## Compile .pdf
 build: cv_Joaquim.html  ## Build .html
 
 view: cv_Joaquim.pdf ## View CV
-	open $(DOCNAME).pdf
+	okular $(DOCNAME).pdf &>/dev/null
 
 clean: ## Clean CV build artifacts
 	rm -f *.out *.blg *.bbl *.aux *.log
