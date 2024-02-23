@@ -8,7 +8,7 @@ $('#topbar').load('html/topbar.html'); // loads the .html in the #topbar
 $('#footer').load('html/footer.html');
 $('#projects-section').load('html/projects-section.html');
 $('#studies-section').load('html/studies-section.html');
-$('#work-section').load('html/work-section.html');
+$('#experience-section').load('html/experience-section.html');
 
 $('#disney-pubs').load('html/pubs.html #disney-pubs-inner');
 $('#htv-pubs').load('html/pubs.html #htv-pubs-inner');
