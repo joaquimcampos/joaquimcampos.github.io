@@ -24,13 +24,20 @@
 
 % Font loading
 \usepackage{fontspec}
-  \defaultfontfeatures{Mapping=tex-text}
-  % Set main font for document
-  \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+% \defaultfontfeatures{Mapping=tex-text}
+% Set main font for document
+% \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+% Fonts are saved in /usr/share/fonts
+% \setmainfont{Fira Sans}
+\setmainfont{Source Sans Pro}
+
 \usepackage{bm}
 
 % Formatting
 \usepackage{xunicode,xltxtra,url,parskip}
+
+% If then to toggle parts
+\usepackage{ifthen}
 
 % Coloring
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -47,7 +54,7 @@
 % Costumize section command
 \usepackage{titlesec} % Used to customize the \section command
   % Text formatting
-  \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+  \titleformat{\section}{\Large\raggedright}{}{0em}{}[\titlerule]
   % Spacing
   \titlespacing{\section}{0pt}{3pt}{3pt}
 
@@ -74,6 +81,26 @@
 
 \def\myname{Joaquim Campos}
 
+\input{variable.tex} % Includes \showTergar
+
+\ifx\showTergar\empty
+    % Code to execute if \showTergar is empty
+    \newcommand{\sectionTergar}{}
+\else
+    % Code to execute if \showTergar is not empty
+    \newcommand{\sectionTergar}{
+      % \textsc{\phantom{5}2023 Sep &}
+      \phantom{5}2023 Sep &
+      %
+      Course in Philosophy and Meditation. \\
+      Present &  \footnotesize{Tergar Institute, Kathmandu, Nepal.} \\
+      & \footnotesize{ 
+        Head Teacher: Mingyur Rinpoche. Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness}. The course will continue on-site between mid-September and mid-December 2024.
+      } \\
+      % 
+      \multicolumn{2}{c}{} \\
+    }
+\fi
 
 \begin{document}
 
@@ -86,7 +113,7 @@
 
   \begin{center}
     \begin{tabular}{lcr}
-	    \par{\centering{\Huge Joaquim \textsc{Campos}}\bigskip\par} & & \includegraphics[width=0.3\textwidth]{../../images/Joaquim_circle.png} \\
+	    \par{\centering{\Huge Joaquim Campos}\bigskip\par} & & \includegraphics[width=0.3\textwidth]{../../images/Joaquim_circle.png} \\
     \end{tabular}
   \end{center}
 
@@ -95,10 +122,10 @@
   \section{Personal data}
 
     \begin{tabular}{rl}
-      \textsc{Location:} & Lisbon, Portugal \\
+      Location: & Lisbon, Portugal \\
       % \textsc{Home address:} & Travessa da Cruz da Rocha 3, 4200-344, Porto, Portugal \\
       % \textsc{Mobile phone:} & +351 91-083-2298 \\
-      \textsc{Links:} & \href{https://joaquimcampos.com}{\textbf{Website}} | \href{mailto:joaquimcampos@duck.com}{Email} | \href{https://scholar.google.com/citations?user=GT-VCroAAAAJ}{Google Scholar} |  \href{https://www.linkedin.com/in/joaquim-campos}{Linkedin} | \href{https://github.com/joaquimcampos/}{Github} \\
+      Links: & \href{https://joaquimcampos.com}{Website} | \href{mailto:joaquimcampos@duck.com}{Email} | \href{https://scholar.google.com/citations?user=GT-VCroAAAAJ}{Google Scholar} |  \href{https://www.linkedin.com/in/joaquim-campos}{Linkedin} | \href{https://github.com/joaquimcampos/}{Github} \\
     \end{tabular}
 
   %----------------------------------------------------------------------------------------
@@ -108,7 +135,7 @@
   \vspace{16pt}
 
   \section{In Brief}
-    I am an engineer and researcher specializing in signal processing and artificial intelligence, and I am also a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I am gaining knowledge in product development and Python DevOps.
+    I am an engineer and researcher specializing in signal processing and artificial intelligence, as well as a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I am gaining knowledge in product development and Python DevOps.
     % 
     \\[10pt]
     Highlights:
@@ -124,7 +151,9 @@
       \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
     \end{itemize}
 
-    \emph{Please note that I will be unavailable for work from Sept. 11th to Dec. 11th, as I will be attending a course in philosophy and meditation in Nepal.}
+    \vspace{4pt}
+
+    \emph{Please note that I will be attending a course in philosophy and meditation at the Tergar Institute in Nepal between mid-September and mid-December in both 2024 and 2025. As a result, I will be available to work from now until the beginning of the course and then again three months later.}
 
   %----------------------------------------------------------------------------------------
   %	EDUCATION
@@ -135,45 +164,37 @@
 
     \begin{tabular}{r|p{13cm}}
 
-      % \textsc{\phantom{5}2023 Sep} &
-      % %
-      % Course in \textbf{Buddhist Philosophy and Meditation}. \\
-      % \textsc{Present} &  \footnotesize{\textbf{Tergar Institute}, Kathmandu, Nepal.} \\
-      % & \footnotesize{
-      %   Head Teacher: Mingyur Rinpoche. Project: \emph{Communicating Madhyamaka Philosophy}. The course will continue on-site between mid-September and mid-December 2024.
-      % } \\
-      % % 
-      % \multicolumn{2}{c}{} \\
+      \sectionTergar
 
       %------------------------------------------------
-      \textsc{2020 Feb}  &
+      2020 Feb  &
       %
       MSc in Communication Systems. \\
-      \textsc{2016 Sep} & \emph{Specialization: Signals, Images and Interfaces.} \\
+      2016 Sep & Specialization: Signals, Images and Interfaces. \\
       & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland. \newline
       School: \href{https://www.epfl.ch/schools/ic/}{School of Computer and Communication Sciences}.
       } \\
       & \footnotesize{
       % Supervisors and examiner: \textbf{Prof. Michael Unser, Shayan Aziznejad and Prof. François Fleuret}.
-      Grade: $\bm{5.67/6.00}$} — Ranking: 2nd/31 \\
+      Grade: 5.67/6.00} — Ranking: 2nd/31 \\
       & \footnotesize{
         Focus on signal processing and artificial intelligence. \newline
         % and their applications to imaging and audio
-        Master's thesis: \href{https://www.joaquimcampos.com/assets/pubs/MSc_thesis.pdf}{\emph{Higher-Order Regularization Methods for Supervised Learning}}. 
+        Master's thesis: \href{https://www.joaquimcampos.com/assets/pubs/MSc_thesis.pdf}{Higher-Order Regularization Methods for Supervised Learning}. 
         % Biomedical Imaging Group.
       } \\
       %
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
-      \textsc{\phantom{5}2016 Jul} &
+      \phantom{5}2016 Jul &
       %
       BSc in Electrical and Computer Engineering. \\
-      \textsc{2013 Sep} &  \footnotesize{
+      2013 Sep &  \footnotesize{
         \href{https://www.ulisboa.pt/en}{Universidade de Lisboa}, Lisbon, Portugal. \newline
         School: \href{https://tecnico.ulisboa.pt/en/}{Instituto Superior Técnico}.
       } \\
-      & \footnotesize{Grade: $\bm{16.4/20.0}$}
+      & \footnotesize{Grade: 16.4/20.0}
     \end{tabular}
 
 
@@ -187,8 +208,9 @@
 
     \begin{tabular}{r|p{13cm}}
 
-      \textsc{2023 Dec} 	& Co-Founder at Radiobooks. \\
-      \textsc{2022 Aug} 	& \emph{Converting books into audiobooks automatically using Artificial Intelligence}
+      2023 Dec 	& Co-Founder at Radiobooks. \\
+      % 2022 Aug 	& \emph{Converting books into audiobooks automatically using Artificial Intelligence}
+      2022 Aug 	& Converting books into audiobooks automatically using Artificial Intelligence
       \begin{itemize}[leftmargin=*,noitemsep]
           \item \footnotesize{Designed and built an app for revising AI-generated audio.}
           \item \footnotesize{Our tech stack included Python, FastAPI, MongoDB, Pytest, Docker, GitHub Actions, Codecov, Fly.io, AWS S3, and Better Stack.}
@@ -197,8 +219,8 @@
 
       %------------------------------------------------
 
-      \textsc{2021 Sep} 	& Research and Teaching Assistant \\
-      \textsc{2020 Apr} 	& \emph{Supervised Learning with Sparsity-Promoting Regularization} \\
+      2021 Sep 	& Research and Teaching Assistant \\
+      2020 Apr 	& Supervised Learning with Sparsity-Promoting Regularization \\
 				& \footnotesize{\href{https://bigwww.epfl.ch/}{Biomedical Imaging Group}, EPFL, Lausanne, Switzerland.
 				  }
         \begin{itemize}[leftmargin=*,noitemsep]
@@ -208,8 +230,8 @@
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
-      \textsc{2018 Aug} & Research Intern \\
-      \textsc{2019 Mar} & \emph{Image and Video Compression using Deep Learning} \\
+      2018 Aug & Research Intern \\
+      2019 Mar & Image and Video Compression using Deep Learning \\
 				& \footnotesize{\href{https://studios.disneyresearch.com/}{Disney Research Studios}, Zurich, Switzerland.}
         \begin{itemize}[leftmargin=*,noitemsep]
           \item \footnotesize{
@@ -232,9 +254,9 @@
 
     \begin{tabular}{r|p{13cm}}
 
-	  \textsc{Current}     & Teaching assistance in the courses MICRO-310/11: Signals and Systems I/II \\
-	  \textsc{2020 Sep} & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland.} \\
-    & \footnotesize{Taught by Prof. Michael Unser to the \emph{Life Sciences} and \emph{Microenginneering} sections.} \\
+	  Current & Teaching assistance in the courses MICRO-310/11: Signals and Systems I/II \\
+	  2020 Sep & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland.} \\
+    & \footnotesize{Taught by Prof. Michael Unser to the Life Sciences and Microenginneering sections.} \\
     % & \footnotesize{Approximate numbers per semester:
     %           $250$ students;
     %           $65\,\mathrm{h}$ of guidance of exercise sessions and interaction with students on the course forum;
@@ -244,8 +266,8 @@
 
     \multicolumn{2}{c}{} \\
 
-    \textsc{Current}	 & Supervision of Master semester projects \\
-    \textsc{2020 Sep}  & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland.} \\
+    Current & Supervision of Master semester projects \\
+    2020 Sep & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland.} \\
     & \footnotesize{Co-supervisor of two Master semester projects on \href{https://bigwww.epfl.ch/teaching/projects/abstract.html?f=00388}{lipschitz-constrained GANs}.} \\
 
     \end{tabular}
@@ -261,7 +283,7 @@
     \begin{tabular}{rp{11cm}}
   	Expertise:  & Theoretical and practical aspects of machine learning, deep learning, and signal processing; Python development.
     \vspace{5pt}\\
-  	DevOps Experience:       &  \textsc{Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack.}  \vspace{5pt}\\
+  	DevOps Experience:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
   	Other skills: 	   & During my academic years, I developed valuable presentation, writing, and teaching skills, much of which I owe to Prof. Michael Unser.
     \end{tabular}
 
@@ -275,13 +297,13 @@
 
       \begin{tabular}{rp{10cm}}
 
-        \textsc{Mother tongue:} & Portuguese \\
+        Mother tongue: & Portuguese \\
 
-        \textsc{Professional (C1):} & English \\
+        Professional (C1): & English \\
 
-        \textsc{Advanced (B2):} & Spanish \\
+        Advanced (B2): & Spanish \\
 
-        \textsc{Conversational (B1):} & French \\
+        Conversational (B1): & French \\
 
       \end{tabular}
 

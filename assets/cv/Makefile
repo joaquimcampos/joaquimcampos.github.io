@@ -14,22 +14,33 @@ BIBFILE=../pubs/bibfile.bib
 # https://stackoverflow.com/questions/7815400
 # Pol delete commit: f16f136
 cv_Joaquim.pdf: $(DOCNAME).tex $(BIBFILE)
-	xelatex $(DOCNAME).tex
+	echo "\def\showTergar{}" > variable.tex
+	xelatex -jobname=$(DOCNAME) $(DOCNAME).tex
 	bibtex bu1
 	bibtex bu2
 	bibtex bu3
-	xelatex $(DOCNAME).tex
-	xelatex $(DOCNAME).tex
+	xelatex -jobname=$(DOCNAME) $(DOCNAME).tex
+	xelatex -jobname=$(DOCNAME) $(DOCNAME).tex
+
+cv_Joaquim_tergar.pdf: $(DOCNAME).tex $(BIBFILE)
+	echo "\def\showTergar{true}" > variable.tex
+	xelatex -jobname=$(DOCNAME)_tergar $(DOCNAME).tex
+	bibtex bu1
+	bibtex bu2
+	bibtex bu3
+	xelatex -jobname=$(DOCNAME)_tergar $(DOCNAME).tex
+	xelatex -jobname=$(DOCNAME)_tergar $(DOCNAME).tex
 
 cv_Joaquim.html: $(DOCNAME).pdf
 	make cv_Joaquim.pdf
 	pdf2htmlEX --zoom 2 $(DOCNAME).pdf $(DOCNAME).html
 
-compile: cv_Joaquim.pdf  ## Compile .pdf
-build: cv_Joaquim.html  ## Build .html
+compile: cv_Joaquim.pdf cv_Joaquim_tergar.pdf  ## Compile .pdf
+build: cv_Joaquim.html cv_Joaquim_tergar.pdf ## Build .html
 
-view: cv_Joaquim.pdf ## View CV
+view: cv_Joaquim.pdf cv_Joaquim_tergar.pdf ## View CV
 	okular $(DOCNAME).pdf &>/dev/null
+	okular $(DOCNAME)_tergar.pdf &>/dev/null
 
 clean: ## Clean CV build artifacts
-	rm -f *.out *.blg *.bbl *.aux *.log
+	rm -f *.out *.blg *.bbl *.aux *.log *.fdb_latexmk *.fls
