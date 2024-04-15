@@ -28,8 +28,14 @@
 % Set main font for document
 % \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
 % Fonts are saved in /usr/share/fonts
-% \setmainfont{Fira Sans}
+% By order of preference
 \setmainfont{Source Sans Pro}
+% \setmainfont{Calibri}
+% \setmainfont{Lato}
+% \setmainfont{Roboto}
+% \setmainfont{Fira Sans}
+% \setmainfont{Montserrat}
+
 
 \usepackage{bm}
 
@@ -80,26 +86,29 @@
 \usepackage[nottoc,numbib]{tocbibind}
 
 \def\myname{Joaquim Campos}
+\def\datespace{-2.5pt}
+\def\title-main-sep{4pt}
+\def\tabwidth{13cm}
 
 \input{variable.tex} % Includes \showTergar
 
 \ifx\showTergar\empty
     % Code to execute if \showTergar is empty
     \newcommand{\sectionTergar}{}
+    \newcommand{\mentionTergar}{}
 \else
     % Code to execute if \showTergar is not empty
     \newcommand{\sectionTergar}{
-      % \textsc{\phantom{5}2023 Sep &}
-      \phantom{5}2023 Sep &
-      %
-      Course in Philosophy and Meditation. \\
-      Present &  \footnotesize{Tergar Institute, Kathmandu, Nepal.} \\
-      & \footnotesize{ 
-        Head Teacher: Mingyur Rinpoche. Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness}. The course will continue on-site between mid-September and mid-December 2024.
+      {\footnotesize Present} & Course in Philosophy and Meditation \\[\datespace]
+      {\footnotesize \phantom{5}Sep 2023} & {\footnotesize \href{https://tergarinstitute.org/}{Tergar Institute}, Kathmandu, Nepal} \\[\title-main-sep]
+      & {
+      \parbox[t]{\tabwidth}{
+      \footnotesize Head Teacher: Mingyur Rinpoche. Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness}. \\ The course will continue on-site between mid-September and mid-December 2024.
+      }
       } \\
-      % 
       \multicolumn{2}{c}{} \\
     }
+    \newcommand{\mentionTergar}{at the Tergar Institute in Nepal }
 \fi
 
 \begin{document}
@@ -111,13 +120,16 @@
   %	NAME AND CONTACT INFORMATION
   %----------------------------------------------------------------------------------------
 
-  \begin{center}
-    \begin{tabular}{lcr}
-	    \par{\centering{\Huge Joaquim Campos}\bigskip\par} & & \includegraphics[width=0.3\textwidth]{../../images/Joaquim_circle.png} \\
-    \end{tabular}
-  \end{center}
+  % \begin{center}
+  %   \begin{tabular}{lcr}
+	%     \par{\Huge Joaquim Campos}\bigskip\par
+  %     % & & \includegraphics[width=0.3\textwidth]{../../images/Joaquim_circle.png}
+  %     \\
+  %   \end{tabular}
+  % \end{center}
+  \par{\Huge Joaquim Campos}\bigskip\par
 
-  \vspace{16pt}
+  \vspace{20pt}
 
   \section{Personal data}
 
@@ -132,15 +144,15 @@
   %  Summary
   %----------------------------------------------------------------------------------------
 
-  \vspace{16pt}
+  \vspace{20pt}
 
   \section{In Brief}
-    I am an engineer and researcher specializing in signal processing and artificial intelligence, as well as a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I am gaining knowledge in product development and Python DevOps.
+    I am an engineer and researcher specializing in signal processing and artificial intelligence, as well as a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I have gained knowledge in product development and Python DevOps.
     % 
     \\[10pt]
-    Highlights:
-    \\[-20pt]
-    \begin{itemize}[leftmargin=*,noitemsep]
+    %
+    Highlights: \\[-20pt]
+    \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
       \item \href{https://www.joaquimcampos.com/pubs.html}{7 publications} with over 300 citations in top-tier venues, and 3 patents.
       \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
       \item Crafted \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
@@ -153,48 +165,45 @@
 
     \vspace{4pt}
 
-    \emph{Please note that I will be attending a course in philosophy and meditation at the Tergar Institute in Nepal between mid-September and mid-December in both 2024 and 2025. As a result, I will be available to work from now until the beginning of the course and then again three months later.}
+    \emph{Please note that I will be attending a course in philosophy and meditation \mentionTergar between mid-September and mid-December in both 2024 and 2025. As a result, I will be available to work from now until the beginning of the course and then again three months later.}
 
   %----------------------------------------------------------------------------------------
   %	EDUCATION
   %----------------------------------------------------------------------------------------
-  \vspace{12pt}
+  \vspace{20pt}
 
   \section{Education}
 
-    \begin{tabular}{r|p{13cm}}
+    \begin{tabular}{r|p{\tabwidth}}
 
       \sectionTergar
 
-      %------------------------------------------------
-      2020 Feb  &
-      %
-      MSc in Communication Systems. \\
-      2016 Sep & Specialization: Signals, Images and Interfaces. \\
-      & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland. \newline
-      School: \href{https://www.epfl.ch/schools/ic/}{School of Computer and Communication Sciences}.
-      } \\
-      & \footnotesize{
-      % Supervisors and examiner: \textbf{Prof. Michael Unser, Shayan Aziznejad and Prof. François Fleuret}.
-      Grade: 5.67/6.00} — Ranking: 2nd/31 \\
-      & \footnotesize{
-        Focus on signal processing and artificial intelligence. \newline
+      {\footnotesize Feb 2020} & MSc in Communication Systems \\[\datespace]
+      {\footnotesize Sep 2016} & {\footnotesize \href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland
+      } \\[\title-main-sep]
+      & {
+      \begin{minipage}[t]{\tabwidth}
+        \footnotesize School: \href{https://www.epfl.ch/schools/ic/}{School of Computer and Communication Sciences}. \\
+        Specialization: signal processing and artificial intelligence. \\
         % and their applications to imaging and audio
-        Master's thesis: \href{https://www.joaquimcampos.com/assets/pubs/MSc_thesis.pdf}{Higher-Order Regularization Methods for Supervised Learning}. 
-        % Biomedical Imaging Group.
+        Master's thesis: \href{https://www.joaquimcampos.com/assets/pubs/MSc_thesis.pdf}{Higher-Order Regularization Methods for Supervised Learning}. \\
+        Grade: 5.67/6.00 — Ranking: 2nd/31.
+      \end{minipage}
       } \\
+      % Biomedical Imaging Group.
+      % Supervisors and examiner: \textbf{Prof. Michael Unser, Shayan Aziznejad and Prof. François Fleuret}.
       %
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
-      \phantom{5}2016 Jul &
-      %
-      BSc in Electrical and Computer Engineering. \\
-      2013 Sep &  \footnotesize{
-        \href{https://www.ulisboa.pt/en}{Universidade de Lisboa}, Lisbon, Portugal. \newline
-        School: \href{https://tecnico.ulisboa.pt/en/}{Instituto Superior Técnico}.
-      } \\
-      & \footnotesize{Grade: 16.4/20.0}
+      {\footnotesize Jul 2016} & BSc in Electrical and Computer Engineering \\[\datespace]
+      {\footnotesize Sep 2013} & {\footnotesize \href{https://www.ulisboa.pt/en}{Universidade de Lisboa}, Lisbon, Portugal} \\[\title-main-sep]
+      & {
+      \begin{minipage}[t]{\tabwidth}
+        \footnotesize School: \href{https://tecnico.ulisboa.pt/en/}{Instituto Superior Técnico}. \\
+        Grade: 16.4/20.00.
+      \end{minipage}
+      }
     \end{tabular}
 
 
@@ -206,40 +215,49 @@
 
   \section{Work experience}
 
-    \begin{tabular}{r|p{13cm}}
+    \begin{tabular}{r|p{\tabwidth}}
 
-      2023 Dec 	& Co-Founder at Radiobooks. \\
+      {\footnotesize Aug 2022} & Co-Founder and CTO \\[\datespace]
       % 2022 Aug 	& \emph{Converting books into audiobooks automatically using Artificial Intelligence}
-      2022 Aug 	& Converting books into audiobooks automatically using Artificial Intelligence
-      \begin{itemize}[leftmargin=*,noitemsep]
-          \item \footnotesize{Designed and built an app for revising AI-generated audio.}
-          \item \footnotesize{Our tech stack included Python, FastAPI, MongoDB, Pytest, Docker, GitHub Actions, Codecov, Fly.io, AWS S3, and Better Stack.}
-      \end{itemize} \vspace*{-\baselineskip}\\
+      {\footnotesize Dec 2023} & {\footnotesize \href{https://radiobooks.webflow.io/}{Radiobooks}, Lisbon, Portugal} \\[\title-main-sep]
+      & {
+      \parbox[t]{\tabwidth}{
+      \footnotesize Subject: Converting books into audiobooks automatically using Artificial Intelligence.
+      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
+        \item Designed and built an app for revising AI-generated audio.
+        \item Tech stack: Python, FastAPI, MongoDB, Pytest, Docker, GitHub Actions, Codecov, Fly.io, AWS S3, and Better Stack.
+      \end{itemize}
+      }
+      } \\
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
 
-      2021 Sep 	& Research and Teaching Assistant \\
-      2020 Apr 	& Supervised Learning with Sparsity-Promoting Regularization \\
-				& \footnotesize{\href{https://bigwww.epfl.ch/}{Biomedical Imaging Group}, EPFL, Lausanne, Switzerland.
-				  }
-        \begin{itemize}[leftmargin=*,noitemsep]
-          \item \footnotesize{Developed a novel framework to learn the activation functions of a neural network;}
-          \item \footnotesize{Designed a spline-based supervised learning method which constructs piecewise-linear models with few regions (sparse).}
-        \end{itemize} \vspace*{-\baselineskip}\\
+      {\footnotesize Sep 2021} 	& Research and Teaching Assistant \\[\datespace]
+      {\footnotesize Apr 2020} 	& {\footnotesize \href{https://bigwww.epfl.ch/}{Biomedical Imaging Group}, EPFL, Lausanne, Switzerland} \\[\title-main-sep]
+      & {
+        \parbox[t]{\tabwidth}{
+        \footnotesize Subject: Supervised Learning with Sparsity-Promoting Regularization.
+        \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
+          \item Developed a novel framework to learn the activation functions of a neural network;
+          \item Designed a spline-based supervised learning method which constructs piecewise-linear models with few regions (sparse).
+        \end{itemize}
+        }
+      } \\
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
-      2018 Aug & Research Intern \\
-      2019 Mar & Image and Video Compression using Deep Learning \\
-				& \footnotesize{\href{https://studios.disneyresearch.com/}{Disney Research Studios}, Zurich, Switzerland.}
-        \begin{itemize}[leftmargin=*,noitemsep]
-          \item \footnotesize{
-            Developed the first content-adaptive neural image compression scheme;}
-          \item  \footnotesize{
-            Aided in the construction of a state-of-the-art neural video compression framework.}
-          \end{itemize} \vspace*{-\baselineskip}
-
+      {\footnotesize Aug 2018} & Research Intern \\[\datespace]
+      {\footnotesize Mar 2019} &  {\footnotesize \href{https://studios.disneyresearch.com/}{Disney Research Studios}, Zurich, Switzerland}\\[\title-main-sep]
+			& {
+        \parbox[t]{\tabwidth}{
+        \footnotesize Subject: Image and Video Compression using Deep Learning.
+        \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
+          \item Developed the first content-adaptive neural image compression scheme;
+          \item Aided in the construction of a state-of-the-art neural video compression framework.
+        \end{itemize}
+        }
+      }
     \end{tabular}
 
   
@@ -254,9 +272,9 @@
 
     \begin{tabular}{r|p{13cm}}
 
-	  Current & Teaching assistance in the courses MICRO-310/11: Signals and Systems I/II \\
-	  2020 Sep & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland.} \\
-    & \footnotesize{Taught by Prof. Michael Unser to the Life Sciences and Microenginneering sections.} \\
+	  {\footnotesize Sep 2021} & Teaching assistance in the courses MICRO-310/11: Signals and Systems I/II \\[\datespace]
+	  {\footnotesize Apr 2020} & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
+    & {\footnotesize Taught by Prof. Michael Unser to the Life Sciences and Microenginneering sections.} \\
     % & \footnotesize{Approximate numbers per semester:
     %           $250$ students;
     %           $65\,\mathrm{h}$ of guidance of exercise sessions and interaction with students on the course forum;
@@ -266,8 +284,8 @@
 
     \multicolumn{2}{c}{} \\
 
-    Current & Supervision of Master semester projects \\
-    2020 Sep & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland.} \\
+    {\footnotesize Sep 2021} & Supervision of Master semester projects \\[\datespace]
+    {\footnotesize Apr 2020} & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
     & \footnotesize{Co-supervisor of two Master semester projects on \href{https://bigwww.epfl.ch/teaching/projects/abstract.html?f=00388}{lipschitz-constrained GANs}.} \\
 
     \end{tabular}
@@ -283,7 +301,7 @@
     \begin{tabular}{rp{11cm}}
   	Expertise:  & Theoretical and practical aspects of machine learning, deep learning, and signal processing; Python development.
     \vspace{5pt}\\
-  	DevOps Experience:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
+  	DevOps:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
   	Other skills: 	   & During my academic years, I developed valuable presentation, writing, and teaching skills, much of which I owe to Prof. Michael Unser.
     \end{tabular}
 

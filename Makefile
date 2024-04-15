@@ -25,6 +25,9 @@ serve: sass ## Serve site
 view-cv: ## View CV
 	cd $(CVDIR) && $(MAKE) view
 
+view-main-cv: ## View CV
+	cd $(CVDIR) && $(MAKE) view-main
+
 clean-cv: ## Clean CV build artifacts
 	cd $(CVDIR) && $(MAKE) clean
 

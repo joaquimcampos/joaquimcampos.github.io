@@ -44,11 +44,11 @@ compile: cv_Joaquim.pdf cv_Joaquim_tergar.pdf  ## Compile .pdf
 build: cv_Joaquim.html cv_Joaquim_tergar.html ## Build .html
 
 view: cv_Joaquim.pdf cv_Joaquim_tergar.pdf ## View all CVs
-	okular $(DOCNAME).pdf &>/dev/null
-	okular $(DOCNAME)_tergar.pdf &>/dev/null
+	okular $(DOC_NAME).pdf &>/dev/null
+	okular $(TERGAR_DOC_NAME).pdf &>/dev/null
 
 view-main: cv_Joaquim.pdf ## View main CV
-	okular $(DOCNAME).pdf &>/dev/null
+	okular $(DOC_NAME).pdf &>/dev/null
 
 clean: ## Clean CV build artifacts
 	rm -f *.out *.blg *.bbl *.aux *.log *.fdb_latexmk *.fls
