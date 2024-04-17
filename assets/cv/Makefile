@@ -7,7 +7,7 @@ help: ## Show this help
 all: build
 
 DOC_NAME=cv_Joaquim
-TERGAR_DOC_NAME = $(DOC_NAME)_tergar
+NONTECH_DOC_NAME = $(DOC_NAME)_nontech
 BIBFILE=../pubs/bibfile.bib
 
 # https://tex.stackexchange.com/questions/204291
@@ -27,25 +27,25 @@ cv_Joaquim.html: $(DOC_NAME).pdf
 	make $(DOC_NAME).pdf
 	pdf2htmlEX --zoom 2 $(DOC_NAME).pdf $(DOC_NAME).html
 
-cv_Joaquim_tergar.pdf: $(DOC_NAME).tex $(BIBFILE)
+cv_Joaquim_nontech.pdf: $(DOC_NAME).tex $(BIBFILE)
 	echo "\def\Techcv{}" > variable.tex
-	xelatex -jobname=$(TERGAR_DOC_NAME) $(DOC_NAME).tex
+	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
 	bibtex bu1
 	bibtex bu2
 	bibtex bu3
-	xelatex -jobname=$(TERGAR_DOC_NAME) $(DOC_NAME).tex
-	xelatex -jobname=$(TERGAR_DOC_NAME) $(DOC_NAME).tex
+	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
+	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
 
-cv_Joaquim_tergar.html: $(TERGAR_DOC_NAME).pdf
-	make $(TERGAR_DOC_NAME).pdf
-	pdf2htmlEX --zoom 2 $(TERGAR_DOC_NAME).pdf $(TERGAR_DOC_NAME).html
+cv_Joaquim_nontech.html: $(NONTECH_DOC_NAME).pdf
+	make $(NONTECH_DOC_NAME).pdf
+	pdf2htmlEX --zoom 2 $(NONTECH_DOC_NAME).pdf $(NONTECH_DOC_NAME).html
 
-compile: cv_Joaquim.pdf cv_Joaquim_tergar.pdf  ## Compile .pdf
-build: cv_Joaquim.html cv_Joaquim_tergar.html ## Build .html
+compile: cv_Joaquim.pdf cv_Joaquim_nontech.pdf  ## Compile .pdf
+build: cv_Joaquim.html cv_Joaquim_nontech.html ## Build .html
 
-view: cv_Joaquim.pdf cv_Joaquim_tergar.pdf ## View all CVs
+view: cv_Joaquim.pdf cv_Joaquim_nontech.pdf ## View all CVs
 	okular $(DOC_NAME).pdf &>/dev/null
-	okular $(TERGAR_DOC_NAME).pdf &>/dev/null
+	okular $(NONTECH_DOC_NAME).pdf &>/dev/null
 
 view-main: cv_Joaquim.pdf ## View main CV
 	okular $(DOC_NAME).pdf &>/dev/null
