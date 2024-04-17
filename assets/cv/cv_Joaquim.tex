@@ -86,29 +86,70 @@
 \usepackage[nottoc,numbib]{tocbibind}
 
 \def\myname{Joaquim Campos}
-\def\datespace{-2.5pt}
+\def\datespace{-2pt}
 \def\title-main-sep{4pt}
 \def\tabwidth{13cm}
 
-\input{variable.tex} % Includes \showTergar
+\input{variable.tex} % Includes \Techcv bool
 
-\ifx\showTergar\empty
-    % Code to execute if \showTergar is empty
-    \newcommand{\sectionTergar}{}
-    \newcommand{\mentionTergar}{}
-\else
-    % Code to execute if \showTergar is not empty
+\ifx\Techcv\empty
+    % Code to execute if \Techcv is empty
+    \newcommand{\optExtraSpace}{}
+    \newcommand{\sectionBioNonTech}{
+      Outside the scope of my scientific expertise, I dedicate my time to exploring philosophy, psychology, meditation, ethics, and social systems. I find joy in tackling problems holistically, drawing inspiration from both ancient and modern wisdom, and considering the entire pipeline from philosophical and scientific inquiry to practical application. I appreciate engaging in thoughtful discussions, being exposed to different points of view, and—when suitable—sharing the little I know with others.
+
+      Having started traveling at a young age, I've been fortunate to have explored more than 30 countries. I speak Portuguese and English fluently, have a conversational level of Spanish, and I can get by in French.
+    }
     \newcommand{\sectionTergar}{
-      {\footnotesize Present} & Course in Philosophy and Meditation \\[\datespace]
-      {\footnotesize \phantom{5}Sep 2023} & {\footnotesize \href{https://tergarinstitute.org/}{Tergar Institute}, Kathmandu, Nepal} \\[\title-main-sep]
+      {\small Present} & Course in Philosophy and Meditation \\[\datespace]
+      {\small \phantom{5}Sep 2023} & {\small \href{https://tergarinstitute.org/}{Tergar Institute}, Kathmandu, Nepal} \\[\title-main-sep]
       & {
       \parbox[t]{\tabwidth}{
-      \footnotesize Head Teacher: Mingyur Rinpoche. Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness}. \\ The course will continue on-site between mid-September and mid-December 2024.
+      \footnotesize Head Teacher: Mingyur Rinpoche. \\
+      Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness.} \\
+      \emph{The course will continue on-site between mid-September and mid-December 2024.}
       }
       } \\
       \multicolumn{2}{c}{} \\
     }
     \newcommand{\mentionTergar}{at the Tergar Institute in Nepal }
+    \newcommand{\sectionDevOps}{}
+    \newcommand{\sectionVolunteering}{
+      \vspace{15pt}
+
+      \section{Volunteering}
+
+      \vspace{4pt}
+      \begin{itemize}
+      \item In 2022, I spent one month teaching at \href{https://www.facebook.com/people/Charity-sammena-school-and-orphanage/100068066163936/}{Sammena school} in Arusha, Tanzania, to spend one month teaching at a local school. During my time there, I taught science, English, and mathematics to elementary and middle school students.
+      % \vspace{5pt}\\
+      \item Since 2021, I have been volunteering with \href{https://www.casa-apoioaosemabrigo.org/casa-a-associacao/}{CASA} whenever I am in Lisbon. The goal of this organization is to help alleviate the suffering of people experiencing homelessness. 
+      \end{itemize}
+    }
+\else
+    % Code to execute if \Techcv is not empty
+    \newcommand{\optExtraSpace}{\vspace{5pt}}
+    \newcommand{\sectionBioNonTech}{
+      \vspace{10pt}
+      %
+      Highlights: \\[-20pt]
+      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
+        \item \href{https://www.joaquimcampos.com/pubs.html}{7 publications} with over 300 citations in top-tier venues, and 3 patents.
+        \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
+        \item Crafted \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
+        % constructing sparse learning models and
+        learning the activation functions of a neural network.
+        \item Created the \href{https://pypi.org/project/deepsplines/}{"Deep Splines"} PyTorch package.
+        \item Co-Founded \href{https://radiobooks.webflow.io/}{Radiobooks}—a startup that makes AI text-to-speech technology.
+        \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
+      \end{itemize}
+    }
+    \newcommand{\sectionTergar}{}
+    \newcommand{\mentionTergar}{}
+    \newcommand{\sectionDevOps}{
+      DevOps:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
+    }
+    \newcommand{\sectionVolunteering}{}
 \fi
 
 \begin{document}
@@ -129,7 +170,8 @@
   % \end{center}
   \par{\Huge Joaquim Campos}\bigskip\par
 
-  \vspace{20pt}
+  \vspace{15pt}
+  \optExtraSpace
 
   \section{Personal data}
 
@@ -144,24 +186,13 @@
   %  Summary
   %----------------------------------------------------------------------------------------
 
-  \vspace{20pt}
+  \vspace{15pt}
+  \optExtraSpace
 
   \section{In Brief}
     I am an engineer and researcher specializing in signal processing and artificial intelligence, as well as a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I have gained knowledge in product development and Python DevOps.
-    % 
-    \\[10pt]
-    %
-    Highlights: \\[-20pt]
-    \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
-      \item \href{https://www.joaquimcampos.com/pubs.html}{7 publications} with over 300 citations in top-tier venues, and 3 patents.
-      \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
-      \item Crafted \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
-      % constructing sparse learning models and
-      learning the activation functions of a neural network.
-      \item Created the \href{https://pypi.org/project/deepsplines/}{"Deep Splines"} PyTorch package.
-      \item Co-Founded \href{https://radiobooks.webflow.io/}{Radiobooks}—a startup that makes AI text-to-speech technology.
-      \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
-    \end{itemize}
+
+    \sectionBioNonTech
 
     \vspace{4pt}
 
@@ -170,7 +201,8 @@
   %----------------------------------------------------------------------------------------
   %	EDUCATION
   %----------------------------------------------------------------------------------------
-  \vspace{20pt}
+  \vspace{15pt}
+  \optExtraSpace
 
   \section{Education}
 
@@ -178,8 +210,8 @@
 
       \sectionTergar
 
-      {\footnotesize Feb 2020} & MSc in Communication Systems \\[\datespace]
-      {\footnotesize Sep 2016} & {\footnotesize \href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland
+      {\small Feb 2020} & MSc in Communication Systems \\[\datespace]
+      {\small Sep 2016} & {\small \href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland
       } \\[\title-main-sep]
       & {
       \begin{minipage}[t]{\tabwidth}
@@ -196,8 +228,8 @@
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
-      {\footnotesize Jul 2016} & BSc in Electrical and Computer Engineering \\[\datespace]
-      {\footnotesize Sep 2013} & {\footnotesize \href{https://www.ulisboa.pt/en}{Universidade de Lisboa}, Lisbon, Portugal} \\[\title-main-sep]
+      {\small Jul 2016} & BSc in Electrical and Computer Engineering \\[\datespace]
+      {\small Sep 2013} & {\small \href{https://www.ulisboa.pt/en}{Universidade de Lisboa}, Lisbon, Portugal} \\[\title-main-sep]
       & {
       \begin{minipage}[t]{\tabwidth}
         \footnotesize School: \href{https://tecnico.ulisboa.pt/en/}{Instituto Superior Técnico}. \\
@@ -217,9 +249,9 @@
 
     \begin{tabular}{r|p{\tabwidth}}
 
-      {\footnotesize Aug 2022} & Co-Founder and CTO \\[\datespace]
+      {\small Aug 2022} & Co-Founder and CTO \\[\datespace]
       % 2022 Aug 	& \emph{Converting books into audiobooks automatically using Artificial Intelligence}
-      {\footnotesize Dec 2023} & {\footnotesize \href{https://radiobooks.webflow.io/}{Radiobooks}, Lisbon, Portugal} \\[\title-main-sep]
+      {\small Dec 2023} & {\small \href{https://radiobooks.webflow.io/}{Radiobooks}, Lisbon, Portugal} \\[\title-main-sep]
       & {
       \parbox[t]{\tabwidth}{
       \footnotesize Subject: Converting books into audiobooks automatically using Artificial Intelligence.
@@ -233,8 +265,8 @@
 
       %------------------------------------------------
 
-      {\footnotesize Sep 2021} 	& Research and Teaching Assistant \\[\datespace]
-      {\footnotesize Apr 2020} 	& {\footnotesize \href{https://bigwww.epfl.ch/}{Biomedical Imaging Group}, EPFL, Lausanne, Switzerland} \\[\title-main-sep]
+      {\small Sep 2021} 	& Research and Teaching Assistant \\[\datespace]
+      {\small Apr 2020} 	& {\small \href{https://bigwww.epfl.ch/}{Biomedical Imaging Group}, EPFL, Lausanne, Switzerland} \\[\title-main-sep]
       & {
         \parbox[t]{\tabwidth}{
         \footnotesize Subject: Supervised Learning with Sparsity-Promoting Regularization.
@@ -247,8 +279,8 @@
       \multicolumn{2}{c}{} \\
 
       %------------------------------------------------
-      {\footnotesize Aug 2018} & Research Intern \\[\datespace]
-      {\footnotesize Mar 2019} &  {\footnotesize \href{https://studios.disneyresearch.com/}{Disney Research Studios}, Zurich, Switzerland}\\[\title-main-sep]
+      {\small Aug 2018} & Research Intern \\[\datespace]
+      {\small Mar 2019} &  {\small \href{https://studios.disneyresearch.com/}{Disney Research Studios}, Zurich, Switzerland}\\[\title-main-sep]
 			& {
         \parbox[t]{\tabwidth}{
         \footnotesize Subject: Image and Video Compression using Deep Learning.
@@ -266,14 +298,15 @@
   %	TEACHING EXPERIENCE
   %----------------------------------------------------------------------------------------
 
-  \vspace{18pt}
+  \vspace{15pt}
+  \optExtraSpace
 
   \section{Teaching experience}
 
     \begin{tabular}{r|p{13cm}}
 
-	  {\footnotesize Sep 2021} & Teaching assistance in the courses MICRO-310/11: Signals and Systems I/II \\[\datespace]
-	  {\footnotesize Apr 2020} & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
+	  {\small Sep 2021} & Teaching Assistant in the Courses Signals and Systems I \& II \\[\datespace]
+	  {\small Apr 2020} & \small{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
     & {\footnotesize Taught by Prof. Michael Unser to the Life Sciences and Microenginneering sections.} \\
     % & \footnotesize{Approximate numbers per semester:
     %           $250$ students;
@@ -284,8 +317,8 @@
 
     \multicolumn{2}{c}{} \\
 
-    {\footnotesize Sep 2021} & Supervision of Master semester projects \\[\datespace]
-    {\footnotesize Apr 2020} & \footnotesize{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
+    {\small Sep 2021} & Supervision of Master Semester Projects \\[\datespace]
+    {\small Apr 2020} & \small{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
     & \footnotesize{Co-supervisor of two Master semester projects on \href{https://bigwww.epfl.ch/teaching/projects/abstract.html?f=00388}{lipschitz-constrained GANs}.} \\
 
     \end{tabular}
@@ -294,36 +327,40 @@
     % SKILLS
     %----------------------------------------------------------------------------------------
 
-    \vspace{18pt}
+    \vspace{15pt}
+    \optExtraSpace
 
     \section{Skills}
 
-    \begin{tabular}{rp{11cm}}
+    \begin{tabular}{rp{13cm}}
   	Expertise:  & Theoretical and practical aspects of machine learning, deep learning, and signal processing; Python development.
     \vspace{5pt}\\
-  	DevOps:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
+    \sectionDevOps
+    Languages: & Portuguese (native), English (professional), Spanish (advanced), French (conversational). \vspace{5pt}\\
   	Other skills: 	   & During my academic years, I developed valuable presentation, writing, and teaching skills, much of which I owe to Prof. Michael Unser.
     \end{tabular}
+
+    \sectionVolunteering
 
     %----------------------------------------------------------------------------------------
     %	LANGUAGES
     %----------------------------------------------------------------------------------------
+      
+    % \vspace{15pt}
 
-    \vspace{18pt}
+    % \section{Languages}
 
-    \section{Languages}
+    %   \begin{tabular}{rp{10cm}}
 
-      \begin{tabular}{rp{10cm}}
+    %     Mother tongue: & Portuguese \\
 
-        Mother tongue: & Portuguese \\
+    %     Professional (C1): & English \\
 
-        Professional (C1): & English \\
+    %     Advanced (B2): & Spanish \\
 
-        Advanced (B2): & Spanish \\
+    %     Conversational (B1): & French \\
 
-        Conversational (B1): & French \\
-
-      \end{tabular}
+    %   \end{tabular}
 
   %----------------------------------------------------------------------------------------
   %	PUBLICATIONS AND PATENTS
@@ -348,7 +385,8 @@
 
   \end{bibunit}
 
-  \vspace{20pt}
+  \vspace{15pt}
+  \optExtraSpace
 
   \begin{bibunit}[IEEEtran_Pol]
     \renewcommand\refname{Publications: Philosophy}
@@ -360,7 +398,8 @@
 
   \end{bibunit}
 
-  \vspace{20pt}
+  \vspace{15pt}
+  \optExtraSpace
 
   \begin{bibunit}[IEEEtran_Pol]
     \renewcommand\refname{Patents}

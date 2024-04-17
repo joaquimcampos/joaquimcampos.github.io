@@ -15,7 +15,7 @@ BIBFILE=../pubs/bibfile.bib
 # https://stackoverflow.com/questions/7815400
 # Pol delete commit: f16f136
 cv_Joaquim.pdf: $(DOC_NAME).tex $(BIBFILE)
-	echo "\def\showTergar{}" > variable.tex
+	echo "\def\Techcv{true}" > variable.tex
 	xelatex -jobname=$(DOC_NAME) $(DOC_NAME).tex
 	bibtex bu1
 	bibtex bu2
@@ -28,7 +28,7 @@ cv_Joaquim.html: $(DOC_NAME).pdf
 	pdf2htmlEX --zoom 2 $(DOC_NAME).pdf $(DOC_NAME).html
 
 cv_Joaquim_tergar.pdf: $(DOC_NAME).tex $(BIBFILE)
-	echo "\def\showTergar{true}" > variable.tex
+	echo "\def\Techcv{}" > variable.tex
 	xelatex -jobname=$(TERGAR_DOC_NAME) $(DOC_NAME).tex
 	bibtex bu1
 	bibtex bu2
