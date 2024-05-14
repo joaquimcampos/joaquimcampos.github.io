@@ -164,11 +164,16 @@
   % \begin{center}
   %   \begin{tabular}{lcr}
 	%     \par{\Huge Joaquim Campos}\bigskip\par
-  %     % & & \includegraphics[width=0.3\textwidth]{../../images/Joaquim_circle.png}
+  %     & & \includegraphics[width=0.2\textwidth]{../../images/Joaquim_circle.png}
   %     \\
   %   \end{tabular}
   % \end{center}
   \par{\Huge Joaquim Campos}\bigskip\par
+  % Start picture environment at coordinates (0,0) relative to the bottom-left corner
+  \begin{picture}(0,0)
+    % Place image at coordinates (50, 100) from the bottom-left corner
+    \put(300, -20){\includegraphics[width=4cm]{../../images/Joaquim_circle.png}}
+  \end{picture}
 
   \vspace{15pt}
   \optExtraSpace
@@ -196,7 +201,9 @@
 
     \vspace{4pt}
 
-    \emph{Please note that I will be attending a course in philosophy and meditation \mentionTergar between mid-September and mid-December in both 2024 and 2025. As a result, I will be available to work from now until the beginning of the course and then again three months later.}
+    \emph{Please note that I will be attending a course in philosophy and meditation at the Tergar Institute in Nepal between mid-September and mid-December in both 2024 and 2025.
+    % As a result, I will not be able to work during those three months
+    }
 
   %----------------------------------------------------------------------------------------
   %	EDUCATION
@@ -208,7 +215,16 @@
 
     \begin{tabular}{r|p{\tabwidth}}
 
-      \sectionTergar
+      {\small Present} & Course in Philosophy and Meditation \\[\datespace]
+      {\small \phantom{5}Sep 2023} & {\small \href{https://tergarinstitute.org/}{Tergar Institute}, Kathmandu, Nepal} \\[\title-main-sep]
+      & {
+      \parbox[t]{\tabwidth}{
+      \footnotesize Head Teacher: Mingyur Rinpoche. \\
+      Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness.} \\
+      \emph{The course will continue on-site between mid-September and mid-December 2024.}
+      }
+      } \\
+      \multicolumn{2}{c}{} \\
 
       {\small Feb 2020} & MSc in Communication Systems \\[\datespace]
       {\small Sep 2016} & {\small \href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland
@@ -251,7 +267,7 @@
 
       {\small Aug 2022} & Co-Founder and CTO \\[\datespace]
       % 2022 Aug 	& \emph{Converting books into audiobooks automatically using Artificial Intelligence}
-      {\small Dec 2023} & {\small \href{https://radiobooks.webflow.io/}{Radiobooks}, Lisbon, Portugal} \\[\title-main-sep]
+      {\small Jan 2024} & {\small \href{https://radiobooks.webflow.io/}{Radiobooks}, Lisbon, Portugal} \\[\title-main-sep]
       & {
       \parbox[t]{\tabwidth}{
       \footnotesize Subject: Converting books into audiobooks automatically using Artificial Intelligence.
