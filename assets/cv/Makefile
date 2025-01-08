@@ -51,4 +51,4 @@ view-main: cv_Joaquim.pdf ## View main CV
 	okular $(DOC_NAME).pdf &>/dev/null
 
 clean: ## Clean CV build artifacts
-	rm -f *.out *.blg *.bbl *.aux *.log *.fdb_latexmk *.fls
+	rm -f *.out *.blg *.bbl *.aux *.log *.fdb_latexmk *.fls *.xdv
