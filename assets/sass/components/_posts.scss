@@ -57,9 +57,9 @@
 					width: 100%;
 				}
 
-				#deepsplines-logo2 {
-					display: none;
-				}
+				// #deepsplines-logo2 {
+				// 	display: none;
+				// }
 			}
 		}
 
@@ -75,9 +75,11 @@
 					}
 				}
 
-				&:nth-last-child(1),
+				// This code only works with nth-last-child(2,3) for 3 projects in in all rows
+				// Todo: remove 3, 2
+				&:nth-last-child(3),
 				&:nth-last-child(2),
-				&:nth-last-child(3) {
+				&:nth-last-child(1){
 					margin-bottom: 0;
 
 					&:before {

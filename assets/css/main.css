@@ -1913,6 +1913,15 @@ input[type=radio] + label:before {
     padding: 3%;
   }
 }
+.flex-box #germano-img img {
+  padding: 0 6%;
+  max-width: 960px;
+}
+@media screen and (max-width: 980px) {
+  .flex-box #germano-img {
+    padding: 0 4%;
+  }
+}
 .flex-box #madhyamaka-img img {
   padding: 1%;
   max-width: 960px;
@@ -2598,9 +2607,6 @@ button:disabled,
   display: block;
   width: 100%;
 }
-.posts article .image #deepsplines-logo2 {
-  display: none;
-}
 @media screen and (min-width: 1101px) {
   .posts article:nth-child(3n+1):before {
     display: none;
@@ -2608,13 +2614,13 @@ button:disabled,
   .posts article:nth-child(3n+1):after {
     width: 100%;
   }
-  .posts article:nth-last-child(1), .posts article:nth-last-child(2), .posts article:nth-last-child(3) {
+  .posts article:nth-last-child(3), .posts article:nth-last-child(2), .posts article:nth-last-child(1) {
     margin-bottom: 0;
   }
-  .posts article:nth-last-child(1):before, .posts article:nth-last-child(2):before, .posts article:nth-last-child(3):before {
+  .posts article:nth-last-child(3):before, .posts article:nth-last-child(2):before, .posts article:nth-last-child(1):before {
     height: 100%;
   }
-  .posts article:nth-last-child(1):after, .posts article:nth-last-child(2):after, .posts article:nth-last-child(3):after {
+  .posts article:nth-last-child(3):after, .posts article:nth-last-child(2):after, .posts article:nth-last-child(1):after {
     display: none;
   }
 }

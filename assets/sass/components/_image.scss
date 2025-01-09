@@ -131,7 +131,18 @@
 			}
 		}
 
-		#madhyamaka-img {
+		#germano-img {
+			img {
+				padding: 0 6%;
+				max-width: 960px;
+			}
+
+			@include breakpoint('<=medium') {
+				padding: 0 4%;
+			}
+		}
+
+		#madhyamaka-img{
 			img {
 				padding: 1%;
 				max-width: 960px;
