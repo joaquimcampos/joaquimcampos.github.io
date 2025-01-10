@@ -43,6 +43,32 @@
 				width: calc(100% + #{$gutter});
 			}
 
+			// second to last ghost elements
+			&:nth-last-child(1) {
+				&:before {
+					display: none;
+				}
+			}
+
+			// first ghost element
+			&:nth-last-child(2) {
+				&:before {
+					height: 100%;
+				}
+			}
+
+			// last real element, ghost elements
+			&:nth-last-child(3),
+			&:nth-last-child(2),
+			&:nth-last-child(1){
+
+				margin-bottom: 0;
+
+				&:after {
+					display: none;
+				}
+			}
+
 			> :last-child {
 				margin-bottom: 0;
 			}
@@ -57,14 +83,17 @@
 					width: 100%;
 				}
 
-				// #deepsplines-logo2 {
-				// 	display: none;
-				// }
+				#deepsplines-logo2 {
+					display: none;
+				}
+
 			}
 		}
 
 		@include breakpoint('medium-hmax-to-max') {
 			article {
+				// 3 in each row
+
 				&:nth-child(3n + 1) {
 					&:before {
 						display: none;
@@ -75,36 +104,41 @@
 					}
 				}
 
-				// This code only works with nth-last-child(2,3) for 3 projects in in all rows
-				// Todo: remove 3, 2
-				&:nth-last-child(3),
-				&:nth-last-child(2),
-				&:nth-last-child(1){
-					margin-bottom: 0;
+				// Begin added code block//
 
-					&:before {
-						height: 100%;
-					}
-
-					&:after {
-						display: none;
-					}
+				// nth-last-of-type filters operates solely on element type (article), not class.
+				// Need to use nth-of-type instead.
+				&:nth-of-type(6):before {
+					height: calc(100% + #{$gutter * 0.5});
 				}
+
+				// Optional: Add these two to remove lower border on all hanging elements
+
+				// &:nth-of-type(4) {
+				// 	&:after {
+				// 		width: calc(100% + #{0.5 * $gutter});
+				// 		right: ($gutter * -0.5);
+				// 	}
+				// }
+
+				// &:nth-of-type(5),
+				// &:nth-of-type(6) {
+				// 	&:after {
+				// 		display: none;
+				// 	}
+				// }
+				
+				// End added code block //
+
 			}
 		}
 
 		@include breakpoint('<=medium-hmax') {
 			article {
+				// 2 in each row
+
 				width: calc(50% - #{$gutter});
 
-				&:nth-last-child(3) {
-					margin-bottom: $gutter;
-				}
-			}
-		}
-
-		@include breakpoint('small-to-medium-hmax') {
-			article {
 				&:nth-child(2n + 1) {
 					&:before {
 						display: none;
@@ -115,17 +149,8 @@
 					}
 				}
 
-				&:nth-last-child(1),
-				&:nth-last-child(2) {
+				&:nth-last-child(1) {
 					margin-bottom: 0;
-
-					&:before {
-						height: 100%;
-					}
-
-					&:after {
-						display: none;
-					}
 				}
 			}
 		}
@@ -150,12 +175,10 @@
 					width: calc(100% + #{$gutter});
 				}
 
-				&:nth-last-child(3) {
-					margin-bottom: $gutter;
-				}
 			}
 		}
 
+		// Option: small instead of xsmall
 		@include breakpoint('<=xsmall') {
 			$gutter: _size(gutter) * 1.5;
 
@@ -187,7 +210,7 @@
 					justify-content: center;
 					margin: 0 0 _size(element-margin) 0;
 					width: 100%;
-					height: 16em;
+					height: 14em;
 					background-color: _palette(bg-alt);
 
 					img {
