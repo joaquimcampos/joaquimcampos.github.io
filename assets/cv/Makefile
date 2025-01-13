@@ -41,10 +41,10 @@ cv_Joaquim_nontech.html: $(NONTECH_DOC_NAME).pdf
 	make $(NONTECH_DOC_NAME).pdf
 	pdf2htmlEX --zoom 2 $(NONTECH_DOC_NAME).pdf $(NONTECH_DOC_NAME).html
 
-compile: cv_Joaquim.pdf cv_Joaquim_nontech.pdf  ## Compile .pdf
-build: cv_Joaquim.html cv_Joaquim_nontech.html ## Build .html
+compile: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Compile .pdf
+build: cv_Joaquim_nontech.html cv_Joaquim.html ## Build .html
 
-view: cv_Joaquim.pdf cv_Joaquim_nontech.pdf ## View all CVs
+view: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## View all CVs
 	okular $(DOC_NAME).pdf &>/dev/null
 	okular $(NONTECH_DOC_NAME).pdf &>/dev/null
 
