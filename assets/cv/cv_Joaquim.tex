@@ -92,13 +92,38 @@
 
 \input{variable.tex} % Includes \Techcv bool
 
-\ifx\Techcv\empty
-    % Code to execute if \Techcv is empty
-    % \newcommand{\optExtraSpace}{}
+\ifthenelse{\equal{\Techcv}{true}}{
+    % Code to execute if \Techcv is true
+    % \newcommand{\optExtraSpace}{\vspace{5pt}}
     \newcommand{\sectionBioNonTech}{
-      Outside the scope of my scientific expertise, I dedicate my time to exploring philosophy, psychology, meditation, and ethics. I find joy in tackling problems holistically, drawing inspiration from both ancient and modern wisdom, and considering the entire pipeline from philosophical and scientific inquiry to practical application. I appreciate engaging in thoughtful discussions, being exposed to different points of view, and—when suitable—sharing the little I know with others.
+      \vspace{10pt}
+      %
+      Highlights: \\[-20pt]
+      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
+        \item Published \href{https://www.joaquimcampos.com/pubs.html}{seven papers} with over 400 citations in top-tier venues, and holds three patents.
+        \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
+        \item Designed \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
+        % constructing sparse learning models and
+        learning the activation functions of a neural network.
+        \item Created the \href{https://pypi.org/project/deepsplines/}{"Deep Splines"} PyTorch package.
+        \item Co-Founded \href{https://radiobooks.webflow.io/}{Radiobooks}—a startup powered by AI text-to-speech technology.
+        \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
+      \end{itemize}
+    }
 
-      % Having started traveling at a young age, I've been fortunate to have explored more than 30 countries. I speak Portuguese and English fluently, have a conversational level of Spanish, and I can get by in French.
+    % \newcommand{\sectionTergar}{}
+    % \newcommand{\mentionTergar}{}
+    % \newcommand{\sectionDevOps}{
+    %   DevOps:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
+    % }
+    % \newcommand{\sectionVolunteering}{}
+}{
+    % Code to execute if \Techcv is not true
+    \newcommand{\sectionBioNonTech}{
+        Outside the scope of my scientific expertise, I dedicate my time to exploring philosophy, psychology, meditation, and ethics. I find joy in tackling problems holistically, drawing inspiration from both ancient and modern wisdom, and considering the entire pipeline from philosophical and scientific inquiry to practical application. I appreciate engaging in thoughtful discussions, being exposed to different points of view, and—when suitable—sharing the little I know with others.
+      
+      
+        % Having started traveling at a young age, I've been fortunate to have explored more than 30 countries. I speak Portuguese and English fluently, have a conversational level of Spanish, and I can get by in French.
     }
     % \newcommand{\sectionTergar}{
     %   {\small Present} & Course in Philosophy and Meditation \\[\datespace]
@@ -126,31 +151,7 @@
     %   \item Since 2021, I have been volunteering with \href{https://www.casa-apoioaosemabrigo.org/casa-a-associacao/}{CASA} whenever I am in Lisbon. The goal of this organization is to help alleviate the suffering of people experiencing homelessness. 
     %   \end{itemize}
     % }
-\else
-    % Code to execute if \Techcv is not empty
-    % \newcommand{\optExtraSpace}{\vspace{5pt}}
-    \newcommand{\sectionBioNonTech}{
-      \vspace{10pt}
-      %
-      Highlights: \\[-20pt]
-      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
-        \item Published \href{https://www.joaquimcampos.com/pubs.html}{seven papers} with over 400 citations in top-tier venues, and holds three patents.
-        \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
-        \item Designed \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
-        % constructing sparse learning models and
-        learning the activation functions of a neural network.
-        \item Created the \href{https://pypi.org/project/deepsplines/}{"Deep Splines"} PyTorch package.
-        \item Co-Founded \href{https://radiobooks.webflow.io/}{Radiobooks}—a startup powered by AI text-to-speech technology.
-        \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
-      \end{itemize}
-    }
-    % \newcommand{\sectionTergar}{}
-    % \newcommand{\mentionTergar}{}
-    % \newcommand{\sectionDevOps}{
-    %   DevOps:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
-    % }
-    % \newcommand{\sectionVolunteering}{}
-\fi
+}
 
 \begin{document}
 

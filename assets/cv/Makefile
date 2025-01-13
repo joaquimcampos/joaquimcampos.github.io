@@ -35,6 +35,7 @@ cv_Joaquim_nontech.pdf: $(DOC_NAME).tex $(BIBFILE)
 	bibtex bu3
 	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
 	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
+	echo "\def\Techcv{true}" > variable.tex
 
 cv_Joaquim_nontech.html: $(NONTECH_DOC_NAME).pdf
 	make $(NONTECH_DOC_NAME).pdf
