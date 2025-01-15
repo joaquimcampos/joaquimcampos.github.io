@@ -70,7 +70,7 @@
 
 									<h4>Mathematical Details</h4>
 									<p>
-										In the cat-or-dog example, the output of our model is a two-element vector where each value represents the "confidence" in each label, and the predictions \({\hat y}_m\) are assigned according to the label with the highest confidence; that is,
+										In the cat-or-dog example, the output of our model is a two-element vector where each value represents the &ldquo;confidence&rdquo; in each label, and the predictions \({\hat y}_m\) are assigned according to the label with the highest confidence; that is,
 										$$
 										\begin{align*}
 										f({\mathbf x}_m) & = (a_{m,0}, a_{m,1}) \\[5pt]
@@ -122,7 +122,7 @@
 									</p>
 									<p>
 										Since networks with CPWL activations seem to work very well, it would be
-										great if we could mantain this behaviour. Well, it turns out that we can modify our problem statement slightly by adding a <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a> term called "second-order total variation",
+										great if we could mantain this behaviour. Well, it turns out that we can modify our problem statement slightly by adding a <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a> term called &ldquo;second-order total variation&rdquo;,
 										and have guarantees that there are optimal solutions to the problem (<i>i.e.</i>, optimal models) that actually have
 										CPWL activation functions. In that case, we have a theoretical justification to restrict our search
 										to such kinds of models.
@@ -143,14 +143,14 @@
 										</i>
 									</p>
 									<p>
-										In order to have learnable activation functions, we construct them using "lego pieces" (basis functions)
+										In order to have learnable activation functions, we construct them using &ldquo;lego pieces&rdquo; (basis functions)
 										called \(\beta ^1\)-splines, which are placed at equally-spaced locations.
 										<a href="#deepsplines-img">In the image at the top</a>, you can see how several lego pieces work together to form a parametrized activation function
 										<a href="#footnotes" class="tooltip tooltip-narrow top" data-tooltip='There are some extra boundary functions to make the location of the
 										knots bounded to a region of interest.'>6</a>.
 										During training, we learn the heights (coefficients) of the lego pieces together
 										with the other parameters in the network.
-										The models that can be found using our method are called "deep spline networks";
+										The models that can be found using our method are called &ldquo;deep spline networks&rdquo;;
 										they include all models with ReLU-like activations (ReLU, LeakyReLU, PReLU, etc.).
 									</p>
 									<p>
@@ -171,7 +171,7 @@
 										Moreover, they are more explainable/interpretable: if they make a prediction error,
 										we have a better chance
 										of actually understanding what went wrong (*cough* ChatGPT *cough*)
-										<a href="#footnotes" class="tooltip bottom" data-tooltip='Neural networks are sometimes called "black-box models" (cf. footnote) partly because of their lack of interpretability.'>9</a>.
+										<a href="#footnotes" class="tooltip bottom" data-tooltip='Neural networks are sometimes called &ldquo;black-box models&rdquo; (cf. footnote) partly because of their lack of interpretability.'>9</a>.
 									</p>
 									<p>
 										In terms of results, we have observed that our
@@ -235,10 +235,10 @@
 									<div id="footnotes">
 										<h2>Footnotes</h2>
 										<p>
-											[1] In technical terms, we say that our goal is to find a model that "fits the data".
+											[1] In technical terms, we say that our goal is to find a model that &ldquo;fits the data&rdquo;.
 										</p>
 										<p>
-											[2] In technical terms, we say that we are looking for a model that "generalizes well to new inputs". The problem of
+											[2] In technical terms, we say that we are looking for a model that &ldquo;generalizes well to new inputs&rdquo;. The problem of
 											having a model that fits the data but is not able to generalize is called <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
 										</p>
 										<p>
@@ -263,9 +263,7 @@
 											sparse second-derivatives (in the weak sense).
 										</p>
 										<p>
-											[9] Neural networks are sometimes called <a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">
-												"black-box models"
-											</a> partly because of their lack of interpretability.
+											[9] Neural networks are sometimes called &ldquo;<a href="https://stats.stackexchange.com/questions/93705/why-are-neural-networks-described-as-black-box-models">black-box models</a>&rdquo; partly because of their lack of interpretability.
 										</p>
 									</div>
 

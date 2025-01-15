@@ -41,8 +41,14 @@ cv_Joaquim_nontech.html: $(NONTECH_DOC_NAME).pdf
 	make $(NONTECH_DOC_NAME).pdf
 	pdf2htmlEX --zoom 2 $(NONTECH_DOC_NAME).pdf $(NONTECH_DOC_NAME).html
 
-compile: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Compile .pdf
-build: cv_Joaquim_nontech.html cv_Joaquim.html ## Build .html
+rm-pdf:
+	- rm -v *.pdf
+
+rm-html:
+	- rm -v *.html
+
+compile: rm-pdf cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Compile .pdf
+build: rm-html rm-pdf cv_Joaquim_nontech.html cv_Joaquim.html ## Build .html
 
 view: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## View all CVs
 	okular $(DOC_NAME).pdf &>/dev/null
@@ -52,4 +58,4 @@ view-main: cv_Joaquim.pdf ## View main CV
 	okular $(DOC_NAME).pdf &>/dev/null
 
 clean: ## Clean CV build artifacts
-	rm -f *.out *.blg *.bbl *.aux *.log *.fdb_latexmk *.fls *.xdv
+	- rm -v -f *.out *.blg *.bbl *.aux *.log *.fdb_latexmk *.fls *.xdv

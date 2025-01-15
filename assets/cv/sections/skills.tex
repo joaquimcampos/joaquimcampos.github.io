@@ -1,0 +1,23 @@
+\ifthenelse{\equal{\Techcv}{true}}{
+    \section{Skills}
+}{
+    \section{Language Skills}
+}
+
+\ifthenelse{\equal{\Techcv}{true}}{
+    \begin{tabular}{rp{13cm}}
+        Expertise:  & Theoretical and practical aspects of machine learning, deep learning, and signal processing; Python development.
+        \vspace{5pt}\\
+        %
+        DevOps:  &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Git, Github Actions, Codecov, AWS, Fly.io, Better Stack.
+        \vspace{5pt}\\
+        %
+        Languages: & Portuguese, English (professional), Spanish (advanced), French (conversational).
+    \end{tabular}
+}{
+    \begin{tabular}{rp{13cm}}
+        Portuguese, English (professional), Spanish (advanced), French (conversational).
+        %     \vspace{5pt}\\
+        %     Other skills: 	   & During my academic years, I developed valuable presentation, writing, and teaching skills, much of which I owe to Prof. Michael Unser.
+    \end{tabular}
+}

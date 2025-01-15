@@ -1,0 +1,43 @@
+\ifthenelse{\equal{\Techcv}{true}}{
+    % Code to execute if \Techcv is true
+    % \newcommand{\optExtraSpace}{\vspace{5pt}}
+    
+    \newcommand{\sectionBio}{
+      \vspace{10pt}
+
+      Highlights: \\[-20pt]
+      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
+        \item Published \href{https://www.joaquimcampos.com/pubs.html}{seven papers} with over 400 citations in top-tier venues, and holds three patents.
+        \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
+        \item Designed \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
+        % constructing sparse learning models and
+        learning the activation functions of a neural network.
+        \item Created the ``\href{https://pypi.org/project/deepsplines/}{Deep Splines}'' PyTorch package.
+        \item Co-Founded \href{https://radiobooks.webflow.io/}{Radiobooks}—a startup powered by AI text-to-speech technology.
+        \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
+      \end{itemize}
+    }
+}{
+    % Code to execute if \Techcv is not true
+    \newcommand{\sectionBio}{
+        Outside the scope of my scientific expertise, I dedicate my time to exploring philosophy, psychology, meditation, and ethics. I find joy in tackling problems holistically, drawing inspiration from both ancient and modern wisdom, and considering the entire pipeline from philosophical and scientific inquiry to practical application. I appreciate engaging in thoughtful discussions, being exposed to different points of view, and—when suitable—sharing the little I know with others.
+      
+        % Having started traveling at a young age, I've been fortunate to have explored more than 30 countries. I speak Portuguese and English fluently, have a conversational level of Spanish, and I can get by in French.
+    }
+}
+
+\newcommand{\mentionTergar}{
+    % UNUSED
+    \vspace{4pt}
+    
+    \emph{I'm actively seeking new job opportunities. Please note that I will likely be attending a course on Buddhist ph ilosophy and meditation in Nepal between mid-September and mid-December 2025.}
+}
+
+
+\section{In Brief}
+
+I am an engineer specializing in artificial intelligence, signal processing, and Python development. I consult with businesses looking to integrate AI into their operations and offer provide Python development services. Additionally, I provide independent, technology-driven assessments to help companies identify system-wide challenges and implement practical, effective solutions. Previously, I conducted academic research in deep learning, learning theory, and video compression. I also co-founded Radiobooks, a project that leverages AI text-to-speech technology to make more books acessible in audio format.
+
+% I am an engineer and researcher specializing in signal processing and artificial intelligence, as well as a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I have gained knowledge in product development and Python DevOps.
+
+\sectionBio

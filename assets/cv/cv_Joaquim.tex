@@ -82,6 +82,9 @@
 % enumerations
 \usepackage{enumitem}
 
+% tech logos
+\usepackage{fontawesome5}
+
 % Put references sections in the TOC (PDF and HTML links)
 \usepackage[nottoc,numbib]{tocbibind}
 
@@ -92,393 +95,60 @@
 
 \input{variable.tex} % Includes \Techcv bool
 
-\ifthenelse{\equal{\Techcv}{true}}{
-    % Code to execute if \Techcv is true
-    % \newcommand{\optExtraSpace}{\vspace{5pt}}
-    \newcommand{\sectionBioNonTech}{
-      \vspace{10pt}
-      %
-      Highlights: \\[-20pt]
-      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*]
-        \item Published \href{https://www.joaquimcampos.com/pubs.html}{seven papers} with over 400 citations in top-tier venues, and holds three patents.
-        \item Contributed to the development of \href{https://www.joaquimcampos.com/compression.html}{pioneering methods} in neural compression.
-        \item Designed \href{https://www.joaquimcampos.com/deepsplines.html}{novel algorithms} for
-        % constructing sparse learning models and
-        learning the activation functions of a neural network.
-        \item Created the \href{https://pypi.org/project/deepsplines/}{"Deep Splines"} PyTorch package.
-        \item Co-Founded \href{https://radiobooks.webflow.io/}{Radiobooks}—a startup powered by AI text-to-speech technology.
-        \item Built the \href{https://github.com/joaquimcampos/radiobooks-sample}{back-end} of a complex text-to-speech app.
-      \end{itemize}
-    }
-
-    % \newcommand{\sectionTergar}{}
-    % \newcommand{\mentionTergar}{}
-    % \newcommand{\sectionDevOps}{
-    %   DevOps:       &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
-    % }
-    % \newcommand{\sectionVolunteering}{}
-}{
-    % Code to execute if \Techcv is not true
-    \newcommand{\sectionBioNonTech}{
-        Outside the scope of my scientific expertise, I dedicate my time to exploring philosophy, psychology, meditation, and ethics. I find joy in tackling problems holistically, drawing inspiration from both ancient and modern wisdom, and considering the entire pipeline from philosophical and scientific inquiry to practical application. I appreciate engaging in thoughtful discussions, being exposed to different points of view, and—when suitable—sharing the little I know with others.
-      
-      
-        % Having started traveling at a young age, I've been fortunate to have explored more than 30 countries. I speak Portuguese and English fluently, have a conversational level of Spanish, and I can get by in French.
-    }
-    % \newcommand{\sectionTergar}{
-    %   {\small Present} & Course in Philosophy and Meditation \\[\datespace]
-    %   {\small \phantom{5}Sep 2023} & {\small \href{https://tergarinstitute.org/}{Tergar Institute}, Kathmandu, Nepal} \\[\title-main-sep]
-    %   & {
-    %   \parbox[t]{\tabwidth}{
-    %   \footnotesize Head Teacher: Mingyur Rinpoche. \\
-    %   Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness.} \\
-    %   \emph{The course will continue on-site between mid-September and mid-December 2024.}
-    %   }
-    %   } \\
-    %   \multicolumn{2}{c}{} \\
-    % }
-    % \newcommand{\mentionTergar}{at the Tergar Institute in Nepal }
-    % \newcommand{\sectionDevOps}{}
-    % \newcommand{\sectionVolunteering}{
-    %   \vspace{15pt}
-
-    %   \section{Volunteering}
-
-    %   \vspace{4pt}
-    %   \begin{itemize}
-    %   \item In 2022, I spent one month teaching at \href{https://www.facebook.com/people/Charity-sammena-school-and-orphanage/100068066163936/}{Sammena school} in Arusha, Tanzania, to spend one month teaching at a local school. During my time there, I taught science, English, and mathematics to elementary and middle school students.
-    %   % \vspace{5pt}\\
-    %   \item Since 2021, I have been volunteering with \href{https://www.casa-apoioaosemabrigo.org/casa-a-associacao/}{CASA} whenever I am in Lisbon. The goal of this organization is to help alleviate the suffering of people experiencing homelessness. 
-    %   \end{itemize}
-    % }
-}
-
 \begin{document}
 
-  % Remove page numbers
-  \pagestyle{empty}
+    % Remove page numbers
+    \pagestyle{empty}
 
-  %----------------------------------------------------------------------------------------
-  %	NAME AND CONTACT INFORMATION
-  %----------------------------------------------------------------------------------------
-
-  % \begin{center}
-  %   \begin{tabular}{lcr}
-	%     \par{\Huge Joaquim Campos}\bigskip\par
-  %     & & \includegraphics[width=0.2\textwidth]{../../images/Joaquim_circle.png}
-  %     \\
-  %   \end{tabular}
-  % \end{center}
-  \par{\Huge Joaquim Campos}\bigskip\par
-  % Start picture environment at coordinates (0,0) relative to the bottom-left corner
-  \begin{picture}(0,0)
-    % Place image at coordinates (50, 100) from the bottom-left corner
-    \put(300, -20){\includegraphics[width=4cm]{../../images/Joaquim_circle.png}}
-  \end{picture}
-
-  \vspace{15pt}
-
-  \section{Personal data}
-
-    \begin{tabular}{rl}
-      Location: & Lisbon, Portugal \\
-      % \textsc{Home address:} & Travessa da Cruz da Rocha 3, 4200-344, Porto, Portugal \\
-      % \textsc{Mobile phone:} & +351 91-083-2298 \\
-      Links: & \href{https://joaquimcampos.com}{Website} | \href{mailto:joaquimcampos@duck.com}{Email} | \href{https://scholar.google.com/citations?user=GT-VCroAAAAJ}{Google Scholar} |  \href{https://www.linkedin.com/in/joaquim-campos}{Linkedin} | \href{https://github.com/joaquimcampos/}{Github} \\
-    \end{tabular}
-
-  %----------------------------------------------------------------------------------------
-  %  Summary
-  %----------------------------------------------------------------------------------------
-
-  \vspace{15pt}
-
-  \section{In Brief}
-    I am an engineer specializing in artificial intelligence, signal processing, and Python development. I consult with businesses looking to integrate AI into their operations and offer provide Python development services. Additionally, I provide independent, technology-driven assessments to help companies identify system-wide challenges and implement practical, effective solutions. Previously, I conducted academic research in deep learning, learning theory, and video compression. I also co-founded Radiobooks, a project that leverages AI text-to-speech technology to make more books acessible in audio format.
-
-    % I am an engineer and researcher specializing in signal processing and artificial intelligence, as well as a Python developer. In academia, my focus has been on deep learning, learning theory, image and video compression, and inverse problems. Additionally, I am Co-Founder of Radiobooks, a startup that assists independent authors and self-learners in automatically converting their books into audiobooks using AI. Through this venture, I have gained knowledge in product development and Python DevOps.
-
-    \sectionBioNonTech
-
-    \vspace{4pt}
-
-    \emph{I'm actively seeking new job opportunities. Please note that I will likely be attending a course on Buddhist philosophy and meditation in Nepal between mid-September and mid-December 2025.}
-
-  %----------------------------------------------------------------------------------------
-  %	EDUCATION
-  %----------------------------------------------------------------------------------------
-  \vspace{15pt}
-
-  \section{Education}
-
-    \begin{tabular}{r|p{\tabwidth}}
-
-      {\small Present} & Course in Philosophy and Meditation \\[\datespace]
-      {\small \phantom{5}Sep 2023} & {\small \href{https://tergarinstitute.org/}{Tergar Institute}, Kathmandu, Nepal} \\[\title-main-sep]
-      & {
-      \parbox[t]{\tabwidth}{
-      \footnotesize Head Teacher: Mingyur Rinpoche. \\
-      Project: \href{https://joaquimcampos.com/madhyamaka}{Communicating Emptiness.} \\
-      \emph{The course will continue on-site between mid-September and mid-December 2025.}
-      }
-      } \\
-      \multicolumn{2}{c}{} \\
-
-      {\small Feb 2020} & MSc in Communication Systems \\[\datespace]
-      {\small Sep 2016} & {\small \href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland
-      } \\[\title-main-sep]
-      & {
-      \begin{minipage}[t]{\tabwidth}
-        \footnotesize School: \href{https://www.epfl.ch/schools/ic/}{School of Computer and Communication Sciences}. \\
-        Specialization: signal processing and artificial intelligence. \\
-        % and their applications to imaging and audio
-        Master's thesis: \href{https://www.joaquimcampos.com/assets/pubs/MSc_thesis.pdf}{Higher-Order Regularization Methods for Supervised Learning}. \\
-        Grade: 5.67/6.00 — Ranking: 2nd/31.
-      \end{minipage}
-      } \\
-      % Biomedical Imaging Group.
-      % Supervisors and examiner: \textbf{Prof. Michael Unser, Shayan Aziznejad and Prof. François Fleuret}.
-      %
-      \multicolumn{2}{c}{} \\
-
-      %------------------------------------------------
-      {\small Jul 2016} & BSc in Electrical and Computer Engineering \\[\datespace]
-      {\small Sep 2013} & {\small \href{https://www.ulisboa.pt/en}{Universidade de Lisboa}, Lisbon, Portugal} \\[\title-main-sep]
-      & {
-      \begin{minipage}[t]{\tabwidth}
-        \footnotesize School: \href{https://tecnico.ulisboa.pt/en/}{Instituto Superior Técnico}. \\
-        Grade: 16.4/20.00.
-      \end{minipage}
-      }
-    \end{tabular}
-
-
-  %----------------------------------------------------------------------------------------
-  %  WORK EXPERIENCE
-  %----------------------------------------------------------------------------------------
-
-  \newpage
-
-  \section{Work experience}
-
-    \begin{tabular}{r|p{\tabwidth}}
-
-      {\small May 2024} 	& Independent IT Consultant \\[\datespace]
-      {\small Sep 2024} 	& {\small \href{https://www.germanodesousa.com/en/}{Germano de Sousa}, Lisbon, Portugal} \\[\title-main-sep]
-      & {
-        \parbox[t]{\tabwidth}{
-        \footnotesize Subject: Independent operations and technology assessment.
-        \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
-          \item Conducted an independent evaluation to help the company identify challenges and implement effective solutions across diverse areas such as data analytics and project management.
-          % \item This project was holistic, combining technical analysis with interpersonal skills.
-          \item Delivered monthly presentations to top management.
-          \item The project concluded with the preparation of a Request for Proposal. 
-        \end{itemize}
-        }
-      } \\
-      \multicolumn{2}{c}{} \\
-
-      %------------------------------------------------
-      {\small Aug 2022} & Co-Founder and CTO \\[\datespace]
-      % 2022 Aug 	& \emph{Converting books into audiobooks automatically using Artificial Intelligence}
-      {\small Jan 2024} & {\small \href{https://radiobooks.webflow.io/}{Radiobooks}, Lisbon, Portugal} \\[\title-main-sep]
-      & {
-      \parbox[t]{\tabwidth}{
-      \footnotesize Subject: Converting books into audiobooks automatically using Artificial Intelligence.
-      \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
-        \item Designed and built an app for revising AI-generated audio.
-        \item Tech stack: Python, FastAPI, MongoDB, Pytest, Docker, GitHub Actions, Codecov, Fly.io, AWS S3, and Better Stack.
-      \end{itemize}
-      }
-      } \\
-      \multicolumn{2}{c}{} \\
-
-      %------------------------------------------------
-
-      {\small Sep 2021} 	& Research and Teaching Assistant \\[\datespace]
-      {\small Apr 2020} 	& {\small \href{https://bigwww.epfl.ch/}{Biomedical Imaging Group}, EPFL, Lausanne, Switzerland} \\[\title-main-sep]
-      & {
-        \parbox[t]{\tabwidth}{
-        \footnotesize Subject: Supervised Learning with Sparsity-Promoting Regularization.
-        \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
-          \item Developed a novel framework to learn the activation functions of a neural network;
-          \item Designed a spline-based supervised learning method which constructs piecewise-linear models with few regions (sparse).
-        \end{itemize}
-        }
-      } \\
-      \multicolumn{2}{c}{} \\
-
-      %------------------------------------------------
-      {\small Aug 2018} & Research Intern \\[\datespace]
-      {\small Mar 2019} &  {\small \href{https://studios.disneyresearch.com/}{Disney Research Studios}, Zurich, Switzerland}\\[\title-main-sep]
-			& {
-        \parbox[t]{\tabwidth}{
-        \footnotesize Subject: Image and Video Compression using Deep Learning.
-        \begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*, after=\vspace{0pt}]
-          \item Developed the first content-adaptive neural image compression scheme;
-          \item Aided in the construction of a state-of-the-art neural video compression framework.
-        \end{itemize}
-        }
-      }
-    \end{tabular}
-
-  
-  %
-  %----------------------------------------------------------------------------------------
-  %	TEACHING EXPERIENCE
-  %----------------------------------------------------------------------------------------
-
-  \vspace{15pt}
-
-  \section{Teaching experience}
-
-    \begin{tabular}{r|p{13cm}}
-
-	  {\small Sep 2021} & Teaching Assistant in the Courses Signals and Systems I \& II \\[\datespace]
-	  {\small Apr 2020} & \small{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
-    & {\footnotesize Taught by Prof. Michael Unser to the Life Sciences and Microenginneering sections.} \\
-    % & \footnotesize{Approximate numbers per semester:
-    %           $250$ students;
-    %           $65\,\mathrm{h}$ of guidance of exercise sessions and interaction with students on the course forum;
-    %           $60\,\mathrm{h}$ of class preparation; and
-		% 					$40\,\mathrm{h}$ of exam supervision and grading.
-    %           } \\
-
-    \multicolumn{2}{c}{} \\
-
-    {\small Sep 2021} & Supervision of Master Semester Projects \\[\datespace]
-    {\small Apr 2020} & \small{\href{https://www.epfl.ch/en/}{EPFL} (École Polytechnique Fédérale de Lausanne), Lausanne, Switzerland} \\[\title-main-sep]
-    & \footnotesize{Co-supervisor of two Master semester projects on \href{https://bigwww.epfl.ch/teaching/projects/abstract.html?f=00388}{lipschitz-constrained GANs}.} \\
-
-    \end{tabular}
-
-    %----------------------------------------------------------------------------------------
-    % SKILLS
-    %----------------------------------------------------------------------------------------
+    % \begin{center}
+    %   \begin{tabular}{lcr}
+    %     \par{\Huge Joaquim Campos}\bigskip\par
+    %     & & \includegraphics[width=0.2\textwidth]{../../images/Joaquim_circle.png}
+    %     \\
+    %   \end{tabular}
+    % \end{center}
+    \par{\Huge Joaquim Campos}\bigskip\par
+    % Start picture environment at coordinates (0,0) relative to the bottom-left corner
+    \begin{picture}(0,0)
+      % Place image at coordinates (50, 100) from the bottom-left corner
+      \put(300, -20){\includegraphics[width=4cm]{../../images/Joaquim_circle.png}}
+    \end{picture}
 
     \vspace{15pt}
 
-    \section{Skills}
+    \input{sections/data.tex}
 
-    \begin{tabular}{rp{13cm}}
-  	Expertise:  & Theoretical and practical aspects of machine learning, deep learning, and signal processing; Python development.
-    \vspace{5pt}\\
-    DevOps:  &  Python, C, FastAPI, Pytest, PyTorch, CI/CD, Bash, Linux, MongoDB, Docker, Github Actions, Codecov, AWS, Fly.io, Better Stack \vspace{5pt}\\
-    Languages: & Portuguese, English (professional), Spanish (advanced), French (conversational).
-    % \vspace{5pt}\\
-  	% Other skills: 	   & During my academic years, I developed valuable presentation, writing, and teaching skills, much of which I owe to Prof. Michael Unser.
-    \end{tabular}
+    \vspace{15pt}
 
-    % \vspace{15pt}
+    \input{sections/bio.tex}
 
-    %   \section{Volunteering}
+    \vspace{15pt}
 
-    %   \vspace{4pt}
-    %   \begin{itemize}
-    %   \item In 2022, I spent one month teaching at \href{https://www.facebook.com/people/Charity-sammena-school-and-orphanage/100068066163936/}{Sammena school} in Arusha, Tanzania, to spend one month teaching at a local school. During my time there, I taught science, English, and mathematics to elementary and middle school students.
-    %   % \vspace{5pt}\\
-    %   \item Since 2021, I have been volunteering with \href{https://www.casa-apoioaosemabrigo.org/casa-a-associacao/}{CASA} whenever I am in Lisbon. The goal of this organization is to help alleviate the suffering of people experiencing homelessness. 
-    %   \end{itemize}
+    \input{sections/education.tex}
+    
+    \ifthenelse{\equal{\Techcv}{}}{
+        \vspace{15pt}
+        \input{sections/skills.tex}
+    }
 
-    %----------------------------------------------------------------------------------------
-    %	LANGUAGES
-    %----------------------------------------------------------------------------------------
-      
-    % \vspace{15pt}
+    \newpage
+    
+    \input{sections/work.tex}
+    
+    \vspace{15pt}
+    
+    \input{sections/teaching.tex}
+    
+    \vspace{15pt}
+    
+    \ifthenelse{\equal{\Techcv}{true}}{
+        \input{sections/skills.tex}
+    }{
+        \input{sections/volunteering.tex}
+    }
 
-    % \section{Languages}
+    \newpage
 
-    %   \begin{tabular}{rp{10cm}}
-
-    %     Mother tongue: & Portuguese \\
-
-    %     Professional (C1): & English \\
-
-    %     Advanced (B2): & Spanish \\
-
-    %     Conversational (B1): & French \\
-
-    %   \end{tabular}
-
-  %----------------------------------------------------------------------------------------
-  %	PUBLICATIONS AND PATENTS
-  %----------------------------------------------------------------------------------------
-
-  \newpage
-
-  \begingroup
-  The publications can be consulted \href{https://joaquimcampos.com/pubs.html}{here}. \\[5pt]
-
-  \begin{bibunit}[IEEEtran_Pol]
-    \renewcommand\refname{Publications: Science}
-
-    \nocite{
-      goujonStableParameterizationContinuous2023,
-      aziznejadMeasuringComplexityLearning2023,
-      camposLearningContinuousPiecewiseLinear2022,
-      bohraLearningActivationFunctions2020,
-      aziznejadDeepNeuralNetworks2020,
-      djelouahNeuralInterFrameCompression2019,
-      camposContentAdaptiveOptimization2019}
-    \putbib[../pubs/bibfile]
-
-  \end{bibunit}
-
-  \vspace{15pt}
-
-  \begin{bibunit}[IEEEtran_Pol]
-    \renewcommand\refname{Publications: Philosophy}
-
-    \nocite{
-      camposMahayanaBuddhistEthicsWork-in-Progress,
-      camposWrongnessKillingNonHuman2018} %
-    \putbib[../pubs/bibfile]
-
-  \end{bibunit}
-
-  \vspace{15pt}
-
-  \begin{bibunit}[IEEEtran_Pol]
-    \renewcommand\refname{Patents}
-
-    \nocite{
-      schroersContentAdaptiveOptimization2021,
-      schroersSystemsMethodsReconstructing2021,
-      schroersSystemsMethodsGenerating2021}
-    \putbib[../pubs/bibfile]
-
-  \end{bibunit}
-
-  %----------------------------------------------------------------------------------------
-  % INTERESTS AND ACTIVITIES
-  %----------------------------------------------------------------------------------------
-
-  % \vspace{-5pt}
-  %
-  % \section{Interests and activities}
-  %
-  % \section{On a Personal Note}
-  %
-  %   I meditate every morning. Cold showers clear my mind. Reader, especially about personal development, philosophy, psychology and society. When I have time a Pixar or Studio Ghibli movie, do Yoga or dancing. Productivity. I shut my cellphone during work and don't touch it on sundays. I practice a vegan lifestyle. I like to think deeply about topics and question my assumptions and beliefs. I work to be a positive influence am mindful of treating others with respect and compassion. I like to have my mind changed and engage in a healthy discussion. I have been fortunate enough to have traveled to abroad every year since I remember. I did competitive volleyball for $10$ years, swimming and represented Portugal at the I represented Portugal at the Youth World Padel Tournament in Mellilla in 2011. Music runs is a passion Piano or Guitar – 4 and 7 years of lessons, respectively.\\
-  %
-  % \section{Book list}
-  %
-  % \begin{tabular}{rp{10cm}}
-  %
-  %   \emph{The Righteous Mind} & by Jonathan Haidt \\
-  %
-  %   \emph{Animal Liberation} & by Peter Singer \\
-  %
-  % \end{tabular}
-  %
-  % \section{Traits}
-  %
-  % \begin{tabular}{rp{10cm}}
-  %
-  %   \emph{The Righteous Mind} & by Jonathan Haidt \\
-  %
-  %   \emph{Animal Liberation} & by Peter Singer \\
-  %
-  % \end{tabular}
+    \input{sections/publications.tex}
 
 \end{document}
