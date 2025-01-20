@@ -2549,6 +2549,32 @@ button:disabled,
   }
 }
 
+.recommendation {
+  margin-bottom: 4em;
+}
+.recommendation .recommendation-text {
+  background-color: #f5f6f7;
+  border-radius: 1rem;
+  margin-bottom: 1em;
+  padding: 1em 2em;
+  font-style: italic;
+}
+.recommendation .recommendation-text > :last-child {
+  margin-bottom: 0;
+}
+.recommendation .recommendation-text p {
+  width: 100%;
+}
+.recommendation .recommendation-author {
+  font-weight: bold;
+}
+.recommendation .recommendation-author a {
+  display: inline-block; /* Ensure the link behaves like a block element */
+  height: 100%;
+  color: #0a66c2;
+  transform: translateY(3%);
+}
+
 /* Posts */
 .posts {
   display: -moz-flex;

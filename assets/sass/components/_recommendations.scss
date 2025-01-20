@@ -1,0 +1,32 @@
+.recommendation {
+    // @include vendor('display', 'flex');
+    // @include vendor('align-items', 'center');
+    margin-bottom: 4em;
+
+    .recommendation-text {
+        // @include vendor('display', 'flex');
+        background-color: _palette(bg-alt);
+        border-radius: 1rem;
+        margin-bottom: 1em;
+        padding: 1em 2em;
+        font-style: italic;
+
+        > :last-child{
+			margin-bottom: 0;
+		}
+
+        p {
+            width: 100%;
+        }
+    }
+
+    .recommendation-author {
+        font-weight: bold;
+        a {
+            display: inline-block; /* Ensure the link behaves like a block element */
+            height: 100%;
+            color: #0a66c2;
+            transform: translateY(3%);
+        }
+    }
+}

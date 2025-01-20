@@ -47,8 +47,11 @@ rm-pdf:
 rm-html:
 	- rm -v *.html
 
-compile: rm-pdf cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Compile .pdf
-build: rm-html rm-pdf cv_Joaquim_nontech.html cv_Joaquim.html ## Build .html
+compile: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Compile .pdf
+build: cv_Joaquim_nontech.html cv_Joaquim.html ## Build .html
+
+force-compile: rm-pdf cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Force Compile .pdf
+force-build: rm-html rm-pdf cv_Joaquim_nontech.html cv_Joaquim.html ## Force Build .html
 
 view: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## View all CVs
 	okular $(DOC_NAME).pdf &>/dev/null

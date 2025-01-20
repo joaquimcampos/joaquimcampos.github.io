@@ -57,7 +57,6 @@ exclude:
   - README.md
   - LICENSE
   - "assets/cv/Makefile"
-  - "*.log"
   - "*.zip"
   - "*.sh"
   - "*.bst"
@@ -67,5 +66,10 @@ exclude:
   - "*.bbl"
   - "*.log"
   - "*.aux"
+  - "*.fls"
+  - "*.xdv"
+  - "*.css.map"
+  - "*.fdb_latexmk"
+  - "*.synctex*"
 
   
