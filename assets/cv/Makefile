@@ -23,10 +23,6 @@ cv_Joaquim.pdf: $(DOC_NAME).tex $(BIBFILE)
 	xelatex -jobname=$(DOC_NAME) $(DOC_NAME).tex
 	xelatex -jobname=$(DOC_NAME) $(DOC_NAME).tex
 
-cv_Joaquim.html: $(DOC_NAME).pdf
-	make $(DOC_NAME).pdf
-	pdf2htmlEX --zoom 2 $(DOC_NAME).pdf $(DOC_NAME).html
-
 cv_Joaquim_nontech.pdf: $(DOC_NAME).tex $(BIBFILE)
 	echo "\def\Techcv{}" > variable.tex
 	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
@@ -37,21 +33,12 @@ cv_Joaquim_nontech.pdf: $(DOC_NAME).tex $(BIBFILE)
 	xelatex -jobname=$(NONTECH_DOC_NAME) $(DOC_NAME).tex
 	echo "\def\Techcv{true}" > variable.tex
 
-cv_Joaquim_nontech.html: $(NONTECH_DOC_NAME).pdf
-	make $(NONTECH_DOC_NAME).pdf
-	pdf2htmlEX --zoom 2 $(NONTECH_DOC_NAME).pdf $(NONTECH_DOC_NAME).html
-
 rm-pdf:
 	- rm -v *.pdf
 
-rm-html:
-	- rm -v *.html
+build: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Build .pdf
 
-compile: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Compile .pdf
-build: cv_Joaquim_nontech.html cv_Joaquim.html ## Build .html
-
-force-compile: rm-pdf cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Force Compile .pdf
-force-build: rm-html rm-pdf cv_Joaquim_nontech.html cv_Joaquim.html ## Force Build .html
+force-build: rm-pdf cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## Force build .pdf
 
 view: cv_Joaquim_nontech.pdf cv_Joaquim.pdf ## View all CVs
 	okular $(DOC_NAME).pdf &>/dev/null
